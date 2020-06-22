@@ -1,0 +1,60 @@
+@import 'styles/common.scss';
+.Nav {
+	font-size: 12px;
+	box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.1);
+	.nav_container {
+		.nav_menu {
+			max-width: 1140px;
+		}
+		.nav_menu ul {
+			display: flex;
+			justify-content: flex-end;
+			font-family: 돋움, Dotum, sans-serif;
+			padding: 12px 0;
+			li {
+				margin-left: 20px;
+				.nav_sign_up_btn {
+					font-weight: 700;
+				}
+			}
+		}
+	}
+
+	.customer_container {
+		.customer_menu {
+			position: relative;
+			max-width: 1140px;
+			margin: 0 auto;
+			padding: 25px 0;
+			.hamburger_menu {
+				position: absolute;
+				width: 27px;
+				top: 31px;
+			}
+			.logo {
+				position: absolute;
+				top: -23px;
+				left: 7.5%;
+				width: 167px;
+			}
+			.search_form {
+				position: absolute;
+				top: 40%;
+				left: 34.5%;
+				width: 30%;
+				font-size: 20px;
+			}
+			.search_form::placeholder {
+				color: #999;
+			}
+			ul {
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				.CustomerMenu {
+					padding-left: 32px;
+				}
+			}
+		}
+	}
+}
