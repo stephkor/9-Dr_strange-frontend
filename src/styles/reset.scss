@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #000; // 보통 reset.scss 에서 color는 잘 안다루긴 함!
+}
+
+li {
+  list-style: none;
+}
+
+img,
+video {
+  border: 0;
+}
+
+button,
+input {
+  all: unset;
+}
