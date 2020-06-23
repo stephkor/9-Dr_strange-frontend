@@ -1,60 +1,29 @@
 * {
-<<<<<<< HEAD
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: “Spoqa Han Sans”, sans-serif;
-<<<<<<< HEAD
 	color: #111;
-=======
->>>>>>> 292ac9b6a4688b6d7ecbeb7f08fa3a3691501fb1
 }
 
 a {
 	text-decoration: none;
-<<<<<<< HEAD
-=======
-	color: #000;
->>>>>>> 292ac9b6a4688b6d7ecbeb7f08fa3a3691501fb1
 }
 
 li {
 	list-style: none;
-=======
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: sans-serif;
-}
-
-a {
-  text-decoration: none;
-  color: #000; // 보통 reset.scss 에서 color는 잘 안다루긴 함!
-}
-
-li {
-  list-style: none;
->>>>>>> master
 }
 
 img,
 video {
-<<<<<<< HEAD
 	border: 0;
-=======
-  border: 0;
->>>>>>> master
 }
 
 button,
 input {
-<<<<<<< HEAD
 	all: unset;
 }
 
 button {
 	cursor: pointer;
-=======
-  all: unset;
->>>>>>> master
 }
