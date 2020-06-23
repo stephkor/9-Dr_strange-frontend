@@ -1,10 +1,20 @@
+<<<<<<< HEAD
 @import 'styles/common.scss';
+=======
+>>>>>>> 292ac9b6a4688b6d7ecbeb7f08fa3a3691501fb1
 .Nav {
 	font-size: 12px;
 	box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.1);
 	.nav_container {
+<<<<<<< HEAD
 		.nav_menu {
 			max-width: 1140px;
+=======
+		background-color: #fafafa;
+		.nav_menu {
+			max-width: 1140px;
+			margin: 0 auto;
+>>>>>>> 292ac9b6a4688b6d7ecbeb7f08fa3a3691501fb1
 		}
 		.nav_menu ul {
 			display: flex;
@@ -13,7 +23,11 @@
 			padding: 12px 0;
 			li {
 				margin-left: 20px;
+<<<<<<< HEAD
 				.nav_sign_up_btn {
+=======
+				.bold_font {
+>>>>>>> 292ac9b6a4688b6d7ecbeb7f08fa3a3691501fb1
 					font-weight: 700;
 				}
 			}
