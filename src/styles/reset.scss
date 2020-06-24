@@ -1,25 +1,99 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: sans-serif;
+	box-sizing: border-box;
 }
 
-a {
-  text-decoration: none;
-  color: #000; // 보통 reset.scss 에서 color는 잘 안다루긴 함!
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Spoqa Han Sans', sans-serif;
 }
 
-li {
-  list-style: none;
-}
-
+html,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
 img,
+s,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+b,
+u,
+i,
+center,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+caption,
+article,
+aside,
+canvas,
+footer,
+menu,
+nav,
+section,
+summary,
+audio,
 video {
-  border: 0;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	box-sizing: border-box;
+}
+article,
+aside,
+footer,
+header,
+nav,
+section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol,
+ul {
+	list-style: none;
 }
 
-button,
-input {
-  all: unset;
+a,
+a:link,
+a:visited,
+a:active {
+	text-decoration: none;
+	color: black;
+}
+
+button {
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: none;
+	outline: none;
+	cursor: pointer;
+}
+
+input,
+input:focus {
+	border: none;
+	outline: none;
 }
