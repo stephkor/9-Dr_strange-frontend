@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap');
+
+.ProductItemContainer {
+	display: inline-block;
+	padding: 10px;
+	margin-bottom: 50px;
+
+	.product_item_container_title {
+		font-size: 26px;
+		font-weight: 700;
+		margin-bottom: 20px;
+	}
+
+	.product_item_container_bottom {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-top: 19px;
+
+		.product_item_price::before {
+			content: '₩';
+			padding: 0 10px;
+		}
+
+		.product_item_price {
+			font-family: 'Pathway Gothic One', sans-serif;
+			font-size: 30px;
+			font-weight: 700;
+			letter-spacing: -0.3px;
+		}
+
+		.add_to_cart {
+			height: 52px;
+			padding: 0 17px;
+			font-size: 18px;
+			text-align: center;
+			border: 1px solid;
+		}
+	}
+}

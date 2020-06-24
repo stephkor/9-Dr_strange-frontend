@@ -1,0 +1,32 @@
+.ProductFilter {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	margin-top: 50px;
+
+	.filter_title {
+		font-size: 48px;
+	}
+
+	.filter_category {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100vw;
+		margin: 32px 0 60px;
+	}
+
+	.product_item_slider_btn_left {
+		width: 64px;
+		height: 64px;
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAS9JREFUeNrs200KgzAQhuGxFOrSI3gEj+QRvJFH8g5d9Wdhd901TYqFUuoymbHzDii4ku+BRJ2YSkRu8TiIz7rs46l2DFDv4imI3wo7cV4AAAAAAAAAAAAAAABgrLquk3mepe/77Pe6Lx9EZo4YPsTw4V3pOtO9TuYAvsOnStcuAH6FTxWHwf8DKIS3A6AU3gaAYnh9gLZtNcPrAjRNE6Zp0gyvB2AkvA7AWvhhGDSGYVmAtfDjOGpNwuUADIYvB2A0fBkAw+HzAxgPnxdgA+HzAmwg/AvAfUuMIcAkyGOQFyFehfkY8tkLoCFCS0y7KarcEaYtzsIIS2MsjrI8zg8SFgE+EXLPAdUCUDttBp35SwwAAAAAAAAAAAAAAKdVie+9w4+0e/wofnePX58CDAAr25DlfauwgQAAAABJRU5ErkJggg==);
+	}
+
+	.product_item_slider_btn_right {
+		width: 64px;
+		height: 64px;
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAASJJREFUeNrs2z0OgkAQhuGBWFjSqNfgSNyMI9HZ29ltqRRm3SWYGBNtZNgh837JkFCRfcLfzkIlIpdUR/GZcZc2+7k8pqrTJorfxFqcBwAAAAAAAAAAAAAAABTSdZ2EEKRtW9MI13lCtGilQcdXEsK0r3GcP+umBpAH/R6jCHoA6fSPnzGIoAewEQRdgA0g6AMYR1gHwDDCegDfEIZhiE3T+AAwiLA+gDGEMgC5+r63gFAOwAhCWQADCOUBCiPYACiIYAegEIItgF8IWgDuW2JcAtwEeQzyIsSrMJMhpsM0RGiJ0RSlLc7CCEtjLI6yPM4HEotfBoYHPwFUM8DJaTPozldiAAAAAAAAAAAAAAA4TZ4LPDxD5L/Hz6kOTsc/PgUYAKCBkA8jygfJAAAAAElFTkSuQmCC);
+	}
+}
