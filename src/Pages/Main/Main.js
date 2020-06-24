@@ -1,4 +1,5 @@
 import React from "react";
+import "styles/reset.scss";
 
 class Main extends React.Component {
   render() {
