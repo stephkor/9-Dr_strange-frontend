@@ -1,0 +1,60 @@
+.ProductDetail {
+	.product_detail_container {
+		display: flex;
+		.lazy_img_form {
+			width: 50%;
+			img {
+				width: 100%;
+				margin-bottom: 10px;
+				background-color: #e5e5e5;
+			}
+		}
+		.product_detail_form {
+			width: 50%;
+			margin: 10px 0 0 5%;
+			.product_detail_top {
+				display: flex;
+				justify-content: space-between;
+				padding: 10px 0;
+			}
+			h1 {
+				margin: 8px 0 17px 0;
+				font-size: 26px;
+				font-weight: 700;
+			}
+			.size_btn {
+				display: inline-block;
+				width: 168px;
+				margin: 0 8px 8px 0;
+				padding: 8px 20px 6px 20px;
+				border: 1px solid #e5e5e5;
+				font-size: 18px;
+				font-weight: 400;
+				text-align: left;
+				background-color: white;
+			}
+			.size_btn_click {
+				color: white;
+				background-color: black;
+			}
+			.soldout_btn {
+				width: 168px;
+				margin: 0 8px 8px 0;
+				padding: 8px 20px 6px 20px;
+				border: 1px solid #e5e5e5;
+				font-size: 18px;
+				font-weight: 400;
+				text-align: left;
+				color: #999;
+				background-color: #f7f7f7;
+			}
+			.soldout_btn:after {
+				position: absolute;
+				top: 12px;
+				left: 68px;
+				content: '일시품절';
+				font-size: 12px;
+			}
+		}
+	}
+}
