@@ -1,29 +1,99 @@
 * {
+	box-sizing: border-box;
+}
+
+body {
 	margin: 0;
 	padding: 0;
+	font-family: 'Spoqa Han Sans', sans-serif;
+}
+
+html,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+img,
+s,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+b,
+u,
+i,
+center,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+caption,
+article,
+aside,
+canvas,
+footer,
+menu,
+nav,
+section,
+summary,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 	box-sizing: border-box;
-	font-family: “Spoqa Han Sans”, sans-serif;
-	color: #111;
 }
-
-a {
-	text-decoration: none;
+article,
+aside,
+footer,
+header,
+nav,
+section {
+	display: block;
 }
-
-li {
+body {
+	line-height: 1;
+}
+ol,
+ul {
 	list-style: none;
 }
 
-img,
-video {
-	border: 0;
-}
-
-button,
-input {
-	all: unset;
+a,
+a:link,
+a:visited,
+a:active {
+	text-decoration: none;
+	color: black;
 }
 
 button {
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: none;
+	outline: none;
 	cursor: pointer;
+}
+
+input,
+input:focus {
+	border: none;
+	outline: none;
 }

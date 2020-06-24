@@ -1,21 +1,18 @@
 import React from "react";
-import CustomerMenu from "./CustomerMenu";
+import NavFooterIcon from "../NavFooterIcon";
 import "./Nav.scss";
-import logo from "Images/Nav/logo.svg";
-import hamburger_icon from "Images/Nav/hamburger_icon.svg";
+import {
+  HAMBURGER_ICON,
+  LOGO,
+  PATH_SEARCH,
+  PATH_WISH,
+  PATH_CART,
+  PATH_VIEWED,
+  PATH_MYPAGE,
+} from "config";
 
 class Nav extends React.Component {
   render() {
-    const path_search =
-        "M31.759 29.805l-6.605-6.604a13.571 13.571 0 002.996-8.537 13.59 13.59 0 00-4.007-9.674A13.591 13.591 0 0014.468.982c-3.653 0-7.09 1.423-9.675 4.008a13.596 13.596 0 00-4.007 9.674c0 3.655 1.423 7.091 4.007 9.675a13.594 13.594 0 009.675 4.008c3.143 0 6.12-1.059 8.536-2.997l6.605 6.605 2.15-2.15zm-17.291-4.499a10.572 10.572 0 01-7.525-3.117 10.572 10.572 0 01-3.117-7.525c0-2.841 1.107-5.514 3.117-7.525a10.574 10.574 0 017.525-3.116c2.842 0 5.515 1.106 7.525 3.116a10.572 10.572 0 013.116 7.525c0 2.844-1.106 5.516-3.116 7.525a10.57 10.57 0 01-7.525 3.117z",
-      path_wish =
-        "M17.433 29.002L3.459 15.198a8.847 8.847 0 010-12.605C5.157.915 7.423-.009 9.84-.009c2.417 0 4.683.924 6.38 2.602l1.213 1.198 1.214-1.198C20.345.915 22.611-.009 25.028-.009c2.417 0 4.682.924 6.381 2.602a8.847 8.847 0 010 12.605L17.433 29.002zM9.84 2.974c-1.61 0-3.118.613-4.246 1.728a5.85 5.85 0 00-1.75 4.193 5.85 5.85 0 001.75 4.194l11.839 11.696 11.841-11.696a5.854 5.854 0 001.75-4.194 5.853 5.853 0 00-1.75-4.193c-2.341-2.312-6.15-2.313-8.492 0l-3.349 3.307-3.348-3.307A5.993 5.993 0 009.84 2.974z",
-      path_cart =
-        "M21.539 7.5V0H7.471v7.5H.753V33h27.026V7.5h-6.24zM10.433 3h8.144v4.5h-8.144V3zm14.384 27H3.715V10.5h3.756v4.125h2.962V10.5h8.144v4.125h2.962V10.5h3.278V30z",
-      path_viewed =
-        "M38.49 14.871c-.331.536-8.223 13.123-19.311 13.129h-.008C12.427 28 6.14 23.361.482 14.211l-.483-.781.476-.785C.781 12.14 8.087.285 18.964.005c.131-.003.262-.005.392-.005 6.714 0 13.137 4.452 19.099 13.24l.545.804-.51.827zM19.35 3c-.103 0-.205.002-.309.004-7.808.201-13.782 7.949-15.501 10.436C8.468 21.112 13.724 25 19.171 25h.007c7.965-.004 14.376-8.26 16.223-10.903C30.208 6.73 24.813 3 19.35 3zm.135 18.593c-4.183 0-7.587-3.406-7.587-7.593 0-4.186 3.404-7.593 7.587-7.593 4.184 0 7.588 3.407 7.588 7.593 0 4.187-3.404 7.593-7.588 7.593zm0-12.186A4.597 4.597 0 0014.896 14a4.597 4.597 0 004.589 4.593A4.597 4.597 0 0024.075 14a4.597 4.597 0 00-4.59-4.593z",
-      path_mypage =
-        "M25.187 17.783h-6.918a8.942 8.942 0 004.595-2.458A8.906 8.906 0 0025.5 8.977a8.913 8.913 0 00-2.636-6.351A8.949 8.949 0 0016.5-.003a8.947 8.947 0 00-6.363 2.629A8.915 8.915 0 007.5 8.977a9.03 9.03 0 002.637 6.348 9.067 9.067 0 004.629 2.458H7.813L0 25.456v6.545h33v-6.545l-7.813-7.673zM10.5 8.977c0-1.576.641-3.12 1.758-4.234A6.047 6.047 0 0116.5 2.99c1.604 0 3.11.622 4.243 1.753A5.94 5.94 0 0122.5 8.977a6.023 6.023 0 01-1.757 4.232 6.048 6.048 0 01-4.243 1.754 6.046 6.046 0 01-4.242-1.754A6.021 6.021 0 0110.5 8.977zM30 29.008H3v-2.299l6.042-5.932h14.917L30 26.709v2.299z";
     return (
       <header className="Nav">
         <nav className="nav_container gray-bg">
@@ -45,44 +42,44 @@ class Nav extends React.Component {
         <nav className="customer_container">
           <div className="customer_menu m-auto m-w-1140">
             <button className="hamburger_menu">
-              <img alt="hamburger_menu_icon" src={hamburger_icon} />
+              <img alt="hamburger_menu_icon" src={HAMBURGER_ICON} />
             </button>
-            <img className="logo" alt="Dr.Martins_logo" src={logo} />
+            <img className="logo" alt="Dr.Martins_logo" src={LOGO} />
             <input
               className="search_form"
               type="text"
               placeholder="검색어를 입력해 주세요."
             />
             <ul>
-              <CustomerMenu
+              <NavFooterIcon
                 width="32"
                 heigth="32"
                 view="0 0 32 32"
-                path={path_search}
+                path={PATH_SEARCH}
               />
-              <CustomerMenu
+              <NavFooterIcon
                 width="35"
                 heigth="29"
                 view="0 0 35 29"
-                path={path_wish}
+                path={PATH_WISH}
               />
-              <CustomerMenu
+              <NavFooterIcon
                 width="28"
                 heigth="33"
                 view="0 0 28 33"
-                path={path_cart}
+                path={PATH_CART}
               />
-              <CustomerMenu
+              <NavFooterIcon
                 width="39"
                 heigth="28"
                 view="0 0 39 28"
-                path={path_viewed}
+                path={PATH_VIEWED}
               />
-              <CustomerMenu
+              <NavFooterIcon
                 width="33"
                 heigth="32"
                 view="0 0 33 32"
-                path={path_mypage}
+                path={PATH_MYPAGE}
               />
             </ul>
           </div>

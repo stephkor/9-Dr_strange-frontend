@@ -1,12 +1,12 @@
 import React from "react";
-import "./Nav.scss";
+import "Components/Nav/Nav.scss";
 
-class CustomerMenu extends React.Component {
+class NavFooterIcon extends React.Component {
   render() {
     // 비구조화 할당. ES6. Destructuring.
     const { width, height, view, path } = this.props;
     return (
-      <li className="CustomerMenu">
+      <li className="NavFooterIcon">
         <button>
           <svg style={{ width: width, height: height }} viewBox={view}>
             <path d={path} />
@@ -17,4 +17,4 @@ class CustomerMenu extends React.Component {
   }
 }
 
-export default CustomerMenu;
+export default NavFooterIcon;
