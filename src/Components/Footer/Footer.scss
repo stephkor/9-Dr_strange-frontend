@@ -1,0 +1,64 @@
+.Footer {
+	padding: 30px 0 18px 0;
+	font-family: 돋움, Dotum, sans-serif;
+	color: white;
+	.footer_top {
+		display: flex;
+		justify-content: space-between;
+		border-bottom: 1px solid #333;
+		h3 {
+			padding-bottom: 14px;
+			font-family: inherit;
+			font-size: 16px;
+			font-weight: normal;
+			color: white;
+		}
+		.footer_info {
+			p {
+				font-size: 14px;
+				line-height: 23px;
+				color: #999;
+			}
+		}
+		li {
+			margin-bottom: 9px;
+			text-align: right;
+		}
+		a {
+			font-size: 14px;
+			color: white;
+		}
+		.footer_cs {
+			margin-left: 20%;
+		}
+	}
+
+	.footer_bottom {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-top: 18px;
+		.footer_corp {
+			ul {
+				display: flex;
+				justify-content: flex-start;
+				font-size: 16px;
+				a {
+					padding-right: 20px;
+					color: white;
+				}
+			}
+		}
+		.footer_icon {
+			ul {
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				.NavFooterIcon {
+					padding-left: 22px;
+					fill: white;
+				}
+			}
+		}
+	}
+}
