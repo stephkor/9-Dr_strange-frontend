@@ -2,7 +2,7 @@ import React from "react";
 import CategorySelector from "./CategorySelector";
 import "styles/reset.scss";
 import "./ProductFilter.scss";
-import ProductItemContainer from "./ProductItemContainer";
+import ProductSlider from "./ProductSlider";
 
 class ProductFilter extends React.Component {
   render() {
@@ -16,13 +16,7 @@ class ProductFilter extends React.Component {
           <CategorySelector />
         </nav>
 
-        <div className="product_item_swiper">
-          <ProductItemContainer />
-          <ProductItemContainer />
-
-          <button className="product_item_slider_btn_left"></button>
-          <button className="product_item_slider_btn_right"></button>
-        </div>
+        <ProductSlider />
       </div>
     );
   }

@@ -4,25 +4,45 @@ import "./ProductItemContainer.scss";
 import WishButton from "./WishButton";
 
 class ProductItemContainer extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      productData: {},
+    };
+  }
+
+  componentDidMount() {
+    fetch("http://localhost:3000/data/productDetailInfo.json")
+      .then((res) => res.json())
+      .then((res) => this.setState({ productData: res.productDetailInfo[0] }));
+  }
+
   render() {
     return (
       <div className="ProductItemContainer">
-        <h2 className="product_item_container_title">아이템 타이틀</h2>
+        <h2 className="product_item_container_title">
+          {this.state.productData.productName}
+        </h2>
         <div>
           <WishButton />
         </div>
         <div className="product_item_img_box">
           <img
-            alt={this.props.itemname}
-            src="https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_d138bbbb834eb6a7be0c926efd0e16c46202front2.jpg"
+            alt={this.state.productData.productName}
+            src={
+              this.state.productData.productImg &&
+              this.state.productData.productImg[0]
+            }
           />
           <img
-            alt={this.props.itemname}
-            src="https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_d138bbbb834eb6a7be0c926efd0e16c46202front2.jpg"
+            alt={this.state.productData.productName}
+            src={this.state.productData.productThumbnail}
           />
         </div>
         <div className="product_item_container_bottom">
-          <div className="product_item_price">170,000</div>
+          <div className="product_item_price_wrapper num-font">
+            <span className="product_item_price num-font">170,000</span>
+          </div>
           <button className="add_to_cart">장바구니 담기</button>
         </div>
       </div>
