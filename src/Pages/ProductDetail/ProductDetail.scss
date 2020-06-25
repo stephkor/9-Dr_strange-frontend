@@ -28,7 +28,6 @@
 
 				span {
 					padding: 0 3px;
-					border-bottom: 1px solid #111;
 				}
 			}
 
@@ -239,9 +238,67 @@
 			}
 		}
 
-		.product_info_Content {
+		.product_info_form {
 			width: 50%;
-			height: 500px;
+
+			// product_info_form 안에서 사용할 font term 정의
+			.gray-20-font {
+				font-size: 20px;
+				color: #666;
+			}
+			.black-gothic-font {
+				font-family: 'Trade Gothic LT Std Cn', 'Spoqa Han Sans', sans-serif;
+				font-weight: 700;
+				font-size: 30px;
+			}
+
+			h3 {
+				padding-bottom: 14px;
+				font-size: 20px;
+				color: #666;
+			}
+
+			p {
+				font-size: 26px;
+				font-weight: 700;
+			}
+
+			.detail_info_list {
+				display: flex;
+				flex-wrap: wrap;
+
+				li {
+					width: 50%;
+					padding-bottom: 42px;
+				}
+			}
+
+			.as_guide {
+				margin: 22px 0 28px 0;
+
+				p {
+					padding-bottom: 14px;
+				}
+			}
+
+			.other_info_list {
+				li {
+					position: relative;
+					margin: 0 0 16px 12px;
+					padding-left: 8px;
+					line-height: 1.5em;
+				}
+
+				li:before {
+					content: '';
+					position: absolute;
+					top: 11px;
+					left: -12px;
+					width: 8px;
+					height: 9px;
+					background-color: #111;
+				}
+			}
 		}
 	}
 }

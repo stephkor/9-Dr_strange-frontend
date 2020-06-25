@@ -73,7 +73,7 @@ class ProductDetail extends React.Component {
                   <div className="review_count">
                     <p>
                       ★★★★★
-                      <span className="num-font">
+                      <span className="num-font underline">
                         {productData.reviewCount}
                       </span>
                       건
@@ -127,24 +127,42 @@ class ProductDetail extends React.Component {
               <SizeTable />
             </div>
 
-            <div className="product_info_Content">
-              <ul>
+            <div className="product_info_form">
+              <ul className="detail_info_list">
                 <li>
                   <h3>모델명</h3>
-                  <p>{productData.productName}</p>
+                  <p className="black-gothic-font">{productData.productName}</p>
                 </li>
                 <li>
                   <h3>제조연월</h3>
-                  <p>{productData.productName}</p>
+                  <p>제품라벨 표기</p>
                 </li>
                 <li>
                   <h3>제품 주소재</h3>
-                  <p>{productData.productName}</p>
+                  <p className="black-gothic-font">{productData.material}</p>
                 </li>
                 <li>
                   <h3>모델명</h3>
-                  <p>{productData.productName}</p>
+                  <p>{productData.country}</p>
                 </li>
+              </ul>
+
+              <div className="as_guide">
+                <h3>A/S 책임자와 전화번호</h3>
+                <p>
+                  <span className="underline">1544-6486</span>(내선2번)
+                </p>
+                <p>전국 매장 유/무상 A/S</p>
+              </div>
+
+              <ul className="other_info_list gray-20-font">
+                <li>상품번호 : {productData.productNum}</li>
+                <li>
+                  치수 : UK 사이즈 기준(mm표기)/ 신발에 따라 사이즈 상이하니
+                  구매 후기 참고 및 가까운 매장에서 착화 권장
+                </li>
+                <li>제조자 : Dr.Martens</li>
+                <li>품질보증기준 : 소비자피해보상규정에 따름</li>
               </ul>
             </div>
           </article>
