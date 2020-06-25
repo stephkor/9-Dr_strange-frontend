@@ -17,6 +17,7 @@ class ProductDetail extends React.Component {
       currentSize: 0,
     };
   }
+
   // ProductDetailInfo data 받아오기
   componentDidMount() {
     fetch("http://localhost:3000/data/productDetailInfo.json")
@@ -28,6 +29,7 @@ class ProductDetail extends React.Component {
         });
       });
   }
+
   // size button 클릭 시 선택한 size를 currentSize에 저장
   sizeClickHandler = (size) => {
     if (!this.props.soldout) {
@@ -41,8 +43,10 @@ class ProductDetail extends React.Component {
       });
     }
   };
+
   render() {
     const { productData } = this.state;
+
     return (
       <>
         <Nav />
@@ -54,6 +58,7 @@ class ProductDetail extends React.Component {
               <img alt="test" src={TEST} />
               <img alt="test" src={TEST} />
             </div>
+
             <div className="product_detail_form p-r">
               <div className="product_detail_sticky p-s t-0">
                 <div className="product_detail_top">
@@ -79,6 +84,7 @@ class ProductDetail extends React.Component {
                 <div className="now_in_stock">
                   <a href="">품절상품 재입고 알림</a>
                 </div>
+
                 <div className="size_option">
                   {this.state.sizeArr.map((size, idx) => (
                     <SizeBtn
@@ -90,15 +96,18 @@ class ProductDetail extends React.Component {
                     />
                   ))}
                 </div>
+
                 <div className="product_colors">
                   <button className="product_color_item"></button>
                   <button className="product_color_item"></button>
                 </div>
 
-                <ProductForm
-                  orignPrice={productData.orignPrice}
-                  salePrice={productData.salePrice}
-                />
+                {productData.originPrice && (
+                  <ProductForm
+                    originPrice={productData.originPrice}
+                    salePrice={productData.salePrice}
+                  />
+                )}
 
                 <div className="buying_btn">
                   <button className="buying_btn_cart main-font">
@@ -117,6 +126,7 @@ class ProductDetail extends React.Component {
               <h2>신발 사이즈</h2>
               <SizeTable />
             </div>
+
             <div className="product_info_Content">
               <ul>
                 <li>

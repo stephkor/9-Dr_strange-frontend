@@ -15,8 +15,8 @@
 			"productThumbnailLink": [
 				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png"
 			],
-			"orignPrice": "170,000",
-			"salePrice": "119,000",
+			"originPrice": 170000,
+			"salePrice": 119000,
 			"material": "BRANDO",
 			"country": "중국 외 기타국가 (택 참조)",
 			"productNum": 24515001,
@@ -62,7 +62,7 @@
 				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
 				"dd"
 			],
-			"orignPrice": 170000,
+			"originPrice": 170000,
 			"salePrice": 119000,
 			"material": "BRANDO",
 			"country": "중국 외 기타국가 (택 참조)",
@@ -109,7 +109,7 @@
 				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
 				"dd"
 			],
-			"orignPrice": 170000,
+			"originPrice": 170000,
 			"salePrice": 119000,
 			"material": "BRANDO",
 			"country": "중국 외 기타국가 (택 참조)",
