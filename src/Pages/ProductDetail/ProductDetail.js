@@ -3,9 +3,10 @@ import "./ProductDetail.scss";
 import Nav from "Components/Nav/Nav";
 import Footer from "Components/Footer/Footer";
 import Path from "Components/Path";
+import ProductForm from "./ProductForm";
 import SizeBtn from "./SizeBtn";
 import SizeTable from "./SizeTable";
-import { TEST, PATH_SHARE, MINUS, PLUS } from "config";
+import { TEST, PATH_SHARE } from "config";
 
 class ProductDetail extends React.Component {
   constructor() {
@@ -13,9 +14,7 @@ class ProductDetail extends React.Component {
     this.state = {
       productData: {},
       sizeArr: [],
-      userInput: 1,
-      orignPrice: 1,
-      salePrice: 1,
+      currentSize: 0,
     };
   }
   // ProductDetailInfo data 받아오기
@@ -29,10 +28,21 @@ class ProductDetail extends React.Component {
         });
       });
   }
+  // size button 클릭 시 선택한 size를 currentSize에 저장
+  sizeClickHandler = (size) => {
+    if (!this.props.soldout) {
+      this.setState({
+        currentSize: size,
+      });
+    }
+    if (this.state.currentSize === size) {
+      this.setState({
+        currentSize: 0,
+      });
+    }
+  };
   render() {
-    const { productData, userInput } = this.state;
-    console.log(productData);
-    console.log(this.state.sizeArr);
+    const { productData } = this.state;
     return (
       <>
         <Nav />
@@ -71,35 +81,25 @@ class ProductDetail extends React.Component {
                 </div>
                 <div className="size_option">
                   {this.state.sizeArr.map((size, idx) => (
-                    <SizeBtn size={size[0]} soldout={size[1]} key={idx} />
+                    <SizeBtn
+                      size={size[0]}
+                      soldout={size[1]}
+                      key={idx}
+                      currentSize={this.state.currentSize}
+                      sizeClickHandler={this.sizeClickHandler}
+                    />
                   ))}
                 </div>
                 <div className="product_colors">
                   <button className="product_color_item"></button>
                   <button className="product_color_item"></button>
                 </div>
-                <div className="product_price_form">
-                  <div className="product_quantity">
-                    <p>수량</p>
-                    <input
-                      className="main-font"
-                      type="text"
-                      value={userInput}
-                    />
-                    <button>
-                      <img alt="-" className="btn_minus" src={MINUS} />
-                    </button>
-                    <button>
-                      <img alt="+" className="btn_plus" src={PLUS} />
-                    </button>
-                  </div>
-                  <div className="product_item_price num-font">
-                    <span className="origin_price">
-                      {productData.orignPrice}
-                    </span>
-                    <span className="sale_price">{productData.salePrice}</span>
-                  </div>
-                </div>
+
+                <ProductForm
+                  orignPrice={productData.orignPrice}
+                  salePrice={productData.salePrice}
+                />
+
                 <div className="buying_btn">
                   <button className="buying_btn_cart main-font">
                     장바구니
@@ -117,7 +117,26 @@ class ProductDetail extends React.Component {
               <h2>신발 사이즈</h2>
               <SizeTable />
             </div>
-            <div className="product_info_Content" />
+            <div className="product_info_Content">
+              <ul>
+                <li>
+                  <h3>모델명</h3>
+                  <p>{productData.productName}</p>
+                </li>
+                <li>
+                  <h3>제조연월</h3>
+                  <p>{productData.productName}</p>
+                </li>
+                <li>
+                  <h3>제품 주소재</h3>
+                  <p>{productData.productName}</p>
+                </li>
+                <li>
+                  <h3>모델명</h3>
+                  <p>{productData.productName}</p>
+                </li>
+              </ul>
+            </div>
           </article>
 
           <article className="product_attention_container"></article>

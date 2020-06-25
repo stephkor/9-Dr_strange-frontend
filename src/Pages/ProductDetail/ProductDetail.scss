@@ -41,37 +41,27 @@
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: space-between;
-				.size_btn {
+				button {
 					display: inline-block;
 					width: 168px;
+					height: 36px;
 					margin: 4px 0;
 					padding: 4px 20px 3px 20px;
-					border: 1px solid #e5e5e5;
 					font-size: 18px;
 					font-weight: 400;
 					text-align: left;
+				}
+				.size_btn {
+					border: 1px solid #e5e5e5;
 					background-color: white;
 				}
 				.size_btn_click {
-					display: inline-block;
-					width: 168px;
-					margin: 4px 0;
-					padding: 4px 20px 3px 20px;
 					border: 1px solid #e5e5e5;
-					font-size: 18px;
-					font-weight: 400;
-					text-align: left;
 					color: white;
 					background-color: #111;
 				}
 				.soldout_btn {
-					width: 168px;
-					margin: 4px 0;
-					padding: 4px 20px 3px 20px;
 					border: 1px solid #e5e5e5;
-					font-size: 18px;
-					font-weight: 400;
-					text-align: left;
 					color: #999;
 					background-color: #f7f7f7;
 				}
@@ -211,7 +201,6 @@
 		.product_info_Content {
 			width: 50%;
 			height: 500px;
-			background-color: #999;
 		}
 	}
 }
