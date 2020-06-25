@@ -4,7 +4,8 @@ import Nav from "Components/Nav/Nav";
 import Footer from "Components/Footer/Footer";
 import Path from "Components/Path";
 import SizeBtn from "./SizeBtn";
-import { TEST, PATH_SHARE, MINUS, PLUS, PATH_TOOLTIP } from "config";
+import SizeTable from "./SizeTable";
+import { TEST, PATH_SHARE, MINUS, PLUS } from "config";
 
 class ProductDetail extends React.Component {
   constructor() {
@@ -35,8 +36,8 @@ class ProductDetail extends React.Component {
     return (
       <>
         <Nav />
-        <section className="ProductDetail">
-          <article className="product_detail_container m-w-1140 m-auto">
+        <section className="ProductDetail m-w-1140 m-auto">
+          <article className="product_detail_container">
             <div className="lazy_img_form">
               <img alt="test" src={TEST} />
               <img alt="test" src={TEST} />
@@ -111,7 +112,13 @@ class ProductDetail extends React.Component {
             </div>
           </article>
 
-          <article className="product_info_container"></article>
+          <article className="product_info_container">
+            <div className="product_size_guide">
+              <h2>신발 사이즈</h2>
+              <SizeTable />
+            </div>
+            <div className="product_info_Content" />
+          </article>
 
           <article className="product_attention_container"></article>
 
