@@ -2,10 +2,15 @@
 // main
 
 // product_detail
-
 // navbar
 import nav_logo from "Images/Nav/logo.svg";
 import nav_hamburger from "Images/Nav/hamburger_icon.svg";
+// import detail_tooltip from "";
+
+export const MINUS =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAACCAIAAADn6Hr9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABVJREFUeNpiFBQUZCAOMDEQDQACDAARvgA3Fum/nwAAAABJRU5ErkJggg==";
+export const PLUS =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADBJREFUeNpi/P//PwM2ICQkBJZ49+4dIzZ5JgYywUjQyCgoKPifvjaOxiMNNAIEGABcMg9GSgmpawAAAABJRU5ErkJggg==";
 
 // export
 export const LOGO = nav_logo;
