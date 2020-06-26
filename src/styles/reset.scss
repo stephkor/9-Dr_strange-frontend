@@ -36,6 +36,12 @@ center,
 ol,
 ul,
 li,
+table,
+thead,
+tbody,
+tr,
+th,
+td,
 fieldset,
 form,
 label,
@@ -80,7 +86,7 @@ a:link,
 a:visited,
 a:active {
 	text-decoration: none;
-	color: black;
+	color: #111;
 }
 
 button {

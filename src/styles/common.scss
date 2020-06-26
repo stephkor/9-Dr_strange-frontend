@@ -1,3 +1,21 @@
+// webfont
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@font-face {
+	font-family: 'Trade Gothic LT Std Cn';
+	src: url('//db.onlinewebfonts.com/t/70b2e174904ada48dd1dbe8bfbf62c42.eot');
+	src: url('//db.onlinewebfonts.com/t/70b2e174904ada48dd1dbe8bfbf62c42.eot?#iefix') format('embedded-opentype'),
+		url('//db.onlinewebfonts.com/t/70b2e174904ada48dd1dbe8bfbf62c42.woff2') format('woff2'),
+		url('//db.onlinewebfonts.com/t/70b2e174904ada48dd1dbe8bfbf62c42.woff') format('woff'),
+		url('//db.onlinewebfonts.com/t/70b2e174904ada48dd1dbe8bfbf62c42.ttf') format('truetype'),
+		url('//db.onlinewebfonts.com/t/70b2e174904ada48dd1dbe8bfbf62c42.svg#Trade Gothic LT Std Cn') format('svg');
+}
+
+// body font
+body {
+	font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+	font-size: 100%;
+}
+
 // class
 .black {
 	color: #111;
@@ -37,4 +55,34 @@
 
 .m-w-1140 {
 	max-width: 1140px;
+}
+
+.t-0 {
+	top: 0;
+}
+
+.p-r {
+	position: relative;
+}
+
+.p-a {
+	position: absolute;
+}
+
+.p-s {
+	position: sticky;
+}
+
+.main-font {
+	font-family: 'Spoqa Han Sans', sans-serif;
+}
+
+.num-font {
+	font-family: 'Trade Gothic LT Std Cn', 'Spoqa Han Sans', sans-serif;
+	font-weight: 700;
+	letter-spacing: -1%;
+}
+
+.underline {
+	border-bottom: 1px solid #111;
 }
