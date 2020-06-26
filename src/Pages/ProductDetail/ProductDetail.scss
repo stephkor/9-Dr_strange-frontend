@@ -1,4 +1,35 @@
 .ProductDetail {
+	// info list에서 사용되는 ui, li, h2, font 스타일 정의
+	.info-list-style {
+		li {
+			position: relative;
+			margin: 0 0 16px 12px;
+			padding-left: 8px;
+			line-height: 1.5em;
+		}
+
+		li:before {
+			content: '';
+			position: absolute;
+			top: 11px;
+			left: -12px;
+			width: 8px;
+			height: 9px;
+			background-color: #111;
+		}
+	}
+
+	.gray-20-font {
+		font-size: 20px;
+		color: #666;
+	}
+
+	h2 {
+		margin: 0 0 20px 8px;
+		font-size: 26px;
+		font-weight: 700;
+	}
+
 	.product_detail_container {
 		display: flex;
 
@@ -203,13 +234,8 @@
 
 	.product_info_container {
 		display: flex;
-		margin: 150px 0;
-
-		h2 {
-			margin: 0 0 20px 8px;
-			font-size: 26px;
-			font-weight: 700;
-		}
+		padding: 150px 0;
+		border-bottom: 1px solid #111;
 
 		.product_size_guide {
 			width: 50%;
@@ -241,11 +267,6 @@
 		.product_info_form {
 			width: 50%;
 
-			// product_info_form 안에서 사용할 font term 정의
-			.gray-20-font {
-				font-size: 20px;
-				color: #666;
-			}
 			.black-gothic-font {
 				font-family: 'Trade Gothic LT Std Cn', 'Spoqa Han Sans', sans-serif;
 				font-weight: 700;
@@ -280,24 +301,21 @@
 					padding-bottom: 14px;
 				}
 			}
+		}
+	}
 
-			.other_info_list {
-				li {
-					position: relative;
-					margin: 0 0 16px 12px;
-					padding-left: 8px;
-					line-height: 1.5em;
-				}
-
-				li:before {
-					content: '';
-					position: absolute;
-					top: 11px;
-					left: -12px;
-					width: 8px;
-					height: 9px;
-					background-color: #111;
-				}
+	.product_attention_container {
+		display: flex;
+		padding: 120px 0;
+		.attention_guide {
+			width: 50%;
+		}
+		.material_guide {
+			h3 {
+				padding: 10px 0 15px 8px;
+				font-size: 20px;
+				font-weight: 700;
+				color: #111;
 			}
 		}
 	}

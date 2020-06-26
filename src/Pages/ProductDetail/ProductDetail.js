@@ -155,7 +155,7 @@ class ProductDetail extends React.Component {
                 <p>전국 매장 유/무상 A/S</p>
               </div>
 
-              <ul className="other_info_list gray-20-font">
+              <ul className="other_info_list gray-20-font info-list-style">
                 <li>상품번호 : {productData.productNum}</li>
                 <li>
                   치수 : UK 사이즈 기준(mm표기)/ 신발에 따라 사이즈 상이하니
@@ -167,7 +167,98 @@ class ProductDetail extends React.Component {
             </div>
           </article>
 
-          <article className="product_attention_container"></article>
+          <article className="product_attention_container">
+            <div className="attention_guide">
+              <h2>취급 시 주의사항</h2>
+              <ul className="gray-20-font info-list-style">
+                <li>
+                  일반 가죽은 마른 헝겊으로 먼지를 털어낸 후<br />
+                  '원더발삼'으로 관리합니다.
+                </li>
+                <li>
+                  적당한 온도와 습도에서 가죽 제품 속에 보형물을
+                  <br />
+                  넣고 형태를 유지시키면서 보관해주세요.
+                </li>
+                <li>
+                  스웨이드/누벅/화이트 색상 가죽은 발삼 사용을 제한합니다.
+                </li>
+                <li>
+                  가죽 제품인 경우 젖었을 때 통풍이 잘 되는 그늘에서
+                  <br />
+                  건조해주세요.
+                </li>
+                <li>
+                  습기, 수분, 강한 열, 기름기 있는 곳에서의 착용은
+                  <br />
+                  가죽 제품의 형태를 변화시킬 수 있으니 주의하여 주세요.
+                </li>
+                <li>
+                  천연가죽 내피가 사용된 제품은 가죽 컬러의 물감이
+                  <br />
+                  배어 나오는 경우가 있으므로 주의하여 주세요.
+                </li>
+                <li>
+                  가죽 제품인 경우 여름철 자동차의 트렁크나 차내,
+                  <br />
+                  고온다습한 장소에 방치하지 말아주세요.
+                </li>
+              </ul>
+            </div>
+            <div className="material_guide">
+              <h2>소재 별 손질 및 보존 방법</h2>
+              <ul className="gray-20-font info-list-style">
+                <h3>스웨이드 누벅</h3>
+                <li>
+                  가벼운 오염은 부드러운 솔로 털어주거나 고무 지우개로
+                  <br />
+                  가볍게 문질러 제거해주세요.
+                </li>
+                <li>
+                  물에 닿으면 얼룩, 탈색, 변형 등의 원인이 되므로 특히
+                  <br />
+                  주의하여주세요. 만약 젖었을 경우 바로 부드러운 면으로
+                  <br />털 듯이 물기를 제거해주세요.
+                </li>
+
+                <h3>애나멜가죽</h3>
+                <li>애나멜 전용 클리너를 사용해주세요.</li>
+
+                <h3>합성(인조)가죽</h3>
+                <li>
+                  물에 젖었을 때 바로 부드러운 면으로 닦고 통풍이 잘 되는
+                  <br />
+                  그늘에서 건조시켜주세요.
+                </li>
+                <li>
+                  오염 제거시 비눗물에 적신 천을 사용하고, 그 외의 보혁류를
+                  <br />
+                  사용할 필요가 없습니다.
+                </li>
+
+                <h3>섬유(의류) 세탁시 유의사항</h3>
+                <li>
+                  면 100%인 경우, 중성세제를 사용하여 차가운 물에 손세탁
+                  <br />
+                  또는 세탁기 이용시에는 세탁망에 넣은 후 짧은 시간 단독으로
+                  <br />
+                  세탁해주세요.
+                </li>
+                <li>
+                  의류 및 액세서리의 경우, 제품에 부착된 케어라벨의
+                  <br />
+                  세탁 방법을 참조해주세요.
+                </li>
+                <li>
+                  30도 이하의 물 온도에서 30분 이내 손세탁 혹은 드라이클리닝
+                  <br />
+                  해주세요.
+                </li>
+                <li>세탁시 색상 구분하여 단독 세탁해주세요.</li>
+                <li>표백제는 사용 불가합니다.</li>
+              </ul>
+            </div>
+          </article>
 
           {/* <Filter Component/> */}
 
