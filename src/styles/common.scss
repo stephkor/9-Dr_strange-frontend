@@ -56,3 +56,24 @@ body {
 	font-weight: 700;
 	letter-spacing: -1%;
 }
+
+//하트버튼
+.WishButton {
+	display: inline-flex;
+	padding: 5px;
+	margin-bottom: 18px;
+
+	svg {
+		display: inline-block;
+		width: 22px;
+		height: 22px;
+		margin-right: 10px;
+	}
+
+	.wish_number {
+		display: inline-block;
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 21px;
+	}
+}

@@ -1,6 +1,5 @@
 import React from "react";
 import "styles/reset.scss";
-import "./WishButton.scss";
 
 class WishButton extends React.Component {
   constructor() {

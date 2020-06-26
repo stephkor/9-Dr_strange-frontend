@@ -1,8 +1,8 @@
 import React from "react";
-import CategorySelector from "./CategorySelector";
 import "styles/reset.scss";
 import "./ProductFilter.scss";
-import ProductSlider from "./ProductSlider";
+import "styles/common.scss";
+import ProductItemSlider from "./ProductItemSlider.js";
 
 class ProductFilter extends React.Component {
   render() {
@@ -10,13 +10,31 @@ class ProductFilter extends React.Component {
       <div className="ProductFilter">
         <h2 className="filter_title">베스트셀러</h2>
         <nav className="filter_category">
-          <CategorySelector />
-          <CategorySelector />
-          <CategorySelector />
-          <CategorySelector />
+          <ul>
+            <li className="category">
+              <button className="category_selector_btn">
+                <span>text</span>
+              </button>
+            </li>
+            <li className="category">
+              <button className="category_selector_btn">
+                <span>text</span>
+              </button>
+            </li>
+            <li className="category">
+              <button className="category_selector_btn">
+                <span>text</span>
+              </button>
+            </li>
+            <li className="category">
+              <button className="category_selector_btn">
+                <span>text</span>
+              </button>
+            </li>
+          </ul>
         </nav>
 
-        <ProductSlider />
+        <ProductItemSlider />
       </div>
     );
   }

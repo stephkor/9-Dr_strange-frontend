@@ -1,7 +1,6 @@
 import React from "react";
 import "styles/reset.scss";
-import "./ProductItemContainer.scss";
-import WishButton from "./WishButton";
+import WishButton from "Components/WishButton";
 
 class ProductItemContainer extends React.Component {
   constructor() {

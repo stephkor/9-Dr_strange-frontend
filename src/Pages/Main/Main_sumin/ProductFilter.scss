@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&display=swap');
+
 .ProductFilter {
 	display: flex;
 	flex-direction: column;
@@ -16,5 +18,119 @@
 		align-items: center;
 		width: 100vw;
 		margin: 32px 0 60px;
+
+		.category {
+			display: inline-block;
+			.category_selector_btn {
+				display: inline-block;
+				width: 95px;
+				height: 52px;
+				margin: 0 3px;
+				text-align: center;
+				border: 1px solid #111;
+			}
+		}
+	}
+
+	.ProductItemContainer {
+		display: inline-block;
+
+		.product_item_container_title {
+			font-size: 26px;
+			font-weight: 700;
+			margin: 11px;
+		}
+
+		.product_item_img_box {
+			img {
+				width: 279px;
+				height: 350px;
+				display: inline-block;
+			}
+		}
+
+		.product_item_container_bottom {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin-top: 19px;
+
+			.product_item_price_wrapper {
+				.product_item_price::before {
+					content: '₩';
+					padding: 0 5px;
+					font-weight: 400;
+					font-size: 24px;
+				}
+
+				.product_item_price {
+					font-size: 30px;
+				}
+			}
+
+			.add_to_cart {
+				height: 52px;
+				padding: 0 17px;
+				font-size: 18px;
+				text-align: center;
+				border: 1px solid;
+			}
+		}
+	}
+
+	.ProductItemSlider {
+		max-width: 1140px;
+		max-height: 604px;
+
+		.slick-prev {
+			left: 0;
+			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAS9JREFUeNrs200KgzAQhuGxFOrSI3gEj+QRvJFH8g5d9Wdhd901TYqFUuoymbHzDii4ku+BRJ2YSkRu8TiIz7rs46l2DFDv4imI3wo7cV4AAAAAAAAAAAAAAABgrLquk3mepe/77Pe6Lx9EZo4YPsTw4V3pOtO9TuYAvsOnStcuAH6FTxWHwf8DKIS3A6AU3gaAYnh9gLZtNcPrAjRNE6Zp0gyvB2AkvA7AWvhhGDSGYVmAtfDjOGpNwuUADIYvB2A0fBkAw+HzAxgPnxdgA+HzAmwg/AvAfUuMIcAkyGOQFyFehfkY8tkLoCFCS0y7KarcEaYtzsIIS2MsjrI8zg8SFgE+EXLPAdUCUDttBp35SwwAAAAAAAAAAAAAAKdVie+9w4+0e/wofnePX58CDAAr25DlfauwgQAAAABJRU5ErkJggg==);
+			z-index: 100;
+		}
+
+		.slick-next {
+			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAASJJREFUeNrs2z0OgkAQhuGBWFjSqNfgSNyMI9HZ29ltqRRm3SWYGBNtZNgh837JkFCRfcLfzkIlIpdUR/GZcZc2+7k8pqrTJorfxFqcBwAAAAAAAAAAAAAAABTSdZ2EEKRtW9MI13lCtGilQcdXEsK0r3GcP+umBpAH/R6jCHoA6fSPnzGIoAewEQRdgA0g6AMYR1gHwDDCegDfEIZhiE3T+AAwiLA+gDGEMgC5+r63gFAOwAhCWQADCOUBCiPYACiIYAegEIItgF8IWgDuW2JcAtwEeQzyIsSrMJMhpsM0RGiJ0RSlLc7CCEtjLI6yPM4HEotfBoYHPwFUM8DJaTPozldiAAAAAAAAAAAAAAA4TZ4LPDxD5L/Hz6kOTsc/PgUYAKCBkA8jygfJAAAAAElFTkSuQmCC);
+			right: 12px;
+			z-index: 100;
+		}
+
+		.slick-prev,
+		.slick-next {
+			width: 64px;
+			height: 64px;
+			top: 566px;
+		}
+
+		.slick-prev::before,
+		.slick-next::before {
+			content: none;
+			width: 64px;
+			height: 64px;
+		}
+
+		.slick-dots {
+			max-width: 1050px;
+			height: 64px;
+			top: 550px;
+
+			& li {
+				margin: 0 6px;
+
+				& button {
+					width: 12px;
+					height: 12px;
+					background-color: #111;
+				}
+			}
+			.slick-active {
+				width: 42px;
+				height: 12px;
+				background-color: #111;
+			}
+
+			::before {
+				display: none;
+			}
+		}
 	}
 }
