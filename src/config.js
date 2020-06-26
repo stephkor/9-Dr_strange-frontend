@@ -1,20 +1,40 @@
 // IMAGES
 // main
 
+// login & sign up
+import login_side_btn from "Images/Login/login_side_btn.jpg";
+
+// product_detail
+import guest_icon from "Images/detail/guest_icon.png";
 // navbar
 import nav_logo from "Images/Nav/logo.svg";
 import nav_hamburger from "Images/Nav/hamburger_icon.svg";
-
-// login & sign up
-import login_side_btn from "Images/Login/login_side_btn.jpg";
+// import detail_tooltip from "";
 
 // export
 export const LOGO = nav_logo;
 export const HAMBURGER_ICON = nav_hamburger;
+
 export const LOGIN_SIDE_BTN = login_side_btn;
+
+export const TEST =
+  "https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png";
+export const GUEST_ICON = guest_icon;
+
+// login & sign up
 
 // PATH
 // main
+
+// product_detail
+export const PATH_SHARE =
+  "M15.574 14.922c-.828 0-1.597.246-2.243.663l-4.456-3.609c.019-.158.049-.313.049-.476 0-.163-.03-.318-.049-.476l4.456-3.608a4.13 4.13 0 002.243.663c2.264 0 4.106-1.812 4.106-4.039 0-2.227-1.842-4.04-4.106-4.04s-4.105 1.813-4.105 4.04c0 .313.044.614.113.906L7.368 8.36a4.098 4.098 0 00-2.55-.899C2.554 7.461.712 9.272.712 11.5c0 2.227 1.842 4.041 4.106 4.041.968 0 1.847-.347 2.55-.899l4.214 3.413a3.93 3.93 0 00-.113.906c0 2.228 1.841 4.039 4.105 4.039 2.264 0 4.106-1.811 4.106-4.039 0-2.227-1.842-4.039-4.106-4.039zm0-11.922a1.05 1.05 0 011.056 1.04 1.05 1.05 0 01-1.056 1.04 1.05 1.05 0 01-1.056-1.04c0-.573.474-1.04 1.056-1.04zM4.818 12.54a1.05 1.05 0 01-1.056-1.04c0-.574.473-1.039 1.056-1.039A1.05 1.05 0 015.875 11.5a1.05 1.05 0 01-1.057 1.04zm10.756 7.461a1.05 1.05 0 01-1.056-1.04c0-.573.474-1.039 1.056-1.039.583 0 1.056.466 1.056 1.039 0 .574-.473 1.04-1.056 1.04z";
+export const MINUS =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAACCAIAAADn6Hr9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABVJREFUeNpiFBQUZCAOMDEQDQACDAARvgA3Fum/nwAAAABJRU5ErkJggg==";
+export const PLUS =
+  "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADBJREFUeNpi/P//PwM2ICQkBJZ49+4dIzZ5JgYywUjQyCgoKPifvjaOxiMNNAIEGABcMg9GSgmpawAAAABJRU5ErkJggg==";
+export const REVIEW_IMG =
+  "M0 .001v47.996h56V.001H0zm50 6V17.49l-7.89-7.891-12.286 12.287-5.019-5.021L6 35.67V6.001h44zM8.156 41.999l16.649-16.646 8.987 8.987 4.242-4.242-3.969-3.971 8.045-8.044 7.89 7.89v16.026H8.156z";
 
 // navbar
 export const PATH_SEARCH =

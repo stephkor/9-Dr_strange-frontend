@@ -1,16 +1,25 @@
 .sign_up_container {
+	// input창 스타일 //
+	input {
+		width: 100%;
+		margin-bottom: 20px;
+		padding: 20px 24px 20px 24px;
+		border: 1px solid #666;
+		font-size: 18px;
+		line-height: 18px;
+		text-decoration: none solid #111;
+		color: #111;
+	}
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	width: 100vw;
-
 	.text_box_div {
 		position: relative;
 		max-width: 436px;
 		margin: 70px auto;
 		margin-bottom: 0;
-
 		.text_box_title {
 			position: relative;
 			text-align: center;
@@ -20,8 +29,8 @@
 			letter-spacing: -0.5px;
 			color: #111;
 		}
-
 		.text_login {
+			margin-bottom: 20px;
 			text-align: center;
 			font-size: 24px;
 			font-weight: 700;
@@ -36,16 +45,6 @@
 		flex-direction: column;
 		justify-content: center;
 		max-width: 436px;
-		input {
-			width: 100%;
-			margin-bottom: 20px;
-			padding: 20px 24px 20px 24px;
-			border: 1px solid #666;
-			font-size: 18px;
-			line-height: 18px;
-			text-decoration: none solid #111;
-			color: #111;
-		}
 		.ItemBoxID {
 			position: relative;
 			.input_component_box {
@@ -74,14 +73,6 @@
 		justify-content: space-between;
 		position: relative;
 		background-color: white;
-
-		.email_name {
-			width: 50%;
-		}
-
-		.email_add {
-			width: 45%;
-		}
 		.input_email_box_msg {
 			position: absolute;
 			top: -10px;
@@ -93,11 +84,18 @@
 			letter-spacing: -0.2px;
 			background-color: white;
 		}
+
+		.email_name {
+			width: 50%;
+		}
+
+		.email_add {
+			width: 50%;
+		}
 		.email_at_flex {
 			display: flex;
 			height: 67px;
 			align-items: center;
-
 			.email_at {
 				font-size: 18px;
 				font-weight: 700;
@@ -153,7 +151,6 @@
 		.flex_div_box {
 			display: flex;
 			width: 100%;
-
 			.left_option {
 				display: flex;
 				width: 100%;
@@ -172,7 +169,6 @@
 			}
 		}
 	}
-
 	.search_id_box {
 		display: flex;
 		flex-wrap: nowrap;

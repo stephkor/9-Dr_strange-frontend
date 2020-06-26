@@ -1,5 +1,5 @@
 import React from "react";
-import "Pages/SignUp/SignUp.scss";
+// import "Pages/SignUp/SignUp.scss";
 import "./ItemBoxID.scss";
 
 class ItemBoxID extends React.Component {

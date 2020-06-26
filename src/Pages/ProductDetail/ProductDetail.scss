@@ -1,0 +1,419 @@
+.ProductDetail {
+	// info list에서 사용되는 ui, li, h2, font 스타일 정의
+	.info-list-style {
+		font-size: 20px;
+		color: #666;
+
+		li {
+			position: relative;
+			margin: 0 0 16px 12px;
+			padding-left: 8px;
+			line-height: 1.5em;
+		}
+
+		li:before {
+			content: '';
+			position: absolute;
+			top: 11px;
+			left: -12px;
+			width: 8px;
+			height: 9px;
+			background-color: #111;
+		}
+	}
+
+	h2 {
+		margin: 0 0 20px 8px;
+		font-size: 26px;
+		font-weight: 700;
+	}
+
+	.product_detail_container {
+		display: flex;
+
+		.lazy_img_form {
+			width: 51%;
+
+			img {
+				width: 100%;
+				margin-bottom: 10px;
+				background-color: #e5e5e5;
+			}
+		}
+
+		.product_detail_form {
+			width: 49%;
+			margin: 14px 0 50px 5%;
+
+			.product_detail_top {
+				display: flex;
+				justify-content: space-between;
+				padding: 10px 0;
+				font-weight: 700;
+			}
+
+			.review_count {
+				font-size: 18px;
+
+				span {
+					padding: 0 3px;
+				}
+			}
+
+			h1 {
+				margin: 8px 0 17px 0;
+				font-size: 26px;
+				font-weight: 700;
+			}
+
+			.now_in_stock {
+				margin-bottom: 13px;
+				text-align: right;
+
+				a {
+					border-bottom: 1px solid #111;
+				}
+			}
+
+			.size_option {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+
+				button {
+					display: inline-block;
+					width: 168px;
+					height: 36px;
+					margin: 4px 0;
+					padding: 4px 20px 3px 20px;
+					font-size: 18px;
+					font-weight: 400;
+					text-align: left;
+				}
+
+				.size_btn {
+					border: 1px solid #e5e5e5;
+					background-color: white;
+				}
+
+				.size_btn_click {
+					border: 1px solid #e5e5e5;
+					color: white;
+					background-color: #111;
+				}
+
+				.soldout_btn {
+					border: 1px solid #e5e5e5;
+					color: #999;
+					background-color: #f7f7f7;
+					cursor: not-allowed;
+				}
+
+				.soldout_btn:after {
+					position: absolute;
+					top: 9px;
+					left: 68px;
+					content: '일시품절';
+					font-size: 12px;
+				}
+			}
+
+			.product_colors {
+				display: flex;
+				margin-bottom: 10px;
+
+				.product_color_item {
+					width: 60px;
+					height: 60px;
+					margin: 18px 14px 0 0;
+					border-radius: 50%;
+					background-image: url('https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png');
+					background-position: 50%;
+					background-size: 90%;
+					background-color: #e5e5e5;
+				}
+
+				.product_color_item:nth-child(1) {
+					border: 3px solid #111;
+				}
+			}
+
+			.product_price_form {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-top: 20px;
+
+				.product_quantity {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					width: 178px;
+					padding: 0 8px 6px 8px;
+					border-bottom: 1px solid #e5e5e5;
+
+					p {
+						font-size: 18px;
+					}
+
+					input {
+						max-width: 61px;
+						font-size: 18px;
+						font-weight: 700;
+						text-align: center;
+					}
+
+					button {
+						width: 32px;
+						height: 27px;
+
+						.btn_minus {
+							padding-right: 5px;
+							padding-bottom: 3px;
+						}
+
+						.btn_plus {
+							padding-top: 1px;
+						}
+					}
+				}
+
+				.product_item_price {
+					display: flex;
+					align-items: center;
+
+					.origin_price {
+						font-size: 30px;
+						color: red;
+						padding-right: 8px;
+					}
+
+					.origin_price::before {
+						content: '₩';
+						padding-right: 5px;
+						font-weight: 400;
+						font-size: 24.5px;
+					}
+
+					.sale_price {
+						font-size: 18px;
+						text-decoration: line-through;
+						color: #999;
+					}
+					.sale_price::before {
+						content: '₩';
+						padding-right: 3px;
+						font-weight: 400;
+						font-size: 14px;
+					}
+				}
+			}
+
+			.buying_btn {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+
+				button {
+					width: 49%;
+					margin-top: 20px;
+					padding: 16px 0;
+					border: 1px solid #111;
+					font-size: 22px;
+				}
+
+				.buying_btn_purchase {
+					color: white;
+					background-color: #111;
+				}
+			}
+		}
+	}
+
+	.product_info_container {
+		display: flex;
+		padding: 150px 0;
+		border-bottom: 1px solid #111;
+
+		.product_size_guide {
+			width: 50%;
+
+			table {
+				border-top: 3px solid #111;
+				border-spacing: unset;
+				font-size: 36px;
+				text-align: center;
+
+				thead {
+					font-size: 20px;
+					color: #666;
+				}
+
+				th {
+					padding: 17px 0;
+					border-bottom: 1px solid #bbb;
+					font-weight: 700;
+				}
+
+				td {
+					padding: 40px 32px;
+					border-bottom: 1px solid #bbb;
+				}
+			}
+		}
+
+		.product_info_form {
+			width: 50%;
+
+			.black-gothic-font {
+				font-family: 'Trade Gothic LT Std Cn', 'Spoqa Han Sans', sans-serif;
+				font-weight: 700;
+				font-size: 30px;
+			}
+
+			h3 {
+				padding-bottom: 14px;
+				font-size: 20px;
+				color: #666;
+			}
+
+			p {
+				font-size: 26px;
+				font-weight: 700;
+			}
+
+			.detail_info_list {
+				display: flex;
+				flex-wrap: wrap;
+
+				li {
+					width: 50%;
+					padding-bottom: 42px;
+				}
+			}
+
+			.as_guide {
+				margin: 22px 0 28px 0;
+
+				p {
+					padding-bottom: 14px;
+				}
+			}
+		}
+	}
+
+	.product_attention_container {
+		display: flex;
+		padding: 120px 0;
+		.attention_guide {
+			width: 50%;
+		}
+		.material_guide {
+			h3 {
+				padding: 10px 0 15px 8px;
+				font-size: 20px;
+				font-weight: 700;
+				color: #111;
+			}
+		}
+	}
+
+	.product_recommend_container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		h2 {
+			margin: 70px auto;
+			font-size: 36px;
+		}
+
+		.product_item_wrapper {
+			display: flex;
+			justify-content: space-between;
+
+			.test {
+				width: 550px;
+				height: 485px;
+				background-color: #999;
+			}
+		}
+	}
+
+	.product_review_container {
+		margin-top: 70px;
+
+		.review_top {
+			display: flex;
+			justify-content: space-between;
+			padding-bottom: 30px;
+
+			h2 {
+				margin: 0;
+				font-size: 36px;
+			}
+
+			button {
+				padding: 0px 20px;
+				border: 1px solid #111;
+				font-size: 16px;
+			}
+		}
+
+		.review_rating {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 24px 0;
+			border-top: 1px solid #ddd;
+			border-bottom: 1px solid #ddd;
+			font-size: 18px;
+			font-weight: 700;
+
+			.yellow {
+				padding-left: 13px;
+				font-size: 30px;
+			}
+		}
+
+		.review_state {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 30px;
+			padding: 50px 0;
+			border-bottom: 1px solid #ddd;
+
+			.review_state_gender {
+				width: 32%;
+				height: 300px;
+				background-color: #999;
+			}
+
+			.review_state_age {
+				width: 32%;
+				height: 300px;
+				background-color: #999;
+			}
+
+			.review_state_product {
+				width: 32%;
+				height: 300px;
+				background-color: #999;
+			}
+		}
+
+		.ReviewBoard {
+			width: 100%;
+			height: 170px;
+			background-color: #fafafa;
+			border: 1px solid #ddd;
+
+			.review_board_top {
+				display: flex;
+			}
+
+			.review_board_title {
+			}
+		}
+	}
+}
