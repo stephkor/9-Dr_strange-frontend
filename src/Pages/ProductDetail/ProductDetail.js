@@ -260,9 +260,13 @@ class ProductDetail extends React.Component {
             </div>
           </article>
 
-          {/* <Filter Component/> */}
-
-          <article className="product_review_container"></article>
+          <article className="product_recommend_container">
+            <h2>당신이 좋아할 것 같은</h2>
+            <div className="product_item_wrapper">
+              <div className="test"></div>
+              <div className="test"></div>
+            </div>
+          </article>
         </section>
         <Footer />
       </>

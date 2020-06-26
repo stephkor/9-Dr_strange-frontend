@@ -1,6 +1,9 @@
 .ProductDetail {
 	// info list에서 사용되는 ui, li, h2, font 스타일 정의
 	.info-list-style {
+		font-size: 20px;
+		color: #666;
+
 		li {
 			position: relative;
 			margin: 0 0 16px 12px;
@@ -17,11 +20,6 @@
 			height: 9px;
 			background-color: #111;
 		}
-	}
-
-	.gray-20-font {
-		font-size: 20px;
-		color: #666;
 	}
 
 	h2 {
@@ -316,6 +314,28 @@
 				font-size: 20px;
 				font-weight: 700;
 				color: #111;
+			}
+		}
+	}
+
+	.product_recommend_container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		h2 {
+			margin: 70px auto;
+			font-size: 36px;
+		}
+
+		.product_item_wrapper {
+			display: flex;
+			justify-content: space-between;
+
+			.test {
+				width: 550px;
+				height: 485px;
+				background-color: #999;
 			}
 		}
 	}
