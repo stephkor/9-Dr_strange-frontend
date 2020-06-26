@@ -1,43 +1,36 @@
 import React from "react";
+import Nav from "Components/Nav/Nav";
 import "./Login.scss";
 import "styles/reset.scss";
-import login_side_btn from "Images/login_side_btn.jpg";
+import { LOGIN_SIDE_BTN } from "config";
+import ItemBoxID from "Components/ItemBox/ItemBoxID";
 
 class Login extends React.Component {
   render() {
     return (
-      <div className="Login">
-        <div class="login-back-btn-section">
-          <img class="login-back-btn" src={login_side_btn} alt="" />
-        </div>
-        <div className="Login_Contanier">
-          <div className="text_box">
-            <div className="text_title">어서오세요.</div>
-            <p class="text_content">닥터마틴에 오신 것을 환영합니다.</p>
-          </div>
-          <div className="text_box2">
-            <p class="text_title2">로그인</p>
-          </div>
-          <div className="input-container">
-            <div class="input_login_box_title">
-              <span class="input_login_box_msg">아이디</span>
+      <>
+        <Nav />
+        <div className="Login">
+          <div className="Login_Contanier">
+            <div className="text_box_div">
+              <div className="text_box_title">
+                어서오세요.
+                <img className="login_btn_image" src={LOGIN_SIDE_BTN} alt="" />
+              </div>
+              <p className="text_box_content">
+                닥터마틴에 오신 것을 환영합니다.
+              </p>
             </div>
-            <input className="id" type="text" />
-            <div class="input_pw_box_title">
-              <span class="input_pw_box_msg">비밀번호</span>
+            <div className="text_box_div2">
+              <p className="text_box_title2">로그인</p>
             </div>
-            <input className="password" type="password" />
-            <div className="find_id_pw">
-              <label className="check_box">
-                <div className="flex">
-                  <div className="left_option">
-                    <input
-                      class="check_box_input"
-                      type="checkbox"
-                      name="idsa"
-                      id="idsave"
-                      value="checked"
-                    ></input>
+            <div className="input_container">
+              <ItemBoxID name="아이디" />
+              <ItemBoxID name="비밀번호" type="password" />
+              <div className="find_id_pw">
+                <label className="check_box">
+                  <div className="flex_div_box">
+                    <input className="check_box_input" type="checkbox"></input>
                     <span className="check_box_idsave">아이디 자동저장</span>
                   </div>
                   <div className="right_option">
@@ -45,22 +38,25 @@ class Login extends React.Component {
                       아이디 / 비밀번호 찾기
                     </a>
                   </div>
+                </label>
+              </div>
+              <div className="login-section">
+                <button className="button">로그인</button>
+              </div>
+              <div className="flex_div_box2">
+                <div className="sign_up">
+                  <a
+                    className="sign_up_text"
+                    href="https://m.drmartens.co.kr/member/agreement"
+                  >
+                    회원가입
+                  </a>
                 </div>
-              </label>
-            </div>
-            <div class="login-section">
-              <button className="button">로그인</button>
-            </div>
-            <div className="flex2">
-              <div className="sing_up">
-                <a href="https://m.drmartens.co.kr/member/agreement">
-                  회원가입
-                </a>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

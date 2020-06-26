@@ -1,12 +1,14 @@
 import React from "react";
-import "styles/reset.scss";
+import Nav from "Components/Nav/Nav";
+// import Footer from "Components/Footer/Footer";
 
 class Main extends React.Component {
   render() {
     return (
-      <section className="main">
-        <p>Dr_strange 화이팅!!</p>
-      </section>
+      <>
+        <Nav />
+        {/* <Footer /> */}
+      </>
     );
   }
 }

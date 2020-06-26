@@ -1,0 +1,218 @@
+.sign_up_container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+
+	.text_box_div {
+		position: relative;
+		max-width: 436px;
+		margin: 70px auto;
+		margin-bottom: 0;
+
+		.text_box_title {
+			position: relative;
+			text-align: center;
+			font-size: 36px;
+			font-weight: 700;
+			line-height: 38px;
+			letter-spacing: -0.5px;
+			color: #111;
+		}
+
+		.text_login {
+			text-align: center;
+			font-size: 24px;
+			font-weight: 700;
+			line-height: 38px;
+			letter-spacing: -0.5px;
+			color: #111111;
+		}
+	}
+
+	.container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		max-width: 436px;
+		input {
+			width: 100%;
+			margin-bottom: 20px;
+			padding: 20px 24px 20px 24px;
+			border: 1px solid #666;
+			font-size: 18px;
+			line-height: 18px;
+			text-decoration: none solid #111;
+			color: #111;
+		}
+		.ItemBoxID {
+			position: relative;
+			.input_component_box {
+				position: absolute;
+				top: -10px;
+				left: 15px;
+				background-color: #fff;
+				.input_component_box_msg {
+					padding-left: 8px;
+					padding-right: 8px;
+					font-size: 18px;
+					font-weight: 700;
+					letter-spacing: -0.2px;
+					background-color: white;
+				}
+			}
+		}
+	}
+
+	input:focus {
+		border: solid;
+	}
+
+	.input_email_box {
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+		background-color: white;
+
+		.email_name {
+			width: 50%;
+		}
+
+		.email_add {
+			width: 45%;
+		}
+		.input_email_box_msg {
+			position: absolute;
+			top: -10px;
+			left: 15px;
+			padding-left: 8px;
+			padding-right: 8px;
+			font-size: 18px;
+			font-weight: 700;
+			letter-spacing: -0.2px;
+			background-color: white;
+		}
+		.email_at_flex {
+			display: flex;
+			height: 67px;
+			align-items: center;
+
+			.email_at {
+				font-size: 18px;
+				font-weight: 700;
+				color: #111;
+				width: 36px;
+				text-align: center;
+			}
+		}
+	}
+
+	.input_phone_box {
+		display: flex;
+		justify-content: space-between;
+		position: relative;
+		margin-bottom: -10px;
+		.phone_number {
+			width: 130px;
+		}
+		.phone_number2 {
+			width: 130px;
+		}
+		.phone_number3 {
+			width: 130px;
+		}
+		.input_phone_box_msg {
+			position: absolute;
+			top: -10px;
+			left: 15px;
+			padding-left: 8px;
+			padding-right: 8px;
+			font-size: 18px;
+			font-weight: 700;
+			letter-spacing: -0.2px;
+			background-color: white;
+		}
+	}
+	.email_import_add {
+		width: inherit;
+		height: 66px;
+		margin-bottom: 10px;
+		padding: 20px 24px 20px 24px;
+		border: 1px solid #666;
+		line-height: 18px;
+		font-size: 18px;
+		text-decoration: none solid #111;
+		color: #111;
+	}
+
+	.check_box {
+		display: flex;
+		justify-content: space-between;
+		width: 100%;
+		.flex_div_box {
+			display: flex;
+			width: 100%;
+
+			.left_option {
+				display: flex;
+				width: 100%;
+				.check_box_input {
+					width: 20px;
+				}
+				.check_box_save_info {
+					width: 80%;
+					font-family: Spoqa Han Sans, sans-serif;
+					font-size: 18px;
+					letter-spacing: -0.18px;
+					line-height: 18px;
+					color: #666;
+					padding-left: 10px;
+				}
+			}
+		}
+	}
+
+	.search_id_box {
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: space-between;
+		.ItemBoxID {
+			width: 65%;
+		}
+		.search_id_btn {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 130px;
+			height: 64px;
+			border: 1px solid #666;
+			background: white;
+			font-weight: normal;
+			font-size: 18px;
+			font-family: 'Spoqa Han Sans', sans-serif;
+		}
+	}
+	.sign_btn {
+		width: 100%;
+		button {
+			width: inherit;
+			height: 62px;
+			margin: 20px 0px;
+			padding: 1px 6px;
+			font-size: 22px;
+			font-weight: 700;
+			line-height: 22px;
+			text-decoration: none solid #000;
+			color: white;
+			background-color: #111;
+		}
+	}
+	.search_id_message {
+		p {
+			padding-left: 10px;
+			font-size: 18px;
+			line-height: 1.4;
+		}
+	}
+}

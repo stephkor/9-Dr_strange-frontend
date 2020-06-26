@@ -1,191 +1,156 @@
-.Login_Contanier {
-	justify-content: center;
-	align-items: center;
-	width: 100vw;
-	height: 100vw;
-	background-color: white;
-
-	.text_box {
-		margin-top: 20px;
-	}
-
-	.text_title {
-		position: relative;
-		text-align: center;
-		font-size: 36px;
-		font-weight: 700;
-		line-height: 38px;
-		letter-spacing: -0.5px;
-		color: black;
-	}
-
-	.text_box2 {
-		margin-top: 19px;
-	}
-	.text_title2 {
-		margin-top: 60px;
-		text-align: center;
-		font-size: 24px;
-		font-weight: 700;
-		line-height: 38px;
-		letter-spacing: -0.5px;
-		color: black;
-	}
-
-	.text_content {
-		margin-top: 18px;
-		line-height: 20px;
-		letter-spacing: -0.2px;
-		text-align: center;
-		font-size: 18px;
-		color: #666;
-	}
-
-	.login-back-btn-section {
-		margin-top: 50px;
-		margin-left: 30px;
-	}
-
-	.input-container {
-		width: 436px;
-		height: 385px;
-		margin: auto;
-		margin-top: 20px;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-	}
-
+.Login {
 	input {
-		width: inherit;
+		width: 100%;
 		margin-bottom: 20px;
 		padding: 20px 24px 20px 24px;
 		border: 1px solid #666;
 		line-height: 18px;
 		font-size: 18px;
-		text-decoration: none solid rgb(0, 0, 0);
+		text-decoration: none solid #111;
+		color: #111;
+	}
+	.ItemBoxID {
+		position: relative;
+		.input_component_box {
+			position: absolute;
+			top: -10px;
+			left: 15px;
+			background-color: #fff;
+			.input_component_box_msg {
+				padding-left: 8px;
+				padding-right: 8px;
+				font-size: 18px;
+				font-weight: 700;
+				letter-spacing: -0.2px;
+				background-color: white;
+			}
+		}
+	}
+	.Login_Contanier {
+		margin: 0 auto;
+		max-width: 436px;
 		background-color: white;
-		color: black;
-	}
 
-	input:focus {
-		border: solid;
-	}
+		.text_box_div {
+			position: relative;
+			margin: 70px auto;
+			max-width: 436px;
+			.text_box_title {
+				position: relative;
+				text-align: center;
+				font-size: 36px;
+				font-weight: 700;
+				line-height: 38px;
+				letter-spacing: -0.5px;
+				color: #111;
+				.login_btn_image {
+					position: absolute;
+					top: -15px;
+					left: -250px;
+				}
+				.text_box_content {
+					margin-top: 18px;
+					line-height: 20px;
+					letter-spacing: -0.2px;
+					text-align: center;
+					font-size: 18px;
+					color: #666;
+				}
+			}
+		}
+		.text_box_div2 {
+			margin-top: 19px;
+			.text_box_title2 {
+				margin-top: 60px;
+				text-align: center;
+				font-size: 24px;
+				font-weight: 700;
+				line-height: 38px;
+				letter-spacing: -0.5px;
+				color: #111;
+			}
+		}
 
-	.login-section {
-		width: 436px;
-	}
+		.input_pw_box_title {
+			position: relative;
+			left: -160px;
+			bottom: -10px;
+			padding-left: 8px;
+			padding-right: 8px;
+			background-color: #fff;
+		}
 
-	.button {
-		width: inherit;
-		font-size: 22px;
-		font-weight: 700;
-		line-height: 22px;
-		text-decoration: none solid rgb(255, 255, 255);
-		height: 62px;
-		color: white;
-		background-color: #111;
-		border: 1px solid #111111;
-		margin: 20px 0px;
-		padding: 1px 6px;
-	}
+		.input_pw_box_msg {
+			font-size: 18px;
+			line-height: 0;
+			font-weight: 700;
+			letter-spacing: -0.2px;
+		}
 
-	.check_box_idsave {
-		font-size: 18px;
-		line-height: 18px;
-		font-size: 18px;
-		letter-spacing: -0.18px;
-		color: #666;
-		padding-left: 10px;
-	}
+		input:focus {
+			border: solid;
+		}
 
-	.right_option {
-		height: fit-content;
-		font-size: 16px;
-		font-weight: 700;
-		color: #111;
-		line-height: 22px;
-		border-bottom: 1px solid #111;
-		letter-spacing: -0.2px;
-	}
-	.sing_up {
-		justify-content: flex-;
-		font-size: 16px;
-		font-weight: 700;
-		color: #111;
-		line-height: 22px;
-		border-bottom: 1px solid #111;
-		letter-spacing: -0.2px;
-	}
+		.login-section {
+			width: 436px;
+			.button {
+				width: inherit;
+				height: 62px;
+				margin: 20px 0px;
+				padding: 1px 6px;
+				font-size: 22px;
+				font-weight: 700;
+				line-height: 22px;
+				text-decoration: none solid #000;
+				color: white;
+				background-color: #111;
+			}
+		}
+		.sign_up {
+			display: flex;
+			justify-content: flex-end;
+			.sign_up_text {
+				height: fit-content;
+				border-bottom: 1px solid #111;
+				font-size: 16px;
+				font-weight: 700;
+				line-height: 22px;
+				letter-spacing: -0.2px;
+				color: #111;
+			}
+		}
 
-	.flex {
-		justify-content: space-between;
-		align-items: baseline;
-		display: flex;
-		width: 436px;
-	}
+		.check_box_idsave {
+			padding-left: 10px;
+			font-size: 18px;
+			line-height: 18px;
+			font-size: 18px;
+			letter-spacing: -0.18px;
+			color: #666;
+		}
 
-	.input_login_box_title {
-		position: relative;
-		left: -170px;
-		bottom: -10px;
-		background-color: #fff;
-		padding-left: 8px;
-		padding-right: 8px;
-	}
-
-	.input_login_box_msg {
-		font-size: 18px;
-		font-weight: 700;
-		letter-spacing: -0.2px;
-	}
-
-	.input_pw_box_title {
-		position: relative;
-		left: -160px;
-		bottom: -10px;
-		background-color: #fff;
-		padding-left: 8px;
-		padding-right: 8px;
-	}
-
-	.input_pw_box_msg {
-		font-size: 18px;
-		line-height: 0;
-		font-weight: 700;
-		letter-spacing: -0.2px;
-	}
-
-	.flex2 {
-		display: flex;
-		justify-content: flex-end;
-		width: 436px;
-	}
-
-	.login-back-btn-section {
-		position: absolute;
-		top: 30px;
-	}
-
-	.login-back-btn {
-		top: 30px;
+		.find_id_pw {
+			width: 100%;
+			.check_box {
+				display: flex;
+				justify-content: space-between;
+				.flex_div_box {
+					display: flex;
+					justify-content: start;
+					input {
+						width: 20px;
+					}
+				}
+			}
+		}
+		.right_option {
+			height: fit-content;
+			border-bottom: 1px solid #111;
+			font-size: 16px;
+			font-weight: 700;
+			line-height: 22px;
+			letter-spacing: -0.2px;
+			color: #111;
+		}
 	}
 }
-
-// display: flex;
-// flex-direction:
-// justify-content: flex-end
-// align-items:
-// position:
-// top:
-// left:
-// width:
-// height:
-// margin:
-// padding:
-// border:
-// font-family: 돋움, Dotum, sans-seri
-// font-size:
-// color:
-// background-color:
