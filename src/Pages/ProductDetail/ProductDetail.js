@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "./ProductDetail.scss";
 import Nav from "Components/Nav/Nav";

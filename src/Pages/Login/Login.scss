@@ -1,0 +1,129 @@
+.Login_Contanier {
+	margin: 0 auto;
+	max-width: 436px;
+	background-color: white;
+	// Input창 스타일 //
+	.ItemBoxID {
+		position: relative;
+		.input_component_box {
+			position: absolute;
+			top: -10px;
+			left: 15px;
+			background-color: #fff;
+			.input_component_box_msg {
+				padding-left: 8px;
+				padding-right: 8px;
+				font-size: 18px;
+				font-weight: 700;
+				letter-spacing: -0.2px;
+				background-color: white;
+			}
+		}
+		input {
+			width: 100%;
+			margin-bottom: 20px;
+			padding: 20px 24px 20px 24px;
+			border: 1px solid #666;
+			line-height: 18px;
+			font-size: 18px;
+			text-decoration: none solid #111;
+			color: #111;
+		}
+	}
+
+	.text_box_div {
+		position: relative;
+		margin: 70px auto;
+		max-width: 436px;
+		.text_box_title {
+			position: relative;
+			text-align: center;
+			font-size: 36px;
+			font-weight: 700;
+			line-height: 38px;
+			letter-spacing: -0.5px;
+			color: #111;
+			.login_btn_image {
+				position: absolute;
+				top: -15px;
+				left: -250px;
+			}
+			.text_box_content {
+				margin-top: 18px;
+				line-height: 20px;
+				letter-spacing: -0.2px;
+				text-align: center;
+				font-size: 18px;
+				color: #666;
+			}
+		}
+	}
+	.text_box_div2 {
+		margin-bottom: 20px;
+
+		.text_box_title2 {
+			margin-top: 50px;
+			text-align: center;
+			font-size: 24px;
+			font-weight: 700;
+			line-height: 38px;
+			letter-spacing: -0.5px;
+			color: #111;
+		}
+	}
+
+	.login-section {
+		width: 436px;
+		.button {
+			width: inherit;
+			height: 62px;
+			margin: 20px 0px;
+			padding: 1px 6px;
+			font-size: 22px;
+			font-weight: 700;
+			line-height: 22px;
+			text-decoration: none solid #000;
+			color: white;
+			background-color: #111;
+		}
+	}
+	.sign_up {
+		display: flex;
+		justify-content: flex-end;
+		.sign_up_text {
+			height: fit-content;
+			border-bottom: 1px solid #111;
+			font-size: 16px;
+			font-weight: 700;
+			line-height: 22px;
+			letter-spacing: -0.2px;
+			color: #111;
+		}
+	}
+
+	.check_box_idsave {
+		padding-left: 10px;
+		font-size: 18px;
+		line-height: 18px;
+		font-size: 18px;
+		letter-spacing: -0.18px;
+		color: #666;
+	}
+
+	.find_id_pw {
+		width: 100%;
+		.check_box {
+			display: flex;
+			justify-content: space-between;
+			.right_option {
+				height: fit-content;
+				border-bottom: 1px solid #111;
+				font-size: 16px;
+				font-weight: 700;
+				line-height: 22px;
+				letter-spacing: -0.2px;
+				color: #111;
+			}
+		}
+	}
+}

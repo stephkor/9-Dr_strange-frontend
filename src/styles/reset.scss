@@ -86,6 +86,9 @@ a:link,
 a:visited,
 a:active {
 	text-decoration: none;
+
+	color: black;
+
 	color: #111;
 }
 
@@ -94,6 +97,7 @@ button {
 	padding: 0;
 	border: none;
 	background: none;
+
 	outline: none;
 	cursor: pointer;
 }

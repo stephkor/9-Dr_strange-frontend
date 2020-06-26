@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-constructor */
 import React from "react";
 
 class SizeBtn extends React.Component {

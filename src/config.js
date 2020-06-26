@@ -1,6 +1,9 @@
 // IMAGES
 // main
 
+// login & sign up
+import login_side_btn from "Images/Login/login_side_btn.jpg";
+
 // product_detail
 import guest_icon from "Images/detail/guest_icon.png";
 // navbar
@@ -11,6 +14,9 @@ import nav_hamburger from "Images/Nav/hamburger_icon.svg";
 // export
 export const LOGO = nav_logo;
 export const HAMBURGER_ICON = nav_hamburger;
+
+export const LOGIN_SIDE_BTN = login_side_btn;
+
 export const TEST =
   "https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png";
 export const GUEST_ICON = guest_icon;

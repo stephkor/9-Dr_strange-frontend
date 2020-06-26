@@ -1,5 +1,6 @@
 import React from "react";
 import Nav from "Components/Nav/Nav";
+// import Footer from "Components/Footer/Footer";
 import Footer from "Components/Footer/Footer";
 
 class Main extends React.Component {
@@ -7,6 +8,7 @@ class Main extends React.Component {
     return (
       <>
         <Nav />
+
         <Footer />
       </>
     );
