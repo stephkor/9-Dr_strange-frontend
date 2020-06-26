@@ -1,5 +1,4 @@
 import React from "react";
-import "./ProductDetail.scss";
 
 class SizeTable extends React.Component {
   render() {

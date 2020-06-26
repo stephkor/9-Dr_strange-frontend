@@ -24,8 +24,6 @@ class ProductForm extends React.Component {
   };
 
   render() {
-    // console.log("데이터에서 준 원래가격 : ", this.state.origin);
-    // console.log("데이터에서 준 세일가격 : ", this.state.sale);
     const { currentQuantity, origin, sale } = this.state;
 
     return (

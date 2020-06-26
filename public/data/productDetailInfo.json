@@ -1,74 +1,24 @@
 {
-	"productDetailInfo": [
-		{
-			"productName": "[30%할인]라이커",
-			"size": { "220": true, "230": false, "240": false, "250": false, "260": true, "270": false, "280": false },
-			"productImg": [
-				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
-				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
-				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png"
-			],
-			"productThumbnail": [
-				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png"
-			],
-			"productThumbnailLink": [
-				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png"
-			],
-			"originPrice": 170000,
-			"salePrice": 119000,
-			"material": "BRANDO",
-			"country": "중국 외 기타국가 (택 참조)",
-			"productNum": 24515001,
-			"averageRate": 4.6,
-			"reviewCount": 20
-		},
-		{
-			"productName": "2번째 상품",
-			"reviewCount": 20,
-			"size": [220, 230, 240, 250, 260, 270, 280, 290],
-			"soldout": false,
-			"productImg": [
-				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
-				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
-				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png"
-			],
-			"productThumbnail": [
-				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
-				"dd"
-			],
-			"productThumbnailLink": [
-				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
-				"dd"
-			],
-			"originPrice": 170000,
-			"salePrice": 119000,
-			"material": "BRANDO",
-			"country": "중국 외 기타국가 (택 참조)",
-			"productNum": 24515001
-		},
-		{
-			"productName": "3번째 상품",
-			"reviewCount": 20,
-			"size": [220, 230, 240, 250, 260, 270, 280, 290],
-			"soldout": false,
-			"productImg": [
-				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
-				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
-				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png"
-			],
-			"productThumbnail": [
-				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
-				"dd"
-			],
-			"productThumbnailLink": [
-				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
-				"dd"
-			],
-			"originPrice": 170000,
-			"salePrice": 119000,
-			"material": "BRANDO",
-			"country": "중국 외 기타국가 (택 참조)",
-			"productNum": 24515001
-		}
-	]
+	"productDetailInfo": {
+		"productName": "[30%할인]라이커",
+		"size": { "220": true, "230": false, "240": false, "250": false, "260": true, "270": false, "280": false },
+		"productImg": [
+			"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
+			"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
+			"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png"
+		],
+		"productThumbnail": [
+			"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png"
+		],
+		"productThumbnailLink": [
+			"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png"
+		],
+		"originPrice": 170000,
+		"salePrice": 119000,
+		"material": "BRANDO",
+		"country": "중국 외 기타국가 (택 참조)",
+		"productNum": 24515001,
+		"averageRate": 4.6,
+		"reviewCount": 20
+	}
 }

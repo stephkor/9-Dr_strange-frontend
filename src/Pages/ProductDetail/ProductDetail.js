@@ -6,6 +6,7 @@ import Path from "Components/Path";
 import ProductForm from "./ProductForm";
 import SizeBtn from "./SizeBtn";
 import SizeTable from "./SizeTable";
+// import ReviewBoard from "./ReviewBoard";
 import { TEST, PATH_SHARE } from "config";
 
 class ProductDetail extends React.Component {
@@ -22,7 +23,7 @@ class ProductDetail extends React.Component {
   componentDidMount() {
     fetch("http://localhost:3000/data/productDetailInfo.json")
       .then((res) => res.json())
-      .then((res) => this.setState({ productData: res.productDetailInfo[0] }))
+      .then((res) => this.setState({ productData: res.productDetailInfo }))
       .finally(() => {
         this.setState({
           sizeArr: Object.entries(this.state.productData.size),
@@ -266,6 +267,30 @@ class ProductDetail extends React.Component {
               <div className="test"></div>
               <div className="test"></div>
             </div>
+          </article>
+
+          <article className="product_review_container">
+            <div className="review_top">
+              <h2>상품후기</h2>
+              <button className="main-font">글쓰기</button>
+            </div>
+
+            <div className="review_rating">
+              <p>
+                후기
+                <span> {productData.reviewCount}</span>개 / 별점{" "}
+                {productData.averageRate}
+              </p>
+              <span className="yellow">★★★★★</span>
+            </div>
+
+            <div className="review_state">
+              <div className="review_state_gender"></div>
+              <div className="review_state_age"></div>
+              <div className="review_state_product"></div>
+            </div>
+
+            <div className="review_container">{/* <ReviewBoard /> */}</div>
           </article>
         </section>
         <Footer />
