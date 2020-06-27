@@ -130,7 +130,7 @@ class ProductDetail extends React.Component {
     return (
       <section id="scroll_top">
         <Nav />
-        <section className="ProductDetail m-w-1140 m-auto">
+        <section className="ProductDetail m-w-1140 m-auto scroll-s">
           <div className="detail_scroll_sidebar">
             <ul>
               <li>

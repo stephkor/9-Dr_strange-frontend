@@ -95,6 +95,10 @@ body {
 	border-bottom: 1px solid #111;
 }
 
+.scroll-s {
+	scroll-behavior: smooth;
+}
+
 // 후기, 문의사항 더보기 버튼
 .more-btn {
 	display: flex;
