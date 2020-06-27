@@ -3,19 +3,38 @@ import "./ProductDetail.scss";
 import Nav from "Components/Nav/Nav";
 import Footer from "Components/Footer/Footer";
 import Path from "Components/Path";
-import ProductForm from "./ProductForm";
+import Thumbnail from "./Thumbnail";
 import SizeBtn from "./SizeBtn";
 import SizeTable from "./SizeTable";
-// import ReviewBoard from "./ReviewBoard";
-import { TEST, PATH_SHARE } from "config";
+import SubTitle from "./SubTitle";
+import ReviewBoard from "./ReviewBoard";
+import QnaBoard from "./QnaBoard";
+import RefundForm from "./RefundForm";
+import {
+  MINUS,
+  PLUS,
+  PATH_SHARE,
+  REVIEW_GENDER_M,
+  REVIEW_GENDER_W,
+} from "config";
 
 class ProductDetail extends React.Component {
   constructor() {
     super();
     this.state = {
       productData: {},
+      productThumbnail: [],
+      productImg: [],
+      // Size state
       sizeArr: [],
       currentSize: 0,
+      // Price state
+      currentOrigin: 0,
+      currentSale: 0,
+      currentQuantity: 1,
+      // review state
+      reviewArr: [],
+      reviewFilter: 3,
     };
   }
 
@@ -23,10 +42,21 @@ class ProductDetail extends React.Component {
   componentDidMount() {
     fetch("http://localhost:3000/data/productDetailInfo.json")
       .then((res) => res.json())
-      .then((res) => this.setState({ productData: res.productDetailInfo }))
+      .then((res) =>
+        this.setState({
+          productData: res.productDetailInfo,
+        })
+      )
       .finally(() => {
         this.setState({
+          productThumbnail: Object.entries(
+            this.state.productData.productThumbnail
+          ),
           sizeArr: Object.entries(this.state.productData.size),
+          currentOrigin: this.state.productData.originPrice,
+          currentSale: this.state.productData.salePrice,
+          reviewArr: this.state.productData.reviewInfo,
+          productImg: this.state.productData.productImg,
         });
       });
   }
@@ -45,19 +75,115 @@ class ProductDetail extends React.Component {
     }
   };
 
-  render() {
-    const { productData } = this.state;
+  // price "-" button 클릭 시 수량 및 가격 minus
+  priceMinusHandler = () => {
+    if (this.state.currentQuantity > 1) {
+      this.setState({
+        currentOrigin:
+          this.state.currentOrigin - this.state.productData.originPrice,
+        currentSale: this.state.currentSale - this.state.productData.salePrice,
+        currentQuantity: this.state.currentQuantity - 1,
+      });
+    }
+  };
 
+  // price "+" button 클릭 시 수량 및 가격 plus
+  pricePlusHandler = () => {
+    this.setState({
+      currentOrigin:
+        this.state.currentOrigin + this.state.productData.originPrice,
+      currentSale: this.state.currentSale + this.state.productData.salePrice,
+      currentQuantity: this.state.currentQuantity + 1,
+    });
+  };
+
+  // input 창에 수량 입력 시 현재 수량 및 가격 변동 - 수정해야함
+  // setInputHandler = (e) => {
+  //   this.setState({
+  //     currentQuantity: +e.target.value,
+  //     currentOrigin: this.state.currentOrigin * this.state.currentQuantitye,
+  //     currentSale: this.state.currentSale * this.state.currentQuantity,
+  //   });
+  // };
+
+  // 더 많은 후기 보기 버튼 클릭 시 review board를 3개씩 추가로 출력
+  reviewBtnHamdler = () => {
+    this.setState({
+      reviewFilter: this.state.reviewFilter + 3,
+    });
+  };
+
+  render() {
+    const {
+      productData,
+      productImg,
+      productThumbnail,
+      currentSize,
+      sizeArr,
+      currentOrigin,
+      currentSale,
+      currentQuantity,
+    } = this.state;
+    const review_filter = this.state.reviewArr.filter(
+      (_, idx) => idx < this.state.reviewFilter
+    );
     return (
-      <>
+      <section id="scroll_top">
         <Nav />
         <section className="ProductDetail m-w-1140 m-auto">
+          <div className="detail_scroll_sidebar">
+            <ul>
+              <li>
+                <a className="num-font" href="#scroll_top">
+                  BUY NOW
+                </a>
+                <a className="main-font" href="#scroll_top">
+                  구매하기
+                </a>
+              </li>
+
+              <li>
+                <a className="num-font" href="#scroll_spec">
+                  SPEC
+                </a>
+                <a className="main-font" href="#scroll_spec">
+                  상품상세설명
+                </a>
+              </li>
+
+              <li>
+                <a className="num-font" href="#scroll_review">
+                  REVIEW
+                </a>
+                <a className="main-font" href="#scroll_review">
+                  상품후기
+                </a>
+              </li>
+              <li>
+                <a className="num-font" href="#scroll_qna">
+                  Q&A
+                </a>
+                <a className="main-font" href="#scroll_qna">
+                  상품문의
+                </a>
+              </li>
+              <li>
+                <a className="num-font" href="#scroll_refund">
+                  EXCHANGES &<br />
+                  REFUNDS HELP
+                </a>
+                <a className="main-font" href="#scroll_refund">
+                  교환/환불 안내
+                </a>
+              </li>
+            </ul>
+          </div>
+
           <article className="product_detail_container">
             <div className="lazy_img_form">
-              <img alt="test" src={TEST} />
-              <img alt="test" src={TEST} />
-              <img alt="test" src={TEST} />
-              <img alt="test" src={TEST} />
+              {productImg.map((img, idx) => (
+                <img alt="test" src={img} key={idx} />
+              ))}
             </div>
 
             <div className="product_detail_form p-r">
@@ -74,9 +200,9 @@ class ProductDetail extends React.Component {
                   <div className="review_count">
                     <p>
                       ★★★★★
-                      <span className="num-font underline">
+                      <a href="#scroll_review" className="num-font underline">
                         {productData.reviewCount}
-                      </span>
+                      </a>
                       건
                     </p>
                   </div>
@@ -87,28 +213,52 @@ class ProductDetail extends React.Component {
                 </div>
 
                 <div className="size_option">
-                  {this.state.sizeArr.map((size, idx) => (
+                  {sizeArr.map((size, idx) => (
                     <SizeBtn
                       size={size[0]}
                       soldout={size[1]}
                       key={idx}
-                      currentSize={this.state.currentSize}
+                      currentSize={currentSize}
                       sizeClickHandler={this.sizeClickHandler}
                     />
                   ))}
                 </div>
 
                 <div className="product_colors">
-                  <button className="product_color_item"></button>
-                  <button className="product_color_item"></button>
+                  {productThumbnail.map((thumbnail, idx) => (
+                    <Thumbnail
+                      className="product_thumbnail"
+                      productThumbnail={thumbnail[0]}
+                      productThumbnailLink={thumbnail[1]}
+                      key={idx}
+                    />
+                  ))}
                 </div>
-
-                {productData.originPrice && (
-                  <ProductForm
-                    originPrice={productData.originPrice}
-                    salePrice={productData.salePrice}
-                  />
-                )}
+                <div className="product_price_form">
+                  <div className="product_quantity">
+                    <p>수량</p>
+                    <input
+                      className="main-font"
+                      type="text"
+                      value={currentQuantity}
+                      // onChange={this.setInputHandler}
+                    />
+                    <button onClick={this.priceMinusHandler}>
+                      <img alt="-" className="btn_minus" src={MINUS} />
+                    </button>
+                    <button onClick={this.pricePlusHandler}>
+                      <img alt="+" className="btn_plus" src={PLUS} />
+                    </button>
+                  </div>
+                  <div className="product_item_price num-font">
+                    <span className="sale_price">
+                      {currentSale.toLocaleString()}
+                    </span>
+                    <span className="origin_price">
+                      {currentOrigin.toLocaleString()}
+                    </span>
+                  </div>
+                </div>
 
                 <div className="buying_btn">
                   <button className="buying_btn_cart main-font">
@@ -122,7 +272,7 @@ class ProductDetail extends React.Component {
             </div>
           </article>
 
-          <article className="product_info_container">
+          <article className="product_info_container" id="scroll_spec">
             <div className="product_size_guide">
               <h2>신발 사이즈</h2>
               <SizeTable />
@@ -269,11 +419,8 @@ class ProductDetail extends React.Component {
             </div>
           </article>
 
-          <article className="product_review_container">
-            <div className="review_top">
-              <h2>상품후기</h2>
-              <button className="main-font">글쓰기</button>
-            </div>
+          <article className="product_review_container" id="scroll_review">
+            <SubTitle title="상품후기" />
 
             <div className="review_rating">
               <p>
@@ -285,16 +432,144 @@ class ProductDetail extends React.Component {
             </div>
 
             <div className="review_state">
-              <div className="review_state_gender"></div>
-              <div className="review_state_age"></div>
-              <div className="review_state_product"></div>
+              <div className="review_state_gender">
+                <h3>성별 구매 평균</h3>
+                <div className="gender_form">
+                  <span>
+                    <p className="review-g-font">남성</p>
+                    <img alt="gender_man" src={REVIEW_GENDER_M} />
+                    <p className="review-b-font">34</p>
+                  </span>
+                  <span>
+                    <p className="review-g-font">여성</p>
+                    <img alt="gender_woman" src={REVIEW_GENDER_W} />
+                    <p className="review-b-font">66</p>
+                  </span>
+                </div>
+              </div>
+
+              <div className="review_state_age">
+                <h3>연령별 구매 평균</h3>
+                <div className="age_form">
+                  <span>
+                    <p className="review-g-font">10대</p>
+                    <div className="percent_empty p-r">
+                      <div className="percent_fill_1040 p-a" />
+                    </div>
+                    <p className="review-b-font">10</p>
+                  </span>
+
+                  <span>
+                    <p className="review-g-font">20대</p>
+                    <div className="percent_empty p-r">
+                      <div className="percent_fill_20 p-a" />
+                    </div>
+                    <p className="review-b-font">48</p>
+                  </span>
+
+                  <span>
+                    <p className="review-g-font">30대</p>
+                    <div className="percent_empty p-r">
+                      <div className="percent_fill_30 p-a" />
+                    </div>
+                    <p className="review-b-font">32</p>
+                  </span>
+
+                  <span>
+                    <p className="review-g-font">40대</p>
+                    <div className="percent_empty p-r">
+                      <div className="percent_fill_1040 p-a" />
+                    </div>
+                    <p className="review-b-font">10</p>
+                  </span>
+
+                  <span>
+                    <p className="review-g-font">50대</p>
+                    <div className="percent_empty p-r" />
+                    <p className="review-b-font">0</p>
+                  </span>
+                </div>
+              </div>
+
+              <div className="review_state_product">
+                <h3>정사이즈</h3>
+                <div className="product_state_line p-r">
+                  <div className="product_state_point p-a" />
+                </div>
+                <div className="product_state_dec">
+                  <p className="review-g-font">보다 작아요</p>
+                  <p className="review-point-font">딱맞아요</p>
+                  <p className="review-g-font">보다 커요</p>
+                </div>
+
+                <h3>실제 색상보다</h3>
+                <div className="product_state_line p-r">
+                  <div className="product_state_point p-a" />
+                </div>
+                <div className="product_state_dec">
+                  <p className="review-g-font">어두워요</p>
+                  <p className="review-point-font">똑같아요</p>
+                  <p className="review-g-font">밝아요</p>
+                </div>
+
+                <h3>품질에 대해</h3>
+                <div className="product_state_line p-r">
+                  <div className="product_state_point last p-a" />
+                </div>
+                <div className="product_state_dec">
+                  <p className="review-g-font">불만이에요</p>
+                  <p className="review-point-font">보통이에요</p>
+                  <p className="review-g-font">만족해요</p>
+                </div>
+              </div>
             </div>
 
-            <div className="review_container">{/* <ReviewBoard /> */}</div>
+            <div className="review_form">
+              {review_filter.map((review, idx) => (
+                <ReviewBoard
+                  name={review.name}
+                  title={review.title}
+                  img={review.img}
+                  size={review.size}
+                  rating={review.rating}
+                  content={review.content}
+                  key={idx}
+                />
+              ))}
+            </div>
+            <div className="more-btn">
+              <button onClick={this.reviewBtnHamdler}>더 많은 후기 보기</button>
+            </div>
+          </article>
+
+          <article className="product_qna_container" id="scroll_qna">
+            <div className="inquiries">
+              <SubTitle title="상품문의" />
+              <div className="m-t-40" />
+              <QnaBoard
+                name="김*애(비회원)"
+                title="[사이즈 문의]245 신는데..."
+              />
+              <QnaBoard
+                name="송*교"
+                title="[불량상품 문의]삐그덕 소리가 나네요."
+              />
+              <QnaBoard
+                name="전*현(비회원)"
+                title="[기타 문의]하나만 결제했는데 두 개가 결제됨"
+              />
+            </div>
+            <div className="more-btn">
+              <button>더 많은 문의 보기</button>
+            </div>
+          </article>
+
+          <article className="product_refund_container" id="scroll_refund">
+            <RefundForm />
           </article>
         </section>
         <Footer />
-      </>
+      </section>
     );
   }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import NavFooterIcon from "../NavFooterIcon";
+import { Link } from "react-router-dom";
 import "./Nav.scss";
 import {
   HAMBURGER_ICON,
@@ -44,7 +45,9 @@ class Nav extends React.Component {
             <button className="hamburger_menu">
               <img alt="hamburger_menu_icon" src={HAMBURGER_ICON} />
             </button>
-            <img className="logo" alt="Dr.Martins_logo" src={LOGO} />
+            <Link to="/">
+              <img className="logo" alt="Dr.Martins_logo" src={LOGO} />
+            </Link>
             <input
               className="search_form"
               type="text"

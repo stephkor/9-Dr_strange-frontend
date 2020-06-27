@@ -4,21 +4,70 @@
 		"size": { "220": true, "230": false, "240": false, "250": false, "260": true, "270": false, "280": false },
 		"productImg": [
 			"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
-			"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
-			"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png"
+			"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_6a58b57c27fb811e8f33c8910f4e9f1a8527view.png",
+			"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_92f26ef886cfa1f27959a4dfe070eba26252view.png",
+			"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_7ae4fcc9327ed1d9dbcff60032c4ea961336view.png"
 		],
-		"productThumbnail": [
-			"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png"
-		],
-		"productThumbnailLink": [
-			"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png"
-		],
+		"productThumbnail": {
+			"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png": "https://www.drmartens.co.kr/product/sandals-ryker-black-brando-24515001",
+			"https://www.drmartens.co.kr/data/goods/1/2019/03/8396_tmp_d7671cb8f07e929f40fd27f4735a03728227view.png": "https://www.drmartens.co.kr/product/sandals-ryker-charro-brando"
+		},
 		"originPrice": 170000,
 		"salePrice": 119000,
 		"material": "BRANDO",
 		"country": "중국 외 기타국가 (택 참조)",
 		"productNum": 24515001,
 		"averageRate": 4.6,
-		"reviewCount": 20
+		"reviewCount": 20,
+		"reviewInfo": [
+			{
+				"name": "김*영",
+				"title": "1460은 230 신어요",
+				"img": "https://www.drmartens.co.kr/data/board/goods_review/621137.jpeg",
+				"size": 220,
+				"rating": 5,
+				"content": "1460 신으면 헐거워서 220주문했는데 약간 작은것같아요!! 신다보면 약간 늘어나서 괜찮을것같아요"
+			},
+			{
+				"name": "정*지",
+				"title": "너무 예쁨",
+				"img": "https://www.drmartens.co.kr/data/board/goods_review/939979.jpg",
+				"size": 230,
+				"rating": 4,
+				"content": "운동화 240 구두 235 신는데 사이즈 딱맞고생각보다 폭신폭신 편하고 별루 안무거워요좋은 소비였습니다...⭐️ 120% 만족"
+			},
+			{
+				"name": "이*하",
+				"title": "예뻐요",
+				"img": null,
+				"size": 230,
+				"rating": 5,
+				"content": "실제 사이즈보다 좀 크다는 말이 있어서 구두는 230, 운동화는 235신는데 230 주문했는데 너무 딱 맞는듯 했어요. 매장가서 물어보니 신다보면 좀더 늘어나기도하고 더 큰것보다 낫다고 하셔서 구매확정 했습니다. 신어보니 고급스럽고 예쁘네요. 맘에듭니다^^"
+			},
+			{
+				"name": "김*영",
+				"title": "1460은 230 신어요",
+				"img": "https://www.drmartens.co.kr/data/board/goods_review/621137.jpeg",
+				"size": 220,
+				"rating": 5,
+				"content": "1460 신으면 헐거워서 220주문했는데 약간 작은것같아요!! 신다보면 약간 늘어나서 괜찮을것같아요"
+			},
+			{
+				"name": "정*지",
+				"title": "너무 예쁨",
+				"img": "https://www.drmartens.co.kr/data/board/goods_review/939979.jpg",
+				"size": 230,
+				"rating": 4,
+				"content": "운동화 240 구두 235 신는데 사이즈 딱맞고생각보다 폭신폭신 편하고 별루 안무거워요좋은 소비였습니다...⭐️ 120% 만족"
+			},
+			{
+				"name": "이*하",
+				"title": "예뻐요",
+				"img": null,
+				"size": 230,
+				"rating": 5,
+				"content": "실제 사이즈보다 좀 크다는 말이 있어서 구두는 230, 운동화는 235신는데 230 주문했는데 너무 딱 맞는듯 했어요. 매장가서 물어보니 신다보면 좀더 늘어나기도하고 더 큰것보다 낫다고 하셔서 구매확정 했습니다. 신어보니 고급스럽고 예쁘네요. 맘에듭니다^^"
+			}
+		]
 	}
 }

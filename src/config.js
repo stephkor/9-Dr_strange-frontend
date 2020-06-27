@@ -3,6 +3,9 @@
 
 // product_detail
 import guest_icon from "Images/detail/guest_icon.png";
+import select_icon from "Images/detail/select.png";
+import gender_m from "Images/detail/gender_m.svg";
+import gender_w from "Images/detail/gender_w.svg";
 // navbar
 import nav_logo from "Images/Nav/logo.svg";
 import nav_hamburger from "Images/Nav/hamburger_icon.svg";
@@ -14,11 +17,16 @@ export const HAMBURGER_ICON = nav_hamburger;
 export const TEST =
   "https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png";
 export const GUEST_ICON = guest_icon;
+export const SELECT_ICON = select_icon;
+export const REVIEW_GENDER_M = gender_m;
+export const REVIEW_GENDER_W = gender_w;
 
 // login & sign up
 
 // PATH
 // main
+export const SCROLL_TOP_BTN =
+  "M45.928 29.111L32.92 15.943 19.913 29.111l2.807 2.841 8.215-8.316v27.298h3.97V23.635l8.216 8.317 2.807-2.841z";
 
 // product_detail
 export const PATH_SHARE =
@@ -29,6 +37,8 @@ export const PLUS =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADBJREFUeNpi/P//PwM2ICQkBJZ49+4dIzZ5JgYywUjQyCgoKPifvjaOxiMNNAIEGABcMg9GSgmpawAAAABJRU5ErkJggg==";
 export const REVIEW_IMG =
   "M0 .001v47.996h56V.001H0zm50 6V17.49l-7.89-7.891-12.286 12.287-5.019-5.021L6 35.67V6.001h44zM8.156 41.999l16.649-16.646 8.987 8.987 4.242-4.242-3.969-3.971 8.045-8.044 7.89 7.89v16.026H8.156z";
+export const QNA_ICON =
+  "M0 55.998V17.992h8V6.446l6.444-6.448h9.112L30 6.446v11.546h8v38.006H0zM24 8.929l-2.929-2.928h-4.142L14 8.929v9.063h10V8.929zm8 15.063H6v26.004h26V23.992zM22 42.996h-6V30.994h6v12.002z";
 
 // navbar
 export const PATH_SEARCH =
