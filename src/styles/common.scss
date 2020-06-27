@@ -1,4 +1,5 @@
-@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+// webfont
+
 @import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 @font-face {
 	font-family: 'Trade Gothic LT Std Cn';
@@ -10,8 +11,10 @@
 		url('//db.onlinewebfonts.com/t/70b2e174904ada48dd1dbe8bfbf62c42.svg#Trade Gothic LT Std Cn') format('svg');
 }
 
+// body font
 body {
-	font-family: ‘Spoqa Han Sans’, ‘Spoqa Han Sans JP’, ‘Sans-serif’;
+	font-family: 'Spoqa Han Sans', 'Spoqa Han Sans JP', 'Sans-serif';
+	font-size: 100%;
 }
 
 // class
@@ -43,12 +46,36 @@ body {
 	background-color: #191919;
 }
 
+.font-b {
+	font-weight: 600;
+}
+
 .m-auto {
 	margin: 0 auto;
 }
 
 .m-w-1140 {
 	max-width: 1140px;
+}
+
+.t-0 {
+	top: 0;
+}
+
+.p-r {
+	position: relative;
+}
+
+.p-a {
+	position: absolute;
+}
+
+.p-s {
+	position: sticky;
+}
+
+.main-font {
+	font-family: 'Spoqa Han Sans', sans-serif;
 }
 
 .num-font {
@@ -75,5 +102,9 @@ body {
 		font-size: 20px;
 		font-weight: 700;
 		line-height: 21px;
+	}
+
+	.underline {
+		border-bottom: 1px solid #111;
 	}
 }

@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/anchor-has-content */
 import React from "react";
 import NavFooterIcon from "../NavFooterIcon";
 import "./Nav.scss";
@@ -19,6 +21,10 @@ class Nav extends React.Component {
           <div className="nav_menu m-auto m-w-1140">
             <ul>
               <li>
+                <a href="123">로그인</a>
+              </li>
+              <li>
+                <a className="nav_sign_up_btn" href="123"></a>
                 <a href="">로그인</a>
               </li>
               <li>
@@ -27,6 +33,13 @@ class Nav extends React.Component {
                 </a>
               </li>
               <li>
+                <a href="123">매장찾기</a>
+              </li>
+              <li>
+                <a href="123">브랜드헤리티지</a>
+              </li>
+              <li>
+                <a href="123">고객센터</a>
                 <a href="">매장찾기</a>
               </li>
               <li>
