@@ -46,11 +46,19 @@ body {
 }
 
 .font-b {
-	font-weight: 600;
+	font-weight: 700;
 }
 
 .m-auto {
 	margin: 0 auto;
+}
+
+.m-t-40 {
+	margin-top: 40px;
+}
+
+.m-b-50 {
+	margin-bottom: 50px;
 }
 
 .m-w-1140 {
@@ -85,4 +93,26 @@ body {
 
 .underline {
 	border-bottom: 1px solid #111;
+}
+
+// 후기, 문의사항 더보기 버튼
+.more-btn {
+	display: flex;
+	justify-content: center;
+
+	button {
+		padding: 15px 103px;
+		font-size: 18px;
+		font-weight: 700;
+		color: white;
+		background-color: #111;
+	}
+}
+
+// ScrollTopBtn 스타일
+.ScrollTopBtn,
+.ScrollTopBtn_click {
+	width: 64px;
+	height: 64px;
+	border: 2px solid #111;
 }
