@@ -7,6 +7,21 @@ import ItemBoxID from "Components/ItemBox/ItemBoxID";
 import CheckBox from "Components/ItemBox/CheckBox";
 
 class SignUp extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      id: "",
+      password: "",
+      passwordCheck: "",
+      email: "",
+    };
+  }
+  handleIdPw = (e, userinfo) => {
+    this.setState({
+      [userinfo]: e.target.value,
+    });
+    console.log(e, userinfo);
+  };
   render() {
     return (
       <>
@@ -17,17 +32,29 @@ class SignUp extends React.Component {
             <p className="text_login">로그인</p>
           </div>
           <div className="container">
-            <ItemBoxID name="이름" />
-            <ItemBoxID name="아이디" />
+            <ItemBoxID name="이름" handleIdPw={this.handleIdPw} />
+            <ItemBoxID
+              name={
+                this.state.id.length >= 6
+                  ? "사용할 수 있는 아이디입니다."
+                  : "아이디"
+              }
+              userinfo="id"
+              handleIdPw={this.handleIdPw}
+            />
             <ItemBoxID
               name="비밀번호"
+              userinfo="password"
               type="password"
               text="공백 없는 영문, 숫자 포함 6-20자"
+              handleIdPw={this.handleIdPw}
             />
             <ItemBoxID
               name="비밀번호 확인"
+              userinfo="passwordCheck"
               type="password"
               text="공백 없는 영문, 숫자 포함 6-20자"
+              handleIdPw={this.handleIdPw}
             />
             <ItemBoxID name="생년월일" type="date" />
             <ItemBoxID name="이메일" type="email" />
