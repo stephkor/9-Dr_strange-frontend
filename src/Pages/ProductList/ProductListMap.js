@@ -14,7 +14,7 @@ class ProductListMap extends React.Component {
       index,
     } = this.props;
     return (
-      <div className="ProductListMap">
+      <section className="ProductListMap">
         {img[2] ? (
           <div className="product_small">
             <img alt={name} src={img} />
@@ -39,8 +39,12 @@ class ProductListMap extends React.Component {
           <div className="list_info_option">
             {this.props.salePrice ? (
               <>
-                <p className="sale_price num-font">{salePrice}</p>
-                <p className="origin_price_ws num-font">{originPrice}</p>
+                <p className="sale_price num-font">
+                  {salePrice.toLocaleString()}
+                </p>
+                <p className="origin_price_ws num-font">
+                  {originPrice.toLocaleString()}
+                </p>
               </>
             ) : (
               <p className="origin_price num-font">
@@ -50,7 +54,7 @@ class ProductListMap extends React.Component {
             <button>장바구니 담기</button>
           </div>
         </div>
-      </div>
+      </section>
     );
   }
 }

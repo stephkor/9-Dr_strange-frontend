@@ -179,7 +179,7 @@ class ProductDetail extends React.Component {
             </ul>
           </div>
 
-          <article className="product_detail_container">
+          <article className="product_detail_container e-transition">
             <div className="lazy_img_form">
               {productImg.map((img, idx) => (
                 <img alt="test" src={img} key={idx} />
