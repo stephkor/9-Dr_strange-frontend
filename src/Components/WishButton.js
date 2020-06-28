@@ -28,7 +28,7 @@ class WishButton extends React.Component {
   componentDidMount() {
     fetch("http://localhost:3000/data/productDetailInfo.json")
       .then((res) => res.json())
-      .then((res) => this.setState({ wishNum: res.productDetailInfo[0].like }));
+      .then((res) => this.setState({ wishNum: res.productDetailInfo.like }));
   }
 
   render() {

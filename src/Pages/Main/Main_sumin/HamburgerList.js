@@ -1,4 +1,8 @@
 import React from "react";
+import ArrowIcon from "Components/ArrowIcon";
+import { PATH_ARROW } from "config";
+import "./Menu.scss";
+import "styles/reset.scss";
 
 class HamburgerList extends React.Component {
   constructor() {
@@ -9,13 +13,13 @@ class HamburgerList extends React.Component {
     };
   }
 
-  handleClick = () => {
+  clickHandler = () => {
     return this.setState({
       click: !this.state.click,
     });
   };
 
-  handleSecondClick = () => {
+  secondClickHandler = () => {
     return this.setState({
       secondClick: !this.state.secondClick,
     });
@@ -25,109 +29,93 @@ class HamburgerList extends React.Component {
     const { categoryTitle } = this.props;
 
     return (
-      <ul className="list_wrap">
-        <li className="category_list">
-          <button
-            className="category_button"
-            onClick={() => this.handleClick()}
-          >
-            <span className="category_title">{categoryTitle}</span>
-            <button className="arrow_btn">
-              <svg
+      <section className="HamburgerList">
+        <ul className="list_wrap">
+          <li className="category_list">
+            <button
+              className="category_button"
+              onClick={() => this.clickHandler()}
+            >
+              <p className="category_title">{categoryTitle}</p>
+              <ArrowIcon
                 data-v-c3045632=""
                 version="1.1"
-                viewBox="0 0 60 35"
-                className="arrow"
-              >
-                <path
-                  className="arrow_path"
-                  pid="0"
-                  fill="#111"
-                  d="M.013 4.305L4.247.015l25.755 26.35L55.757.015l4.233 4.29-29.988 30.683L.013 4.305z"
-                ></path>
-              </svg>
+                view="0 0 60 35"
+                path={PATH_ARROW}
+                height="20"
+                width="20"
+                rotate={this.state.click ? "rotate(180deg)" : ""}
+              />
             </button>
-          </button>
-          <ul className="sub_list_wrap">
-            <li
-              className="sub_category_list"
-              style={{ display: this.state.click ? "block" : "none" }}
-            >
-              <button
-                className="sub_category_button"
-                onClick={() => this.handleSecondClick()}
+
+            <ul className="sub_list_wrap">
+              <li
+                className="sub_category_list"
+                style={{ display: this.state.click ? "block" : "none" }}
               >
-                <span className="sub_category_title">신발</span>
-                <button className="arrow_btn">
-                  <svg
+                <button
+                  className="sub_category_button"
+                  onClick={() => this.secondClickHandler()}
+                >
+                  <span className="sub_category_title">신발</span>
+
+                  <ArrowIcon
                     data-v-c3045632=""
                     version="1.1"
-                    viewBox="0 0 60 35"
+                    view=" 0 0 60 35"
+                    width="15"
+                    height="15"
+                    path={PATH_ARROW}
                     className="arrow"
-                  >
-                    <path
-                      className="arrow_path"
-                      pid="0"
-                      fill="#111"
-                      d="M.013 4.305L4.247.015l25.755 26.35L55.757.015l4.233 4.29-29.988 30.683L.013 4.305z"
-                    ></path>
-                  </svg>
+                    rotate={this.state.secondClick ? "rotate(180deg)" : ""}
+                  />
                 </button>
-              </button>
-              <div
-                className="inner_sub_list"
-                style={{ display: this.state.secondClick ? "block" : "none" }}
-              >
-                <button className="inner_sub_category_button">
-                  <span className="inner_sub_category_title">부츠</span>
-                </button>
-                <button className="inner_sub_category_button">
-                  <span className="inner_sub_category_title">슈즈</span>
-                </button>
-                <button className="inner_sub_category_button">
-                  <span className="inner_sub_category_title">샌들</span>
-                </button>
-              </div>
-              <button className="sub_category_button">
-                <span className="sub_category_title">컬렉션</span>
-                <button className="arrow_btn">
-                  <svg
+                <div
+                  className="inner_sub_list"
+                  style={{ display: this.state.secondClick ? "block" : "none" }}
+                >
+                  <button className="inner_sub_category_button">
+                    <span className="inner_sub_category_title">부츠</span>
+                  </button>
+                  <button className="inner_sub_category_button">
+                    <span className="inner_sub_category_title">슈즈</span>
+                  </button>
+                  <button className="inner_sub_category_button">
+                    <span className="inner_sub_category_title">샌들</span>
+                  </button>
+                </div>
+                <button className="sub_category_button">
+                  <span className="sub_category_title">컬렉션</span>
+
+                  <ArrowIcon
                     data-v-c3045632=""
                     version="1.1"
-                    viewBox="0 0 60 35"
+                    view=" 0 0 60 35"
+                    width="15"
+                    height="15"
+                    path={PATH_ARROW}
                     className="arrow"
-                  >
-                    <path
-                      className="arrow_path"
-                      pid="0"
-                      fill="#111"
-                      d="M.013 4.305L4.247.015l25.755 26.35L55.757.015l4.233 4.29-29.988 30.683L.013 4.305z"
-                    ></path>
-                  </svg>
+                  />
                 </button>
-              </button>
-              <button className="sub_category_button">
-                <span className="sub_category_title">액세서리</span>
-                <button className="arrow_btn">
-                  <svg
+
+                <button className="sub_category_button">
+                  <span className="sub_category_title">액세서리</span>
+
+                  <ArrowIcon
                     data-v-c3045632=""
                     version="1.1"
-                    viewBox="0 0 60 35"
+                    view="0 0 60 35"
+                    path={PATH_ARROW}
                     className="arrow"
-                  >
-                    <path
-                      className="arrow_path"
-                      pid="0"
-                      fill="#111"
-                      d="M.013 4.305L4.247.015l25.755 26.35L55.757.015l4.233 4.29-29.988 30.683L.013 4.305z"
-                    ></path>
-                  </svg>
+                    width="13"
+                    height="13"
+                  />
                 </button>
-              </button>
-            </li>
-          </ul>
-        </li>
-      </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
     );
   }
 }

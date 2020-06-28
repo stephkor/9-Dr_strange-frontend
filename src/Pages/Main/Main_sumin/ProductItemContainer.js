@@ -13,7 +13,7 @@ class ProductItemContainer extends React.Component {
   componentDidMount() {
     fetch("http://localhost:3000/data/productDetailInfo.json")
       .then((res) => res.json())
-      .then((res) => this.setState({ productData: res.productDetailInfo[0] }));
+      .then((res) => this.setState({ productData: res.productDetailInfo }));
   }
 
   render() {

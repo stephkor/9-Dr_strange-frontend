@@ -1,6 +1,8 @@
 import React from "react";
 import "./Menu.scss";
 import HamburgerList from "./HamburgerList";
+import ArrowIcon from "Components/ArrowIcon";
+import { PATH_ARROW } from "config";
 
 class Menu extends React.Component {
   render() {
@@ -11,43 +13,39 @@ class Menu extends React.Component {
         <HamburgerList categoryTitle={"여성"} />
         <HamburgerList categoryTitle={"남성"} />
         <HamburgerList categoryTitle={"키즈"} />
+        <HamburgerList categoryTitle={"샌들"} />
+        <HamburgerList categoryTitle={"오리지널"} />
+        <HamburgerList categoryTitle={"베스트셀러"} />
+        <HamburgerList categoryTitle={"콜라보레이션"} />
+        <HamburgerList categoryTitle={"세일"} />
+        <HamburgerList categoryTitle={"에디토리얼"} />
 
-        <ul className="list_wrap">
-          <li className="category_list">
-            <button className="category_button">
-              <span className="category_title">/고객센터</span>
-              <svg
+        <ul className="list_wrap_cs">
+          <li className="category_list_cs">
+            <button className="category_button_cs">
+              <span className="category_title_cs">/고객센터</span>
+              <ArrowIcon
                 data-v-c3045632=""
                 version="1.1"
-                viewBox="0 0 60 35"
-                class="arrow_cs"
-              >
-                <path
-                  className="arrow_cs_path"
-                  pid="0"
-                  fill="#111"
-                  fill-rule="evenodd"
-                  d="M.013 4.305L4.247.015l25.755 26.35L55.757.015l4.233 4.29-29.988 30.683L.013 4.305z"
-                ></path>
-              </svg>
+                view=" 0 0 60 35"
+                width="20"
+                height="20"
+                path={PATH_ARROW}
+                className="arrow_cs"
+              />
             </button>
           </li>
-          <li className="category_list">
-            <button className="category_button">
-              <span className="category_title">/고객센터</span>
-              <svg
+          <li className="category_list_cs">
+            <button className="category_button_cs">
+              <span className="category_title_cs">/매장찾기</span>
+              <ArrowIcon
                 data-v-c3045632=""
                 version="1.1"
-                viewBox="0 0 60 35"
-                className="arrow_cs"
-              ></svg>
-              <path
-                className="arrow_cs_path"
-                pid="0"
-                fill="#111"
-                fill-rule="evenodd"
-                d="M.013 4.305L4.247.015l25.755 26.35L55.757.015l4.233 4.29-29.988 30.683L.013 4.305z"
-              ></path>
+                view=" 0 0 60 35"
+                width="20"
+                height="20"
+                path={PATH_ARROW}
+              />
             </button>
           </li>
         </ul>
