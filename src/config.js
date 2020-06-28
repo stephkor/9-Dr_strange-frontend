@@ -1,5 +1,7 @@
 // IMAGES
 // main
+import main_top_slide from "Images/main/main_top_slide.jpg";
+import main_scroll_test from "Images/main/test.png";
 
 // product_detail
 import guest_icon from "Images/detail/guest_icon.png";
@@ -14,12 +16,26 @@ import nav_hamburger from "Images/Nav/hamburger_icon.svg";
 // export
 export const LOGO = nav_logo;
 export const HAMBURGER_ICON = nav_hamburger;
-export const TEST =
-  "https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png";
 export const GUEST_ICON = guest_icon;
 export const SELECT_ICON = select_icon;
 export const REVIEW_GENDER_M = gender_m;
 export const REVIEW_GENDER_W = gender_w;
+export const MAIN_INFO_EVENT1 =
+  "https://www.drmartens.co.kr/data/cms/dr_marten_pc/images/065545f6-5a4d-4a9d-9721-be3b917265cb.jpg";
+export const MAIN_INFO_EVENT2 =
+  "https://www.drmartens.co.kr/data/cms/dr_marten_pc/images/80b68766-f0aa-441a-8023-b90500629c5d.jpg";
+export const MAIN_INFO_EVENT3 =
+  "https://www.drmartens.co.kr/data/cms/dr_marten_pc/images/ed652636-1618-4d69-b9e3-0ef9b8ab1636.jpg";
+
+export const MAIN_SCROLL_EVENT1 =
+  "https://www.drmartens.co.kr/data/cms/dr_marten_pc/images/d2f56580-5f6e-4c43-8202-e7a462a773f1.jpg";
+export const MAIN_SCROLL_EVENT2 =
+  "https://www.drmartens.co.kr/data/cms/dr_marten_pc/images/31201dcb-80d4-45c1-b34a-b5f5928bd765.jpg";
+export const MAIN_SCROLL_EVENT3 =
+  "https://www.drmartens.co.kr/data/cms/dr_marten_pc/images/3da3bf81-6fae-4e1d-bb41-b8ce31dda4c3.jpg";
+
+export const TEST = main_top_slide;
+export const TEST2 = main_scroll_test;
 
 // login & sign up
 

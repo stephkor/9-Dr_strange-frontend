@@ -140,9 +140,3 @@ body {
 		font-weight: 700;
 	}
 }
-
-// 각 태그가 자연스럽게 나타나는
-.e-transition {
-	// transition:transform 0.5s easy-in-out;
-	transition: opacity 200ms linear 100ms, left 200ms 200ms;
-}
