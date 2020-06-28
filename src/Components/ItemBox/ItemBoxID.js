@@ -1,5 +1,4 @@
 import React from "react";
-// import "Pages/SignUp/SignUp.scss";
 import "./ItemBoxID.scss";
 
 class ItemBoxID extends React.Component {
@@ -18,7 +17,6 @@ class ItemBoxID extends React.Component {
             placeholder={text}
             userinfo={userinfo}
             onChange={(e) => this.props.handleIdPw(e, userinfo)}
-            // 해당 부분도 {() => console.log(ok)} 를 통해서 이상 없음을 확인했습니다.
           />
         </div>
       </div>

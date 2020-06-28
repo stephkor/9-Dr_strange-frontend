@@ -29,7 +29,7 @@ class SignUp extends React.Component {
         <div className="sign_up_container">
           <FormBox />
           <div className="text_box_div">
-            <p className="text_login">로그인</p>
+            <p className="text_login">회원가입</p>
           </div>
           <div className="container">
             <ItemBoxID name="이름" handleIdPw={this.handleIdPw} />

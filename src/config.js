@@ -1,6 +1,6 @@
 // IMAGES
 // main
-
+import mainImgDetail from "Images/Main/mainImgDetail.jpg";
 // login & sign up
 import login_side_btn from "Images/Login/login_side_btn.jpg";
 
@@ -20,6 +20,7 @@ export const LOGIN_SIDE_BTN = login_side_btn;
 export const TEST =
   "https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png";
 export const GUEST_ICON = guest_icon;
+export const MAIN_INFO = mainImgDetail;
 
 // login & sign up
 
