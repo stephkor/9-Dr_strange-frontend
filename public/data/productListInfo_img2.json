@@ -1,0 +1,76 @@
+{
+	"productListInfo_img2": [
+		{
+			"productName": "마일즈",
+			"like": 421,
+			"color": "체리",
+			"productImg": [
+				"https://www.drmartens.co.kr/data/goods/1/2017/11/4068_tmp_21b8a0114f5ce4b416766da1e25903f77623front2.png",
+				"https://www.drmartens.co.kr/data/goods/1/2017/11/4068_tmp_21c64be370ef73c96ca4650b1083953a0456front2.jpg"
+			],
+			"originPrice": 170000,
+			"salePrice": null,
+			"productNum": 24515010
+		},
+		{
+			"productName": "라이커",
+			"like": 225,
+			"color": "다크브라운",
+			"productImg": [
+				"https://www.drmartens.co.kr/data/goods/1/2019/03/8396_tmp_d7671cb8f07e929f40fd27f4735a03728227front2.png",
+				"https://www.drmartens.co.kr/data/goods/1/2019/03/8396_tmp_f764e36c0a87a2188e7519fbc560e5031368front2.png"
+			],
+			"originPrice": 170000,
+			"salePrice": null,
+			"productNum": 24515011
+		},
+		{
+			"productName": "니콜라이",
+			"like": 213,
+			"color": "다크브라운",
+			"productImg": [
+				"https://www.drmartens.co.kr/data/goods/1/2019/03/8402_tmp_393d690fecee7dcd6f76f76c89e5145b5536front3.png",
+				"https://www.drmartens.co.kr/data/goods/1/2019/03/8402_tmp_41b6990fd92009ceaaa74bf7b62665619919front3.png"
+			],
+			"originPrice": 150000,
+			"salePrice": null,
+			"productNum": 24515013
+		},
+		{
+			"productName": "[한소희착용]크리스티나",
+			"like": 1013,
+			"color": "블랙",
+			"productImg": [
+				"https://www.drmartens.co.kr/data/goods/1/2018/01/4201_tmp_3c980547910d2cde6993936d7e7d25485677front2.png",
+				"https://www.drmartens.co.kr/data/goods/1/2018/01/4201_tmp_a0152fa80eed1bfef75645e90f2de6d58833front2.png"
+			],
+			"originPrice": 200000,
+			"salePrice": 170000,
+			"productNum": 24515014
+		},
+		{
+			"productName": "크리스티나",
+			"like": 424,
+			"color": "다크브라운",
+			"productImg": [
+				"https://www.drmartens.co.kr/data/goods/1/2017/11/4129_tmp_22fcacbebccc9933cd297059bad159346078front2.png",
+				"https://www.drmartens.co.kr/data/goods/1/2017/11/4068_tmp_21c64be370ef73c96ca4650b1083953a0456front2.jpg"
+			],
+			"originPrice": 200000,
+			"salePrice": 170000,
+			"productNum": 24515015
+		},
+		{
+			"productName": "플치",
+			"like": 378,
+			"color": "온라인단독 | 블랙",
+			"productImg": [
+				"https://www.drmartens.co.kr/data/goods/1/2020/03/9130_tmp_2c831c17712760651593391077a726601761front3.png",
+				"https://www.drmartens.co.kr/data/goods/1/2020/03/9130_tmp_81e010f93b859f4f6feccc5ee18db5b65478front3.png"
+			],
+			"originPrice": 190000,
+			"salePrice": null,
+			"productNum": 24515012
+		}
+	]
+}

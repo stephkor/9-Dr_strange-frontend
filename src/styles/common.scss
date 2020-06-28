@@ -120,3 +120,23 @@ body {
 	height: 64px;
 	border: 2px solid #111;
 }
+
+// wish 버튼
+.WishButton {
+	display: inline-flex;
+	padding: 5px;
+	margin-bottom: 18px;
+	svg {
+		display: inline-block;
+		width: 22px;
+		height: 22px;
+		margin-right: 6px;
+	}
+	.wish_number {
+		display: inline-block;
+		padding-top: 2px;
+		font-family: 'Trade Gothic LT Std Cn', 'Spoqa Han Sans', sans-serif;
+		font-size: 20px;
+		font-weight: 700;
+	}
+}
