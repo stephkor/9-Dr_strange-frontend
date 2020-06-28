@@ -41,7 +41,7 @@ class ReviewBoard extends React.Component {
         )}
 
         <div className="review_board_bottom">
-          <span>{"★".repeat(rating)}</span>
+          <span className="rating_star">{"★".repeat(rating)}</span>
           {isActive ? (
             <div className="review_content">
               <p>
