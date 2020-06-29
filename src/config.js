@@ -2,6 +2,7 @@
 // main
 import main_top_slide from "Images/main/main_top_slide.jpg";
 import main_scroll_test from "Images/main/test.png";
+import login_side_btn from "Images/Login/login_side_btn.jpg";
 
 // login & sign up
 
@@ -22,7 +23,7 @@ import nav_hamburger from "Images/Nav/hamburger_icon.svg";
 
 export const LOGO = nav_logo;
 export const HAMBURGER_ICON = nav_hamburger;
-// export const LOGIN_SIDE_BTN = login_side_btn;
+export const LOGIN_SIDE_BTN = login_side_btn;
 export const GUEST_ICON = guest_icon;
 export const SELECT_ICON = select_icon;
 export const REVIEW_GENDER_M = gender_m;

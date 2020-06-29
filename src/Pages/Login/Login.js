@@ -1,8 +1,7 @@
 import React from "react";
 import Nav from "Components/Nav/Nav";
 import "./Login.scss";
-// import { LOGIN_SIDE_BTN } from "config";
-import LOGIN_SIDE_BTN from "Images/Login/login_side_btn.jpg";
+import { LOGIN_SIDE_BTN } from "config";
 import ItemBoxID from "Components/ItemBox/ItemBoxID";
 
 class Login extends React.Component {
