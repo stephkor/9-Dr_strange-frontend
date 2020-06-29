@@ -2,9 +2,6 @@
 import React from "react";
 
 class SizeBtn extends React.Component {
-  constructor() {
-    super();
-  }
   render() {
     const { size, soldout, index, currentSize, sizeClickHandler } = this.props;
     return (
