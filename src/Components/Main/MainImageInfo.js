@@ -1,10 +1,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import "./Main_ImageInfo.scss";
+import "./MainImageInfo.scss";
 import "styles/reset.scss";
 
-class Main_ImageInfo extends React.Component {
+class MainImageInfo extends React.Component {
   render() {
     const { category, infoImg, colraboName, colraboContent } = this.props;
     return (
@@ -21,12 +21,7 @@ class Main_ImageInfo extends React.Component {
             </div>
           </div>
           <div className="img_container">
-            <img
-              className="image"
-              src={this.props.infoImg}
-              alt=""
-              onClick={this.props.hahahahaha}
-            />
+            <img className="image" src={this.props.infoImg} alt="" />
           </div>
           <div className="bottom_text_box">
             <div className="bottom_text">
@@ -52,4 +47,4 @@ class Main_ImageInfo extends React.Component {
     );
   }
 }
-export default Main_ImageInfo;
+export default MainImageInfo;
