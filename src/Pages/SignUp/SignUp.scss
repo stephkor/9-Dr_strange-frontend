@@ -9,6 +9,7 @@
 		line-height: 18px;
 		text-decoration: none solid #111;
 		color: #111;
+		background: #fafafa;
 	}
 	display: flex;
 	flex-direction: column;
@@ -90,7 +91,12 @@
 		}
 
 		.email_add {
-			width: 50%;
+			width: 200px;
+			height: 62.8977px;
+			padding: 0px 24px 0px 18px;
+			font-size: 18px;
+			color: #999999;
+			background: #fafafa;
 		}
 		.email_at_flex {
 			display: flex;
@@ -183,7 +189,7 @@
 			width: 130px;
 			height: 64px;
 			border: 1px solid #666;
-			background: white;
+			background: #fafafa;
 			font-weight: normal;
 			font-size: 18px;
 			font-family: 'Spoqa Han Sans', sans-serif;
