@@ -1,6 +1,9 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable jsx-a11y/anchor-has-content */
 import React from "react";
 import NavFooterIcon from "../NavFooterIcon";
 import { Link } from "react-router-dom";
+import Menu from "Pages/Main/Main_sumin/Menu";
 import "./Nav.scss";
 import {
   HAMBURGER_ICON,
@@ -13,6 +16,19 @@ import {
 } from "config";
 
 class Nav extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      click: false,
+    };
+  }
+
+  clickHandler = () => {
+    return this.setState({
+      click: !this.state.click,
+    });
+  };
+
   render() {
     return (
       <header className="Nav">
@@ -32,6 +48,13 @@ class Nav extends React.Component {
                 </Link>
               </li>
               <li>
+                <a href="123">매장찾기</a>
+              </li>
+              <li>
+                <a href="123">브랜드헤리티지</a>
+              </li>
+              <li>
+                <a href="123">고객센터</a>
                 <a href="">매장찾기</a>
               </li>
               <li>
@@ -46,18 +69,29 @@ class Nav extends React.Component {
 
         <nav className="customer_container">
           <div className="customer_menu m-auto m-w-1140">
-            <button className="hamburger_menu">
+            <button
+              className="hamburger_menu"
+              onClick={() => this.clickHandler()}
+            >
               <img alt="hamburger_menu_icon" src={HAMBURGER_ICON} />
             </button>
+            <div
+              className="Menu_wrapper p-a"
+              style={{ display: this.state.click ? "block" : "none" }}
+            >
+              <Menu />
+            </div>
+
             <Link to="/">
-              <img className="logo" alt="Dr.Martins_logo" src={LOGO} />
+             <img className="logo" alt="Dr.Martins_logo" src={LOGO} />
             </Link>
+
             <input
               className="search_form"
               type="text"
               placeholder="검색어를 입력해 주세요."
             />
-            <ul>
+            <ul className="icon_list">
               <NavFooterIcon
                 width="32"
                 heigth="32"
