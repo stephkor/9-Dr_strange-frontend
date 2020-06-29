@@ -1,11 +1,16 @@
 // IMAGES
 // main
-import mainImgDetail from "Images/Main/mainImgDetail.jpg";
+import main_top_slide from "Images/main/main_top_slide.jpg";
+import main_scroll_test from "Images/main/test.png";
+
 // login & sign up
 import login_side_btn from "Images/Login/login_side_btn.jpg";
 
 // product_detail
 import guest_icon from "Images/detail/guest_icon.png";
+import select_icon from "Images/detail/select.png";
+import gender_m from "Images/detail/gender_m.svg";
+import gender_w from "Images/detail/gender_w.svg";
 // navbar
 import nav_logo from "Images/Nav/logo.svg";
 import nav_hamburger from "Images/Nav/hamburger_icon.svg";
@@ -18,18 +23,40 @@ import nav_hamburger from "Images/Nav/hamburger_icon.svg";
 
 export const LOGO = nav_logo;
 export const HAMBURGER_ICON = nav_hamburger;
-
 export const LOGIN_SIDE_BTN = login_side_btn;
-
 export const TEST =
   "https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png";
 export const GUEST_ICON = guest_icon;
-export const MAIN_INFO = mainImgDetail;
+export const SELECT_ICON = select_icon;
+export const REVIEW_GENDER_M = gender_m;
+export const REVIEW_GENDER_W = gender_w;
+export const MAIN_INFO_EVENT1 =
+  "https://www.drmartens.co.kr/data/cms/dr_marten_pc/images/065545f6-5a4d-4a9d-9721-be3b917265cb.jpg";
+export const MAIN_INFO_EVENT2 =
+  "https://www.drmartens.co.kr/data/cms/dr_marten_pc/images/80b68766-f0aa-441a-8023-b90500629c5d.jpg";
+export const MAIN_INFO_EVENT3 =
+  "https://www.drmartens.co.kr/data/cms/dr_marten_pc/images/ed652636-1618-4d69-b9e3-0ef9b8ab1636.jpg";
+
+export const MAIN_SCROLL_EVENT1 =
+  "https://www.drmartens.co.kr/data/cms/dr_marten_pc/images/d2f56580-5f6e-4c43-8202-e7a462a773f1.jpg";
+export const MAIN_SCROLL_EVENT2 =
+  "https://www.drmartens.co.kr/data/cms/dr_marten_pc/images/31201dcb-80d4-45c1-b34a-b5f5928bd765.jpg";
+export const MAIN_SCROLL_EVENT3 =
+  "https://www.drmartens.co.kr/data/cms/dr_marten_pc/images/3da3bf81-6fae-4e1d-bb41-b8ce31dda4c3.jpg";
+
+export const TEST = main_top_slide;
+export const TEST2 = main_scroll_test;
 
 // login & sign up
 
 // PATH
 // main
+export const SCROLL_TOP_BTN =
+  "M45.928 29.111L32.92 15.943 19.913 29.111l2.807 2.841 8.215-8.316v27.298h3.97V23.635l8.216 8.317 2.807-2.841z";
+
+// product_list
+export const PATH_BACK =
+  "M33.974 9.503H5.771l7.493-7.402L11.128-.01-.012 10.995 11.128 22l2.136-2.111-7.493-7.401h28.203V9.503z";
 
 // product_detail
 export const PATH_SHARE =
@@ -40,6 +67,8 @@ export const PLUS =
   "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAADBJREFUeNpi/P//PwM2ICQkBJZ49+4dIzZ5JgYywUjQyCgoKPifvjaOxiMNNAIEGABcMg9GSgmpawAAAABJRU5ErkJggg==";
 export const REVIEW_IMG =
   "M0 .001v47.996h56V.001H0zm50 6V17.49l-7.89-7.891-12.286 12.287-5.019-5.021L6 35.67V6.001h44zM8.156 41.999l16.649-16.646 8.987 8.987 4.242-4.242-3.969-3.971 8.045-8.044 7.89 7.89v16.026H8.156z";
+export const QNA_ICON =
+  "M0 55.998V17.992h8V6.446l6.444-6.448h9.112L30 6.446v11.546h8v38.006H0zM24 8.929l-2.929-2.928h-4.142L14 8.929v9.063h10V8.929zm8 15.063H6v26.004h26V23.992zM22 42.996h-6V30.994h6v12.002z";
 
 // navbar
 export const PATH_SEARCH =
@@ -66,3 +95,29 @@ export const PATH_SOCIAL4 =
   "M52 104C23.281 104 0 80.719 0 52S23.281 0 52 0s52 23.281 52 52-23.281 52-52 52zM52 3C24.981 3 3 24.982 3 52c0 27.019 21.981 49 49 49s49-21.981 49-49c0-27.018-21.981-49-49-49zm12.251 75.817H39.749c-8.031 0-14.565-6.534-14.565-14.565V39.748c0-8.031 6.534-14.565 14.565-14.565h24.502c8.031 0 14.565 6.534 14.565 14.565v24.504c0 8.031-6.534 14.565-14.565 14.565zm9.543-39.069c0-5.261-4.281-9.542-9.543-9.542H39.749c-5.262 0-9.543 4.281-9.543 9.542v24.504c0 5.262 4.281 9.542 9.543 9.542h24.502c5.262 0 9.543-4.28 9.543-9.542V39.748zm-7.169 2.121a3.647 3.647 0 11.002-7.294 3.647 3.647 0 01-.002 7.294zM52 65.449c-7.416 0-13.449-6.034-13.449-13.449S44.584 38.552 52 38.552c7.415 0 13.448 6.033 13.448 13.448S59.415 65.449 52 65.449zm0-21.875c-4.647 0-8.427 3.78-8.427 8.426 0 4.646 3.78 8.427 8.427 8.427 4.646 0 8.426-3.781 8.426-8.427 0-4.646-3.78-8.426-8.426-8.426z";
 
 // login & sign up
+
+// wish button
+export const WISH_BTN1 =
+  "M19.4 4.3c-1.3-1.3-3.6-1.3-4.9 0L12 6.9 9.5 4.3c-.6-.6-1.5-1-2.4-1-.9 0-1.8.4-2.4 1-1.3 1.3-1.3 3.5 0 4.9l7.4 7.4 7.4-7.4c1.3-1.4 1.3-3.5-.1-4.9z";
+export const WISH_BTN2 =
+  "M17 .4c-1.7 0-3.3.7-4.5 1.9l-.5.4-.4-.4a6.37 6.37 0 00-9.1-.1c-2.5 2.5-2.5 6.5 0 9l9.5 9.5 9.5-9.5c1.2-1.2 1.9-2.8 1.9-4.5 0-3.5-2.9-6.4-6.4-6.3zm2.4 8.8L12 16.6 4.6 9.2c-1.3-1.3-1.3-3.5 0-4.9.6-.6 1.5-1 2.4-1 .9 0 1.8.4 2.4 1L12 6.9l2.5-2.5c1.3-1.3 3.6-1.3 4.9 0 1.4 1.3 1.4 3.4 0 4.8z";
+
+// Object
+// product_list
+export const category = {
+  0: "신발",
+  1: "부츠",
+  2: "슈즈",
+  3: "샌들",
+};
+
+export const category_description = {
+  신발:
+    "오리지널 풋웨어부터 얼터너티브한 부츠, 슈즈, 액세서리는 자신을 표현하기 좋은 수단입니다. 여성 컬렉션을 만나보세요.",
+  부츠:
+    "닥터마틴의 여성 부츠 컬렉션입니다. 심플한 스타일부터 과감한 스타일까지 개성을 지닌 닥터 마틴의 여성 부츠는 성별과 나이를 초월해 시대를 상징하는 아이템으로 폭넓게 사랑받고 있습니다. 닥터마틴의 여성 부츠는1460, 2976, 101, 1490 등 오리지널 부츠부터 제이든과 같은 퓨전 스타일까지 자기 자신을 표현하는 수단으로서 자리잡았습니다.",
+  슈즈:
+    "여성 슈즈 컬렉션은 노동자 계층과 서브컬처에서 출발해 대중과 셀러브리티에게 사랑받고 있습니다. 매해 새롭게 등장하는 슈즈 컬렉션은 오리지널 실루엣 뿐만 아니라 트렌드에 걸맞는 컨템포러리한 디자인을 통해 우리의 헤리티지를 이어오고 있습니다.",
+  샌들:
+    "닥터마틴의 DNA를 담은 여성용 샌들로 여름을 즐겨보세요. 내구성이 뛰어나고 개성 있는 스타일의 샌들은 뜨거운 날씨에 당신의 스타일을 더욱 매력적으로 보여줍니다.",
+};

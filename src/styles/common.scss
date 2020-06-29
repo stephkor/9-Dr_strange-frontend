@@ -47,11 +47,19 @@ body {
 }
 
 .font-b {
-	font-weight: 600;
+	font-weight: 700;
 }
 
 .m-auto {
 	margin: 0 auto;
+}
+
+.m-t-40 {
+	margin-top: 40px;
+}
+
+.m-b-50 {
+	margin-bottom: 50px;
 }
 
 .m-w-1140 {
@@ -106,5 +114,51 @@ body {
 
 	.underline {
 		border-bottom: 1px solid #111;
+	}
+}
+
+.scroll-s {
+	scroll-behavior: smooth;
+}
+
+// 후기, 문의사항 더보기 버튼
+.more-btn {
+	display: flex;
+	justify-content: center;
+
+	button {
+		padding: 15px 103px;
+		font-size: 18px;
+		font-weight: 700;
+		color: white;
+		background-color: #111;
+	}
+}
+
+// ScrollTopBtn 스타일
+.ScrollTopBtn,
+.ScrollTopBtn_click {
+	width: 64px;
+	height: 64px;
+	border: 2px solid #111;
+}
+
+// wish 버튼
+.WishButton {
+	display: inline-flex;
+	padding: 5px;
+	margin-bottom: 18px;
+	svg {
+		display: inline-block;
+		width: 22px;
+		height: 22px;
+		margin-right: 6px;
+	}
+	.wish_number {
+		display: inline-block;
+		padding-top: 2px;
+		font-family: 'Trade Gothic LT Std Cn', 'Spoqa Han Sans', sans-serif;
+		font-size: 20px;
+		font-weight: 700;
 	}
 }
