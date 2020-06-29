@@ -11,8 +11,6 @@ class CheckBox extends React.Component {
             <input
               className="check_box_input"
               type="checkbox"
-              name="idsa"
-              id="idsave"
               value="checked"
             ></input>
             <span className="check_box_save_info">{this.props.name}</span>

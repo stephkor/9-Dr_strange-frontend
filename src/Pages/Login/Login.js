@@ -6,7 +6,39 @@ import { LOGIN_SIDE_BTN } from "config";
 import ItemBoxID from "Components/ItemBox/ItemBoxID";
 
 class Login extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      id: "",
+      password: "",
+    };
+  }
+  handleIdPw = (e, userinfo) => {
+    this.setState({
+      [userinfo]: e.target.value,
+    });
+    console.log(e, userinfo);
+  };
+
+  componentDidMount() {}
+
+  handleBtn = () => {
+    // post
+    fetch("http://10.58.4.29:8000/user/signin", {
+      // fetch 인자의 첫 번째 인자는 api 주소고, 두 번째 인자는 객체 형태이고
+      method: "POST", // 메소드 뒤에 포스트를 스트링으로 적어줘야 하는데, get은 디폴트 값이 원래 있어서 안 써줘도 됨.
+      body: JSON.stringify({
+        // body를 json화 시켜서 보내줘야 함. 토큰이 들어오면 json body에 들어옴.
+        nickname: this.state.id,
+        password: this.state.password,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res)); // then.(res=>localStorage.setItem("token", res.token)) -> 토큰 받음.
+  };
+
   render() {
+    console.log(this.state);
     return (
       <>
         <Nav />
@@ -25,8 +57,17 @@ class Login extends React.Component {
               <p className="text_box_title2">로그인</p>
             </div>
             <div className="input_container">
-              <ItemBoxID name="아이디" />
-              <ItemBoxID name="비밀번호" type="password" />
+              <ItemBoxID
+                userinfo="id"
+                name="아이디"
+                handleIdPw={this.handleIdPw}
+              />
+              <ItemBoxID
+                userinfo="password"
+                name="비밀번호"
+                type="password"
+                handleIdPw={this.handleIdPw}
+              />
               <div className="find_id_pw">
                 <label className="check_box">
                   <div className="flex_div_box">
@@ -41,7 +82,9 @@ class Login extends React.Component {
                 </label>
               </div>
               <div className="login-section">
-                <button className="button">로그인</button>
+                <button className="button" onClick={this.handleBtn}>
+                  로그인
+                </button>
               </div>
               <div className="flex_div_box2">
                 <div className="sign_up">

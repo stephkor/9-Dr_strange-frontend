@@ -2,8 +2,8 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import React from "react";
 import NavFooterIcon from "../NavFooterIcon";
+import { Link } from "react-router-dom";
 import Menu from "Pages/Main/Main_sumin/Menu";
-import "styles/common.scss";
 import "./Nav.scss";
 import {
   HAMBURGER_ICON,
@@ -36,16 +36,16 @@ class Nav extends React.Component {
           <div className="nav_menu m-auto m-w-1140">
             <ul>
               <li>
-                <a href="123">로그인</a>
+                {/* login component merge 후 링크 수정할 예정 */}
+                <Link to="/" className="nav_sign_up_btn">
+                  로그인
+                </Link>
               </li>
               <li>
-                <a className="nav_sign_up_btn" href="123"></a>
-                <a href="">로그인</a>
-              </li>
-              <li>
-                <a className="nav_sign_up_btn" href="">
+                {/* signUp component merge 후 링크 수정할 예정 */}
+                <Link to="/" className="nav_sign_up_btn">
                   회원가입
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="123">매장찾기</a>
@@ -81,7 +81,11 @@ class Nav extends React.Component {
             >
               <Menu />
             </div>
-            <img className="logo" alt="Dr.Martins_logo" src={LOGO} />
+
+            <Link to="/">
+             <img className="logo" alt="Dr.Martins_logo" src={LOGO} />
+            </Link>
+
             <input
               className="search_form"
               type="text"
