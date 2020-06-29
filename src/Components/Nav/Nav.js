@@ -3,7 +3,7 @@
 import React from "react";
 import NavFooterIcon from "../NavFooterIcon";
 import { Link } from "react-router-dom";
-import Menu from "Pages/Main/Main_sumin/Menu";
+import Menu from "Pages/Main/Main_HamburderList/Menu";
 import "./Nav.scss";
 import {
   HAMBURGER_ICON,
@@ -36,14 +36,11 @@ class Nav extends React.Component {
           <div className="nav_menu m-auto m-w-1140">
             <ul>
               <li>
-                {/* login component merge 후 링크 수정할 예정 */}
-                <Link to="/" className="nav_sign_up_btn">
-                  로그인
-                </Link>
+                <Link to="/login">로그인</Link>
               </li>
               <li>
                 {/* signUp component merge 후 링크 수정할 예정 */}
-                <Link to="/" className="nav_sign_up_btn">
+                <Link to="/signup" className="nav_sign_up_btn">
                   회원가입
                 </Link>
               </li>
@@ -83,7 +80,7 @@ class Nav extends React.Component {
             </div>
 
             <Link to="/">
-             <img className="logo" alt="Dr.Martins_logo" src={LOGO} />
+              <img className="logo" alt="Dr.Martins_logo" src={LOGO} />
             </Link>
 
             <input
