@@ -16,7 +16,7 @@ class SignUp extends React.Component {
       passwordCheck: "",
       email: "",
       date: "",
-      value: "0",
+      checkedValue: false,
     };
   }
   handleIdPw = (e, userinfo) => {
@@ -26,7 +26,10 @@ class SignUp extends React.Component {
     console.log(e, userinfo);
   };
 
-  handleClickCheckBox = () => {};
+  handleClickCheckBox = (e) => {
+    console.log(e.target.checked);
+  };
+
   render() {
     return (
       <>
@@ -102,7 +105,7 @@ class SignUp extends React.Component {
             <input className="email_import_add" readOnly="readonly" />
             <CheckBox
               name="정보 메일을 수신하겠습니다."
-              onClick={this.handleClickCheckBox}
+              handleClickCheckBox={this.handleClickCheckBox}
             />
             <div className="input_phone_box">
               <span className="input_phone_box_msg">휴대폰</span>
@@ -112,7 +115,7 @@ class SignUp extends React.Component {
             </div>
             <CheckBox
               name="SMS를 수신하겠습니다."
-              onClick={this.handleCheckBox}
+              handleClickCheckBox={this.handleClickCheckBox}
             />
             <div className="search_id_box">
               <ItemBoxID name="추천인ID(선택)" handleIdPw={this.handleIdPw} />
