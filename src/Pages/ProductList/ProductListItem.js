@@ -18,7 +18,6 @@ class ProductListItem extends React.Component {
     // });
     return (
       <section className="ProductListMap">
-        {/* ㅠㅠ 어떻게 하는건지 모르겠어요...멘붕... */}
         {img.length === 1 ? (
           <div className="product_small">
             <img alt="product_list_img" src={img[0]} />
