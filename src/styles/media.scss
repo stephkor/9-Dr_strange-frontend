@@ -1,0 +1,15 @@
+@media only screen and (max-width: 1500px) {
+	.ProductDetail {
+		.detail_scroll_sidebar {
+			display: none;
+		}
+	}
+}
+
+@media only screen and (max-width: 1140px) {
+	.ProductDetail,
+	.Nav {
+		margin: 0 auto;
+		padding: 0 30px;
+	}
+}
