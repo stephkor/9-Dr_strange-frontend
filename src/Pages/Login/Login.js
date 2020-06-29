@@ -1,0 +1,107 @@
+import React from "react";
+import Nav from "Components/Nav/Nav";
+import "./Login.scss";
+// import { LOGIN_SIDE_BTN } from "config";
+import LOGIN_SIDE_BTN from "Images/Login/login_side_btn.jpg";
+import ItemBoxID from "Components/ItemBox/ItemBoxID";
+
+class Login extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      id: "",
+      password: "",
+    };
+  }
+  handleIdPw = (e, userinfo) => {
+    this.setState({
+      [userinfo]: e.target.value,
+    });
+    console.log(e, userinfo);
+  };
+
+  componentDidMount() {}
+
+  handleBtn = () => {
+    // post
+    fetch("http://10.58.4.29:8000/user/signin", {
+      // fetch 인자의 첫 번째 인자는 api 주소고, 두 번째 인자는 객체 형태이고
+      method: "POST", // 메소드 뒤에 포스트를 스트링으로 적어줘야 하는데, get은 디폴트 값이 원래 있어서 안 써줘도 됨.
+      body: JSON.stringify({
+        // body를 json화 시켜서 보내줘야 함. 토큰이 들어오면 json body에 들어옴.
+        nickname: this.state.id,
+        password: this.state.password,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => console.log(res)); // then.(res=>localStorage.setItem("token", res.token)) -> 토큰 받음.
+  };
+
+  render() {
+    console.log(this.state);
+    return (
+      <>
+        <Nav />
+        <div className="Login">
+          <div className="Login_Contanier">
+            <div className="text_box_div">
+              <div className="text_box_title">
+                어서오세요.
+                <img className="login_btn_image" src={LOGIN_SIDE_BTN} alt="" />
+              </div>
+              <p className="text_box_content">
+                닥터마틴에 오신 것을 환영합니다.
+              </p>
+            </div>
+            <div className="text_box_div2">
+              <p className="text_box_title2">로그인</p>
+            </div>
+            <div className="input_container">
+              <ItemBoxID
+                userinfo="id"
+                name="아이디"
+                handleIdPw={this.handleIdPw}
+              />
+              <ItemBoxID
+                userinfo="password"
+                name="비밀번호"
+                type="password"
+                handleIdPw={this.handleIdPw}
+              />
+              <div className="find_id_pw">
+                <label className="check_box">
+                  <div className="flex_div_box">
+                    <input className="check_box_input" type="checkbox"></input>
+                    <span className="check_box_idsave">아이디 자동저장</span>
+                  </div>
+                  <div className="right_option">
+                    <a href="https://drmartens.co.kr/member/find">
+                      아이디 / 비밀번호 찾기
+                    </a>
+                  </div>
+                </label>
+              </div>
+              <div className="login-section">
+                <button className="button" onClick={this.handleBtn}>
+                  로그인
+                </button>
+              </div>
+              <div className="flex_div_box2">
+                <div className="sign_up">
+                  <a
+                    className="sign_up_text"
+                    href="https://m.drmartens.co.kr/member/agreement"
+                  >
+                    회원가입
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  }
+}
+
+export default Login;
