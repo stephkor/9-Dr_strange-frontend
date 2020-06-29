@@ -9,11 +9,14 @@ class ReviewBoard extends React.Component {
       isActive: false,
     };
   }
+
+  // 클릭 시 리뷰창이 펼쳐지고 닫히는 이벤트
   openReviewHandler = () => {
     this.setState({
       isActive: !this.state.isActive,
     });
   };
+
   render() {
     const { isActive } = this.state;
     const { name, title, img, size, rating, content } = this.props;

@@ -1,35 +1,51 @@
 import React from "react";
-import "./ProductList.scss";
 import ListWishButton from "Pages/ProductList/ListWishButton";
+import "./ProductList.scss";
 
-class ProductListMap extends React.Component {
+class ProductListItem extends React.Component {
   render() {
     const {
       color,
-      name,
       like,
+      name,
       originPrice,
       salePrice,
       img,
       index,
     } = this.props;
+    // const img_switch = img.map((_, i) => {
+    //   <img alt="product_list_img" src={img[i]} />;
+    // });
     return (
       <section className="ProductListMap">
-        {img[2] ? (
+        {/* ㅠㅠ 어떻게 하는건지 모르겠어요...멘붕... */}
+        {img.length === 1 ? (
           <div className="product_small">
-            <img alt={name} src={img} />
+            <img alt="product_list_img" src={img[0]} />
           </div>
         ) : index % 9 === 0 ? (
           <div className="product_large">
-            <img alt={name} src={img[0]} />
-            <img alt={name} src={img[1]} />
+            <img alt="product_list_img" src={img[0]} />
+            <img alt="product_list_img" src={img[1]} />
           </div>
         ) : (
           <div className="product_medium">
-            <img alt={name} src={img[0]} />
-            <img alt={name} src={img[1]} />
+            <img alt="product_list_img" src={img[0]} />
+            <img alt="product_list_img" src={img[1]} />
           </div>
         )}
+        {/* //   {img.length === 1 ? (
+      //     <div className="product_small">{img_switch}</div>
+      //   ) : index % 9 === 0 ? (
+      //     <div className="product_large">{img_switch}</div>
+      //   ) : (
+      //     <div className="product_medium">{img_switch}</div>
+      //   )} */}
+        {/* {
+          switch(img){
+            case (length === 1) : 
+          }
+        } */}
         <div className="product_list_info">
           <div className="list_info_content">
             <h2>{name}</h2>
@@ -58,4 +74,4 @@ class ProductListMap extends React.Component {
     );
   }
 }
-export default ProductListMap;
+export default ProductListItem;

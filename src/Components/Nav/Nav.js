@@ -20,12 +20,16 @@ class Nav extends React.Component {
           <div className="nav_menu m-auto m-w-1140">
             <ul>
               <li>
-                <a href="">로그인</a>
+                {/* login component merge 후 링크 수정할 예정 */}
+                <Link to="/" className="nav_sign_up_btn">
+                  로그인
+                </Link>
               </li>
               <li>
-                <a className="nav_sign_up_btn" href="">
+                {/* signUp component merge 후 링크 수정할 예정 */}
+                <Link to="/" className="nav_sign_up_btn">
                   회원가입
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="">매장찾기</a>

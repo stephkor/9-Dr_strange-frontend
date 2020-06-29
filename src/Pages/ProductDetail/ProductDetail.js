@@ -1,15 +1,16 @@
 import React from "react";
-import "./ProductDetail.scss";
 import Nav from "Components/Nav/Nav";
 import Footer from "Components/Footer/Footer";
 import Path from "Components/Path";
 import Thumbnail from "./Thumbnail";
 import SizeBtn from "./SizeBtn";
+import DetailWishButton from "./DetailWishButton";
 import SizeTable from "./SizeTable";
 import SubTitle from "./SubTitle";
 import ReviewBoard from "./ReviewBoard";
 import QnaBoard from "./QnaBoard";
 import RefundForm from "./RefundForm";
+import "./ProductDetail.scss";
 import {
   MINUS,
   PLUS,
@@ -25,14 +26,12 @@ class ProductDetail extends React.Component {
       productData: {},
       productThumbnail: [],
       productImg: [],
-      // Size state
       sizeArr: [],
       currentSize: 0,
-      // Price state
+      like: 0,
       currentOrigin: 0,
       currentSale: 0,
       currentQuantity: 1,
-      // review state
       reviewArr: [],
       reviewFilter: 3,
     };
@@ -53,6 +52,7 @@ class ProductDetail extends React.Component {
             this.state.productData.productThumbnail
           ),
           sizeArr: Object.entries(this.state.productData.size),
+          like: this.state.productData.like,
           currentOrigin: this.state.productData.originPrice,
           currentSale: this.state.productData.salePrice,
           reviewArr: this.state.productData.reviewInfo,
@@ -97,7 +97,7 @@ class ProductDetail extends React.Component {
     });
   };
 
-  // input 창에 수량 입력 시 현재 수량 및 가격 변동 - 수정해야함
+  // input 창에 수량 입력 시 현재 수량 및 가격 변동 - 수정 필요해서 주석 처리
   // setInputHandler = (e) => {
   //   this.setState({
   //     currentQuantity: +e.target.value,
@@ -120,6 +120,7 @@ class ProductDetail extends React.Component {
       productThumbnail,
       currentSize,
       sizeArr,
+      like,
       currentOrigin,
       currentSale,
       currentQuantity,
@@ -188,7 +189,7 @@ class ProductDetail extends React.Component {
 
             <div className="product_detail_form p-r">
               <div className="product_detail_sticky p-s t-0">
-                <div className="product_detail_top">
+                <div className="product_detail_top p-r">
                   <Path
                     width="20"
                     height="23"
@@ -196,7 +197,7 @@ class ProductDetail extends React.Component {
                     path={PATH_SHARE}
                   />
 
-                  {/* <Heart Component /> */}
+                  {like > 0 && <DetailWishButton like={like} />}
                   <div className="review_count">
                     <p>
                       ★★★★★
