@@ -1,8 +1,6 @@
 import React from "react";
-import "styles/reset.scss";
-import "./ProductFilter.scss";
-import "styles/common.scss";
 import ProductItemSlider from "./ProductItemSlider.js";
+import "./ProductFilter.scss";
 
 class ProductFilter extends React.Component {
   render() {

@@ -56,16 +56,13 @@
 			justify-content: space-between;
 			margin-top: 19px;
 
-			.product_item_price_wrapper {
-				.product_item_price::before {
+			span {
+				font-size: 30px;
+				&::before {
 					content: '₩';
 					padding: 0 5px;
 					font-weight: 400;
 					font-size: 24px;
-				}
-
-				.product_item_price {
-					font-size: 30px;
 				}
 			}
 
@@ -100,13 +97,13 @@
 				width: 64px;
 				height: 64px;
 				top: 562px;
-			}
 
-			.slick-prev::before,
-			.slick-next::before {
-				content: none;
-				width: 64px;
-				height: 64px;
+				&::before,
+				&::before {
+					content: none;
+					width: 64px;
+					height: 64px;
+				}
 			}
 
 			.slick-dots {

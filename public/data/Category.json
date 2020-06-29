@@ -2,50 +2,38 @@
 	"여성": [
 		{
 			"productName": "[30%할인]라이커",
-
 			"like": 836,
-
 			"productImg": [
 				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
 				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
 				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png"
 			],
-
 			"orignPrice": 170000,
 			"salePrice": 119000,
-
 			"productNum": 24515001
 		},
 		{
 			"productName": "3번째 상품",
-
 			"like": 836,
-
 			"productImg": [
 				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
 				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
 				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png"
 			],
-
 			"orignPrice": 170000,
 			"salePrice": 119000,
-
 			"productNum": 24515001
 		},
 		{
 			"productName": "[30%할인]라이커",
-
 			"like": 836,
-
 			"productImg": [
 				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
 				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png",
 				"https://www.drmartens.co.kr/data/goods/1/2020/04/9214_tmp_36ccd658690a7e37ab4c06adb39e00bd9127view.png"
 			],
-
 			"orignPrice": 170000,
 			"salePrice": 119000,
-
 			"productNum": 24515001
 		}
 	],
@@ -61,7 +49,6 @@
 			],
 			"orignPrice": 170000,
 			"salePrice": 119000,
-
 			"productNum": 24515001
 		},
 		{

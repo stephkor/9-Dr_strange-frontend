@@ -82,16 +82,14 @@
 								font-weight: 400;
 								padding: 10px 10px;
 
-								.sub .arrow_btn {
-									.arrow_path {
-										letter-spacing: -0.04rem;
-										width: 15px;
-										height: 26px;
-									}
-									&::before,
-									::after {
-										box-sizing: inherit;
-									}
+								.arrow_path {
+									letter-spacing: -0.04rem;
+									width: 15px;
+									height: 26px;
+								}
+								&::before,
+								::after {
+									box-sizing: inherit;
 								}
 							}
 

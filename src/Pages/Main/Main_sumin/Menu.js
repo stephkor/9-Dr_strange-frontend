@@ -1,5 +1,4 @@
 import React from "react";
-import "./Menu.scss";
 import HamburgerList from "./HamburgerList";
 import ArrowIcon from "Components/ArrowIcon";
 import { PATH_ARROW } from "config";

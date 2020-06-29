@@ -1,5 +1,4 @@
 import React from "react";
-import "styles/reset.scss";
 import WishButton from "Components/WishButton";
 
 class ProductItemContainer extends React.Component {
@@ -40,7 +39,7 @@ class ProductItemContainer extends React.Component {
         </div>
         <div className="product_item_container_bottom">
           <div className="product_item_price_wrapper num-font">
-            <span className="product_item_price num-font">170,000</span>
+            <span className="num-font">170,000</span>
           </div>
           <button className="add_to_cart">장바구니 담기</button>
         </div>

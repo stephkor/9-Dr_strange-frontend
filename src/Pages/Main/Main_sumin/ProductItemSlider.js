@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+import ProductItemContainer from "./ProductItemContainer";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ProductItemContainer from "./ProductItemContainer";
 
 export default class ProductItemSlider extends Component {
   render() {
@@ -32,6 +32,7 @@ export default class ProductItemSlider extends Component {
         },
       ],
     };
+
     return (
       <div className="ProductItemSlider">
         <Slider {...settings}>

@@ -1,35 +1,25 @@
 import React from "react";
-import "styles/reset.scss";
 
 class WishButton extends React.Component {
   constructor() {
     super();
     this.state = {
-      fill: "transparent",
-      click: false,
-      wishNum: 0,
+      clickWish: false,
+      wishAmount: 0,
     };
   }
-
-  handleClick = () => {
-    this.setState({
-      click: !this.state.click,
-    });
-  };
-
-  //   handleWishNum = () => {
-  //     if (this.state.click) {
-  //       return this.setState({
-  //         wishNum: "" + 1,
-  //       });
-  //     }
-  //   };
 
   componentDidMount() {
     fetch("http://localhost:3000/data/productDetailInfo.json")
       .then((res) => res.json())
-      .then((res) => this.setState({ wishNum: res.productDetailInfo.like }));
+      .then((res) => this.setState({ wishAmount: res.productDetailInfo.like }));
   }
+
+  handleClick = () => {
+    this.setState({
+      clickWish: !this.state.clickWish,
+    });
+  };
 
   render() {
     return (
@@ -44,7 +34,7 @@ class WishButton extends React.Component {
             pid="0"
             className="st0"
             d="M19.4 4.3c-1.3-1.3-3.6-1.3-4.9 0L12 6.9 9.5 4.3c-.6-.6-1.5-1-2.4-1-.9 0-1.8.4-2.4 1-1.3 1.3-1.3 3.5 0 4.9l7.4 7.4 7.4-7.4c1.3-1.4 1.3-3.5-.1-4.9z"
-            style={{ fill: this.state.click ? "yellow" : "transparent" }}
+            style={{ fill: this.state.clickWish ? "yellow" : "transparent" }}
           ></path>
           <path
             pid="1"
@@ -53,7 +43,9 @@ class WishButton extends React.Component {
           ></path>
         </svg>
         <span className="wish_number">
-          {this.state.click ? this.state.wishNum + 1 : this.state.wishNum}
+          {this.state.clickWish
+            ? this.state.wishAmount + 1
+            : this.state.wishAmount}
         </span>
       </button>
     );

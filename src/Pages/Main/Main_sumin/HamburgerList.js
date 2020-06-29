@@ -1,8 +1,6 @@
 import React from "react";
 import ArrowIcon from "Components/ArrowIcon";
 import { PATH_ARROW } from "config";
-import "./Menu.scss";
-import "styles/reset.scss";
 
 class HamburgerList extends React.Component {
   constructor() {
@@ -38,8 +36,6 @@ class HamburgerList extends React.Component {
             >
               <p className="category_title">{categoryTitle}</p>
               <ArrowIcon
-                data-v-c3045632=""
-                version="1.1"
                 view="0 0 60 35"
                 path={PATH_ARROW}
                 height="20"
@@ -60,8 +56,6 @@ class HamburgerList extends React.Component {
                   <span className="sub_category_title">신발</span>
 
                   <ArrowIcon
-                    data-v-c3045632=""
-                    version="1.1"
                     view=" 0 0 60 35"
                     width="15"
                     height="15"
@@ -88,8 +82,6 @@ class HamburgerList extends React.Component {
                   <span className="sub_category_title">컬렉션</span>
 
                   <ArrowIcon
-                    data-v-c3045632=""
-                    version="1.1"
                     view=" 0 0 60 35"
                     width="15"
                     height="15"
@@ -102,8 +94,6 @@ class HamburgerList extends React.Component {
                   <span className="sub_category_title">액세서리</span>
 
                   <ArrowIcon
-                    data-v-c3045632=""
-                    version="1.1"
                     view="0 0 60 35"
                     path={PATH_ARROW}
                     className="arrow"
