@@ -12,7 +12,7 @@ class ProductList extends React.Component {
     super();
     this.state = {
       productListData: [],
-      productId: 0,
+      currentCategoryId: 0,
     };
   }
 
@@ -30,14 +30,14 @@ class ProductList extends React.Component {
   // sub category 클릭시 버튼 클릭 스타일 및 설명 변경
   categorySelectHandler = (id) => {
     this.setState({
-      productId: id,
+      currentCategoryId: id,
     });
   };
 
   render() {
-    const { productListData, productId } = this.state;
+    const { productListData, currentCategoryId } = this.state;
     const category_filter = productListData.filter(
-      (product) => product.id === productId || productId === 0
+      (product) => product.id === currentCategoryId || currentCategoryId === 0
     );
 
     return (
@@ -48,7 +48,7 @@ class ProductList extends React.Component {
             <Link to="/">
               <Path width="34" height="22" view="0 0 34 22" path={PATH_BACK} />
             </Link>
-            <h1>{category[productId]}</h1>
+            <h1>{category[currentCategoryId]}</h1>
             <p>{category_filter.length}개의 신발 상품이 있습니다.</p>
           </div>
 
@@ -66,7 +66,9 @@ class ProductList extends React.Component {
 
           <div className="product_list_subcategory">
             <button
-              className={productId === 1 ? "click_on underline" : "click_off"}
+              className={
+                currentCategoryId === 1 ? "click_on underline" : "click_off"
+              }
               href=""
               onClick={() => this.categorySelectHandler(1)}
             >
@@ -74,7 +76,9 @@ class ProductList extends React.Component {
             </button>
 
             <button
-              className={productId === 2 ? "click_on underline" : "click_off"}
+              className={
+                currentCategoryId === 2 ? "click_on underline" : "click_off"
+              }
               href=""
               onClick={() => this.categorySelectHandler(2)}
             >
@@ -82,7 +86,9 @@ class ProductList extends React.Component {
             </button>
 
             <button
-              className={productId === 3 ? "click_on underline" : "click_off"}
+              className={
+                currentCategoryId === 3 ? "click_on underline" : "click_off"
+              }
               href=""
               onClick={() => this.categorySelectHandler(3)}
             >
@@ -90,7 +96,7 @@ class ProductList extends React.Component {
             </button>
           </div>
           <div className="product_list_subcategory_desc">
-            <p>{category_description[category[productId]]}</p>
+            <p>{category_description[category[currentCategoryId]]}</p>
           </div>
         </article>
 
