@@ -7,7 +7,7 @@ class ProductFilter extends React.Component {
     return (
       <section className="filter_wrapper">
         <div className="ProductFilter">
-          <h2 className="filter_title">베스트셀러</h2>
+          <h2 className="filter_title font-b">베스트셀러</h2>
           <nav className="filter_category">
             <ul>
               <li className="category">
