@@ -1,12 +1,11 @@
 import React from "react";
 import Nav from "Components/Nav/Nav";
+import MainSlider from "./Main_Slider/MainSlider";
 import ProductFilter from "./Main_HamburderList/ProductFilter";
 import Footer from "Components/Footer/Footer";
-import MainImageInfo from "./MainImageInfo/MainImageInfo";
+import MainImageInfo from "./Main_ImageInfo/MainImageInfo";
 import "Pages/Main/Main.scss";
 import {
-  TEST,
-  TEST2,
   MAIN_INFO_EVENT1,
   MAIN_INFO_EVENT2,
   MAIN_INFO_EVENT3,
@@ -20,7 +19,7 @@ class Main extends React.Component {
     return (
       <section className="Main">
         <Nav />
-        <img alt="main_test" className="main_test" src={TEST} />
+        <MainSlider />
         <ProductFilter />
         <MainImageInfo
           category="콜라보레이션"
@@ -51,11 +50,7 @@ class Main extends React.Component {
           src={MAIN_SCROLL_EVENT2}
         />
         <ProductFilter />
-        <img
-          alt="main_scroll"
-          className="main_scroll_event test2"
-          src={TEST2}
-        />
+
         <div className="product_preview_test m-w-1140" />
         <MainImageInfo
           category="HOW TO USE WONDER BALSAM"

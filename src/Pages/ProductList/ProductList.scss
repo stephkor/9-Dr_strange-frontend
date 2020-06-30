@@ -73,23 +73,49 @@
 		justify-content: space-between;
 		flex-wrap: wrap;
 
-		.ProductListMap,
-		.ProducPreview {
+		.ProductListItem {
 			display: flex;
 			flex-direction: column;
-			justify-content: space-between;
 			margin-bottom: 90px;
 
-			.product_small {
+			// 9n번째 요소 한 가로열에 한 개 씩 들어가게 스타일 조정
+			&:nth-child(9n) {
+				width: 80%;
+				margin: 0 auto 90px auto;
+
 				img {
+					width: auto;
+					height: 100%;
+					background-color: #e5e5e5;
+				}
+			}
+
+			// 9n+4, 9n+5번째 요소 한 가로열에 두 개 씩 들어가게 스타일 조정
+			&:nth-child(4),
+			&:nth-child(9n + 4) {
+				width: 49%;
+
+				img {
+					max-width: 280px;
+					width: 100%;
 					height: auto;
 					background-color: #e5e5e5;
 				}
 			}
 
-			.product_medium {
-				display: flex;
+			&:nth-child(5),
+			&:nth-child(9n + 5) {
+				width: 49%;
 
+				img {
+					max-width: 280px;
+					width: 100%;
+					height: auto;
+					background-color: #e5e5e5;
+				}
+			}
+
+			.product_img_one {
 				img {
 					width: 100%;
 					height: auto;
@@ -97,7 +123,7 @@
 				}
 			}
 
-			.product_large {
+			.product_img_two {
 				display: flex;
 
 				img {
@@ -148,13 +174,13 @@
 						padding: 17px 0 3px 0;
 						font-size: 22px;
 						color: red;
-					}
 
-					.sale_price::before {
-						content: '₩';
-						padding-right: 3px;
-						font-weight: 400;
-						font-size: 16px;
+						&::before {
+							content: '₩';
+							padding-right: 3px;
+							font-weight: 400;
+							font-size: 16px;
+						}
 					}
 
 					.origin_price_ws {
@@ -162,26 +188,26 @@
 						font-size: 17px;
 						text-decoration: line-through;
 						color: #999;
-					}
 
-					.origin_price_ws::before {
-						content: '₩';
-						padding-right: 3px;
-						font-weight: 400;
-						font-size: 13px;
+						&::before {
+							content: '₩';
+							padding-right: 3px;
+							font-weight: 400;
+							font-size: 13px;
+						}
 					}
 
 					.origin_price {
 						padding-bottom: 23px;
 						font-size: 22px;
 						color: #111;
-					}
 
-					.origin_price::before {
-						content: '₩';
-						padding-right: 3px;
-						font-weight: 400;
-						font-size: 16px;
+						&::before {
+							content: '₩';
+							padding-right: 3px;
+							font-weight: 400;
+							font-size: 16px;
+						}
 					}
 
 					button {
@@ -191,10 +217,6 @@
 					}
 				}
 			}
-		}
-
-		.ProductListMap:nth-child(9n) {
-			padding: 0 110px;
 		}
 	}
 }

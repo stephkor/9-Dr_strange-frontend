@@ -108,7 +108,7 @@ class ProductDetail extends React.Component {
   // };
 
   // 더 많은 후기 보기 버튼 클릭 시 review board를 3개씩 추가로 출력
-  reviewBtnHamdler = () => {
+  reviewBtnHandler = () => {
     this.setState({
       reviewFilter: this.state.reviewFilter + 3,
     });
@@ -540,7 +540,7 @@ class ProductDetail extends React.Component {
               ))}
             </div>
             <div className="more-btn">
-              <button onClick={this.reviewBtnHamdler}>더 많은 후기 보기</button>
+              <button onClick={this.reviewBtnHandler}>더 많은 후기 보기</button>
             </div>
           </article>
 
