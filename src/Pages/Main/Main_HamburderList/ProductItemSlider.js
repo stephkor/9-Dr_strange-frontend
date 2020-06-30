@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 export default class ProductItemSlider extends Component {
   render() {
-    let settings = {
+    const settings = {
       dots: true,
       infinite: true,
       speed: 500,
