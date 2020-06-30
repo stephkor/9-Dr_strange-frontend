@@ -3,18 +3,20 @@ import "./ItemBoxID.scss";
 
 class ItemBoxID extends React.Component {
   render() {
-    const { className, type, text, userinfo } = this.props;
     return (
       <div className="ItemBoxID">
         <div className="input_component_box">
-          <span className="input_component_box_msg">{this.props.name}</span>
+          <span className={`input_component_box_msg ${this.props.chagneColor}`}>
+            {this.props.name}
+          </span>
         </div>
+        {/* <span style={{ color: "black" }}>hi</span> */}
         <div>
           <input
-            className={className}
-            type={type}
-            placeholder={text}
-            onChange={(e) => this.props.handleIdPw(e, userinfo)}
+            className={this.props.chagneColor} //input className ="a" / "b"
+            type={this.props.type}
+            placeholder={this.props.text}
+            onChange={(e) => this.props.handleIdPw(e, this.props.userinfo)}
           />
         </div>
       </div>

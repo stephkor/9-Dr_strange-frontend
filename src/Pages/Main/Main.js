@@ -24,7 +24,7 @@ class Main extends React.Component {
         <div className="slider_component m-w-1140"></div>
         <MainImageInfo
           category="콜라보레이션"
-          img={MAIN_INFO_EVENT1}
+          infoImg={MAIN_INFO_EVENT1}
           subcategory={"DR. MARTENS X PLEASURES"}
           firstLine={
             "1460의 60주년을 기념하는 1460 리마스터드의 여섯 번째 콜라보레이션."
@@ -36,7 +36,7 @@ class Main extends React.Component {
         <div className="slider_component m-w-1140" />
         <MainImageInfo
           category="센스 있는 여름 코디를 위한"
-          img={MAIN_INFO_EVENT2}
+          infoImg={MAIN_INFO_EVENT2}
           subcategory={"남성 샌들 컬렉션"}
           firstLine={"이번 여름, 어디에나 잘 어울리는 남성 샌들로"}
           secondLine={"센스 있는 스타일을 완성해보세요."}
@@ -63,7 +63,7 @@ class Main extends React.Component {
         <div className="product_preview_test m-w-1140" />
         <MainImageInfo
           category="HOW TO USE WONDER BALSAM"
-          img={MAIN_INFO_EVENT3}
+          infoImg={MAIN_INFO_EVENT3}
           subcategory={"원더발삼 관리법"}
           firstLine={
             "원더 발삼은 가죽을 튼튼하고 유연하게 하며, 오랫동안 신을 수 있게 해줍니다."

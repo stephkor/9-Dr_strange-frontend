@@ -30,6 +30,20 @@ class SignUp extends React.Component {
     console.log(e.target.checked);
   };
 
+  checkMatchPassword = () => {
+    let timer;
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(() => {
+      if (this.state.password === this.state.passwordCheck) {
+        this.setState({ isMatchPassword: true });
+      } else {
+        this.setState({ isMatchPassword: false });
+      }
+    }, 500);
+  };
+
   render() {
     return (
       <>
@@ -49,15 +63,25 @@ class SignUp extends React.Component {
               name={
                 this.state.id.length >= 6
                   ? "사용할 수 있는 아이디입니다."
-                  : "아이디"
+                  : this.state.id.length === 0
+                  ? "아이디"
+                  : "아이디 제한 글자를 맞춰주세요."
+              }
+              chagneColor={
+                this.state.id.length >= 6
+                  ? "a"
+                  : this.state.id.length === 0
+                  ? "b"
+                  : "c"
               }
               userinfo="id"
               handleIdPw={this.handleIdPw}
             />
             <ItemBoxID
               name={
-                this.state.password >= 6
-                  ? "비밀번호는 영문, 숫자 포함 6글자 이상이 돼야 합니다."
+                this.state.password.length >= 6 ||
+                this.state.password.includes("@")
+                  ? "비밀번호는 공백 없는 영문, 숫자 포함 6글자-20자"
                   : "비밀번호"
               }
               userinfo="password"
@@ -66,7 +90,11 @@ class SignUp extends React.Component {
               handleIdPw={this.handleIdPw}
             />
             <ItemBoxID
-              name="비밀번호 확인"
+              name={
+                this.state.password === this.state.passwordCheck
+                  ? "비밀번호 확인"
+                  : "서로 다른 비밀번호입니다."
+              }
               userinfo="passwordCheck"
               type="password"
               text="공백 없는 영문, 숫자 포함 6-20자"
