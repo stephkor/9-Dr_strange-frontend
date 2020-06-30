@@ -97,7 +97,7 @@ class ProductDetail extends React.Component {
     });
   };
 
-  // input 창에 수량 입력 시 현재 수량 및 가격 변동 - 수정 필요해서 주석 처리
+  // input 창에 수량 입력 시 현재 수량 및 가격 변동
   setInputHandler = (e) => {
     this.setState({
       currentQuantity: +e.target.value,
@@ -128,9 +128,6 @@ class ProductDetail extends React.Component {
     const review_filter = this.state.reviewArr.filter(
       (_, idx) => idx < this.state.reviewFilter
     );
-    console.log("수량 : ", this.state.currentQuantity);
-    console.log("원가 : ", this.state.currentOrigin);
-    console.log("세일가 : ", this.state.currentSale);
     return (
       <section id="scroll_top">
         <Nav />
@@ -535,8 +532,8 @@ class ProductDetail extends React.Component {
             </div>
             <div className="more-btn">
               <button onClick={this.reviewBtnHandler}>
-                더 많은 후기 보기 ( +
-                {this.state.reviewArr.length - this.state.reviewFilter} )
+                더 많은 후기 보기 (+
+                {this.state.reviewArr.length - this.state.reviewFilter}개)
               </button>
             </div>
           </article>

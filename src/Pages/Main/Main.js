@@ -4,7 +4,7 @@ import MainSlider from "./Main_Slider/MainSlider";
 import ProductFilter from "./Main_HamburderList/ProductFilter";
 import Footer from "Components/Footer/Footer";
 import MainImageInfo from "./Main_ImageInfo/MainImageInfo";
-import "Pages/Main/Main.scss";
+import ProductPreview from "Components/ProductPreview";
 import {
   MAIN_INFO_EVENT1,
   MAIN_INFO_EVENT2,
@@ -13,10 +13,34 @@ import {
   MAIN_SCROLL_EVENT2,
   MAIN_SCROLL_EVENT3,
 } from "config";
+import "Pages/Main/Main.scss";
 
 class Main extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      productMainListInfo: [],
+      loading: false,
+    };
+  }
+
+  // product main list data 받아오기
+  componentDidMount() {
+    fetch("http://localhost:3000/data/productMainListInfo.json")
+      .then((res) => res.json())
+      .then((res) =>
+        this.setState({
+          productMainListInfo: res.productMainListInfo,
+          loading: true,
+        })
+      );
+  }
+
   render() {
-    return (
+    const { loading, productMainListInfo } = this.state;
+    console.log("main data : ", productMainListInfo);
+    console.log("나는 main");
+    return loading ? (
       <section className="Main">
         <Nav />
         <MainSlider />
@@ -42,16 +66,14 @@ class Main extends React.Component {
           className="main_scroll_event"
           src={MAIN_SCROLL_EVENT1}
         />
-        {/* <ProducPreview /> */}
-        <div className="product_preview_test m-w-1140" />
+        <ProductPreview data={productMainListInfo} />
         <img
           alt="main_scroll"
           className="main_scroll_event"
           src={MAIN_SCROLL_EVENT2}
         />
         <ProductFilter />
-
-        <div className="product_preview_test m-w-1140" />
+        {/* <ProductPreview /> */}
         <MainImageInfo
           category="HOW TO USE WONDER BALSAM"
           img={MAIN_INFO_EVENT3}
@@ -66,6 +88,8 @@ class Main extends React.Component {
         />
         <Footer />
       </section>
+    ) : (
+      ""
     );
   }
 }

@@ -5,10 +5,108 @@
 		height: auto;
 	}
 
-	.product_preview_test {
-		margin: 100px auto 245px auto;
-		height: 466px;
-		background-color: #999;
+	.ProductPreview {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 90px;
+		height: 500px;
+		background-color: red;
+
+		.product_img_two {
+			width: 49%;
+
+			img {
+				max-width: 280px;
+				width: 100%;
+				height: auto;
+				background-color: #e5e5e5;
+			}
+		}
+
+		.product_list_info {
+			display: flex;
+			justify-content: space-between;
+			padding: 0 20px;
+
+			.list_info_content {
+				width: 50%;
+
+				h2 {
+					padding: 17px 0;
+					font-size: 18px;
+					font-weight: 700;
+				}
+
+				p {
+					padding-bottom: 17px;
+					font-size: 16px;
+					color: #666;
+				}
+
+				.WishButton {
+					margin: 0;
+					padding: 0;
+
+					.wish_number {
+						margin-top: 2px;
+					}
+				}
+			}
+
+			.list_info_option {
+				text-align: end;
+
+				p {
+					padding: 17px 0;
+				}
+
+				.sale_price {
+					padding: 17px 0 3px 0;
+					font-size: 22px;
+					color: red;
+
+					&::before {
+						content: '₩';
+						padding-right: 3px;
+						font-weight: 400;
+						font-size: 16px;
+					}
+				}
+
+				.origin_price_ws {
+					padding: 0 0 3px 0;
+					font-size: 17px;
+					text-decoration: line-through;
+					color: #999;
+
+					&::before {
+						content: '₩';
+						padding-right: 3px;
+						font-weight: 400;
+						font-size: 13px;
+					}
+				}
+
+				.origin_price {
+					padding-bottom: 23px;
+					font-size: 22px;
+					color: #111;
+
+					&::before {
+						content: '₩';
+						padding-right: 3px;
+						font-weight: 400;
+						font-size: 16px;
+					}
+				}
+
+				button {
+					font-size: 18px;
+					padding: 14px 19px;
+					border: 1px solid #111;
+				}
+			}
+		}
 	}
 
 	.MainSlider {

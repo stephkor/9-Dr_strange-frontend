@@ -1,20 +1,17 @@
 import React from "react";
 import ListWishButton from "Pages/ProductList/ListWishButton";
-import "./ProductList.scss";
 
-class ProductListItem extends React.Component {
+class ProductPreview extends React.Component {
   render() {
     const { data } = this.props;
+    console.log("나는 preview");
+    console.log("preview data : ", data);
     return (
-      <section className="ProductListItem">
-        {data.productImg.length === 1 ? (
-          <div className="product_img_one">
-            <img alt="product_list_img" src={data.productImg[0]} />
-          </div>
-        ) : (
+      <section className="ProductPreview">
+        {data.productImg && (
           <div className="product_img_two">
-            <img alt="product_list_img" src={data.productImg[0]} />
-            <img alt="product_list_img" src={data.productImg[1]} />
+            <img alt={data.productName} src={data.productImg[0]} />
+            <img alt={data.productName} src={data.productImg[1]} />
           </div>
         )}
         <div className="product_list_info">
@@ -24,19 +21,21 @@ class ProductListItem extends React.Component {
             <ListWishButton like={data.like} />
           </div>
           <div className="list_info_option">
-            {data.salePrice !== data.originPrice ? (
+            {data.salePrice ? (
               <>
                 <p className="sale_price num-font">
-                  {(+data.salePrice).toLocaleString()}
+                  {data.salePrice.toLocaleString()}
                 </p>
                 <p className="origin_price_ws num-font">
-                  {(+data.originPrice).toLocaleString()}
+                  {data.originPrice.toLocaleString()}
                 </p>
               </>
-            ) : (
+            ) : data.origin_price ? (
               <p className="origin_price num-font">
-                {(+data.originPrice).toLocaleString()}
+                {data.originPrice.toLocaleString()}
               </p>
+            ) : (
+              ""
             )}
             <button>장바구니 담기</button>
           </div>
@@ -45,4 +44,4 @@ class ProductListItem extends React.Component {
     );
   }
 }
-export default ProductListItem;
+export default ProductPreview;

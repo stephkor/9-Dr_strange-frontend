@@ -4,6 +4,7 @@ import Nav from "Components/Nav/Nav";
 import Footer from "Components/Footer/Footer";
 import ProductListItem from "./ProductListItem";
 import Path from "Components/Path";
+import ScrollTopBtn from "Components/ScrollTopBtn";
 import { PATH_BACK, category, category_description } from "config";
 import "./ProductList.scss";
 
@@ -13,19 +14,29 @@ class ProductList extends React.Component {
     this.state = {
       productListData: [],
       currentUserCategoryId: 0,
-      numOfCurrentVisibleProducts: 18,
+      currentVisibleProducts: 18,
     };
   }
 
   // product list data 받아오기
   componentDidMount() {
-    fetch("http://localhost:3000/data/productListInfo.json")
+    fetch("http://10.58.4.223:8000/products/list/women", {
+      method: "post",
+      body: JSON.stringify({}),
+    })
       .then((res) => res.json())
       .then((res) =>
         this.setState({
-          productListData: res.productListInfo,
+          productListData: res.products,
         })
       );
+  }
+
+  // currentUserCategoryId 가 바뀔때마다, currentVisibleProducts 값 초기화
+  componentDidUpdate(_, prevState) {
+    if (prevState.currentUserCategoryId !== this.state.currentUserCategoryId) {
+      this.setState({ currentVisibleProducts: 18 });
+    }
   }
 
   // sub category 클릭시 버튼 클릭 스타일 및 설명 변경
@@ -39,7 +50,7 @@ class ProductList extends React.Component {
   imgArraySorter = (data) => {
     let categoryFilter = data.filter(
       (product) =>
-        product.id === this.state.currentUserCategoryId ||
+        product.subCategoryId === this.state.currentUserCategoryId ||
         this.state.currentUserCategoryId === 0
     );
     let lengthOne = [];
@@ -73,6 +84,13 @@ class ProductList extends React.Component {
     return arraySort(lengthOne, lengthTwo);
   };
 
+  // 더 많은 제품 보기 버튼 클릭 시 product list가 추가로 보여짐
+  pageMoreBtnHandler = () => {
+    this.setState({
+      currentVisibleProducts: this.state.currentVisibleProducts + 18,
+    });
+  };
+
   // 뒤로가기 버튼
   goBackHandler = () => {
     this.props.history.goBack();
@@ -80,8 +98,11 @@ class ProductList extends React.Component {
 
   render() {
     const { productListData, currentUserCategoryId } = this.state;
+    const product_list_filter = this.imgArraySorter(productListData).filter(
+      (_, idx) => idx < this.state.currentVisibleProducts
+    );
     return (
-      <section className="ProductList">
+      <section className="ProductList" id="scroll_top">
         <Nav />
         <article className="product_list_title m-w-1140 m-auto">
           <div className="product_list_top">
@@ -148,14 +169,44 @@ class ProductList extends React.Component {
         </article>
 
         <article className="product_list_content m-w-1140 m-auto">
-          {this.imgArraySorter(productListData).map((product, idx) => (
+          {product_list_filter.map((product, idx) => (
             <ProductListItem data={product} key={idx} />
           ))}
         </article>
 
-        <div className="more-btn">
-          <button onClick={this.reviewBtnHandler}>더 많은 상품 보기</button>
-        </div>
+        <section className="more-btn">
+          <button onClick={this.pageMoreBtnHandler}>
+            더 많은 제품 보기 (+
+            {this.imgArraySorter(productListData).length -
+              this.state.currentVisibleProducts}
+            개)
+          </button>
+        </section>
+
+        <section className="popularity_keyword_form m-w-1140 m-auto p-r">
+          <h2>인기 키워드</h2>
+          <p>당신에게 맞는 키워드를 클릭해 보세요.</p>
+          <ul>
+            <li>한소희 샌들</li>
+            <li>샌들</li>
+            <li>롱부츠</li>
+            <li>베스트셀러</li>
+            <li>최저가</li>
+            <li>콜라보레이션</li>
+            <li>닥터마틴 스타일</li>
+            <li>세일</li>
+            <li>모노톤 스니커즈</li>
+            <li>첼시부츠</li>
+            <li>현아's 초이스</li>
+            <li>핫 플레이스 레코드 샵</li>
+            <li>슈플리시 사용법</li>
+            <li>스웨이드 클리너 사용법</li>
+          </ul>
+          <ScrollTopBtn
+            className="ScrollTopBtn p-a"
+            scrollPosition="#scroll_top"
+          />
+        </section>
         <Footer />
       </section>
     );
