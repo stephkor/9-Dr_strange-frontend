@@ -12,7 +12,8 @@ class ProductList extends React.Component {
     super();
     this.state = {
       productListData: [],
-      currentCategoryId: 0,
+      currentUserCategoryId: 0,
+      numOfCurrentVisibleProducts: 18,
     };
   }
 
@@ -30,7 +31,7 @@ class ProductList extends React.Component {
   // sub category 클릭시 버튼 클릭 스타일 및 설명 변경
   categorySelectHandler = (id) => {
     this.setState({
-      currentCategoryId: id,
+      currentUserCategoryId: id,
     });
   };
 
@@ -38,8 +39,8 @@ class ProductList extends React.Component {
   imgArraySorter = (data) => {
     let categoryFilter = data.filter(
       (product) =>
-        product.id === this.state.currentCategoryId ||
-        this.state.currentCategoryId === 0
+        product.id === this.state.currentUserCategoryId ||
+        this.state.currentUserCategoryId === 0
     );
     let lengthOne = [];
     let lengthTwo = [];
@@ -78,7 +79,7 @@ class ProductList extends React.Component {
   };
 
   render() {
-    const { productListData, currentCategoryId } = this.state;
+    const { productListData, currentUserCategoryId } = this.state;
     return (
       <section className="ProductList">
         <Nav />
@@ -91,7 +92,7 @@ class ProductList extends React.Component {
               path={PATH_BACK}
               event={this.goBackHandler}
             />
-            <h1>{category[currentCategoryId]}</h1>
+            <h1>{category[currentUserCategoryId]}</h1>
             <p>
               {this.imgArraySorter(productListData).length}개의 신발 상품이
               있습니다.
@@ -113,7 +114,7 @@ class ProductList extends React.Component {
           <div className="product_list_subcategory">
             <button
               className={
-                currentCategoryId === 1 ? "click_on underline" : "click_off"
+                currentUserCategoryId === 1 ? "click_on underline" : "click_off"
               }
               href=""
               onClick={() => this.categorySelectHandler(1)}
@@ -123,7 +124,7 @@ class ProductList extends React.Component {
 
             <button
               className={
-                currentCategoryId === 2 ? "click_on underline" : "click_off"
+                currentUserCategoryId === 2 ? "click_on underline" : "click_off"
               }
               href=""
               onClick={() => this.categorySelectHandler(2)}
@@ -133,7 +134,7 @@ class ProductList extends React.Component {
 
             <button
               className={
-                currentCategoryId === 3 ? "click_on underline" : "click_off"
+                currentUserCategoryId === 3 ? "click_on underline" : "click_off"
               }
               href=""
               onClick={() => this.categorySelectHandler(3)}
@@ -142,7 +143,7 @@ class ProductList extends React.Component {
             </button>
           </div>
           <div className="product_list_subcategory_desc">
-            <p>{category_description[category[currentCategoryId]]}</p>
+            <p>{category_description[category[currentUserCategoryId]]}</p>
           </div>
         </article>
 
@@ -151,6 +152,10 @@ class ProductList extends React.Component {
             <ProductListItem data={product} key={idx} />
           ))}
         </article>
+
+        <div className="more-btn">
+          <button onClick={this.reviewBtnHandler}>더 많은 상품 보기</button>
+        </div>
         <Footer />
       </section>
     );
