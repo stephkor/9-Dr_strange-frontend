@@ -128,6 +128,7 @@ class ProductDetail extends React.Component {
     const review_filter = this.state.reviewArr.filter(
       (_, idx) => idx < this.state.reviewFilter
     );
+
     return (
       <section id="scroll_top">
         <Nav />
