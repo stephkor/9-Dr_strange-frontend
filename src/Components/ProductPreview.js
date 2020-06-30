@@ -21,7 +21,7 @@ class ProductPreview extends React.Component {
             <ListWishButton like={data.like} />
           </div>
           <div className="list_info_option">
-            {data.salePrice ? (
+            {data.salePrice !== data.originPrice ? (
               <>
                 <p className="sale_price num-font">
                   {data.salePrice.toLocaleString()}
@@ -30,7 +30,7 @@ class ProductPreview extends React.Component {
                   {data.originPrice.toLocaleString()}
                 </p>
               </>
-            ) : data.origin_price ? (
+            ) : data.originPrice ? (
               <p className="origin_price num-font">
                 {data.originPrice.toLocaleString()}
               </p>

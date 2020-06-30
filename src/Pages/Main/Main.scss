@@ -5,105 +5,106 @@
 		height: auto;
 	}
 
-	.ProductPreview {
+	.product_preview_form {
 		display: flex;
-		flex-direction: column;
-		margin-bottom: 90px;
-		height: 500px;
-		background-color: red;
+		justify-content: space-between;
 
-		.product_img_two {
-			width: 49%;
-
-			img {
-				max-width: 280px;
-				width: 100%;
-				height: auto;
-				background-color: #e5e5e5;
-			}
-		}
-
-		.product_list_info {
+		.ProductPreview {
 			display: flex;
+			flex-direction: column;
 			justify-content: space-between;
-			padding: 0 20px;
+			margin: 100px 0 150px 0;
 
-			.list_info_content {
-				width: 50%;
-
-				h2 {
-					padding: 17px 0;
-					font-size: 18px;
-					font-weight: 700;
-				}
-
-				p {
-					padding-bottom: 17px;
-					font-size: 16px;
-					color: #666;
-				}
-
-				.WishButton {
-					margin: 0;
-					padding: 0;
-
-					.wish_number {
-						margin-top: 2px;
-					}
+			.product_img_two {
+				img {
+					max-width: 280px;
+					height: auto;
+					background-color: #e5e5e5;
 				}
 			}
 
-			.list_info_option {
-				text-align: end;
+			.product_list_info {
+				display: flex;
+				justify-content: space-between;
+				padding: 0 20px;
 
-				p {
-					padding: 17px 0;
-				}
+				.list_info_content {
+					width: 50%;
 
-				.sale_price {
-					padding: 17px 0 3px 0;
-					font-size: 22px;
-					color: red;
+					h2 {
+						padding: 17px 0;
+						font-size: 18px;
+						font-weight: 700;
+					}
 
-					&::before {
-						content: '₩';
-						padding-right: 3px;
-						font-weight: 400;
+					p {
+						padding-bottom: 17px;
 						font-size: 16px;
+						color: #666;
+					}
+
+					.WishButton {
+						margin: 0;
+						padding: 0;
+
+						.wish_number {
+							margin-top: 2px;
+						}
 					}
 				}
 
-				.origin_price_ws {
-					padding: 0 0 3px 0;
-					font-size: 17px;
-					text-decoration: line-through;
-					color: #999;
+				.list_info_option {
+					text-align: end;
 
-					&::before {
-						content: '₩';
-						padding-right: 3px;
-						font-weight: 400;
-						font-size: 13px;
+					p {
+						padding: 17px 0;
 					}
-				}
 
-				.origin_price {
-					padding-bottom: 23px;
-					font-size: 22px;
-					color: #111;
+					.sale_price {
+						padding: 17px 0 3px 0;
+						font-size: 22px;
+						color: red;
 
-					&::before {
-						content: '₩';
-						padding-right: 3px;
-						font-weight: 400;
-						font-size: 16px;
+						&::before {
+							content: '₩';
+							padding-right: 3px;
+							font-weight: 400;
+							font-size: 16px;
+						}
 					}
-				}
 
-				button {
-					font-size: 18px;
-					padding: 14px 19px;
-					border: 1px solid #111;
+					.origin_price_ws {
+						padding: 0 0 3px 0;
+						font-size: 17px;
+						text-decoration: line-through;
+						color: #999;
+
+						&::before {
+							content: '₩';
+							padding-right: 3px;
+							font-weight: 400;
+							font-size: 13px;
+						}
+					}
+
+					.origin_price {
+						padding-bottom: 23px;
+						font-size: 22px;
+						color: #111;
+
+						&::before {
+							content: '₩';
+							padding-right: 3px;
+							font-weight: 400;
+							font-size: 16px;
+						}
+					}
+
+					button {
+						font-size: 18px;
+						padding: 14px 19px;
+						border: 1px solid #111;
+					}
 				}
 			}
 		}
@@ -176,5 +177,10 @@
 				}
 			}
 		}
+	}
+
+	.shoes {
+		height: 100vh;
+		background-color: #666;
 	}
 }

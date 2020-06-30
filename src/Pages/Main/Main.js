@@ -19,26 +19,28 @@ class Main extends React.Component {
   constructor() {
     super();
     this.state = {
-      productMainListInfo: [],
+      womenData: [],
+      menData: [],
       loading: false,
     };
   }
 
   // product main list data 받아오기
   componentDidMount() {
-    fetch("http://localhost:3000/data/productMainListInfo.json")
+    fetch("http://localhost:3000/data/category.json")
       .then((res) => res.json())
       .then((res) =>
         this.setState({
-          productMainListInfo: res.productMainListInfo,
+          womenData: res.women,
+          menData: res.men,
           loading: true,
         })
       );
   }
 
   render() {
-    const { loading, productMainListInfo } = this.state;
-    console.log("main data : ", productMainListInfo);
+    const { loading, womenData, menData } = this.state;
+    console.log("main data : ", womenData);
     console.log("나는 main");
     return loading ? (
       <section className="Main">
@@ -66,14 +68,21 @@ class Main extends React.Component {
           className="main_scroll_event"
           src={MAIN_SCROLL_EVENT1}
         />
-        <ProductPreview data={productMainListInfo} />
+        <article className="product_preview_form m-w-1140 m-auto">
+          <ProductPreview data={womenData[0]} />
+          <ProductPreview data={womenData[1]} />
+        </article>
         <img
           alt="main_scroll"
           className="main_scroll_event"
           src={MAIN_SCROLL_EVENT2}
         />
         <ProductFilter />
-        {/* <ProductPreview /> */}
+        <div className="shoes" />
+        <article className="product_preview_form m-w-1140 m-auto">
+          <ProductPreview data={menData[3]} />
+          <ProductPreview data={menData[4]} />
+        </article>
         <MainImageInfo
           category="HOW TO USE WONDER BALSAM"
           img={MAIN_INFO_EVENT3}
