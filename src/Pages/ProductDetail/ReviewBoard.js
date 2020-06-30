@@ -19,39 +19,39 @@ class ReviewBoard extends React.Component {
 
   render() {
     const { isActive } = this.state;
-    const { name, title, img, size, rating, content } = this.props;
+    const { data } = this.props;
     return (
       <div className="ReviewBoard">
         <div className="review_board_top">
           <img alt="guest_icon" src={GUEST_ICON}></img>
-          <p className="font-b">{name}</p>
+          <p className="font-b">{data.name}</p>
         </div>
         <div className="review_board_title">
-          <h3 className="font-b">{title}</h3>
-          {img ? (
+          <h3 className="font-b">{data.title}</h3>
+          {data.img ? (
             <Path width="24" height="21" view="0 0 56 48" path={REVIEW_IMG} />
           ) : (
             ""
           )}
         </div>
 
-        {isActive && img ? (
+        {isActive && data.img ? (
           <div className="review_img">
-            <img alt={title} src={img} />
+            <img alt={data.title} src={data.img} />
           </div>
         ) : (
           ""
         )}
 
         <div className="review_board_bottom">
-          <span className="rating_star">{"★".repeat(rating)}</span>
+          <span className="rating_star">{"★".repeat(data.rating)}</span>
           {isActive ? (
             <div className="review_content">
               <p>
                 구매 사이즈<span>|</span>
-                {size}
+                {data.size}
               </p>
-              <p>{content}</p>
+              <p>{data.content}</p>
             </div>
           ) : (
             ""
