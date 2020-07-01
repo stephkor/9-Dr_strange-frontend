@@ -1,16 +1,9 @@
 import React from "react";
 import Nav from "Components/Nav/Nav";
-<<<<<<< HEAD
-import Footer from "Components/Footer/Footer";
-import MainImageInfo from "Components/Main/MainImageInfo";
-import ProductFilter from "./Main_sumin/ProductFilter";
-
-=======
 import MainSlider from "./Main_Slider/MainSlider";
 import ProductFilter from "./Main_HamburderList/ProductFilter";
 import Footer from "Components/Footer/Footer";
 import MainImageInfo from "./Main_ImageInfo/MainImageInfo";
->>>>>>> master
 import "Pages/Main/Main.scss";
 import {
   MAIN_INFO_EVENT1,
