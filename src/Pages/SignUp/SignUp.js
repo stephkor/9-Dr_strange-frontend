@@ -1,3 +1,4 @@
+/* eslint-disable no-template-curly-in-string */
 import React from "react";
 import Nav from "Components/Nav/Nav";
 import "./SignUp.scss";
@@ -16,6 +17,11 @@ class SignUp extends React.Component {
       passwordCheck: "",
       email: "",
       date: "",
+      emailId: "",
+      emailAdd: "",
+      phoneNumber: "",
+      phoneNumber2: "",
+      phoneNumber3: "",
       checkedValue: false,
     };
   }
@@ -30,21 +36,67 @@ class SignUp extends React.Component {
     console.log(e.target.checked);
   };
 
-  checkMatchPassword = () => {
-    let timer;
-    if (timer) {
-      clearTimeout(timer);
-    }
-    timer = setTimeout(() => {
-      if (this.state.password === this.state.passwordCheck) {
-        this.setState({ isMatchPassword: true });
-      } else {
-        this.setState({ isMatchPassword: false });
+  handleEmailId = (e) => {
+    this.setState({
+      emailId: e.target.value,
+    });
+  };
+  handleEmailAdd = (e) => {
+    this.setState({
+      emailAdd: e.target.value,
+    });
+  };
+
+  firstPhoneNumberHandler = (e) => {
+    this.setState({
+      phoneNumber: e.target.value,
+    });
+  };
+
+  secondPhoneNumberHandler = (e) => {
+    this.setState({
+      phoneNumber2: e.target.value,
+    });
+  };
+
+  thirdPhoneNumberHandler = (e) => {
+    this.setState({
+      phoneNumber3: e.target.value,
+    });
+  };
+
+  componentDidMount() {}
+
+  buttonHandler = () => {
+    // post
+    fetch("http://10.58.4.223:8000/users/signup", {
+      // fetch 인자의 첫 번째 인자는 api 주소고, 두 번째 인자는 객체 형태이고
+      method: "POST", // 메소드 뒤에 포스트를 스트링으로 적어줘야 하는데, get은 디폴트 값이 원래 있어서 안 써줘도 됨.
+      body: JSON.stringify({
+        // body를 json화 시켜서 보내줘야 함. 토큰이 들어오면 json body에 들어옴.
+        name: this.state.username,
+        nickname: this.state.id,
+        password: this.state.password,
+        birthday: this.state.date,
+        email: `${this.state.emailId}@${this.state.emailAdd}`,
+        phone_number: `${this.state.phoneNumber}${this.state.phoneNumber2}${this.state.phoneNumber3}`,
+        checkedValue: false,
+      }),
+    }).then((res) => {
+      if (res.status === 200) {
+        alert("회원가입 완료되었습니다.");
       }
-    }, 500);
+    });
+    // .then((res) => console.log(res)); // then.(res=>localStorage.setItem("token", res.token)) -> 토큰 받음.
   };
 
   render() {
+    // console.log("email id : ", this.state.emailId);
+    // console.log("email add : ", this.state.emailAdd);
+    // console.log(this.state.phoneNumber1);
+    // console.log("email : ", `${this.state.emailId}@${this.state.emailAdd}`);
+    console.log(this.state.emailId);
+
     return (
       <>
         <Nav />
@@ -79,10 +131,25 @@ class SignUp extends React.Component {
             />
             <ItemBoxID
               name={
-                this.state.password.length >= 6 ||
-                this.state.password.includes("@")
-                  ? "비밀번호는 공백 없는 영문, 숫자 포함 6글자-20자"
-                  : "비밀번호"
+                this.state.password.length >= 6 &&
+                this.state.password.length < 20 &&
+                !this.state.password.includes(" ")
+                  ? "올바른 비밀번호를 입력했습니다."
+                  : this.state.password.length >= 0 &&
+                    this.state.password.length < 20 &&
+                    !this.state.password.includes(" ")
+                  ? "비밀번호"
+                  : this.state.password.length >= 6 &&
+                    this.state.password.length < 20 &&
+                    !this.state.password.includes(" ")
+                  ? "올바른 비밀번호를 입력했습니다."
+                  : "비밀번호는 공백 없는 영문, 숫자 포함 6-20자"
+              }
+              chagneColor={
+                this.state.password.length >= 6 &&
+                !this.state.password.includes(" ")
+                  ? "a"
+                  : "b"
               }
               userinfo="password"
               type="password"
@@ -91,9 +158,12 @@ class SignUp extends React.Component {
             />
             <ItemBoxID
               name={
-                this.state.password === this.state.passwordCheck
+                this.state.password
                   ? "비밀번호 확인"
-                  : "서로 다른 비밀번호입니다."
+                  : this.state.password &&
+                    this.state.password === this.state.passwordCheck
+                  ? "서로 같은 비밀번호를 입력하셨습니다."
+                  : "비밀번호 확인"
               }
               userinfo="passwordCheck"
               type="password"
@@ -116,30 +186,47 @@ class SignUp extends React.Component {
               <input
                 className="email_name"
                 type="text"
-                handleIdPw={this.handleIdPw}
+                onChange={this.handleEmailId}
               />
               <div className="email_at_flex">
                 <span className="email_at">@</span>
               </div>
               {/* <input className="email_add" type="text" /> */}
-              <select className="email_add">
-                <option value="">직접 입력</option>
-                <option value="gmail.com">gmail.com</option>
+              <select className="email_add" onClick={this.handleEmailAdd}>
+                {/* key={item[valueProperty]} */}
+                <option value="" onClick={this.handleEmailAdd}>
+                  직접 입력
+                </option>
+                <option value="gmail.com" onClick={this.handleEmailAdd}>
+                  gmail.com
+                </option>
                 <option value="naver.com">naver.com</option>
                 <option value="hanmail.net">hanmail.net</option>
                 <option value="nate.com">nate.com</option>
               </select>
             </div>
-            <input className="email_import_add" readOnly="readonly" />
+            <input className="email_import_add" />
             <CheckBox
               name="정보 메일을 수신하겠습니다."
               handleClickCheckBox={this.handleClickCheckBox}
             />
             <div className="input_phone_box">
               <span className="input_phone_box_msg">휴대폰</span>
-              <input className="phone_number" type="tel" />
-              <input className="phone_number2" type="tel" />
-              <input className="phone_number3" type="tel" />
+              <input
+                className="phone_number"
+                type="tel"
+                onChange={this.firstPhoneNumberHandler}
+              />
+              <input
+                className="phone_number2"
+                type="tel"
+                onChange={this.secondPhoneNumberHandler}
+              />
+              <input
+                className="phone_number3"
+                type="tel"
+                onChange={this.thirdPhoneNumberHandler}
+              />
             </div>
             <CheckBox
               name="SMS를 수신하겠습니다."
@@ -158,7 +245,7 @@ class SignUp extends React.Component {
               <p>추천인 ID 입력 시 마일리지 2,000원 추가 지급</p>
             </div>
             <div className="sign_btn">
-              <button>회원가입</button>
+              <button onClick={this.buttonHandler}>회원가입</button>
             </div>
           </div>
         </div>

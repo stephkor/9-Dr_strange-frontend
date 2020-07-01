@@ -23,7 +23,7 @@ class Login extends React.Component {
 
   handleBtn = () => {
     // post
-    fetch("http://10.58.4.29:8000/user/signin", {
+    fetch("http://10.58.4.223:8000/users/signin", {
       // fetch 인자의 첫 번째 인자는 api 주소고, 두 번째 인자는 객체 형태이고
       method: "POST", // 메소드 뒤에 포스트를 스트링으로 적어줘야 하는데, get은 디폴트 값이 원래 있어서 안 써줘도 됨.
       body: JSON.stringify({
@@ -31,10 +31,17 @@ class Login extends React.Component {
         nickname: this.state.id,
         password: this.state.password,
       }),
-    })
-      .then((res) => res.json())
-      .then((res) => console.log(res)); // then.(res=>localStorage.setItem("token", res.token)) -> 토큰 받음.
+    }).then((res) => console.log(res));
+    //   .then((res) => {
+    //   console.log(res);
+    //   localStorage.setItem("token", res.token);
+    // });
   };
+
+  //   if (res.status === 200) {
+  //     alert("로그인이 완료되었습니다.");
+  //   }
+  // });
 
   render() {
     console.log(this.state);
