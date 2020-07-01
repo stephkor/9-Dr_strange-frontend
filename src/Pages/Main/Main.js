@@ -4,6 +4,7 @@ import MainSlider from "./Main_Slider/MainSlider";
 import ProductFilter from "./Main_HamburderList/ProductFilter";
 import Footer from "Components/Footer/Footer";
 import MainImageInfo from "./Main_ImageInfo/MainImageInfo";
+import MainScrollEvent from "./Main_ScrollEvent/MainScrollEvent";
 import "Pages/Main/Main.scss";
 import {
   MAIN_INFO_EVENT1,
@@ -15,7 +16,48 @@ import {
 } from "config";
 
 class Main extends React.Component {
+  constructor() {
+    super();
+    this.scrollHandler = this.scrollHandler.bind(this);
+    this.state = {};
+  }
+
+  // 첫 render 후에 scroll 이벤트 등록
+  componentDidMount() {
+    window.addEventListener("scroll", this.scrollHandler);
+  }
+
+  // scroll 이벤트 사용 후에는 다시 unmount
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.scrollHandler);
+  }
+
+  // scroll을 내릴때 scale, opacity 변경하는 이벤트
+  scrollHandler = (e) => {
+    // let scrollTop = e.srcElement.body.scrollTop,
+    //   itemTranslate = Math.min(0, scrollTop / 3 - 60);
+
+    // const winScroll = document.documentElement.scrollTop;
+    const winScroll = e.srcElement.body.scrollTop;
+    console.log("winScroll : ", winScroll);
+
+    const height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+    console.log("height : ", height);
+
+    const scrolled = winScroll / height;
+    console.log("scrolled : ", scrolled);
+
+    this.setState({
+      theposition: scrolled,
+      // scrollEvent: itemTranslate,
+    });
+  };
+
   render() {
+    console.log("theposition : ", this.state.theposition);
+
     return (
       <section className="Main">
         <Nav />
@@ -37,17 +79,22 @@ class Main extends React.Component {
           secondLine="센스 있는 스타일을 완성해보세요."
         />
         <ProductFilter />
-        <img
-          alt="main_scroll"
-          className="main_scroll_event"
-          src={MAIN_SCROLL_EVENT1}
+        <MainScrollEvent
+          className="MainScrollEvent scroll_1"
+          backImg={MAIN_SCROLL_EVENT1}
+          scrollHandler={this.scrollHandler}
+          firstTitle="발 끝까지 나를 사랑하는 방법"
+          secondTitle="썸머 여성 샌들"
+          firstLine="SS20 NEW 여성 샌들과 베스트 샌들을 만나보세요."
         />
-        {/* <ProducPreview /> */}
         <div className="product_preview_test m-w-1140" />
-        <img
-          alt="main_scroll"
-          className="main_scroll_event"
-          src={MAIN_SCROLL_EVENT2}
+        <MainScrollEvent
+          className="MainScrollEvent scroll_2"
+          backImg={MAIN_SCROLL_EVENT2}
+          firstTitle="WELCOME TO"
+          secondTitle="DOCS MEMBERS"
+          firstLine="누구나 신규 가입 시 닥스 머니 지급"
+          secondLine="기존 회원 본인 인증해도 지급!"
         />
         <ProductFilter />
 
@@ -59,10 +106,23 @@ class Main extends React.Component {
           firstLine="원더 발삼은 가죽을 튼튼하고 유연하게 하며, 오랫동안 신을 수 있게 해줍니다."
           secondLine="단계별 관리 방법을 알아보세요!"
         />
-        <img
-          alt="main_scroll"
-          className="main_scroll_event"
-          src={MAIN_SCROLL_EVENT3}
+        <MainScrollEvent
+          className="MainScrollEvent scroll_3"
+          backImg={MAIN_SCROLL_EVENT3}
+          firstTitle="닥터마틴"
+          secondTitle="반항적인"
+          thirdTitle="자아 표현의 역사"
+          firstLine="닥터마틴은 자신만의 개성을 지니고 하나의 정신을 공유하는
+          진정성 있는 사람들과 자아 표현에 자부심을 지닌 사람들,
+          그리고 보통 사람들과는 다른 사람들에게 어필합니다."
+          secondLine="스타일의 관점에서 닥터마틴의 심플한 실루엣은
+          소비자들로 하여금 부츠와 슈즈를 그들 자신만의
+          유니크한 스타일을 표현할 수 있도록 만들었으며,
+          실용성의 차원에서 닥터마틴의 뛰어난 내구성과 편안함은
+          공연 또는 스트릿 패션이 용납 받지 못하는 세계에서
+          가장 이상적인 존재로 자리잡게 했습니다
+          끝으로 감성적인 측면에서 닥터마틴은
+          반항적인 태도와 권한의 증표와도 같습니다."
         />
         <Footer />
       </section>

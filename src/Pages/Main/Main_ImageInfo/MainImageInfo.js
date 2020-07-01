@@ -1,5 +1,4 @@
 import React from "react";
-import "./MainImageInfo.scss";
 
 class MainImageInfo extends React.Component {
   render() {
