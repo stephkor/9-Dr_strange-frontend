@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import ListWishButton from "Pages/ProductList/ListWishButton";
 import "./ProductList.scss";
 
@@ -8,11 +9,25 @@ class ProductListItem extends React.Component {
     return (
       <section className="ProductListItem">
         {data.productImg.length === 1 ? (
-          <div className="product_img_one">
+          <div
+            className="product_img_one"
+            onClick={() =>
+              this.props.history.push(
+                `/product/detail/${data.productNum}#scroll_top`
+              )
+            }
+          >
             <img alt="product_list_img" src={data.productImg[0]} />
           </div>
         ) : (
-          <div className="product_img_two">
+          <div
+            className="product_img_two"
+            onClick={() =>
+              this.props.history.push(
+                `/product/detail/${data.productNum}#scroll_top`
+              )
+            }
+          >
             <img alt="product_list_img" src={data.productImg[0]} />
             <img alt="product_list_img" src={data.productImg[1]} />
           </div>
@@ -45,4 +60,4 @@ class ProductListItem extends React.Component {
     );
   }
 }
-export default ProductListItem;
+export default withRouter(ProductListItem);

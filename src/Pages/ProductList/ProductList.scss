@@ -106,6 +106,8 @@
 			}
 
 			.product_img_one {
+				cursor: pointer;
+
 				img {
 					width: 100%;
 					height: auto;
@@ -115,6 +117,7 @@
 
 			.product_img_two {
 				display: flex;
+				cursor: pointer;
 
 				img {
 					width: 100%;

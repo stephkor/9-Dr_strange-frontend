@@ -33,10 +33,20 @@ class ProductList extends React.Component {
   }
 
   // currentUserCategoryId 가 바뀔때마다, currentVisibleProducts 값 초기화
-  componentDidUpdate(_, prevState) {
+  // 및, 유저가 리스트 페이지에서 상품 클릭시 해당하는 상품의 detail 페이지로 이동
+  componentDidUpdate(prevProps, prevState) {
     if (prevState.currentUserCategoryId !== this.state.currentUserCategoryId) {
       this.setState({ currentVisibleProducts: 18 });
     }
+    // if(prevProps.match.params.id !== this.props.match.params.id) {
+    //   fetch(`http://10.58.2.60:8000/products/${this.props.match.params.id}`)
+    //   .then((res) => res.json())
+    //     .then((res) =>
+    //       this.setState({
+    //         user: res
+    //       })
+    //     );
+    // }
   }
 
   // sub category 클릭시 버튼 클릭 스타일 및 설명 변경

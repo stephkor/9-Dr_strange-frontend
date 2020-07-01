@@ -39,8 +39,7 @@ class ProductDetail extends React.Component {
 
   // ProductDetailInfo data 받아오기
   componentDidMount() {
-    // fetch(`http://localhost:3000/data/productDetailInfo.json/${this.props.match.params.productNum}`)
-    fetch("http://localhost:3000/data/productDetailInfo.json")
+    fetch(`http://10.58.2.60:8000/products/${this.props.match.params.id}`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({
@@ -49,13 +48,14 @@ class ProductDetail extends React.Component {
       )
       .finally(() => {
         this.setState({
+          productNum: this.state.productData.productNum,
           productThumbnail: Object.entries(
             this.state.productData.productThumbnail
           ),
           sizeArr: Object.entries(this.state.productData.size),
           like: this.state.productData.like,
-          currentOrigin: this.state.productData.originPrice,
-          currentSale: this.state.productData.salePrice,
+          currentOrigin: +this.state.productData.originPrice,
+          currentSale: +this.state.productData.salePrice,
           reviewArr: this.state.productData.reviewInfo,
           productImg: this.state.productData.productImg,
         });
@@ -81,8 +81,9 @@ class ProductDetail extends React.Component {
     if (this.state.currentQuantity > 1) {
       this.setState({
         currentOrigin:
-          this.state.currentOrigin - this.state.productData.originPrice,
-        currentSale: this.state.currentSale - this.state.productData.salePrice,
+          +this.state.currentOrigin - +this.state.productData.originPrice,
+        currentSale:
+          +this.state.currentSale - +this.state.productData.salePrice,
         currentQuantity: this.state.currentQuantity - 1,
       });
     }
@@ -92,8 +93,8 @@ class ProductDetail extends React.Component {
   pricePlusHandler = () => {
     this.setState({
       currentOrigin:
-        this.state.currentOrigin + this.state.productData.originPrice,
-      currentSale: this.state.currentSale + this.state.productData.salePrice,
+        +this.state.currentOrigin + +this.state.productData.originPrice,
+      currentSale: +this.state.currentSale + +this.state.productData.salePrice,
       currentQuantity: this.state.currentQuantity + 1,
     });
   };
@@ -102,8 +103,8 @@ class ProductDetail extends React.Component {
   setInputHandler = (e) => {
     this.setState({
       currentQuantity: +e.target.value,
-      currentOrigin: this.state.productData.originPrice * +e.target.value,
-      currentSale: this.state.productData.salePrice * +e.target.value,
+      currentOrigin: +this.state.productData.originPrice * +e.target.value,
+      currentSale: +this.state.productData.salePrice * +e.target.value,
     });
   };
 
@@ -129,11 +130,13 @@ class ProductDetail extends React.Component {
     const review_filter = this.state.reviewArr.filter(
       (_, idx) => idx < this.state.reviewFilter
     );
+    console.log(this.props.match.params);
+    console.log("id : ", this.props.match.params.id);
 
     return (
       <section id="scroll_top">
         <Nav />
-        <section className="ProductDetail m-w-1140 m-auto scroll-s">
+        <section className="ProductDetail m-w-1140 m-auto">
           <div className="detail_scroll_sidebar">
             <ul>
               <li>
@@ -199,7 +202,7 @@ class ProductDetail extends React.Component {
                     path={PATH_SHARE}
                   />
 
-                  {like > 0 && <DetailWishButton like={like} />}
+                  {like > -1 && <DetailWishButton like={like} />}
                   <div className="review_count">
                     <p>
                       ★★★★★
@@ -231,8 +234,8 @@ class ProductDetail extends React.Component {
                   {productThumbnail.map((thumbnail, idx) => (
                     <Thumbnail
                       className="product_thumbnail"
-                      productThumbnail={thumbnail[0]}
-                      productThumbnailLink={thumbnail[1]}
+                      productThumbnail={thumbnail[1]}
+                      productThumbnailLink={thumbnail[0]}
                       key={idx}
                     />
                   ))}
@@ -255,10 +258,10 @@ class ProductDetail extends React.Component {
                   </div>
                   <div className="product_item_price num-font">
                     <span className="sale_price">
-                      {currentSale.toLocaleString()}
+                      {(+currentSale).toLocaleString()}
                     </span>
                     <span className="origin_price">
-                      {currentOrigin.toLocaleString()}
+                      {(+currentOrigin).toLocaleString()}
                     </span>
                   </div>
                 </div>
