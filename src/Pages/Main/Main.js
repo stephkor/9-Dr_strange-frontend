@@ -18,7 +18,6 @@ import {
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.scrollHandler = this.scrollHandler.bind(this);
     this.state = {
       scrollPosition: window.pageYOffset,
     };
@@ -36,12 +35,17 @@ class Main extends React.Component {
 
   // scroll을 내릴때 scale, opacity 변경하는 이벤트
   scrollHandler = (startOpacity, startScale, endScale) => {
-    this.setState({
-      scrollPosition: window.scrollY,
-    });
-
-    let opacityStyle = startScale - startOpacity / 400;
-    let scaleStyle = console.log("scrollY : ", window.scrollY);
+    //   main_scroll_img = "#main_scroll_img";
+    // main_scroll_img.scss({ opacity: calc });
+    // if (calc > "1") {
+    //   main_scroll_img.scss({ opacity: 1 });
+    // } else if (calc < "0") {
+    //   main_scroll_img.scss({ opacity: 0.4 });
+    // }
+    // console.log("scrollY : ", window.scrollY);
+    // console.log("scrollTop : ", scrollTop);
+    // console.log("height : ", height);
+    // console.log("calc : ", calc);
   };
 
   render() {
@@ -69,7 +73,9 @@ class Main extends React.Component {
         <MainScrollEvent
           className="MainScrollEvent scroll_1"
           backImg={MAIN_SCROLL_EVENT1}
-          scrollHandler={this.scrollHandler}
+          startOpacity={6600}
+          startScale={7200}
+          endScale={7800}
           firstTitle="발 끝까지 나를 사랑하는 방법"
           secondTitle="썸머 여성 샌들"
           firstLine="SS20 NEW 여성 샌들과 베스트 샌들을 만나보세요."

@@ -11,12 +11,20 @@ class MainScrollEvent extends React.Component {
       secondLine,
       backImg,
       scrollHandler,
+      startOpacity,
+      startScale,
+      endScale,
     } = this.props;
+    console.log("Y : ", window.scrollY);
 
     return (
       <section className={className}>
         <div className="main_scroll_img p-s t-0">
-          <img alt="main_scroll_img" src={backImg} />
+          <img
+            alt="main_scroll_img"
+            src={backImg}
+            style={{ opacity: startOpacity / window.scrollY }}
+          />
         </div>
 
         <div className="MainImageInfo">
