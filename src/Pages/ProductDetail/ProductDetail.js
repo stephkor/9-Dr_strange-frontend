@@ -60,6 +60,7 @@ class ProductDetail extends React.Component {
           productImg: this.state.productData.productImg,
         });
       });
+    window.scrollTo(0, 0);
   }
 
   // size button 클릭 시 선택한 size를 currentSize에 저장

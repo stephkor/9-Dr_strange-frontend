@@ -12,9 +12,7 @@ class ProductListItem extends React.Component {
           <div
             className="product_img_one"
             onClick={() =>
-              this.props.history.push(
-                `/product/detail/${data.productNum}#scroll_top`
-              )
+              this.props.history.push(`/product/detail/${data.productNum}`)
             }
           >
             <img alt="product_list_img" src={data.productImg[0]} />
@@ -23,9 +21,7 @@ class ProductListItem extends React.Component {
           <div
             className="product_img_two"
             onClick={() =>
-              this.props.history.push(
-                `/product/detail/${data.productNum}#scroll_top`
-              )
+              this.props.history.push(`/product/detail/${data.productNum}`)
             }
           >
             <img alt="product_list_img" src={data.productImg[0]} />
