@@ -39,6 +39,7 @@ class ProductDetail extends React.Component {
 
   // ProductDetailInfo data 받아오기
   componentDidMount() {
+    // fetch(`http://localhost:3000/data/productDetailInfo.json/${this.props.match.params.productNum}`)
     fetch("http://localhost:3000/data/productDetailInfo.json")
       .then((res) => res.json())
       .then((res) =>

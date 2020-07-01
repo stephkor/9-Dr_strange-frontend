@@ -101,6 +101,7 @@ class ProductList extends React.Component {
     const product_list_filter = this.imgArraySorter(productListData).filter(
       (_, idx) => idx < this.state.currentVisibleProducts
     );
+    console.log("productNum : ", this.props.match.params.productNum);
     return (
       <section className="ProductList" id="scroll_top">
         <Nav />
