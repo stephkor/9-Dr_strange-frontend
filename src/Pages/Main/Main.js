@@ -40,11 +40,8 @@ class Main extends React.Component {
       scrollPosition: window.scrollY,
     });
 
-    if (this.state.scrollPosition === 6000) {
-      console.log("OK");
-    }
-
-    console.log("scrollY : ", window.scrollY);
+    let opacityStyle = startScale - startOpacity / 400;
+    let scaleStyle = console.log("scrollY : ", window.scrollY);
   };
 
   render() {
