@@ -96,6 +96,18 @@ body {
 	letter-spacing: -1%;
 }
 
+.underline {
+	border-bottom: 1px solid #111;
+}
+
+.scroll-s {
+	scroll-behavior: smooth;
+}
+
+.out-n {
+	outline: none;
+}
+
 //하트버튼
 .WishButton {
 	display: inline-flex;
@@ -115,14 +127,6 @@ body {
 		font-weight: 700;
 		line-height: 21px;
 	}
-
-	.underline {
-		border-bottom: 1px solid #111;
-	}
-}
-
-.scroll-s {
-	scroll-behavior: smooth;
 }
 
 // 후기, 문의사항 더보기 버튼
