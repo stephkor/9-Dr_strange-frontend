@@ -31,17 +31,17 @@ class Login extends React.Component {
         nickname: this.state.id,
         password: this.state.password,
       }),
-    }).then((res) => console.log(res));
-    //   .then((res) => {
-    //   console.log(res);
-    //   localStorage.setItem("token", res.token);
+    }).then((res) => {
+      return res.json();
+    });
+
+    // .then((res) => {
+    //   if (res.token) {
+    //     localStorage.setItem("json", res.token);
+    //     this.props.history.push("/main");
+    //   }
     // });
   };
-
-  //   if (res.status === 200) {
-  //     alert("로그인이 완료되었습니다.");
-  //   }
-  // });
 
   render() {
     console.log(this.state);

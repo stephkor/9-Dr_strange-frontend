@@ -23,6 +23,7 @@ class SignUp extends React.Component {
       phoneNumber2: "",
       phoneNumber3: "",
       checkedValue: false,
+      correctPassword: "",
     };
   }
   handleIdPw = (e, userinfo) => {
@@ -65,6 +66,12 @@ class SignUp extends React.Component {
     });
   };
 
+  correctPasswordHandler = (e) => {
+    this.setState({
+      correctPassword: e.target.value,
+    });
+  };
+
   componentDidMount() {}
 
   buttonHandler = () => {
@@ -83,14 +90,24 @@ class SignUp extends React.Component {
         checkedValue: false,
       }),
     }).then((res) => {
-      if (res.status === 200) {
-        alert("회원가입 완료되었습니다.");
+      if (res.status === 200 || res.status === 201) {
+        alert("회원가입이 완료되었습니다.");
+        this.props.history.push("/login");
       }
     });
+    // .then((res) => {
+    //   if (res.token) {
+    //     // localStorage.setItem("JsonWebToken", res.token);
+    //     return this.props.history.push("/login");
+    //   }
+    // });
     // .then((res) => console.log(res)); // then.(res=>localStorage.setItem("token", res.token)) -> 토큰 받음.
   };
+  l;
 
   render() {
+    console.log("비번 : ", this.state.password);
+
     // console.log("email id : ", this.state.emailId);
     // console.log("email add : ", this.state.emailAdd);
     // console.log(this.state.phoneNumber1);
@@ -134,7 +151,7 @@ class SignUp extends React.Component {
                 this.state.password.length >= 6 &&
                 this.state.password.length < 20 &&
                 !this.state.password.includes(" ")
-                  ? "올바른 비밀번호를 입력했습니다."
+                  ? "올바른 형식의 비밀번호를 입력했습니다."
                   : this.state.password.length >= 0 &&
                     this.state.password.length < 20 &&
                     !this.state.password.includes(" ")
@@ -146,10 +163,13 @@ class SignUp extends React.Component {
                   : "비밀번호는 공백 없는 영문, 숫자 포함 6-20자"
               }
               chagneColor={
-                this.state.password.length >= 6 &&
+                this.state.password.length < 6 &&
                 !this.state.password.includes(" ")
-                  ? "a"
-                  : "b"
+                  ? "b"
+                  : this.state.password.length < 6 ||
+                    this.state.password.includes(" ")
+                  ? "c"
+                  : "a"
               }
               userinfo="password"
               type="password"
@@ -158,12 +178,20 @@ class SignUp extends React.Component {
             />
             <ItemBoxID
               name={
-                this.state.password
+                !this.state.passwordCheck
                   ? "비밀번호 확인"
                   : this.state.password &&
-                    this.state.password === this.state.passwordCheck
-                  ? "서로 같은 비밀번호를 입력하셨습니다."
-                  : "비밀번호 확인"
+                    this.state.password !== this.state.passwordCheck
+                  ? "비밀번호와 비밀번호 확인이 일치하지 않습니다."
+                  : "비밀번호 확인이 완료되었습니다."
+              }
+              chagneColor={
+                this.state.passwordCheck.length === 0
+                  ? "b"
+                  : this.state.password &&
+                    this.state.password !== this.state.passwordCheck
+                  ? "c"
+                  : "a"
               }
               userinfo="passwordCheck"
               type="password"
@@ -205,7 +233,7 @@ class SignUp extends React.Component {
                 <option value="nate.com">nate.com</option>
               </select>
             </div>
-            <input className="email_import_add" />
+            <input className="email_import_add" value={this.state.emailAdd} />
             <CheckBox
               name="정보 메일을 수신하겠습니다."
               handleClickCheckBox={this.handleClickCheckBox}
