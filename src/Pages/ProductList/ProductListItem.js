@@ -4,17 +4,16 @@ import ListWishButton from "Pages/ProductList/ListWishButton";
 import "./ProductList.scss";
 
 class ProductListItem extends React.Component {
+  clickHandler = () => {
+    this.props.history.push(`/product/detail/${this.props.data.productNum}`);
+  };
+
   render() {
     const { data } = this.props;
     return (
       <section className="ProductListItem">
         {data.productImg.length === 1 ? (
-          <div
-            className="product_img_one"
-            onClick={() =>
-              this.props.history.push(`/product/detail/${data.productNum}`)
-            }
-          >
+          <div className="product_img_one" onClick={this.clickHandler}>
             <img alt="product_list_img" src={data.productImg[0]} />
           </div>
         ) : (
