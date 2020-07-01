@@ -63,6 +63,34 @@ class ProductDetail extends React.Component {
     window.scrollTo(0, 0);
   }
 
+  // color 버튼 클릭할 때 마다, 다른 상품으로 렌더링
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.id !== this.props.match.params.id) {
+      fetch(`http://10.58.2.60:8000/products/${this.props.match.params.id}`)
+        .then((res) => res.json())
+        .then((res) =>
+          this.setState({
+            productData: res.productDetailInfo,
+          })
+        )
+        .finally(() => {
+          this.setState({
+            productNum: this.state.productData.productNum,
+            productThumbnail: Object.entries(
+              this.state.productData.productThumbnail
+            ),
+            sizeArr: Object.entries(this.state.productData.size),
+            like: this.state.productData.like,
+            currentOrigin: +this.state.productData.originPrice,
+            currentSale: +this.state.productData.salePrice,
+            reviewArr: this.state.productData.reviewInfo,
+            productImg: this.state.productData.productImg,
+          });
+        });
+      window.scrollTo(0, 0);
+    }
+  }
+
   // size button 클릭 시 선택한 size를 currentSize에 저장
   sizeClickHandler = (size) => {
     if (!this.props.soldout) {
@@ -203,7 +231,7 @@ class ProductDetail extends React.Component {
                     path={PATH_SHARE}
                   />
 
-                  {like > -1 && <DetailWishButton like={like} />}
+                  {like > 0 && <DetailWishButton like={like} />}
                   <div className="review_count">
                     <p>
                       ★★★★★

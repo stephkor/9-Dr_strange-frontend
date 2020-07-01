@@ -15,6 +15,7 @@ class ProductList extends React.Component {
       productListData: [],
       currentUserCategoryId: 0,
       currentVisibleProducts: 18,
+      loading: false,
     };
   }
 
@@ -25,25 +26,17 @@ class ProductList extends React.Component {
       .then((res) =>
         this.setState({
           productListData: res.products,
+          loading: true,
         })
       );
   }
 
   // currentUserCategoryId 가 바뀔때마다, currentVisibleProducts 값 초기화
   // 및, 유저가 리스트 페이지에서 상품 클릭시 해당하는 상품의 detail 페이지로 이동
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(_, prevState) {
     if (prevState.currentUserCategoryId !== this.state.currentUserCategoryId) {
       this.setState({ currentVisibleProducts: 18 });
     }
-    // if(prevProps.match.params.id !== this.props.match.params.id) {
-    //   fetch(`http://10.58.2.60:8000/products/${this.props.match.params.id}`)
-    //   .then((res) => res.json())
-    //     .then((res) =>
-    //       this.setState({
-    //         user: res
-    //       })
-    //     );
-    // }
   }
 
   // sub category 클릭시 버튼 클릭 스타일 및 설명 변경
@@ -98,18 +91,26 @@ class ProductList extends React.Component {
     });
   };
 
+  // 상품 이미지 클릭시 detail page로 이동하는 함수
+  clickHandler = (productNum) => {
+    this.props.history.push(`/products/detail/${productNum}`);
+  };
+
   // 뒤로가기 버튼
   goBackHandler = () => {
     this.props.history.goBack();
   };
 
   render() {
-    const { productListData, currentUserCategoryId } = this.state;
+    const { loading, productListData, currentUserCategoryId } = this.state;
     const product_list_filter = this.imgArraySorter(productListData).filter(
       (_, idx) => idx < this.state.currentVisibleProducts
     );
     console.log("productNum : ", this.props.match.params.productNum);
-    return (
+    console.log("product : ", productListData);
+    console.log("loading : ", loading);
+
+    return loading ? (
       <section className="ProductList" id="scroll_top">
         <Nav />
         <article className="product_list_title m-w-1140 m-auto">
@@ -178,7 +179,11 @@ class ProductList extends React.Component {
 
         <article className="product_list_content m-w-1140 m-auto">
           {product_list_filter.map((product, idx) => (
-            <ProductListItem data={product} key={idx} />
+            <ProductListItem
+              data={product}
+              key={idx}
+              clickHandler={this.clickHandler}
+            />
           ))}
         </article>
 
@@ -217,6 +222,8 @@ class ProductList extends React.Component {
         </section>
         <Footer />
       </section>
+    ) : (
+      "로딩중"
     );
   }
 }
