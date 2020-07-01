@@ -1,7 +1,7 @@
 import React from "react";
 import HamburgerList from "./HamburgerList";
 import ArrowIcon from "Components/ArrowIcon";
-import { PATH_ARROW } from "config";
+import { PATH_ARROW } from "../../../config";
 
 class Menu extends React.Component {
   render() {

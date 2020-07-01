@@ -1,10 +1,11 @@
 // IMAGES
 // main
+
 import main_top_slide from "Images/Main/main_top_slide.jpg";
 import main_scroll_test from "Images/Main/test.png";
+import login_side_btn from "Images/Login/login_side_btn.jpg";
 
 // login & sign up
-import login_side_btn from "Images/Login/login_side_btn.jpg";
 
 // product_detail
 import guest_icon from "Images/detail/guest_icon.png";
@@ -108,6 +109,8 @@ export const category = {
   1: "부츠",
   2: "슈즈",
   3: "샌들",
+  women: "여성",
+  men: "남성",
 };
 
 export const category_description = {

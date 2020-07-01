@@ -2,7 +2,6 @@ import React from "react";
 import "Pages/SignUp/SignUp.scss";
 import "./FormBox.scss";
 import { LOGIN_SIDE_BTN } from "config";
-
 class FormBox extends React.Component {
   render() {
     return (

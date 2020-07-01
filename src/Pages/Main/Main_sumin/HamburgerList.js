@@ -1,6 +1,6 @@
 import React from "react";
 import ArrowIcon from "Components/ArrowIcon";
-import { PATH_ARROW } from "/../config.js";
+import { PATH_ARROW } from "config.js";
 import { Link } from "react-router-dom";
 
 class HamburgerList extends React.Component {

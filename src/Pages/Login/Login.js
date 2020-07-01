@@ -1,7 +1,6 @@
 import React from "react";
 import Nav from "Components/Nav/Nav";
 import "./Login.scss";
-import "styles/reset.scss";
 import { LOGIN_SIDE_BTN } from "config";
 import ItemBoxID from "Components/ItemBox/ItemBoxID";
 
