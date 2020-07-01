@@ -34,7 +34,10 @@ class ProductItemContainer extends React.Component {
           />
           <img
             alt={this.state.productData.productName}
-            src={this.state.productData.productThumbnail}
+            src={
+              this.state.productData.productImg &&
+              this.state.productData.productImg[0]
+            }
           />
         </div>
         <div className="product_item_container_bottom">

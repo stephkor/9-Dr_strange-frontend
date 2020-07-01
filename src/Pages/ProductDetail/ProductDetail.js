@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import Nav from "Components/Nav/Nav";
 import Footer from "Components/Footer/Footer";
@@ -11,7 +10,6 @@ import SubTitle from "./SubTitle";
 import ReviewBoard from "./ReviewBoard";
 import QnaBoard from "./QnaBoard";
 import RefundForm from "./RefundForm";
-import "./ProductDetail.scss";
 import {
   MINUS,
   PLUS,
@@ -19,6 +17,7 @@ import {
   REVIEW_GENDER_M,
   REVIEW_GENDER_W,
 } from "config";
+import "./ProductDetail.scss";
 
 class ProductDetail extends React.Component {
   constructor() {
@@ -99,16 +98,16 @@ class ProductDetail extends React.Component {
   };
 
   // input 창에 수량 입력 시 현재 수량 및 가격 변동 - 수정 필요해서 주석 처리
-  // setInputHandler = (e) => {
-  //   this.setState({
-  //     currentQuantity: +e.target.value,
-  //     currentOrigin: this.state.currentOrigin * this.state.currentQuantitye,
-  //     currentSale: this.state.currentSale * this.state.currentQuantity,
-  //   });
-  // };
+  setInputHandler = (e) => {
+    this.setState({
+      currentQuantity: +e.target.value,
+      currentOrigin: this.state.productData.originPrice * +e.target.value,
+      currentSale: this.state.productData.salePrice * +e.target.value,
+    });
+  };
 
   // 더 많은 후기 보기 버튼 클릭 시 review board를 3개씩 추가로 출력
-  reviewBtnHamdler = () => {
+  reviewBtnHandler = () => {
     this.setState({
       reviewFilter: this.state.reviewFilter + 3,
     });
@@ -129,6 +128,9 @@ class ProductDetail extends React.Component {
     const review_filter = this.state.reviewArr.filter(
       (_, idx) => idx < this.state.reviewFilter
     );
+    console.log("수량 : ", this.state.currentQuantity);
+    console.log("원가 : ", this.state.currentOrigin);
+    console.log("세일가 : ", this.state.currentSale);
     return (
       <section id="scroll_top">
         <Nav />
@@ -243,7 +245,7 @@ class ProductDetail extends React.Component {
                       className="main-font"
                       type="text"
                       value={currentQuantity}
-                      // onChange={this.setInputHandler}
+                      onChange={this.setInputHandler}
                     />
                     <button onClick={this.priceMinusHandler}>
                       <img alt="-" className="btn_minus" src={MINUS} />
@@ -528,19 +530,14 @@ class ProductDetail extends React.Component {
 
             <div className="review_form">
               {review_filter.map((review, idx) => (
-                <ReviewBoard
-                  name={review.name}
-                  title={review.title}
-                  img={review.img}
-                  size={review.size}
-                  rating={review.rating}
-                  content={review.content}
-                  key={idx}
-                />
+                <ReviewBoard data={review} key={idx} />
               ))}
             </div>
             <div className="more-btn">
-              <button onClick={this.reviewBtnHamdler}>더 많은 후기 보기</button>
+              <button onClick={this.reviewBtnHandler}>
+                더 많은 후기 보기 ( +
+                {this.state.reviewArr.length - this.state.reviewFilter} )
+              </button>
             </div>
           </article>
 

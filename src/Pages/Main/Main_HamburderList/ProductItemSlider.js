@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 export default class ProductItemSlider extends Component {
   render() {
-    var settings = {
+    const settings = {
       dots: true,
       infinite: true,
       speed: 500,
@@ -36,16 +36,16 @@ export default class ProductItemSlider extends Component {
     return (
       <div className="ProductItemSlider">
         <Slider {...settings}>
-          <div className="product_item" key={1}>
+          <div className="product_item out-n" key={1}>
             <ProductItemContainer />
           </div>
-          <div className="product_item" key={2}>
+          <div className="product_item out-n" key={2}>
             <ProductItemContainer />
           </div>
-          <div className="product_item" key={3}>
+          <div className="product_item out-n" key={3}>
             <ProductItemContainer />
           </div>
-          <div className="product_item" key={4}>
+          <div className="product_item out-n" key={4}>
             <ProductItemContainer />
           </div>
         </Slider>
