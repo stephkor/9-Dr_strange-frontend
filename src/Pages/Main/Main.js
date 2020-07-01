@@ -16,10 +16,12 @@ import {
 } from "config";
 
 class Main extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.scrollHandler = this.scrollHandler.bind(this);
-    this.state = {};
+    this.state = {
+      scrollPosition: window.pageYOffset,
+    };
   }
 
   // 첫 render 후에 scroll 이벤트 등록
@@ -33,31 +35,19 @@ class Main extends React.Component {
   }
 
   // scroll을 내릴때 scale, opacity 변경하는 이벤트
-  scrollHandler = (e) => {
-    // let scrollTop = e.srcElement.body.scrollTop,
-    //   itemTranslate = Math.min(0, scrollTop / 3 - 60);
-
-    // const winScroll = document.documentElement.scrollTop;
-    const winScroll = e.srcElement.body.scrollTop;
-    console.log("winScroll : ", winScroll);
-
-    const height =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-    console.log("height : ", height);
-
-    const scrolled = winScroll / height;
-    console.log("scrolled : ", scrolled);
-
+  scrollHandler = (startOpacity, startScale, endScale) => {
     this.setState({
-      theposition: scrolled,
-      // scrollEvent: itemTranslate,
+      scrollPosition: window.scrollY,
     });
+
+    if (this.state.scrollPosition === 6000) {
+      console.log("OK");
+    }
+
+    console.log("scrollY : ", window.scrollY);
   };
 
   render() {
-    console.log("theposition : ", this.state.theposition);
-
     return (
       <section className="Main">
         <Nav />
