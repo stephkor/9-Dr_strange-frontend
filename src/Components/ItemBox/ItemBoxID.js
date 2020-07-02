@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import "./ItemBoxID.scss";
 
 class ItemBoxID extends React.Component {
   render() {
+    const { type } = this.props;
     return (
       <div className="ItemBoxID">
         <div className="input_component_box">
@@ -14,9 +16,11 @@ class ItemBoxID extends React.Component {
         <div>
           <input
             className={this.props.chagneColor} //input className ="a" / "b" /"c"
-            type={this.props.type}
+            type={type}
             placeholder={this.props.text}
-            onChange={(e) => this.props.handleIdPw(e, this.props.userinfo)}
+            onChange={(e) =>
+              this.props.inputChangeHandler(e, this.props.userinfo)
+            }
           />
         </div>
       </div>

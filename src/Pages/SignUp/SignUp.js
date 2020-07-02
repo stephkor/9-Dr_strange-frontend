@@ -23,23 +23,11 @@ class SignUp extends React.Component {
       phoneNumber2: "",
       phoneNumber3: "",
       checkedValue: false,
-      correctPassword: "",
     };
   }
-  handleIdPw = (e, userinfo) => {
+  inputChangeHandler = (e, userinfo) => {
     this.setState({
       [userinfo]: e.target.value,
-    });
-    console.log(e, userinfo);
-  };
-
-  handleClickCheckBox = (e) => {
-    console.log(e.target.checked);
-  };
-
-  handleEmailId = (e) => {
-    this.setState({
-      emailId: e.target.value,
     });
   };
   handleEmailAdd = (e) => {
@@ -48,34 +36,7 @@ class SignUp extends React.Component {
     });
   };
 
-  firstPhoneNumberHandler = (e) => {
-    this.setState({
-      phoneNumber: e.target.value,
-    });
-  };
-
-  secondPhoneNumberHandler = (e) => {
-    this.setState({
-      phoneNumber2: e.target.value,
-    });
-  };
-
-  thirdPhoneNumberHandler = (e) => {
-    this.setState({
-      phoneNumber3: e.target.value,
-    });
-  };
-
-  correctPasswordHandler = (e) => {
-    this.setState({
-      correctPassword: e.target.value,
-    });
-  };
-
-  componentDidMount() {}
-
   buttonHandler = () => {
-    // post
     fetch("http://10.58.4.223:8000/users/signup", {
       // fetch 인자의 첫 번째 인자는 api 주소고, 두 번째 인자는 객체 형태이고
       method: "POST", // 메소드 뒤에 포스트를 스트링으로 적어줘야 하는데, get은 디폴트 값이 원래 있어서 안 써줘도 됨.
@@ -106,13 +67,22 @@ class SignUp extends React.Component {
   l;
 
   render() {
-    console.log("비번 : ", this.state.password);
-
-    // console.log("email id : ", this.state.emailId);
-    // console.log("email add : ", this.state.emailAdd);
-    // console.log(this.state.phoneNumber1);
-    // console.log("email : ", `${this.state.emailId}@${this.state.emailAdd}`);
-    console.log(this.state.emailId);
+    console.log("emailadd", this.state.emailAdd);
+    const {
+      username,
+      id,
+      password,
+      passwordCheck,
+      email,
+      date,
+      emailId,
+      emailAdd,
+      phoneNumber,
+      phoneNumber2,
+      phoneNumber3,
+      checkedValue,
+    } = this.state;
+    console.log(this.state);
 
     return (
       <>
@@ -126,95 +96,86 @@ class SignUp extends React.Component {
             <ItemBoxID
               name="이름"
               userinfo="username"
-              handleIdPw={this.handleIdPw}
+              inputChangeHandler={this.inputChangeHandler}
             />
             <ItemBoxID
               name={
-                this.state.id.length >= 6
+                id.length >= 6
                   ? "사용할 수 있는 아이디입니다."
-                  : this.state.id.length === 0
+                  : id.length === 0
                   ? "아이디"
                   : "아이디 제한 글자를 맞춰주세요."
               }
-              chagneColor={
-                this.state.id.length >= 6
-                  ? "a"
-                  : this.state.id.length === 0
-                  ? "b"
-                  : "c"
-              }
+              chagneColor={id.length >= 6 ? "a" : id.length === 0 ? "b" : "c"}
               userinfo="id"
-              handleIdPw={this.handleIdPw}
+              inputChangeHandler={this.inputChangeHandler}
             />
             <ItemBoxID
               name={
-                this.state.password.length >= 6 &&
-                this.state.password.length < 20 &&
-                !this.state.password.includes(" ")
+                password.length >= 6 &&
+                password.length < 20 &&
+                !password.includes(" ")
                   ? "올바른 형식의 비밀번호를 입력했습니다."
-                  : this.state.password.length >= 0 &&
-                    this.state.password.length < 20 &&
-                    !this.state.password.includes(" ")
+                  : password.length >= 0 &&
+                    password.length < 20 &&
+                    !password.includes(" ")
                   ? "비밀번호"
-                  : this.state.password.length >= 6 &&
-                    this.state.password.length < 20 &&
-                    !this.state.password.includes(" ")
+                  : password.length >= 6 &&
+                    password.length < 20 &&
+                    !password.includes(" ")
                   ? "올바른 비밀번호를 입력했습니다."
                   : "비밀번호는 공백 없는 영문, 숫자 포함 6-20자"
               }
               chagneColor={
-                this.state.password.length < 6 &&
-                !this.state.password.includes(" ")
+                password.length < 6 && !password.includes(" ")
                   ? "b"
-                  : this.state.password.length < 6 ||
-                    this.state.password.includes(" ")
+                  : password.length < 6 || password.includes(" ")
                   ? "c"
                   : "a"
               }
               userinfo="password"
               type="password"
               text="공백 없는 영문, 숫자 포함 6-20자"
-              handleIdPw={this.handleIdPw}
+              inputChangeHandler={this.inputChangeHandler}
             />
             <ItemBoxID
               name={
-                !this.state.passwordCheck
+                !passwordCheck
                   ? "비밀번호 확인"
-                  : this.state.password &&
-                    this.state.password !== this.state.passwordCheck
+                  : password && password !== passwordCheck
                   ? "비밀번호와 비밀번호 확인이 일치하지 않습니다."
                   : "비밀번호 확인이 완료되었습니다."
               }
               chagneColor={
-                this.state.passwordCheck.length === 0
+                passwordCheck.length === 0
                   ? "b"
-                  : this.state.password &&
-                    this.state.password !== this.state.passwordCheck
+                  : password && password !== passwordCheck
                   ? "c"
                   : "a"
               }
               userinfo="passwordCheck"
               type="password"
               text="공백 없는 영문, 숫자 포함 6-20자"
-              handleIdPw={this.handleIdPw}
+              inputChangeHandler={this.inputChangeHandler}
             />
             <ItemBoxID
               name="생년월일"
               type="date"
               userinfo="date"
-              handleIdPw={this.handleIdPw}
+              inputChangeHandler={this.inputChangeHandler}
             />
             {/* <ItemBoxID
               name="이메일"
               type="email"
-              handleIdPw={this.handleIdPw}
+              inputChangeHandler={this.inputChangeHandler}
             /> */}
             <div className="input_email_box">
               {/* <span className="input_email_box_msg">이메일</span> */}
               <input
                 className="email_name"
+                userinfo="emailId"
                 type="text"
-                onChange={this.handleEmailId}
+                onChange={(e) => this.inputChangeHandler(e, "emailId")}
               />
               <div className="email_at_flex">
                 <span className="email_at">@</span>
@@ -233,7 +194,17 @@ class SignUp extends React.Component {
                 <option value="nate.com">nate.com</option>
               </select>
             </div>
-            <input className="email_import_add" value={this.state.emailAdd} />
+            <input
+              className="email_import_add"
+              value={
+                emailAdd && emailId
+                  ? `${emailId}@${emailAdd}`
+                  : emailId
+                  ? `${emailId}`
+                  : ""
+              }
+            />
+
             <CheckBox
               name="정보 메일을 수신하겠습니다."
               handleClickCheckBox={this.handleClickCheckBox}
@@ -242,18 +213,21 @@ class SignUp extends React.Component {
               <span className="input_phone_box_msg">휴대폰</span>
               <input
                 className="phone_number"
+                userinfo="phoneNumber"
                 type="tel"
-                onChange={this.firstPhoneNumberHandler}
+                onChange={(e) => this.inputChangeHandler(e, "phoneNumber")}
               />
               <input
                 className="phone_number2"
+                userinfo="phoneNumber2"
                 type="tel"
-                onChange={this.secondPhoneNumberHandler}
+                onChange={(e) => this.inputChangeHandler(e, "phoneNumber2")}
               />
               <input
                 className="phone_number3"
+                userinfo="phoneNumber3"
                 type="tel"
-                onChange={this.thirdPhoneNumberHandler}
+                onChange={(e) => this.inputChangeHandler(e, "phoneNumber3")}
               />
             </div>
             <CheckBox
@@ -261,7 +235,10 @@ class SignUp extends React.Component {
               handleClickCheckBox={this.handleClickCheckBox}
             />
             <div className="search_id_box">
-              <ItemBoxID name="추천인ID(선택)" handleIdPw={this.handleIdPw} />
+              <ItemBoxID
+                name="추천인ID(선택)"
+                inputChangeHandler={this.inputChangeHandler}
+              />
               {/* <input className="" type="text" /> */}
 
               <button className="search_id_btn" type="button">
