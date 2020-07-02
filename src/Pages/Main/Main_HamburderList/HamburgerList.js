@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import ArrowIcon from "Components/ArrowIcon";
 import { PATH_ARROW } from "config.js";
 
@@ -26,7 +26,8 @@ class HamburgerList extends React.Component {
 
   render() {
     const { click, secondClick } = this.state;
-    const { categoryTitle, listLinkHandler } = this.props;
+    const { categoryTitle, listLinkHandler, category } = this.props;
+    // console.log(this.props);
 
     return (
       <section className="HamburgerList">
@@ -51,11 +52,13 @@ class HamburgerList extends React.Component {
                 className="sub_category_list"
                 style={{ display: click ? "block" : "none" }}
               >
-                <button
-                  className="sub_category_button"
-                  onClick={listLinkHandler}
-                >
-                  <span className="sub_category_title">신발</span>
+                <button className="sub_category_button">
+                  <span
+                    className="sub_category_title"
+                    onClick={() => listLinkHandler({ category })}
+                  >
+                    신발
+                  </span>
                   <div onClick={() => this.secondClickHandler()}>
                     <ArrowIcon
                       view=" 0 0 60 35"
@@ -114,4 +117,4 @@ class HamburgerList extends React.Component {
   }
 }
 
-export default HamburgerList;
+export default withRouter(HamburgerList);

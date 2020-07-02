@@ -1,5 +1,4 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 import HamburgerList from "./HamburgerList";
 import ArrowIcon from "Components/ArrowIcon";
 import { PATH_ARROW } from "config";
@@ -17,11 +16,13 @@ class Menu extends React.Component {
         <HamburgerList categoryTitle={"신상품"} />
         <HamburgerList
           categoryTitle={"여성"}
-          listLinkHandler={() => this.listLinkHandler("women")}
+          category={"women"}
+          listLinkHandler={this.listLinkHandler}
         />
         <HamburgerList
           categoryTitle={"남성"}
-          listLinkHandler={() => this.listLinkHandler("men")}
+          category={"men"}
+          listLinkHandler={this.listLinkHandler}
         />
         <HamburgerList categoryTitle={"키즈"} />
         <HamburgerList categoryTitle={"샌들"} />
@@ -62,4 +63,4 @@ class Menu extends React.Component {
   }
 }
 
-export default withRouter(Menu);
+export default Menu;

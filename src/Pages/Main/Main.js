@@ -1,4 +1,5 @@
 import React from "react";
+import { WaveLoading } from "react-loadingg";
 import Nav from "Components/Nav/Nav";
 import MainSlider from "./Main_Slider/MainSlider";
 import ProductFilter from "./Main_HamburderList/ProductFilter";
@@ -61,12 +62,18 @@ class Main extends React.Component {
         scale: 1 + (window.scrollY - 7600) / 5000,
       });
     }
+    if (window.scrollY === 9400) {
+      this.setState({
+        opacity: 1,
+        scale: 1,
+      });
+    }
   };
 
   render() {
     const { loading, womenData, menData, opacity, scale } = this.state;
-    // console.log("scrollY : ", window.scrollY);
-    // console.log("main scale : ", scale);
+    console.log("scrollY : ", window.scrollY);
+    console.log("main scale : ", scale);
 
     return loading ? (
       <section className="Main">
@@ -108,6 +115,8 @@ class Main extends React.Component {
         <MainScrollEvent
           className="MainScrollEvent scroll_2"
           backImg={MAIN_SCROLL_EVENT2}
+          opacity={opacity}
+          scale={scale}
           firstTitle="WELCOME TO"
           secondTitle="DOCS MEMBERS"
           firstLine="누구나 신규 가입 시 닥스 머니 지급"
@@ -131,6 +140,8 @@ class Main extends React.Component {
         <MainScrollEvent
           className="MainScrollEvent scroll_3"
           backImg={MAIN_SCROLL_EVENT3}
+          opacity={opacity}
+          scale={scale}
           firstTitle="닥터마틴"
           secondTitle="반항적인"
           thirdTitle="자아 표현의 역사"
@@ -149,7 +160,7 @@ class Main extends React.Component {
         <Footer />
       </section>
     ) : (
-      ""
+      <WaveLoading color={"#111"} size={"large"} />
     );
   }
 }

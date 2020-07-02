@@ -92,6 +92,30 @@ class ProductDetail extends React.Component {
     window.scrollTo(0, 0);
   }
 
+  // 장바구니 버튼 클릭시 상품 정보 POST로 서버에 전송
+  addCartHandler = () => {
+    fetch("http://10.58.6.113:8001/cart", {
+      method: "post",
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        productNum: this.state.productNum,
+        currentSize: this.state.currentSize,
+        currentOrigin: this.state.currentOrigin,
+        currentSale: this.state.currentSale,
+        currentQuantity: this.state.currentQuantity,
+      }),
+    }).then(() => {
+      this.setState({
+        currentOrigin: +this.state.productData.originPrice,
+        currentSale: +this.state.productData.salePrice,
+        currentQuantity: 1,
+        currentSize: 0,
+      });
+    });
+  };
+
   // size button 클릭 시 선택한 size를 currentSize에 저장
   sizeClickHandler = (size) => {
     const { soldout } = this.props;
@@ -312,7 +336,10 @@ class ProductDetail extends React.Component {
                 </div>
 
                 <div className="buying_btn">
-                  <button className="buying_btn_cart main-font">
+                  <button
+                    className="buying_btn_cart main-font"
+                    onClick={this.addCartHandler}
+                  >
                     장바구니
                   </button>
                   <button className="buying_btn_purchase main-font">
