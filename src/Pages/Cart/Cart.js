@@ -1,7 +1,9 @@
 import React from "react";
+import EmptyCart from "Pages/Cart/EmptyCart";
 import Nav from "Components/Nav/Nav";
 import Footer from "Components/Footer/Footer";
 import CartProductList from "./CartProductList";
+import ScrollTopBtn from "Components/ScrollTopBtn";
 import Path from "Components/Path";
 import {
   PATH_BACK,
@@ -18,6 +20,7 @@ class Cart extends React.Component {
     super();
     this.state = {
       checkClick: false,
+      select: 1,
     };
   }
 
@@ -27,8 +30,14 @@ class Cart extends React.Component {
     });
   };
 
+  selectClickHandler = () => {
+    this.setState({
+      select: 0,
+    });
+  };
+
   render() {
-    const { checkClick } = this.state;
+    const { checkClick, select } = this.state;
     return (
       <div className="Cart">
         <Nav />
@@ -39,7 +48,7 @@ class Cart extends React.Component {
             </button>
             <h1 className="cart_header_title">장바구니</h1>
           </div>
-          <section className="cart_content_wrapper">
+          <section className="cart_content_wrapper" style={{ display: "none" }}>
             <div className="cart_content_header">
               <div className="cart_content_topper">
                 <button
@@ -71,7 +80,7 @@ class Cart extends React.Component {
                   </svg>
                   <p> 전체선택</p>
                 </button>
-                <button className="del_btn">
+                <button className="del_btn" onclick={this.selectlickHandler}>
                   <svg
                     width={20}
                     height={20}
@@ -85,16 +94,15 @@ class Cart extends React.Component {
                       d={PATH_DEL_ICON}
                     />
                   </svg>
-                  <p> 선택 삭제 (0) </p>
+                  <p> 선택 삭제 ({select}) </p>
                 </button>
               </div>
             </div>
-            <CartProductList />
+            <CartProductList select={select} style={{ display: "none" }} />
             <aside className="cart_content_price">
               <div className="order_price_topper">
                 <h1>주문 예정 금액</h1>
               </div>
-
               <div className="total_price_detail">
                 <ul className="total_price">
                   <li className="total_price">총 상품 금액</li>
@@ -109,12 +117,18 @@ class Cart extends React.Component {
                   <li className="final_price_num num-font">170000</li>
                 </ul>
               </div>
-
               <button className="purchase_btn">
                 <span>구매하기</span>
               </button>
             </aside>
           </section>
+          <div className="top_btn">
+            <ScrollTopBtn />
+          </div>
+        </section>
+
+        <section className="empty_wrapper">
+          <EmptyCart />
         </section>
         <Footer />
       </div>
