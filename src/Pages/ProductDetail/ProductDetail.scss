@@ -116,13 +116,13 @@
 			.size_option {
 				display: flex;
 				flex-wrap: wrap;
-				justify-content: space-between;
+				justify-content: flex-start;
 
 				button {
 					display: inline-block;
 					width: 168px;
 					height: 36px;
-					margin: 4px 0;
+					margin: 4px 4px;
 					padding: 4px 20px 3px 20px;
 					font-size: 18px;
 					font-weight: 400;
