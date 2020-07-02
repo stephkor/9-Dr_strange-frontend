@@ -27,7 +27,7 @@ class Main extends React.Component {
 
   // product main list data 받아오기
   componentDidMount() {
-    fetch("http://localhost:3000/data/category.json")
+    fetch("http://localhost:3000/data/hello.json")
       .then((res) => res.json())
       .then((res) =>
         this.setState({
@@ -45,7 +45,7 @@ class Main extends React.Component {
       <section className="Main">
         <Nav />
         <MainSlider />
-        <ProductFilter />
+        <ProductFilter category={"남성"} data={menData} />
         <MainImageInfo
           category="콜라보레이션"
           img={MAIN_INFO_EVENT1}
@@ -77,7 +77,7 @@ class Main extends React.Component {
           className="main_scroll_event"
           src={MAIN_SCROLL_EVENT2}
         />
-        <ProductFilter />
+        <ProductFilter category={"남성"} data={menData} />
         <div className="shoes" />
         <article className="product_preview_form m-w-1140 m-auto">
           <ProductPreview data={menData[3]} />
