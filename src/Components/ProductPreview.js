@@ -4,8 +4,7 @@ import ListWishButton from "Pages/ProductList/ListWishButton";
 class ProductPreview extends React.Component {
   render() {
     const { data } = this.props;
-    console.log("나는 preview");
-    console.log("preview data : ", data);
+
     return (
       <section className="ProductPreview">
         {data.productImg && (
