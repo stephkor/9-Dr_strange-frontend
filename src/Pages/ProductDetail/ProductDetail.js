@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import Nav from "Components/Nav/Nav";
 import Footer from "Components/Footer/Footer";
@@ -212,7 +213,7 @@ class ProductDetail extends React.Component {
             </ul>
           </div>
 
-          <article className="product_detail_container e-transition">
+          <article className="product_detail_container">
             <div className="lazy_img_form">
               {productImg.map((img, idx) => (
                 <img alt="test" src={img} key={idx} />

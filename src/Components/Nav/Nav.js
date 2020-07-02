@@ -1,10 +1,7 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/anchor-has-content */
 import React from "react";
-import NavFooterIcon from "../NavFooterIcon";
 import { Link } from "react-router-dom";
+import NavFooterIcon from "../NavFooterIcon";
 import Menu from "Pages/Main/Main_HamburderList/Menu";
-import "./Nav.scss";
 import {
   HAMBURGER_ICON,
   LOGO,
@@ -14,6 +11,7 @@ import {
   PATH_VIEWED,
   PATH_MYPAGE,
 } from "config";
+import "./Nav.scss";
 
 class Nav extends React.Component {
   constructor() {
