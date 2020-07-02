@@ -40,8 +40,6 @@ class Main extends React.Component {
 
   render() {
     const { loading, womenData, menData } = this.state;
-    console.log("main data : ", womenData);
-    console.log("나는 main");
     return loading ? (
       <section className="Main">
         <Nav />
