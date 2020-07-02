@@ -5,7 +5,7 @@ import { withRouter } from "react-router-dom";
 class Thumbnail extends React.Component {
   render() {
     const { className, productThumbnail, productThumbnailLink } = this.props;
-    console.log(`/products/detail/${productThumbnailLink}`);
+
     return (
       <>
         <button

@@ -40,7 +40,7 @@ class ProductDetail extends React.Component {
 
   // ProductDetailInfo data 받아오기
   componentDidMount() {
-    fetch(`http://10.58.2.60:8000/products/${this.props.match.params.id}`)
+    fetch(`http://10.58.6.113:8001/products/${this.props.match.params.id}`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({
@@ -67,7 +67,7 @@ class ProductDetail extends React.Component {
   // color 버튼 클릭할 때 마다, 다른 상품으로 렌더링
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
-      fetch(`http://10.58.2.60:8000/products/${this.props.match.params.id}`)
+      fetch(`http://10.58.6.113:8001/products/${this.props.match.params.id}`)
         .then((res) => res.json())
         .then((res) =>
           this.setState({
@@ -94,12 +94,14 @@ class ProductDetail extends React.Component {
 
   // size button 클릭 시 선택한 size를 currentSize에 저장
   sizeClickHandler = (size) => {
-    if (!this.props.soldout) {
+    const { soldout } = this.props;
+    const { currentSize } = this.state;
+    if (!soldout) {
       this.setState({
         currentSize: size,
       });
     }
-    if (this.state.currentSize === size) {
+    if (currentSize === size) {
       this.setState({
         currentSize: 0,
       });
@@ -108,40 +110,43 @@ class ProductDetail extends React.Component {
 
   // price "-" button 클릭 시 수량 및 가격 minus
   priceMinusHandler = () => {
-    if (this.state.currentQuantity > 1) {
+    const { currentQuantity, currentOrigin, currentSale } = this.state;
+    const { originPrice, salePrice } = this.state.productData;
+    if (currentQuantity > 1) {
       this.setState({
-        currentOrigin:
-          +this.state.currentOrigin - +this.state.productData.originPrice,
-        currentSale:
-          +this.state.currentSale - +this.state.productData.salePrice,
-        currentQuantity: this.state.currentQuantity - 1,
+        currentOrigin: +currentOrigin - +originPrice,
+        currentSale: +currentSale - +salePrice,
+        currentQuantity: currentQuantity - 1,
       });
     }
   };
 
   // price "+" button 클릭 시 수량 및 가격 plus
   pricePlusHandler = () => {
+    const { currentQuantity, currentOrigin, currentSale } = this.state;
+    const { originPrice, salePrice } = this.state.productData;
     this.setState({
-      currentOrigin:
-        +this.state.currentOrigin + +this.state.productData.originPrice,
-      currentSale: +this.state.currentSale + +this.state.productData.salePrice,
-      currentQuantity: this.state.currentQuantity + 1,
+      currentOrigin: +currentOrigin + +originPrice,
+      currentSale: +currentSale + +salePrice,
+      currentQuantity: currentQuantity + 1,
     });
   };
 
   // input 창에 수량 입력 시 현재 수량 및 가격 변동
   setInputHandler = (e) => {
+    const { originPrice, salePrice } = this.state.productData;
     this.setState({
       currentQuantity: +e.target.value,
-      currentOrigin: +this.state.productData.originPrice * +e.target.value,
-      currentSale: +this.state.productData.salePrice * +e.target.value,
+      currentOrigin: +originPrice * +e.target.value,
+      currentSale: +salePrice * +e.target.value,
     });
   };
 
   // 더 많은 후기 보기 버튼 클릭 시 review board를 3개씩 추가로 출력
   reviewBtnHandler = () => {
+    const { reviewFilter } = this.state;
     this.setState({
-      reviewFilter: this.state.reviewFilter + 3,
+      reviewFilter: reviewFilter + 3,
     });
   };
 
@@ -153,6 +158,8 @@ class ProductDetail extends React.Component {
       currentSize,
       sizeArr,
       like,
+      reviewArr,
+      reviewFilter,
       currentOrigin,
       currentSale,
       currentQuantity,
@@ -576,7 +583,10 @@ class ProductDetail extends React.Component {
             <div className="more-btn">
               <button onClick={this.reviewBtnHandler}>
                 더 많은 후기 보기 (+
-                {this.state.reviewArr.length - this.state.reviewFilter}개)
+                {reviewArr.length < 3
+                  ? reviewArr.length
+                  : reviewArr.length - reviewFilter}
+                개)
               </button>
             </div>
           </article>

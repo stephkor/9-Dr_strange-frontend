@@ -1,5 +1,4 @@
 import React from "react";
-import Path from "Components/Path";
 import SizeBtn from "Components/SizeBtn";
 import { MODAL_CANCEL, PLUS, MINUS } from "config";
 import "./CartModal.scss";

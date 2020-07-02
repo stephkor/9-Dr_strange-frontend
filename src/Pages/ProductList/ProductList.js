@@ -21,19 +21,20 @@ class ProductList extends React.Component {
 
   // product list data 받아오기
   componentDidMount() {
-    fetch("http://localhost:3000/data/productListInfo.json")
-      // fetch(`http://10.58.4.223:8000/products/list?menu_name=women`)
+    // fetch(
+    //   ` http://10.58.6.113:8001/products/list?menu_name=${this.props.match.params.category}`
+    // )
+    fetch(`http://10.58.6.113:8001/products/list?menu_name=men`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({
-          productListData: res.productListInfo,
+          productListData: res.products,
           loading: true,
         })
       );
   }
 
   // currentUserCategoryId 가 바뀔때마다, currentVisibleProducts 값 초기화
-  // 및, 유저가 리스트 페이지에서 상품 클릭시 해당하는 상품의 detail 페이지로 이동
   componentDidUpdate(_, prevState) {
     if (prevState.currentUserCategoryId !== this.state.currentUserCategoryId) {
       this.setState({ currentVisibleProducts: 18 });
@@ -107,9 +108,7 @@ class ProductList extends React.Component {
     const product_list_filter = this.imgArraySorter(productListData).filter(
       (_, idx) => idx < this.state.currentVisibleProducts
     );
-    console.log("productNum : ", this.props.match.params.productNum);
-    console.log("product : ", productListData);
-    console.log("loading : ", loading);
+    console.log(this.state.productListData);
 
     return loading ? (
       <section className="ProductList" id="scroll_top">
@@ -131,11 +130,7 @@ class ProductList extends React.Component {
           </div>
 
           <div className="product_list_category">
-            <button
-              type="button"
-              className="current"
-              onClick={() => this.categorySelectHandler(0)}
-            >
+            <button type="button" className="current">
               신발
             </button>
             <button type="button">컬렉션</button>
