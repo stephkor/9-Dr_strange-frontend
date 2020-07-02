@@ -10,21 +10,19 @@ class MainScrollEvent extends React.Component {
       firstLine,
       secondLine,
       backImg,
-      scrollHandler,
-      startOpacity,
-      startScale,
-      endScale,
+      opacity,
+      scale,
     } = this.props;
-    console.log("Y : ", window.scrollY);
+
+    const style = {
+      opacity: opacity,
+      transform: `scale(${scale})`,
+    };
 
     return (
       <section className={className}>
         <div className="main_scroll_img p-s t-0">
-          <img
-            alt="main_scroll_img"
-            src={backImg}
-            style={{ opacity: startOpacity / window.scrollY }}
-          />
+          <img alt="main_scroll_img" src={backImg} style={style} />
         </div>
 
         <div className="MainImageInfo">
@@ -40,7 +38,7 @@ class MainScrollEvent extends React.Component {
               </div>
             </div>
           </section>
-          <section className="bottom_text_form" onScroll={scrollHandler}>
+          <section className="bottom_text_form">
             <div className="bottom_text_box m-w-1140 m-auto">
               <div className="bottom_text">
                 <p>{firstLine}</p>

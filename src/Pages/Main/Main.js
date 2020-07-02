@@ -19,13 +19,15 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      scrollPosition: window.pageYOffset,
+      scrollOffset: 0,
+      opacity: 1,
+      scale: 1,
     };
   }
 
   // 첫 render 후에 scroll 이벤트 등록
   componentDidMount() {
-    window.addEventListener("scroll", this.scrollHandler);
+    window.addEventListener("scroll", this.scrollHandler, { passive: true });
   }
 
   // scroll 이벤트 사용 후에는 다시 unmount
@@ -34,21 +36,25 @@ class Main extends React.Component {
   }
 
   // scroll을 내릴때 scale, opacity 변경하는 이벤트
-  scrollHandler = (startOpacity, startScale, endScale) => {
-    //   main_scroll_img = "#main_scroll_img";
-    // main_scroll_img.scss({ opacity: calc });
-    // if (calc > "1") {
-    //   main_scroll_img.scss({ opacity: 1 });
-    // } else if (calc < "0") {
-    //   main_scroll_img.scss({ opacity: 0.4 });
-    // }
-    // console.log("scrollY : ", window.scrollY);
-    // console.log("scrollTop : ", scrollTop);
-    // console.log("height : ", height);
-    // console.log("calc : ", calc);
+  scrollHandler = () => {
+    if (window.scrollY > 6900 && window.scrollY < 7500) {
+      this.setState({
+        opacity: 1 - (window.scrollY - 6900) / 1000,
+        scale: 1,
+      });
+    }
+    if (window.scrollY > 7600 && window.scrollY < 8300) {
+      this.setState({
+        scale: 1 + (window.scrollY - 7600) / 5000,
+      });
+    }
   };
 
   render() {
+    const { opacity, scale } = this.state;
+    console.log("scrollY : ", window.scrollY);
+    console.log("main scale : ", scale);
+
     return (
       <section className="Main">
         <Nav />
@@ -73,9 +79,8 @@ class Main extends React.Component {
         <MainScrollEvent
           className="MainScrollEvent scroll_1"
           backImg={MAIN_SCROLL_EVENT1}
-          startOpacity={6600}
-          startScale={7200}
-          endScale={7800}
+          opacity={opacity}
+          scale={scale}
           firstTitle="발 끝까지 나를 사랑하는 방법"
           secondTitle="썸머 여성 샌들"
           firstLine="SS20 NEW 여성 샌들과 베스트 샌들을 만나보세요."
