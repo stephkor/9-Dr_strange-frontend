@@ -1,8 +1,9 @@
 import React from "react";
+// import { withRouter } from "react-router-dom";
 import Nav from "Components/Nav/Nav";
-import "./Login.scss";
-import { LOGIN_SIDE_BTN } from "config";
 import ItemBoxID from "Components/ItemBox/ItemBoxID";
+import { LOGIN_SIDE_BTN } from "config";
+import "./Login.scss";
 
 class Login extends React.Component {
   constructor() {
@@ -23,7 +24,7 @@ class Login extends React.Component {
 
   handleBtn = () => {
     // post
-    fetch("http://10.58.4.29:8000/user/signin", {
+    fetch("http://10.58.4.223:8000/users/signin", {
       // fetch 인자의 첫 번째 인자는 api 주소고, 두 번째 인자는 객체 형태이고
       method: "POST", // 메소드 뒤에 포스트를 스트링으로 적어줘야 하는데, get은 디폴트 값이 원래 있어서 안 써줘도 됨.
       body: JSON.stringify({
@@ -32,8 +33,28 @@ class Login extends React.Component {
         password: this.state.password,
       }),
     })
-      .then((res) => res.json())
-      .then((res) => console.log(res)); // then.(res=>localStorage.setItem("token", res.token)) -> 토큰 받음.
+      .then((res) => {
+        console.log(res);
+        if (res.status === 200 || res.status === 201) {
+          alert("로그인이 성공했습니다.");
+          this.props.history.push("/");
+        }
+        return res.json();
+      })
+      // .then(res) => res.json
+      .then((res) => {
+        console.log(res);
+        if (res.access_token) {
+          localStorage.setItem("token", res.access_token);
+        }
+      });
+
+    // .then((res) => {
+    //   if (res.token) {
+    //     localStorage.setItem("json", res.token);
+    //     this.props.history.push("/main");
+    //   }
+    // });
   };
 
   render() {
@@ -87,12 +108,12 @@ class Login extends React.Component {
               </div>
               <div className="flex_div_box2">
                 <div className="sign_up">
-                  <a
+                  <button
                     className="sign_up_text"
-                    href="https://m.drmartens.co.kr/member/agreement"
+                    onClick={() => this.props.history.push("/signup")}
                   >
                     회원가입
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>

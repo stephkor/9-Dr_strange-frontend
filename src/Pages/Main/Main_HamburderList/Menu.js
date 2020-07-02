@@ -18,14 +18,11 @@ class Menu extends React.Component {
         <HamburgerList categoryTitle={"콜라보레이션"} />
         <HamburgerList categoryTitle={"세일"} />
         <HamburgerList categoryTitle={"에디토리얼"} />
-
         <ul className="list_wrap_cs">
           <li className="category_list_cs">
             <button className="category_button_cs">
               <span className="category_title_cs">/고객센터</span>
               <ArrowIcon
-                data-v-c3045632=""
-                version="1.1"
                 view=" 0 0 60 35"
                 width="20"
                 height="20"

@@ -1,6 +1,7 @@
 import React from "react";
 import ArrowIcon from "Components/ArrowIcon";
-import { PATH_ARROW } from "config";
+import { PATH_ARROW } from "config.js";
+import { Link } from "react-router-dom";
 
 class HamburgerList extends React.Component {
   constructor() {
@@ -49,21 +50,22 @@ class HamburgerList extends React.Component {
                 className="sub_category_list"
                 style={{ display: this.state.click ? "block" : "none" }}
               >
-                <button
-                  className="sub_category_button"
-                  onClick={() => this.secondClickHandler()}
-                >
-                  <span className="sub_category_title">신발</span>
+                <Link to="/login">
+                  <button className="sub_category_button">
+                    <span className="sub_category_title">신발</span>
+                    <div onClick={() => this.secondClickHandler()}>
+                      <ArrowIcon
+                        view=" 0 0 60 35"
+                        width="15"
+                        height="15"
+                        path={PATH_ARROW}
+                        className="arrow"
+                        rotate={this.state.secondClick ? "rotate(180deg)" : ""}
+                      />
+                    </div>
+                  </button>
+                </Link>
 
-                  <ArrowIcon
-                    view=" 0 0 60 35"
-                    width="15"
-                    height="15"
-                    path={PATH_ARROW}
-                    className="arrow"
-                    rotate={this.state.secondClick ? "rotate(180deg)" : ""}
-                  />
-                </button>
                 <div
                   className="inner_sub_list"
                   style={{ display: this.state.secondClick ? "block" : "none" }}

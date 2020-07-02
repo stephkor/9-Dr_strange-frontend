@@ -5,7 +5,7 @@ import ProductFilter from "./Main_HamburderList/ProductFilter";
 import Footer from "Components/Footer/Footer";
 import MainImageInfo from "./Main_ImageInfo/MainImageInfo";
 import MainScrollEvent from "./Main_ScrollEvent/MainScrollEvent";
-import "Pages/Main/Main.scss";
+import ProductPreview from "Components/ProductPreview";
 import {
   MAIN_INFO_EVENT1,
   MAIN_INFO_EVENT2,
@@ -14,6 +14,7 @@ import {
   MAIN_SCROLL_EVENT2,
   MAIN_SCROLL_EVENT3,
 } from "config";
+import "Pages/Main/Main.scss";
 
 class Main extends React.Component {
   constructor(props) {
@@ -22,12 +23,24 @@ class Main extends React.Component {
       scrollOffset: 0,
       opacity: 1,
       scale: 1,
+      womenData: [],
+      menData: [],
+      loading: false,
     };
   }
 
-  // 첫 render 후에 scroll 이벤트 등록
+  // 첫 render 후에 scroll 이벤트 등록 & product main list data 받아오기
   componentDidMount() {
     window.addEventListener("scroll", this.scrollHandler, { passive: true });
+    fetch("http://localhost:3000/data/category.json")
+      .then((res) => res.json())
+      .then((res) =>
+        this.setState({
+          womenData: res.women,
+          menData: res.men,
+          loading: true,
+        })
+      );
   }
 
   // scroll 이벤트 사용 후에는 다시 unmount
@@ -51,15 +64,15 @@ class Main extends React.Component {
   };
 
   render() {
-    const { opacity, scale } = this.state;
+    const { loading, womenData, menData, opacity, scale } = this.state;
     console.log("scrollY : ", window.scrollY);
     console.log("main scale : ", scale);
 
-    return (
+    return loading ? (
       <section className="Main">
         <Nav />
         <MainSlider />
-        <ProductFilter />
+        <ProductFilter category={"여성"} data={womenData} />
         <MainImageInfo
           category="콜라보레이션"
           img={MAIN_INFO_EVENT1}
@@ -67,7 +80,8 @@ class Main extends React.Component {
           firstLine="1460의 60주년을 기념하는 1460 리마스터드의 여섯 번째 콜라보레이션."
           secondLine="닥터마틴의 클래식한 실루엣에 PLEASURES의 LA 라벨의 감각을 더해 두 브랜드의 헤리티지와 음악 그리고 서브컬처를 담아냈습니다. 6월 27일 오전 8시에 만나보실 수 있습니다."
         />
-        <ProductFilter />
+
+        <ProductFilter category={"여성"} data={womenData} />
         <MainImageInfo
           category="센스 있는 여름 코디를 위한"
           img={MAIN_INFO_EVENT2}
@@ -75,7 +89,7 @@ class Main extends React.Component {
           firstLine="이번 여름, 어디에나 잘 어울리는 남성 샌들로"
           secondLine="센스 있는 스타일을 완성해보세요."
         />
-        <ProductFilter />
+        <ProductFilter category={"남성"} data={menData} />
         <MainScrollEvent
           className="MainScrollEvent scroll_1"
           backImg={MAIN_SCROLL_EVENT1}
@@ -85,7 +99,12 @@ class Main extends React.Component {
           secondTitle="썸머 여성 샌들"
           firstLine="SS20 NEW 여성 샌들과 베스트 샌들을 만나보세요."
         />
-        <div className="product_preview_test m-w-1140" />
+        {womenData && (
+          <article className="product_preview_form m-w-1140 m-auto">
+            <ProductPreview data={womenData[0]} />
+            <ProductPreview data={womenData[1]} />
+          </article>
+        )}
         <MainScrollEvent
           className="MainScrollEvent scroll_2"
           backImg={MAIN_SCROLL_EVENT2}
@@ -94,9 +113,14 @@ class Main extends React.Component {
           firstLine="누구나 신규 가입 시 닥스 머니 지급"
           secondLine="기존 회원 본인 인증해도 지급!"
         />
-        <ProductFilter />
-
-        <div className="product_preview_test m-w-1140" />
+        <ProductFilter category={"여성"} data={womenData} />
+        <div className="shoes" />
+        {menData && (
+          <article className="product_preview_form m-w-1140 m-auto">
+            <ProductPreview data={menData[3]} />
+            <ProductPreview data={menData[4]} />
+          </article>
+        )}
         <MainImageInfo
           category="HOW TO USE WONDER BALSAM"
           img={MAIN_INFO_EVENT3}
@@ -124,6 +148,8 @@ class Main extends React.Component {
         />
         <Footer />
       </section>
+    ) : (
+      ""
     );
   }
 }

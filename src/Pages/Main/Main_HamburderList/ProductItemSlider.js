@@ -32,22 +32,19 @@ export default class ProductItemSlider extends Component {
         },
       ],
     };
+    const { filter } = this.props;
 
     return (
       <div className="ProductItemSlider">
         <Slider {...settings}>
-          <div className="product_item out-n" key={1}>
-            <ProductItemContainer />
-          </div>
-          <div className="product_item out-n" key={2}>
-            <ProductItemContainer />
-          </div>
-          <div className="product_item out-n" key={3}>
-            <ProductItemContainer />
-          </div>
-          <div className="product_item out-n" key={4}>
-            <ProductItemContainer />
-          </div>
+          {filter[0] &&
+            filter.map((data, idx) => (
+              <ProductItemContainer
+                key={idx}
+                componentKey={idx + 1}
+                data={data}
+              />
+            ))}
         </Slider>
       </div>
     );
