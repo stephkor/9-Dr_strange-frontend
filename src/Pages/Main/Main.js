@@ -14,6 +14,8 @@ import {
   MAIN_SCROLL_EVENT1,
   MAIN_SCROLL_EVENT2,
   MAIN_SCROLL_EVENT3,
+  MAIN_SLIDER_IMG4_LEFT,
+  MAIN_SLIDER_IMG4_RIGHT,
 } from "config";
 import "Pages/Main/Main.scss";
 
@@ -21,7 +23,7 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      scrollOffset: 0,
+      scroll: 0,
       opacity: 1,
       scale: 1,
       womenData: [],
@@ -32,7 +34,7 @@ class Main extends React.Component {
 
   // 첫 render 후에 scroll 이벤트 등록 & product main list data 받아오기
   componentDidMount() {
-    window.addEventListener("scroll", this.scrollHandler, { passive: true });
+    window.addEventListener("scroll", this.scrollHandler);
     fetch("http://localhost:3000/data/category.json")
       .then((res) => res.json())
       .then((res) =>
@@ -51,18 +53,60 @@ class Main extends React.Component {
 
   // scroll을 내릴때 scale, opacity 변경하는 이벤트
   scrollHandler = () => {
-    if (window.scrollY > 6900 && window.scrollY < 7500) {
+    this.setState({
+      scroll: window.scrollY,
+    });
+
+    // opacity style
+    if (window.scrollY > 7000 && window.scrollY < 7600) {
       this.setState({
-        opacity: 1 - (window.scrollY - 6900) / 1000,
-        scale: 1,
+        opacity: 1 - (window.scrollY - 7000) / 1000,
       });
     }
-    if (window.scrollY > 7600 && window.scrollY < 8300) {
+    if (window.scrollY > 10500 && window.scrollY < 11100) {
       this.setState({
-        scale: 1 + (window.scrollY - 7600) / 5000,
+        opacity: 1 - (window.scrollY - 10500) / 1000,
       });
     }
-    if (window.scrollY === 9400) {
+    if (window.scrollY > 13300 && window.scrollY < 13900) {
+      this.setState({
+        opacity: 1 - (window.scrollY - 13300) / 1000,
+      });
+    }
+    if (window.scrollY > 17300 && window.scrollY < 17900) {
+      this.setState({
+        opacity: 1 - (window.scrollY - 17300) / 1000,
+      });
+    }
+
+    // scale style
+    if (window.scrollY > 7800 && window.scrollY < 8500) {
+      this.setState({
+        scale: 1 + (window.scrollY - 7800) / 6000,
+      });
+    }
+    if (window.scrollY > 10900 && window.scrollY < 11400) {
+      this.setState({
+        scale: 1 + (window.scrollY - 10900) / 6000,
+      });
+    }
+    if (window.scrollY > 14100 && window.scrollY < 14600) {
+      this.setState({
+        scale: 1 + (window.scrollY - 14100) / 6000,
+      });
+    }
+    if (window.scrollY > 18000 && window.scrollY < 18500) {
+      this.setState({
+        scale: 1 + (window.scrollY - 18000) / 6000,
+      });
+    }
+
+    // reset
+    if (
+      (window.scrollY > 9300 && window.scrollY < 9400) ||
+      (window.scrollY > 12800 && window.scrollY < 1290) ||
+      (window.scrollY > 15000 && window.scrollY < 15100)
+    ) {
       this.setState({
         opacity: 1,
         scale: 1,
@@ -73,6 +117,8 @@ class Main extends React.Component {
   render() {
     const { loading, womenData, menData, opacity, scale } = this.state;
     console.log("scrollY : ", window.scrollY);
+    console.log("scrollState : ", this.state.scroll);
+    console.log("main opacity : ", opacity);
     console.log("main scale : ", scale);
 
     return loading ? (
@@ -123,7 +169,16 @@ class Main extends React.Component {
           secondLine="기존 회원 본인 인증해도 지급!"
         />
         <ProductFilter category={"여성"} data={womenData} />
-        <div className="shoes" />
+        {/* <MainScrollEvent
+          className="MainScrollEvent scroll_4"
+          backImg={MAIN_SCROLL_EVENT1}
+          transformLeft={transformLeft}
+          stransformRight={stransformRight}
+          firstTitle="오리지널"
+          secondTitle="1460"
+          thirdTitle="부츠"
+          firstLine="SS20 NEW 여성 샌들과 베스트 샌들을 만나보세요."
+        /> */}
         {menData && (
           <article className="product_preview_form m-w-1140 m-auto">
             <ProductPreview data={menData[3]} />

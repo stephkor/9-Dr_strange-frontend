@@ -1,5 +1,7 @@
 // IMAGES
 // main
+import shoes_left from "Images/main/scroll_event_left.png";
+import shoes_right from "Images/main/scroll_event_right.png";
 
 // login & sign up
 import login_side_btn from "Images/Login/login_side_btn.jpg";
@@ -45,6 +47,9 @@ export const MAIN_SLIDER_IMG3 =
   "https://www.drmartens.co.kr/data/cms/dr_marten_pc/images/3ff8569c-8663-4908-a770-b3e95c23de9d.jpg";
 export const MAIN_SLIDER_IMG4 =
   "https://www.drmartens.co.kr/data/cms/dr_marten_pc/images/0306afdb-3095-4a2c-a160-125dcd473c23.jpg";
+
+export const MAIN_SLIDER_IMG4_LEFT = shoes_left;
+export const MAIN_SLIDER_IMG4_RIGHT = shoes_right;
 
 // login & sign up
 
