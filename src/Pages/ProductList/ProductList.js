@@ -21,8 +21,8 @@ class ProductList extends React.Component {
 
   // product list data 받아오기
   componentDidMount() {
-    // fetch(`http://10.58.4.223:8000/products/list?menu_name=women`)
-    fetch(`http://localhost:3000/data/productListInfo.json`)
+    fetch("http://localhost:3000/data/productListInfo.json")
+      // fetch(`http://10.58.4.223:8000/products/list?menu_name=women`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({

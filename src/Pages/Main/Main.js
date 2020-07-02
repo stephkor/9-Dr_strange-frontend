@@ -65,8 +65,8 @@ class Main extends React.Component {
 
   render() {
     const { loading, womenData, menData, opacity, scale } = this.state;
-    console.log("scrollY : ", window.scrollY);
-    console.log("main scale : ", scale);
+    // console.log("scrollY : ", window.scrollY);
+    // console.log("main scale : ", scale);
 
     return loading ? (
       <section className="Main">
