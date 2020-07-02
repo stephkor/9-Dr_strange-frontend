@@ -1,0 +1,208 @@
+.CartModal {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+
+	h1 {
+		padding-left: 32px;
+		font-size: 24px;
+		font-weight: 700;
+	}
+
+	p {
+		font-size: 16px;
+		color: #666;
+	}
+
+	.modal_top {
+		display: flex;
+		justify-content: space-between;
+		padding: 20px 0;
+		border-bottom: 1px solid #ddd;
+
+		img {
+			margin-right: 32px;
+			width: 23px;
+			height: 23px;
+			cursor: pointer;
+		}
+	}
+
+	.product_title {
+		h1 {
+			padding: 0 0 12px 0;
+		}
+
+		padding: 20px 32px;
+	}
+
+	.now_in_stock {
+		display: flex;
+		justify-content: space-between;
+		padding: 20px 32px;
+
+		h2 {
+			font-size: 18px;
+			font-weight: 700;
+		}
+	}
+
+	.size_option {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		padding: 0 32px;
+
+		button {
+			display: inline-block;
+			width: 168px;
+			height: 36px;
+			margin: 4px 4px;
+			padding: 4px 20px 3px 20px;
+			font-size: 18px;
+			font-weight: 400;
+			text-align: left;
+		}
+
+		.size_btn {
+			border: 1px solid #e5e5e5;
+			background-color: white;
+		}
+
+		.size_btn_click {
+			border: 1px solid #e5e5e5;
+			color: white;
+			background-color: #111;
+		}
+
+		.soldout_btn {
+			border: 1px solid #e5e5e5;
+			color: #999;
+			background-color: #f7f7f7;
+			cursor: not-allowed;
+
+			&:after {
+				position: absolute;
+				top: 9px;
+				left: 68px;
+				content: '일시품절';
+				font-size: 12px;
+			}
+		}
+	}
+
+	.product_price_form {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 20px 32px;
+
+		.product_quantity {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			width: 178px;
+			padding: 0 8px 6px 8px;
+			border-bottom: 1px solid #e5e5e5;
+
+			p {
+				font-size: 18px;
+			}
+
+			input {
+				max-width: 61px;
+				font-size: 18px;
+				font-weight: 700;
+				text-align: center;
+			}
+
+			button {
+				width: 32px;
+				height: 27px;
+
+				.btn_minus {
+					padding-right: 5px;
+					padding-bottom: 3px;
+				}
+
+				.btn_plus {
+					padding-top: 1px;
+				}
+			}
+		}
+
+		.product_item_price {
+			display: flex;
+			align-items: center;
+
+			.sale_price {
+				font-size: 30px;
+				color: red;
+				padding-right: 8px;
+
+				&:before {
+					content: '₩';
+					padding-right: 5px;
+					font-weight: 400;
+					font-size: 24.5px;
+				}
+			}
+
+			.origin_price_ws {
+				font-size: 18px;
+				text-decoration: line-through;
+				color: #999;
+
+				&:before {
+					content: '₩';
+					padding-right: 3px;
+					font-weight: 400;
+					font-size: 14px;
+				}
+			}
+
+			.origin_price {
+				padding-top: 5px;
+				font-size: 30.5px;
+				color: #111;
+
+				&::before {
+					content: '₩';
+					padding-right: 3px;
+					font-weight: 400;
+					font-size: 16px;
+				}
+			}
+		}
+	}
+
+	.cart_btn_on {
+		width: 100;
+		height: 62px;
+		margin-top: 15px;
+		background-color: #111;
+		text-align: center;
+
+		button {
+			padding-top: 18px;
+			font-size: 22px;
+			font-weight: 700;
+			color: white;
+		}
+	}
+
+	.cart_btn_off {
+		width: 100;
+		height: 62px;
+		margin-top: 15px;
+		background-color: #ddd;
+		text-align: center;
+
+		button {
+			padding-top: 18px;
+			font-size: 22px;
+			font-weight: 400;
+			color: #999;
+		}
+	}
+}

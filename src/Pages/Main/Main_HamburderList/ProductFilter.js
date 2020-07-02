@@ -26,7 +26,7 @@ class ProductFilter extends React.Component {
     return (
       <section className="filter_wrapper">
         <div className="ProductFilter">
-          <h2 className="filter_title">{category}</h2>
+          <h2 className="filter_title font-b">{category}</h2>
           <nav className="filter_category">
             <ul>
               <li className="category">

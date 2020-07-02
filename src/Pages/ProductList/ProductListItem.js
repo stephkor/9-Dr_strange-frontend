@@ -1,11 +1,29 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import ReactModal from "react-modal";
+import CartModal from "Components/CartModal/CartModal";
 import ListWishButton from "Pages/ProductList/ListWishButton";
 import "./ProductList.scss";
 
 class ProductListItem extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      modalIsOpen: false,
+    };
+  }
+
+  // 장바구니 버튼 클릭시 modalIsOpen state 변경
+  modalClickHandelr = () => {
+    this.setState({
+      modalIsOpen: !this.state.modalIsOpen,
+    });
+  };
+
   render() {
+    const { modalIsOpen } = this.state;
     const { data, clickHandler } = this.props;
+
     return (
       <section className="ProductListItem">
         {data.productImg.length === 1 ? (
@@ -45,7 +63,29 @@ class ProductListItem extends React.Component {
                 {(+data.originPrice).toLocaleString()}
               </p>
             )}
-            <button>장바구니 담기</button>
+            <button onClick={this.modalClickHandelr}>장바구니 담기</button>
+            <ReactModal
+              isOpen={modalIsOpen}
+              onRequestClose={this.modalClickHandelr}
+              style={{
+                overlay: {},
+                content: {
+                  border: "none",
+                  borderRadius: "none",
+                  width: "600px",
+                  height: "500px",
+                  padding: "0",
+                  left: "50%",
+                  top: "50%",
+                  transform: "translate(-50%, -50%)",
+                },
+              }}
+            >
+              <CartModal
+                modalClickHandelr={this.modalClickHandelr}
+                data={data}
+              />
+            </ReactModal>
           </div>
         </div>
       </section>
