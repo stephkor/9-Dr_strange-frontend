@@ -17,8 +17,10 @@ class CartContentList extends React.Component {
       checkClick: !this.state.checkClick,
     });
   };
+
   render() {
-    console.log(this.state.checkClick);
+    const { options } = this.props;
+    console.log(options);
     return (
       <section className="CartProductList">
         <main className="cart_content_product">
@@ -53,12 +55,20 @@ class CartContentList extends React.Component {
               </svg>
             </button>
             <div className="order_product_info_container">
-              <img className="product_img" />
+              <img
+                className="product_img"
+                src={options[0] && options[0].productImg}
+                alt={"product-img"}
+              />
 
               <div className="order_product_info">
-                <h2 className="order_product_title">[설현착용] 마일즈</h2>
+                <h2 className="order_product_title">
+                  {options[0] && options[0].productName}
+                </h2>
                 <ul className="order_product_detail">
-                  <li className="detail_info"> 컬러: 블랙 </li>
+                  <li className="detail_info">
+                    컬러: {options[0] && options[0].color}
+                  </li>
                   <li className="detail_info"> 사이즈(UK) 260 </li>
                   <li className="detail_info"> 수량 : 1 </li>
                   <li className="point_option_btn">

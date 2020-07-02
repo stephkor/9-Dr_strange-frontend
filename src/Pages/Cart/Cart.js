@@ -1,5 +1,5 @@
 import React from "react";
-import EmptyCart from "Pages/Cart/EmptyCart";
+import EmptyCart from "./EmptyCart";
 import Nav from "Components/Nav/Nav";
 import Footer from "Components/Footer/Footer";
 import CartProductList from "./CartProductList";
@@ -21,6 +21,8 @@ class Cart extends React.Component {
     this.state = {
       checkClick: false,
       select: 1,
+      options: {},
+      values: [],
     };
   }
 
@@ -30,14 +32,15 @@ class Cart extends React.Component {
     });
   };
 
-  selectClickHandler = () => {
-    this.setState({
-      select: 0,
-    });
-  };
+  componentDidMount() {
+    fetch("http://localhost:3000/data/cart.json")
+      .then((res) => res.json())
+      .then((res) => console.log(res));
+  }
 
   render() {
-    const { checkClick, select } = this.state;
+    const { checkClick, select, options } = this.state;
+    console.log("options", options);
     return (
       <div className="Cart">
         <Nav />
@@ -48,7 +51,7 @@ class Cart extends React.Component {
             </button>
             <h1 className="cart_header_title">장바구니</h1>
           </div>
-          <section className="cart_content_wrapper" style={{ display: "none" }}>
+          <section className="cart_content_wrapper">
             <div className="cart_content_header">
               <div className="cart_content_topper">
                 <button
@@ -80,7 +83,7 @@ class Cart extends React.Component {
                   </svg>
                   <p> 전체선택</p>
                 </button>
-                <button className="del_btn" onclick={this.selectlickHandler}>
+                <button className="del_btn">
                   <svg
                     width={20}
                     height={20}
@@ -98,7 +101,11 @@ class Cart extends React.Component {
                 </button>
               </div>
             </div>
-            <CartProductList select={select} style={{ display: "none" }} />
+            <CartProductList
+              select={select}
+              options={options}
+              style={{ display: this.state.select === 0 ? "none" : "block" }}
+            />
             <aside className="cart_content_price">
               <div className="order_price_topper">
                 <h1>주문 예정 금액</h1>
@@ -127,9 +134,10 @@ class Cart extends React.Component {
           </div>
         </section>
 
-        <section className="empty_wrapper">
-          <EmptyCart />
-        </section>
+        <EmptyCart
+          style={{ display: this.state.select === 0 ? "block" : "none" }}
+        />
+
         <Footer />
       </div>
     );
