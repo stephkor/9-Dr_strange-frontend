@@ -4,7 +4,7 @@ import MainSlider from "./Main_Slider/MainSlider";
 import ProductFilter from "./Main_HamburderList/ProductFilter";
 import Footer from "Components/Footer/Footer";
 import MainImageInfo from "./Main_ImageInfo/MainImageInfo";
-import "Pages/Main/Main.scss";
+import ProductPreview from "Components/ProductPreview";
 import {
   MAIN_INFO_EVENT1,
   MAIN_INFO_EVENT2,
@@ -13,10 +13,34 @@ import {
   MAIN_SCROLL_EVENT2,
   MAIN_SCROLL_EVENT3,
 } from "config";
+import "Pages/Main/Main.scss";
 
 class Main extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      womenData: [],
+      menData: [],
+      loading: false,
+    };
+  }
+
+  // product main list data 받아오기
+  componentDidMount() {
+    fetch("http://localhost:3000/data/category.json")
+      .then((res) => res.json())
+      .then((res) =>
+        this.setState({
+          womenData: res.women,
+          menData: res.men,
+          loading: true,
+        })
+      );
+  }
+
   render() {
-    return (
+    const { loading, womenData, menData } = this.state;
+    return loading ? (
       <section className="Main">
         <Nav />
         <MainSlider />
@@ -42,16 +66,21 @@ class Main extends React.Component {
           className="main_scroll_event"
           src={MAIN_SCROLL_EVENT1}
         />
-        {/* <ProducPreview /> */}
-        <div className="product_preview_test m-w-1140" />
+        <article className="product_preview_form m-w-1140 m-auto">
+          <ProductPreview data={womenData[0]} />
+          <ProductPreview data={womenData[1]} />
+        </article>
         <img
           alt="main_scroll"
           className="main_scroll_event"
           src={MAIN_SCROLL_EVENT2}
         />
         <ProductFilter />
-
-        <div className="product_preview_test m-w-1140" />
+        <div className="shoes" />
+        <article className="product_preview_form m-w-1140 m-auto">
+          <ProductPreview data={menData[3]} />
+          <ProductPreview data={menData[4]} />
+        </article>
         <MainImageInfo
           category="HOW TO USE WONDER BALSAM"
           img={MAIN_INFO_EVENT3}
@@ -66,6 +95,8 @@ class Main extends React.Component {
         />
         <Footer />
       </section>
+    ) : (
+      ""
     );
   }
 }

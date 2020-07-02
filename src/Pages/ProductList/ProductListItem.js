@@ -1,18 +1,25 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import ListWishButton from "Pages/ProductList/ListWishButton";
 import "./ProductList.scss";
 
 class ProductListItem extends React.Component {
   render() {
-    const { data } = this.props;
+    const { data, clickHandler } = this.props;
     return (
       <section className="ProductListItem">
         {data.productImg.length === 1 ? (
-          <div className="product_img_one">
+          <div
+            className="product_img_one"
+            onClick={() => clickHandler(data.productNum)}
+          >
             <img alt="product_list_img" src={data.productImg[0]} />
           </div>
         ) : (
-          <div className="product_img_two">
+          <div
+            className="product_img_two"
+            onClick={() => clickHandler(data.productNum)}
+          >
             <img alt="product_list_img" src={data.productImg[0]} />
             <img alt="product_list_img" src={data.productImg[1]} />
           </div>
@@ -24,18 +31,18 @@ class ProductListItem extends React.Component {
             <ListWishButton like={data.like} />
           </div>
           <div className="list_info_option">
-            {data.salePrice ? (
+            {data.salePrice !== data.originPrice ? (
               <>
                 <p className="sale_price num-font">
-                  {data.salePrice.toLocaleString()}
+                  {(+data.salePrice).toLocaleString()}
                 </p>
                 <p className="origin_price_ws num-font">
-                  {data.originPrice.toLocaleString()}
+                  {(+data.originPrice).toLocaleString()}
                 </p>
               </>
             ) : (
               <p className="origin_price num-font">
-                {data.originPrice.toLocaleString()}
+                {(+data.originPrice).toLocaleString()}
               </p>
             )}
             <button>장바구니 담기</button>
@@ -45,4 +52,4 @@ class ProductListItem extends React.Component {
     );
   }
 }
-export default ProductListItem;
+export default withRouter(ProductListItem);
