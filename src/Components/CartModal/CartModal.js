@@ -17,20 +17,23 @@ class CartModal extends React.Component {
 
   // 첫 render 후에 props로 받은 데이터를 state에 저장
   componentDidMount() {
+    const { salePrice, originPrice } = this.props.data;
     this.setState({
-      currentSale: +this.props.data.salePrice,
-      currentOrigin: +this.props.data.originPrice,
+      currentSale: salePrice,
+      currentOrigin: originPrice,
     });
   }
 
   // size button 클릭 시 선택한 size를 currentSize에 저장
   sizeClickHandler = (size) => {
-    if (!this.props.soldout) {
+    const { soldout } = this.props;
+    const { currentSize } = this.state;
+    if (!soldout) {
       this.setState({
         currentSize: size,
       });
     }
-    if (this.state.currentSize === size) {
+    if (currentSize === size) {
       this.setState({
         currentSize: 0,
       });
@@ -39,30 +42,35 @@ class CartModal extends React.Component {
 
   // price "-" button 클릭 시 수량 및 가격 minus
   priceMinusHandler = () => {
-    if (this.state.currentQuantity > 1) {
+    const { currentQuantity, currentOrigin, currentSale } = this.state;
+    const { originPrice, salePrice } = this.props.data;
+    if (currentQuantity > 1) {
       this.setState({
-        currentOrigin: +this.state.currentOrigin - +this.props.data.originPrice,
-        currentSale: +this.state.currentSale - +this.props.data.salePrice,
-        currentQuantity: this.state.currentQuantity - 1,
+        currentOrigin: +currentOrigin - +originPrice,
+        currentSale: +currentSale - +salePrice,
+        currentQuantity: currentQuantity - 1,
       });
     }
   };
 
   // price "+" button 클릭 시 수량 및 가격 plus
   pricePlusHandler = () => {
+    const { currentQuantity, currentOrigin, currentSale } = this.state;
+    const { originPrice, salePrice } = this.props.data;
     this.setState({
-      currentOrigin: +this.state.currentOrigin + +this.props.data.originPrice,
-      currentSale: +this.state.currentSale + +this.props.data.salePrice,
-      currentQuantity: this.state.currentQuantity + 1,
+      currentOrigin: +currentOrigin + +originPrice,
+      currentSale: +currentSale + +salePrice,
+      currentQuantity: currentQuantity + 1,
     });
   };
 
   // input 창에 수량 입력 시 현재 수량 및 가격 변동
   setInputHandler = (e) => {
+    const { originPrice, salePrice } = this.props.data;
     this.setState({
       currentQuantity: +e.target.value,
-      currentOrigin: +this.props.data.originPrice * +e.target.value,
-      currentSale: +this.props.data.salePrice * +e.target.value,
+      currentOrigin: +originPrice * +e.target.value,
+      currentSale: +salePrice * +e.target.value,
     });
   };
 
@@ -74,13 +82,6 @@ class CartModal extends React.Component {
       currentSale,
     } = this.state;
     const { modalClickHandelr, data } = this.props;
-    console.log(
-      "modal : ",
-      currentSale,
-      currentOrigin,
-      currentQuantity,
-      currentSize
-    );
 
     return (
       <section className="CartModal">
