@@ -47,6 +47,10 @@ export const MAIN_SLIDER_IMG4 =
 
 // login & sign up
 
+// modal
+export const MODAL_CANCEL =
+  "https://www.drmartens.co.kr/data/skin/dr_marten_pc/images/shape-6.png";
+
 // PATH
 // main
 export const SCROLL_TOP_BTN =

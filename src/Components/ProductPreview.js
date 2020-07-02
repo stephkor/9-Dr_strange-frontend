@@ -1,11 +1,27 @@
 import React from "react";
+import ReactModal from "react-modal";
+import CartModal from "Components/CartModal/CartModal";
 import ListWishButton from "Pages/ProductList/ListWishButton";
 
 class ProductPreview extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      modalIsOpen: false,
+    };
+  }
+
+  // 장바구니 버튼 클릭시 modalIsOpen state 변경
+  modalClickHandelr = () => {
+    this.setState({
+      modalIsOpen: !this.state.modalIsOpen,
+    });
+  };
+
   render() {
+    const { modalIsOpen } = this.state;
     const { data } = this.props;
-    console.log("나는 preview");
-    console.log("preview data : ", data);
+
     return (
       <section className="ProductPreview">
         {data.productImg && (
@@ -37,7 +53,29 @@ class ProductPreview extends React.Component {
             ) : (
               ""
             )}
-            <button>장바구니 담기</button>
+            <button onClick={this.modalClickHandelr}>장바구니 담기</button>
+            <ReactModal
+              isOpen={modalIsOpen}
+              onRequestClose={this.modalClickHandelr}
+              style={{
+                overlay: {},
+                content: {
+                  border: "none",
+                  borderRadius: "none",
+                  width: "600px",
+                  height: "500px",
+                  padding: "0",
+                  left: "50%",
+                  top: "50%",
+                  transform: "translate(-50%, -50%)",
+                },
+              }}
+            >
+              <CartModal
+                modalClickHandelr={this.modalClickHandelr}
+                data={data}
+              />
+            </ReactModal>
           </div>
         </div>
       </section>

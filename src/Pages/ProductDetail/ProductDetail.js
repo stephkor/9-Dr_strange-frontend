@@ -3,7 +3,7 @@ import Nav from "Components/Nav/Nav";
 import Footer from "Components/Footer/Footer";
 import Path from "Components/Path";
 import Thumbnail from "./Thumbnail";
-import SizeBtn from "./SizeBtn";
+import SizeBtn from "../../Components/SizeBtn";
 import DetailWishButton from "./DetailWishButton";
 import SizeTable from "./SizeTable";
 import SubTitle from "./SubTitle";
@@ -87,8 +87,8 @@ class ProductDetail extends React.Component {
             productImg: this.state.productData.productImg,
           });
         });
-      window.scrollTo(0, 0);
     }
+    window.scrollTo(0, 0);
   }
 
   // size button 클릭 시 선택한 size를 currentSize에 저장
@@ -159,8 +159,6 @@ class ProductDetail extends React.Component {
     const review_filter = this.state.reviewArr.filter(
       (_, idx) => idx < this.state.reviewFilter
     );
-    console.log(this.props.match.params);
-    console.log("id : ", this.props.match.params.id);
 
     return (
       <section id="scroll_top">
@@ -286,12 +284,22 @@ class ProductDetail extends React.Component {
                     </button>
                   </div>
                   <div className="product_item_price num-font">
-                    <span className="sale_price">
-                      {(+currentSale).toLocaleString()}
-                    </span>
-                    <span className="origin_price">
-                      {(+currentOrigin).toLocaleString()}
-                    </span>
+                    {currentSale !== currentOrigin ? (
+                      <>
+                        <span className="sale_price">
+                          {(+currentSale).toLocaleString()}
+                        </span>
+                        <span className="origin_price_ws">
+                          {(+currentOrigin).toLocaleString()}
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="origin_price">
+                          {(+currentOrigin).toLocaleString()}
+                        </span>
+                      </>
+                    )}
                   </div>
                 </div>
 
