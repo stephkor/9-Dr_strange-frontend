@@ -18,6 +18,7 @@ import nav_hamburger from "Images/Nav/hamburger_icon.svg";
 export const LOGO = nav_logo;
 export const HAMBURGER_ICON = nav_hamburger;
 export const LOGIN_SIDE_BTN = login_side_btn;
+
 export const GUEST_ICON = guest_icon;
 export const SELECT_ICON = select_icon;
 export const REVIEW_GENDER_M = gender_m;
@@ -107,6 +108,8 @@ export const category = {
   1: "부츠",
   2: "슈즈",
   3: "샌들",
+  women: "여성",
+  men: "남성",
 };
 
 export const category_description = {

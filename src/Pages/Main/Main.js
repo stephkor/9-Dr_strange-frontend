@@ -33,6 +33,7 @@ class Main extends React.Component {
         this.setState({
           womenData: res.women,
           menData: res.men,
+
           loading: true,
         })
       );
@@ -52,7 +53,8 @@ class Main extends React.Component {
           firstLine="1460의 60주년을 기념하는 1460 리마스터드의 여섯 번째 콜라보레이션."
           secondLine="닥터마틴의 클래식한 실루엣에 PLEASURES의 LA 라벨의 감각을 더해 두 브랜드의 헤리티지와 음악 그리고 서브컬처를 담아냈습니다. 6월 27일 오전 8시에 만나보실 수 있습니다."
         />
-        <ProductFilter />
+
+        <ProductFilter category={"여성"} data={womenData} />
         <MainImageInfo
           category="센스 있는 여름 코디를 위한"
           img={MAIN_INFO_EVENT2}
@@ -60,7 +62,7 @@ class Main extends React.Component {
           firstLine="이번 여름, 어디에나 잘 어울리는 남성 샌들로"
           secondLine="센스 있는 스타일을 완성해보세요."
         />
-        <ProductFilter />
+        <ProductFilter category={"남성"} data={menData} />
         <img
           alt="main_scroll"
           className="main_scroll_event"
