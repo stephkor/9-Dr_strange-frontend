@@ -1,5 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import "./MainImageInfo.scss";
 
 class MainImageInfo extends React.Component {
   render() {

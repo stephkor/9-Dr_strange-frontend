@@ -18,6 +18,7 @@ import nav_hamburger from "Images/Nav/hamburger_icon.svg";
 export const LOGO = nav_logo;
 export const HAMBURGER_ICON = nav_hamburger;
 export const LOGIN_SIDE_BTN = login_side_btn;
+
 export const GUEST_ICON = guest_icon;
 export const SELECT_ICON = select_icon;
 export const REVIEW_GENDER_M = gender_m;
@@ -46,6 +47,10 @@ export const MAIN_SLIDER_IMG4 =
   "https://www.drmartens.co.kr/data/cms/dr_marten_pc/images/0306afdb-3095-4a2c-a160-125dcd473c23.jpg";
 
 // login & sign up
+
+// modal
+export const MODAL_CANCEL =
+  "https://www.drmartens.co.kr/data/skin/dr_marten_pc/images/shape-6.png";
 
 // PATH
 // main
@@ -107,6 +112,8 @@ export const category = {
   1: "부츠",
   2: "슈즈",
   3: "샌들",
+  women: "여성",
+  men: "남성",
 };
 
 export const category_description = {

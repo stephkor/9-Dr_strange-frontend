@@ -1,9 +1,10 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import Nav from "Components/Nav/Nav";
 import Footer from "Components/Footer/Footer";
 import Path from "Components/Path";
 import Thumbnail from "./Thumbnail";
-import SizeBtn from "./SizeBtn";
+import SizeBtn from "../../Components/SizeBtn";
 import DetailWishButton from "./DetailWishButton";
 import SizeTable from "./SizeTable";
 import SubTitle from "./SubTitle";
@@ -39,7 +40,7 @@ class ProductDetail extends React.Component {
 
   // ProductDetailInfo data 받아오기
   componentDidMount() {
-    fetch("http://localhost:3000/data/productDetailInfo.json")
+    fetch(`http://10.58.2.60:8000/products/${this.props.match.params.id}`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({
@@ -48,17 +49,47 @@ class ProductDetail extends React.Component {
       )
       .finally(() => {
         this.setState({
+          productNum: this.state.productData.productNum,
           productThumbnail: Object.entries(
             this.state.productData.productThumbnail
           ),
           sizeArr: Object.entries(this.state.productData.size),
           like: this.state.productData.like,
-          currentOrigin: this.state.productData.originPrice,
-          currentSale: this.state.productData.salePrice,
+          currentOrigin: +this.state.productData.originPrice,
+          currentSale: +this.state.productData.salePrice,
           reviewArr: this.state.productData.reviewInfo,
           productImg: this.state.productData.productImg,
         });
       });
+    window.scrollTo(0, 0);
+  }
+
+  // color 버튼 클릭할 때 마다, 다른 상품으로 렌더링
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.params.id !== this.props.match.params.id) {
+      fetch(`http://10.58.2.60:8000/products/${this.props.match.params.id}`)
+        .then((res) => res.json())
+        .then((res) =>
+          this.setState({
+            productData: res.productDetailInfo,
+          })
+        )
+        .finally(() => {
+          this.setState({
+            productNum: this.state.productData.productNum,
+            productThumbnail: Object.entries(
+              this.state.productData.productThumbnail
+            ),
+            sizeArr: Object.entries(this.state.productData.size),
+            like: this.state.productData.like,
+            currentOrigin: +this.state.productData.originPrice,
+            currentSale: +this.state.productData.salePrice,
+            reviewArr: this.state.productData.reviewInfo,
+            productImg: this.state.productData.productImg,
+          });
+        });
+    }
+    window.scrollTo(0, 0);
   }
 
   // size button 클릭 시 선택한 size를 currentSize에 저장
@@ -80,8 +111,9 @@ class ProductDetail extends React.Component {
     if (this.state.currentQuantity > 1) {
       this.setState({
         currentOrigin:
-          this.state.currentOrigin - this.state.productData.originPrice,
-        currentSale: this.state.currentSale - this.state.productData.salePrice,
+          +this.state.currentOrigin - +this.state.productData.originPrice,
+        currentSale:
+          +this.state.currentSale - +this.state.productData.salePrice,
         currentQuantity: this.state.currentQuantity - 1,
       });
     }
@@ -91,18 +123,18 @@ class ProductDetail extends React.Component {
   pricePlusHandler = () => {
     this.setState({
       currentOrigin:
-        this.state.currentOrigin + this.state.productData.originPrice,
-      currentSale: this.state.currentSale + this.state.productData.salePrice,
+        +this.state.currentOrigin + +this.state.productData.originPrice,
+      currentSale: +this.state.currentSale + +this.state.productData.salePrice,
       currentQuantity: this.state.currentQuantity + 1,
     });
   };
 
-  // input 창에 수량 입력 시 현재 수량 및 가격 변동 - 수정 필요해서 주석 처리
+  // input 창에 수량 입력 시 현재 수량 및 가격 변동
   setInputHandler = (e) => {
     this.setState({
       currentQuantity: +e.target.value,
-      currentOrigin: this.state.productData.originPrice * +e.target.value,
-      currentSale: this.state.productData.salePrice * +e.target.value,
+      currentOrigin: +this.state.productData.originPrice * +e.target.value,
+      currentSale: +this.state.productData.salePrice * +e.target.value,
     });
   };
 
@@ -128,13 +160,11 @@ class ProductDetail extends React.Component {
     const review_filter = this.state.reviewArr.filter(
       (_, idx) => idx < this.state.reviewFilter
     );
-    console.log("수량 : ", this.state.currentQuantity);
-    console.log("원가 : ", this.state.currentOrigin);
-    console.log("세일가 : ", this.state.currentSale);
+
     return (
       <section id="scroll_top">
         <Nav />
-        <section className="ProductDetail m-w-1140 m-auto scroll-s">
+        <section className="ProductDetail m-w-1140 m-auto">
           <div className="detail_scroll_sidebar">
             <ul>
               <li>
@@ -183,7 +213,7 @@ class ProductDetail extends React.Component {
             </ul>
           </div>
 
-          <article className="product_detail_container e-transition">
+          <article className="product_detail_container">
             <div className="lazy_img_form">
               {productImg.map((img, idx) => (
                 <img alt="test" src={img} key={idx} />
@@ -232,8 +262,8 @@ class ProductDetail extends React.Component {
                   {productThumbnail.map((thumbnail, idx) => (
                     <Thumbnail
                       className="product_thumbnail"
-                      productThumbnail={thumbnail[0]}
-                      productThumbnailLink={thumbnail[1]}
+                      productThumbnail={thumbnail[1]}
+                      productThumbnailLink={thumbnail[0]}
                       key={idx}
                     />
                   ))}
@@ -255,12 +285,22 @@ class ProductDetail extends React.Component {
                     </button>
                   </div>
                   <div className="product_item_price num-font">
-                    <span className="sale_price">
-                      {currentSale.toLocaleString()}
-                    </span>
-                    <span className="origin_price">
-                      {currentOrigin.toLocaleString()}
-                    </span>
+                    {currentSale !== currentOrigin ? (
+                      <>
+                        <span className="sale_price">
+                          {(+currentSale).toLocaleString()}
+                        </span>
+                        <span className="origin_price_ws">
+                          {(+currentOrigin).toLocaleString()}
+                        </span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="origin_price">
+                          {(+currentOrigin).toLocaleString()}
+                        </span>
+                      </>
+                    )}
                   </div>
                 </div>
 
@@ -535,8 +575,8 @@ class ProductDetail extends React.Component {
             </div>
             <div className="more-btn">
               <button onClick={this.reviewBtnHandler}>
-                더 많은 후기 보기 ( +
-                {this.state.reviewArr.length - this.state.reviewFilter} )
+                더 많은 후기 보기 (+
+                {this.state.reviewArr.length - this.state.reviewFilter}개)
               </button>
             </div>
           </article>
