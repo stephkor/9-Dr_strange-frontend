@@ -4,6 +4,7 @@ import "./CheckBox.scss";
 
 class CheckBox extends React.Component {
   render() {
+    // const = {}
     return (
       <label className="check_box">
         <div className="flex_div_box">
@@ -12,7 +13,7 @@ class CheckBox extends React.Component {
               className="check_box_input"
               type="checkbox"
               value="checked"
-            ></input>
+            />
             <span className="check_box_save_info">{this.props.name}</span>
           </div>
         </div>
