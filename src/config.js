@@ -47,6 +47,52 @@ export const MAIN_SLIDER_IMG4 =
 
 // login & sign up
 
+//  mypage
+
+export const MY_PAGE_PROFILE =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/logo@3x.png";
+export const MY_PAGE_PROFILE2 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/img_profile.png";
+
+// point, cupon, mission
+export const MY_POINT =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/img_summary01.jpg";
+export const MY_CUPON =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/img_summary02.jpg";
+export const MY_MISSION =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/img_summary03.jpg";
+export const MY_SAWTOOTH =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_mypageSetting.jpg";
+
+// shoping
+
+export const SHOPPING_1 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_shopping01.jpg";
+export const SHOPPING_2 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_shopping02.jpg";
+export const SHOPPING_3 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_shopping03.jpg";
+export const SHOPPING_4 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_shopping06.jpg";
+export const SHOPPING_5 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_shopping07.jpg";
+// activitiy
+export const ACTIVITY_1 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_activity01.jpg";
+export const ACTIVITY_2 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_activity04.jpg";
+export const ACTIVITY_3 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_activity05.jpg";
+export const ACTIVITY_4 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_activity06.jpg";
+
+// cs center
+export const CS_1 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_cs01.jpg";
+export const CS_2 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_cs02.jpg";
+export const CS_3 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_cs03.jpg";
 // PATH
 // main
 export const SCROLL_TOP_BTN =
