@@ -69,18 +69,18 @@ class SignUp extends React.Component {
   render() {
     console.log("emailadd", this.state.emailAdd);
     const {
-      username,
+      // username,
       id,
       password,
       passwordCheck,
-      email,
-      date,
+      // email,
+      // date,
       emailId,
       emailAdd,
-      phoneNumber,
-      phoneNumber2,
-      phoneNumber3,
-      checkedValue,
+      // phoneNumber,
+      // phoneNumber2,
+      // phoneNumber3,
+      // checkedValue,
     } = this.state;
     console.log(this.state);
 

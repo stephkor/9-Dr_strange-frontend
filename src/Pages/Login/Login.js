@@ -43,8 +43,8 @@ class Login extends React.Component {
       // .then(res) => res.json
       .then((res) => {
         console.log(res);
-        if (res.access_token) {
-          localStorage.setItem("token", res.access_token);
+        if (res.token) {
+          localStorage.setItem("token", res.token);
         }
       });
 
@@ -57,7 +57,7 @@ class Login extends React.Component {
   };
 
   render() {
-    console.log(this.state);
+    console.log(this.state.id);
     return (
       <>
         <Nav />
