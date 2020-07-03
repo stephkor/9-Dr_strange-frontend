@@ -105,12 +105,14 @@ class Nav extends React.Component {
                 view="0 0 35 29"
                 path={PATH_WISH}
               />
-              <NavFooterIcon
-                width="28"
-                heigth="33"
-                view="0 0 28 33"
-                path={PATH_CART}
-              />
+              <Link to="/cart">
+                <NavFooterIcon
+                  width="28"
+                  heigth="33"
+                  view="0 0 28 33"
+                  path={PATH_CART}
+                />
+              </Link>
               <NavFooterIcon
                 width="39"
                 heigth="28"

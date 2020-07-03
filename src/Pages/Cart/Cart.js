@@ -32,17 +32,19 @@ class Cart extends React.Component {
   componentDidMount() {
     fetch("http://10.58.5.123:8001/cart", {
       method: "get",
-      Headers: { Authorization: localStorage.getItem("token") },
+      headers: { Authorization: localStorage.getItem("token") },
     })
       .then((res) => res.json())
-      .then((res) =>
-        this.setState({
-          products: res.products,
-          totalDiscountedPrice: res.totalDiscountedPrice,
-          totalPrice: res.totalPrice,
-          finalPrice: res.finalPrice,
-          select: res.products.length,
-        })
+      .then(
+        (res) =>
+          this.setState({
+            products: res.products,
+            totalDiscountedPrice: res.totalDiscountedPrice,
+            totalPrice: res.totalPrice,
+            finalPrice: res.finalPrice,
+            select: res.products.length,
+          })
+        // console.log(res)
       );
   }
 
@@ -62,8 +64,8 @@ class Cart extends React.Component {
 
     fetch("http://10.58.5.123:8001/cart", {
       method: "POST",
-      headers: "token",
-      body: JSON.stringify({ cartId: filteredList }),
+      headers: { Authorization: localStorage.getItem("token") },
+      body: JSON.stringify({ cartId: filteredList[0] }),
     });
   };
 
@@ -151,17 +153,21 @@ class Cart extends React.Component {
               <div className="total_price_detail">
                 <ul className="total_price">
                   <li className="total_price">총 상품 금액</li>
-                  <li className="total_price_num num-font">{totalPrice}</li>
+                  <li className="total_price_num num-font">
+                    {totalPrice.toLocaleString()}
+                  </li>
                 </ul>
                 <ul className="total_discounted">
                   <li className="total_discounted_price">할인금액</li>
                   <li className="total_discounted_price_num num-font">
-                    (-){totalDiscountedPrice}
+                    (-){totalDiscountedPrice.toLocaleString()}
                   </li>
                 </ul>
                 <ul className="final_price">
                   <li className="final_price">총 결제 예정 금액</li>
-                  <li className="final_price_num num-font">{finalPrice}</li>
+                  <li className="final_price_num num-font">
+                    {finalPrice.toLocaleString()}
+                  </li>
                 </ul>
               </div>
               <button className="purchase_btn">
