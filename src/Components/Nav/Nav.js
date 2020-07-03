@@ -111,12 +111,14 @@ class Nav extends React.Component {
                 view="0 0 39 28"
                 path={PATH_VIEWED}
               />
-              <NavFooterIcon
-                width="33"
-                heigth="32"
-                view="0 0 33 32"
-                path={PATH_MYPAGE}
-              />
+              <Link to="/mypage">
+                <NavFooterIcon
+                  width="33"
+                  heigth="32"
+                  view="0 0 33 32"
+                  path={PATH_MYPAGE}
+                />
+              </Link>
             </ul>
           </div>
         </nav>
