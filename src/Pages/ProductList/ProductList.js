@@ -23,7 +23,7 @@ class ProductList extends React.Component {
   // product list data 받아오기
   componentDidMount() {
     fetch(
-      `http://10.58.6.113:8001/products/list?menu_name=${this.props.match.params.category}`
+      `http://10.58.5.123:8001/products/list?menu_name=${this.props.match.params.category}`
     )
       .then((res) => res.json())
       .then((res) =>
@@ -108,6 +108,7 @@ class ProductList extends React.Component {
     const product_list_filter = this.imgArraySorter(productListData).filter(
       (_, idx) => idx < this.state.currentVisibleProducts
     );
+    console.log("list state : ", this.state.productListData);
 
     return loading ? (
       <section className="ProductList" id="scroll_top">

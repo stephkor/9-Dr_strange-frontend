@@ -23,7 +23,6 @@ class ProductListItem extends React.Component {
   render() {
     const { modalIsOpen } = this.state;
     const { data, clickHandler } = this.props;
-    console.log(this.props);
 
     return (
       <section className="ProductListItem">

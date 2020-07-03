@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import HamburgerList from "./HamburgerList";
 import ArrowIcon from "Components/ArrowIcon";
 import { PATH_ARROW } from "config";
@@ -63,4 +64,4 @@ class Menu extends React.Component {
   }
 }
 
-export default Menu;
+export default withRouter(Menu);
