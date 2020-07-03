@@ -1,6 +1,5 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import { WaveLoading } from "react-loadingg";
 import Nav from "Components/Nav/Nav";
 import Footer from "Components/Footer/Footer";
 import ProductListItem from "./ProductListItem";
@@ -9,7 +8,7 @@ import ScrollTopBtn from "Components/ScrollTopBtn";
 import { PATH_BACK, category, category_description } from "config";
 import "./ProductList.scss";
 
-class ProductList extends React.Component {
+class SearchList extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -22,9 +21,10 @@ class ProductList extends React.Component {
 
   // product list data 받아오기
   componentDidMount() {
-    fetch(
-      `http://10.58.6.113:8001/products/list?menu_name=${this.props.match.params.category}`
-    )
+    // fetch(
+    //   ` http://10.58.6.113:8001/products/list?menu_name=${this.props.match.params.category}`
+    // )
+    fetch(`http://10.58.6.113:8001/products/list?menu_name=men`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({
@@ -108,6 +108,7 @@ class ProductList extends React.Component {
     const product_list_filter = this.imgArraySorter(productListData).filter(
       (_, idx) => idx < this.state.currentVisibleProducts
     );
+    console.log(this.state.productListData);
 
     return loading ? (
       <section className="ProductList" id="scroll_top">
@@ -218,9 +219,9 @@ class ProductList extends React.Component {
         <Footer />
       </section>
     ) : (
-      <WaveLoading color={"#111"} size={"large"} />
+      "로딩중"
     );
   }
 }
 
-export default withRouter(ProductList);
+export default withRouter(SearchList);

@@ -20,6 +20,7 @@ class ReviewBoard extends React.Component {
   render() {
     const { isActive } = this.state;
     const { data } = this.props;
+
     return (
       <div className="ReviewBoard">
         <div className="review_board_top">

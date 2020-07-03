@@ -116,13 +116,13 @@
 			.size_option {
 				display: flex;
 				flex-wrap: wrap;
-				justify-content: space-between;
+				justify-content: flex-start;
 
 				button {
 					display: inline-block;
 					width: 168px;
 					height: 36px;
-					margin: 4px 0;
+					margin: 4px 4px;
 					padding: 4px 20px 3px 20px;
 					font-size: 18px;
 					font-weight: 400;
@@ -232,7 +232,7 @@
 						}
 					}
 
-					.origin_price {
+					.origin_price_ws {
 						font-size: 18px;
 						text-decoration: line-through;
 						color: #999;
@@ -242,6 +242,19 @@
 							padding-right: 3px;
 							font-weight: 400;
 							font-size: 14px;
+						}
+					}
+
+					.origin_price {
+						padding-top: 7px;
+						font-size: 30px;
+						color: #111;
+
+						&::before {
+							content: '₩';
+							padding-right: 3px;
+							font-weight: 400;
+							font-size: 16px;
 						}
 					}
 				}

@@ -1,8 +1,9 @@
 import React from "react";
+// import { withRouter } from "react-router-dom";
 import Nav from "Components/Nav/Nav";
-import "./Login.scss";
-import { LOGIN_SIDE_BTN } from "config";
 import ItemBoxID from "Components/ItemBox/ItemBoxID";
+import { LOGIN_SIDE_BTN } from "config";
+import "./Login.scss";
 
 class Login extends React.Component {
   constructor() {
@@ -22,6 +23,7 @@ class Login extends React.Component {
 
   handleBtn = () => {
     // post
+
     fetch("http://10.58.5.123:8001/users/signin", {
       // fetch 인자의 첫 번째 인자는 api 주소고, 두 번째 인자는 객체 형태이고
       method: "POST", // 메소드 뒤에 포스트를 스트링으로 적어줘야 하는데, get은 디폴트 값이 원래 있어서 안 써줘도 됨.
@@ -106,12 +108,12 @@ class Login extends React.Component {
               </div>
               <div className="flex_div_box2">
                 <div className="sign_up">
-                  <a
+                  <button
                     className="sign_up_text"
-                    href="https://m.drmartens.co.kr/member/agreement"
+                    onClick={() => this.props.history.push("/signup")}
                   >
                     회원가입
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
