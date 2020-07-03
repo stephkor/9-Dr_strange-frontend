@@ -1,5 +1,4 @@
 import React from "react";
-import Path from "Components/Path";
 import SizeBtn from "Components/SizeBtn";
 import { MODAL_CANCEL, PLUS, MINUS } from "config";
 import "./CartModal.scss";
@@ -17,12 +16,37 @@ class CartModal extends React.Component {
 
   // 첫 render 후에 props로 받은 데이터를 state에 저장
   componentDidMount() {
-    const { salePrice, originPrice } = this.props.data;
+    const { salePrice, originPrice, productNum } = this.props.data;
     this.setState({
       currentSale: salePrice,
       currentOrigin: originPrice,
+      productNum: productNum,
     });
   }
+
+  // 장바구니 버튼 클릭시 상품 정보 POST로 서버에 전송
+  addCartHandler = () => {
+    fetch("http://10.58.6.113:8001/cart", {
+      method: "post",
+      headers: {
+        Authorization: localStorage.getItem("token"),
+      },
+      body: JSON.stringify({
+        productNum: this.state.productNum,
+        currentSize: this.state.currentSize,
+        currentOrigin: this.state.currentOrigin,
+        currentSale: this.state.currentSale,
+        currentQuantity: this.state.currentQuantity,
+      }),
+    }).then(() => {
+      this.setState({
+        currentOrigin: +this.state.productData.originPrice,
+        currentSale: +this.state.productData.salePrice,
+        currentQuantity: 1,
+        currentSize: 0,
+      });
+    });
+  };
 
   // size button 클릭 시 선택한 size를 currentSize에 저장
   sizeClickHandler = (size) => {
@@ -151,7 +175,7 @@ class CartModal extends React.Component {
         </dciv>
 
         <div className={currentSize !== 0 ? "cart_btn_on" : "cart_btn_off"}>
-          <button>
+          <button onClick={this.addCartHandler}>
             {currentSize !== 0 ? "장바구니 담기" : "사이즈를 선택해주세요."}
           </button>
         </div>

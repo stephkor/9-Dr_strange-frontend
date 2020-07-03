@@ -1,16 +1,29 @@
 import React from "react";
 import HamburgerList from "./HamburgerList";
 import ArrowIcon from "Components/ArrowIcon";
-import { PATH_ARROW } from "../../../config";
+import { PATH_ARROW } from "config";
 
 class Menu extends React.Component {
+  // 제목 클릭시 list page로 이동하는 함수
+  listLinkHandler = (category) => {
+    this.props.history.push(`/products/list/${category}`);
+  };
+
   render() {
     return (
       <div className="Menu">
         <HamburgerList categoryTitle={"실시간 검색"} />
         <HamburgerList categoryTitle={"신상품"} />
-        <HamburgerList categoryTitle={"여성"} />
-        <HamburgerList categoryTitle={"남성"} />
+        <HamburgerList
+          categoryTitle={"여성"}
+          category={"women"}
+          listLinkHandler={this.listLinkHandler}
+        />
+        <HamburgerList
+          categoryTitle={"남성"}
+          category={"men"}
+          listLinkHandler={this.listLinkHandler}
+        />
         <HamburgerList categoryTitle={"키즈"} />
         <HamburgerList categoryTitle={"샌들"} />
         <HamburgerList categoryTitle={"오리지널"} />

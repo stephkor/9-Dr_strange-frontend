@@ -1,7 +1,7 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 import ArrowIcon from "Components/ArrowIcon";
 import { PATH_ARROW } from "config.js";
-import { Link } from "react-router-dom";
 
 class HamburgerList extends React.Component {
   constructor() {
@@ -25,7 +25,9 @@ class HamburgerList extends React.Component {
   };
 
   render() {
-    const { categoryTitle } = this.props;
+    const { click, secondClick } = this.state;
+    const { categoryTitle, listLinkHandler, category } = this.props;
+    // console.log(this.props);
 
     return (
       <section className="HamburgerList">
@@ -41,34 +43,37 @@ class HamburgerList extends React.Component {
                 path={PATH_ARROW}
                 height="20"
                 width="20"
-                rotate={this.state.click ? "rotate(180deg)" : ""}
+                rotate={click ? "rotate(180deg)" : ""}
               />
             </button>
 
             <ul className="sub_list_wrap">
               <li
                 className="sub_category_list"
-                style={{ display: this.state.click ? "block" : "none" }}
+                style={{ display: click ? "block" : "none" }}
               >
-                <Link to="/login">
-                  <button className="sub_category_button">
-                    <span className="sub_category_title">신발</span>
-                    <div onClick={() => this.secondClickHandler()}>
-                      <ArrowIcon
-                        view=" 0 0 60 35"
-                        width="15"
-                        height="15"
-                        path={PATH_ARROW}
-                        className="arrow"
-                        rotate={this.state.secondClick ? "rotate(180deg)" : ""}
-                      />
-                    </div>
-                  </button>
-                </Link>
+                <button className="sub_category_button">
+                  <span
+                    className="sub_category_title"
+                    onClick={() => listLinkHandler({ category })}
+                  >
+                    신발
+                  </span>
+                  <div onClick={() => this.secondClickHandler()}>
+                    <ArrowIcon
+                      view=" 0 0 60 35"
+                      width="15"
+                      height="15"
+                      path={PATH_ARROW}
+                      className="arrow"
+                      rotate={secondClick ? "rotate(180deg)" : ""}
+                    />
+                  </div>
+                </button>
 
                 <div
                   className="inner_sub_list"
-                  style={{ display: this.state.secondClick ? "block" : "none" }}
+                  style={{ display: secondClick ? "block" : "none" }}
                 >
                   <button className="inner_sub_category_button">
                     <span className="inner_sub_category_title">부츠</span>
@@ -112,4 +117,4 @@ class HamburgerList extends React.Component {
   }
 }
 
-export default HamburgerList;
+export default withRouter(HamburgerList);

@@ -196,6 +196,7 @@
 	.product_preview_form {
 		display: flex;
 		justify-content: space-between;
+		padding: 50px 0;
 
 		.ProductPreview {
 			display: flex;
@@ -365,10 +366,5 @@
 				}
 			}
 		}
-	}
-
-	.shoes {
-		height: 100vh;
-		background-color: #666;
 	}
 }

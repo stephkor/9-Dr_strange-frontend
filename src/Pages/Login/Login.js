@@ -13,18 +13,17 @@ class Login extends React.Component {
       password: "",
     };
   }
-  handleIdPw = (e, userinfo) => {
+  inputChangeHandler = (e, userinfo) => {
     this.setState({
       [userinfo]: e.target.value,
     });
-    console.log(e, userinfo);
   };
 
   componentDidMount() {}
 
   handleBtn = () => {
     // post
-    fetch("http://10.58.4.223:8000/users/signin", {
+    fetch("http://10.58.6.113:8001/users/signin", {
       // fetch 인자의 첫 번째 인자는 api 주소고, 두 번째 인자는 객체 형태이고
       method: "POST", // 메소드 뒤에 포스트를 스트링으로 적어줘야 하는데, get은 디폴트 값이 원래 있어서 안 써줘도 됨.
       body: JSON.stringify({
@@ -80,13 +79,13 @@ class Login extends React.Component {
               <ItemBoxID
                 userinfo="id"
                 name="아이디"
-                handleIdPw={this.handleIdPw}
+                inputChangeHandler={this.inputChangeHandler}
               />
               <ItemBoxID
                 userinfo="password"
                 name="비밀번호"
                 type="password"
-                handleIdPw={this.handleIdPw}
+                inputChangeHandler={this.inputChangeHandler}
               />
               <div className="find_id_pw">
                 <label className="check_box">

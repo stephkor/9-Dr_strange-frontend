@@ -232,7 +232,7 @@
 						}
 					}
 
-					.origin_price {
+					.origin_price_ws {
 						font-size: 18px;
 						text-decoration: line-through;
 						color: #999;
@@ -242,6 +242,19 @@
 							padding-right: 3px;
 							font-weight: 400;
 							font-size: 14px;
+						}
+					}
+
+					.origin_price {
+						padding-top: 7px;
+						font-size: 30px;
+						color: #111;
+
+						&::before {
+							content: '₩';
+							padding-right: 3px;
+							font-weight: 400;
+							font-size: 16px;
 						}
 					}
 				}
