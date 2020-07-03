@@ -122,10 +122,6 @@ class Main extends React.Component {
       scale,
       transform,
     } = this.state;
-    console.log("scrollY : ", window.scrollY);
-    console.log("scrollState : ", this.state.scroll);
-    console.log("main opacity : ", opacity);
-    console.log("main scale : ", scale);
 
     return loading ? (
       <section className="Main">
