@@ -1,55 +1,58 @@
 import React from "react";
-import { PATH_CHECKBOX_ACTIVE, PATH_CHECKBOX_NONE } from "config";
 import WishButton from "Components/WishButton";
 import "./Cart.scss";
 import { PATH_CLOSE_ICON } from "config";
 
-class CartContentList extends React.Component {
+class CartProductList extends React.Component {
   constructor() {
     super();
     this.state = {
-      checkClick: false,
+      checkClick: true,
+      singleOriginPrice: 0,
+      singleSalePrice: 0,
+      totalPrice: 0,
+      totalDiscountedPrice: 0,
+      finalPrice: 0,
+      products: [],
     };
   }
 
-  checkBoxClickHandler = () => {
+  productSelectClickHandelr = () => {
     this.setState({
       checkClick: !this.state.checkClick,
+      select: this.state.checkClick ? this.props.select + 1 : this.props.select,
     });
   };
 
   render() {
-    const { options } = this.props;
-    console.log(options);
+    const { products, idx, index, select } = this.props;
     return (
-      <section className="CartProductList">
+      <section className="CartProductList" key={idx}>
         <main className="cart_content_product">
           <div className="cart_content">
             <button
               className="checkbox_btn"
-              onClick={() => this.checkBoxClickHandler()}
+              onClick={this.productSelectClickHandelr}
             >
-              <svg width={22} height={22} viewBox="0 0 22 19" class="checkbox">
-                <path
-                  width={20}
-                  height={20}
-                  class="checkbox_none"
-                  d={PATH_CHECKBOX_NONE}
-                  style={{ zIndex: 5 }}
-                />
-                <path
-                  width={20}
-                  height={20}
-                  class="checkbox_active"
-                  d={PATH_CHECKBOX_ACTIVE}
-                  style={{
-                    display: this.state.checkClick ? "none" : "block",
-                    zIndex: 5,
-                  }}
-                />
-              </svg>
+              <input
+                type="checkbox"
+                value="checked"
+                className="checktest"
+                style={{ display: "none" }}
+              />
+              <label
+                for="checktest"
+                className="check_label"
+                style={{
+                  background: this.state.checkClick ? "" : "none",
+                  border: this.state.checkClick ? "none" : "3px solid",
+                }}
+              />
             </button>
-            <button className="close_btn">
+            <button
+              className="close_btn"
+              onClick={() => this.props.selectDelHandler(index)}
+            >
               <svg viewBox="0 0 42 42" fill="#666">
                 <path pid="0" d={PATH_CLOSE_ICON}></path>
               </svg>
@@ -57,26 +60,32 @@ class CartContentList extends React.Component {
             <div className="order_product_info_container">
               <img
                 className="product_img"
-                src={options[0] && options[0].productImg}
+                src={products && products[idx].productImg}
                 alt={"product-img"}
               />
 
               <div className="order_product_info">
                 <h2 className="order_product_title">
-                  {options[0] && options[0].productName}
+                  {products && products[idx].productName}
                 </h2>
                 <ul className="order_product_detail">
                   <li className="detail_info">
-                    컬러: {options[0] && options[0].color}
+                    컬러: {products && products[idx].color}
                   </li>
-                  <li className="detail_info"> 사이즈(UK) 260 </li>
-                  <li className="detail_info"> 수량 : 1 </li>
+                  <li className="detail_info">
+                    사이즈(UK) {products && products[idx].size}
+                  </li>
+                  <li className="detail_info">
+                    수량 : {products && products[idx].quantity}
+                  </li>
                   <li className="point_option_btn">
                     <p>포인트 사용 불가</p>
                   </li>
                 </ul>
                 <div className="product_item_price_wrapper num-font">
-                  <span className="num-font">170,000</span>
+                  <span className="num-font">
+                    {products && products[idx].singleOriginPrice}
+                  </span>
                   <button className="option_chagne">옵션/수량 변경</button>
                 </div>
               </div>
@@ -94,4 +103,4 @@ class CartContentList extends React.Component {
   }
 }
 
-export default CartContentList;
+export default CartProductList;
