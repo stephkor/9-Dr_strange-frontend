@@ -50,8 +50,8 @@
 	.size_option {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-between;
-		padding: 0 32px;
+		justify-content: flex-start;
+		padding: 0 33px;
 
 		button {
 			display: inline-block;

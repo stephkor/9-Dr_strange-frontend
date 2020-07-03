@@ -89,7 +89,6 @@ class ProductDetail extends React.Component {
           });
         });
     }
-    window.scrollTo(0, 0);
   }
 
   // 장바구니 버튼 클릭시 상품 정보 POST로 서버에 전송
