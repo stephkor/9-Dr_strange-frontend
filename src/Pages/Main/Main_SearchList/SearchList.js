@@ -71,6 +71,13 @@ class SearchList extends React.Component {
     return arraySort(lengthOne, lengthTwo);
   };
 
+  // 유저가 입력한 검색어사 state에 저장되는 함수
+  inputChangeHandler = (e) => {
+    this.setState({
+      userInput: e.target.value,
+    });
+  };
+
   // 유저가 입력한 검색어가 상품명에 포함된 상품만 보여주는 검색 기능
   pressEnterHandler = (e) => {
     if (e.key === "Enter") {
@@ -127,7 +134,11 @@ class SearchList extends React.Component {
 
     return loading ? (
       <section className="ProductList" id="scroll_top">
-        <Nav value={userInput} pressEnterHandler={this.pressEnterHandler} />
+        <Nav
+          value={userInput}
+          pressEnterHandler={this.pressEnterHandler}
+          inputChangeHandler={this.inputChangeHandler}
+        />
         <article className="product_list_title m-w-1140 m-auto">
           <div className="product_list_top">
             <Path

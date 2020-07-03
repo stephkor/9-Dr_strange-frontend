@@ -4,45 +4,66 @@ import { MODAL_CANCEL, PLUS, MINUS } from "config";
 import "./CartModal.scss";
 
 class CartModal extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       currentSize: 0,
       currentQuantity: 1,
-      currentSale: 0,
-      currentOrigin: 0,
-      productNum: 0,
+      currentSale: this.props.data.salePrice,
+      currentOrigin: this.props.data.originPrice,
+      productNum: this.props.data.productNum,
+      loading: false,
     };
   }
 
   // 첫 render 후에 props로 받은 데이터를 state에 저장
-  componentDidMount() {
+  // componentDidMount() {
+  //   const { salePrice, originPrice, productNum } = this.props.data;
+  //   this.setState({
+  //     currentSale: salePrice,
+  //     currentOrigin: originPrice,
+  //     productNum: productNum,
+  //   });
+  // }
+
+  componentDidUpdate(prevProps, prevState) {
     const { salePrice, originPrice, productNum } = this.props.data;
-    this.setState({
-      currentSale: salePrice,
-      currentOrigin: originPrice,
-      productNum: productNum,
-    });
+    const isDiff = prevProps.data !== this.props.data;
+
+    if (isDiff) {
+      console.log("hi");
+      this.setState({
+        currentSale: salePrice,
+        currentOrigin: originPrice,
+        productNum: productNum,
+      });
+    }
   }
 
   // 장바구니 버튼 클릭시 상품 정보 POST로 서버에 전송
   addCartHandler = () => {
+    console.log(
+      "here",
+      this.state.productNum,
+      this.state.currentOrigin,
+      this.state.currentQuantity
+    );
     fetch("http://10.58.5.123:8001/cart", {
       method: "post",
       headers: {
         Authorization: localStorage.getItem("token"),
       },
       body: JSON.stringify({
-        productNum: this.state.productNum,
-        currentSize: this.state.currentSize,
-        currentOrigin: this.state.currentOrigin,
-        currentSale: this.state.currentSale,
-        currentQuantity: this.state.currentQuantity,
+        productNum: +this.state.productNum,
+        currentSize: +this.state.currentSize,
+        currentOrigin: +this.state.currentOrigin,
+        currentSale: +this.state.currentSale,
+        currentQuantity: +this.state.currentQuantity,
       }),
     }).then(() => {
       this.setState({
-        currentOrigin: +this.state.productData.originPrice,
-        currentSale: +this.state.productData.salePrice,
+        currentOrigin: +this.props.data.originPrice,
+        currentSale: +this.props.data.salePrice,
         currentQuantity: 1,
         currentSize: 0,
       });
