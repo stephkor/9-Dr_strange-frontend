@@ -11,6 +11,7 @@ class CartModal extends React.Component {
       currentQuantity: 1,
       currentSale: 0,
       currentOrigin: 0,
+      productNum: 0,
     };
   }
 
@@ -26,7 +27,7 @@ class CartModal extends React.Component {
 
   // 장바구니 버튼 클릭시 상품 정보 POST로 서버에 전송
   addCartHandler = () => {
-    fetch("http://10.58.6.113:8001/cart", {
+    fetch("http://10.58.5.123:8001/cart", {
       method: "post",
       headers: {
         Authorization: localStorage.getItem("token"),

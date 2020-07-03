@@ -37,7 +37,7 @@ class SignUp extends React.Component {
   };
 
   buttonHandler = () => {
-    fetch("http://10.58.6.113:8001/users/signup", {
+    fetch("http://10.58.5.123:8001/users/signup", {
       // fetch 인자의 첫 번째 인자는 api 주소고, 두 번째 인자는 객체 형태이고
       method: "POST", // 메소드 뒤에 포스트를 스트링으로 적어줘야 하는데, get은 디폴트 값이 원래 있어서 안 써줘도 됨.
       body: JSON.stringify({

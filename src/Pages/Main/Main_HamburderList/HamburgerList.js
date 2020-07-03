@@ -27,7 +27,7 @@ class HamburgerList extends React.Component {
   render() {
     const { click, secondClick } = this.state;
     const { categoryTitle, listLinkHandler, category } = this.props;
-    // console.log(this.props);
+    console.log(this.props);
 
     return (
       <section className="HamburgerList">
@@ -55,7 +55,7 @@ class HamburgerList extends React.Component {
                 <button className="sub_category_button">
                   <span
                     className="sub_category_title"
-                    onClick={() => listLinkHandler({ category })}
+                    onClick={() => listLinkHandler(category)}
                   >
                     신발
                   </span>

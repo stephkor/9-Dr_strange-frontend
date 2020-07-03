@@ -40,7 +40,7 @@ class ProductDetail extends React.Component {
 
   // ProductDetailInfo data 받아오기
   componentDidMount() {
-    fetch(`http://10.58.6.113:8001/products/${this.props.match.params.id}`)
+    fetch(`http://10.58.5.123:8001/products/${this.props.match.params.id}`)
       .then((res) => res.json())
       .then((res) =>
         this.setState({
@@ -67,7 +67,7 @@ class ProductDetail extends React.Component {
   // color 버튼 클릭할 때 마다, 다른 상품으로 렌더링
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.id !== this.props.match.params.id) {
-      fetch(`http://10.58.6.113:8001/products/${this.props.match.params.id}`)
+      fetch(`http://10.58.5.123:8001/products/${this.props.match.params.id}`)
         .then((res) => res.json())
         .then((res) =>
           this.setState({
@@ -94,7 +94,7 @@ class ProductDetail extends React.Component {
 
   // 장바구니 버튼 클릭시 상품 정보 POST로 서버에 전송
   addCartHandler = () => {
-    fetch("http://10.58.6.113:8001/cart", {
+    fetch("http://10.58.5.123:8001/cart", {
       method: "post",
       headers: {
         Authorization: localStorage.getItem("token"),
