@@ -9,7 +9,10 @@ class ProductListItem extends React.Component {
   constructor() {
     super();
     this.state = {
+      modalData: {},
       modalIsOpen: false,
+      currentQuantity: 1,
+      currentSize: 0,
     };
   }
 
@@ -20,8 +23,28 @@ class ProductListItem extends React.Component {
     });
   };
 
+  // 장바구니 버튼 클릭시 제품 정보 get
+  getDataHandelr = () => {
+    fetch("http://10.58.5.123:8001/products/modal", {
+      method: "post",
+      body: JSON.stringify({
+        productNum: this.props.data.productNum,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        console.log(res.products);
+        this.setState({
+          modalData: res.products,
+          currentOrigin: +res.products.originPrice,
+          currentSale: +res.products.salePrice,
+          modalIsOpen: !this.state.modalIsOpen,
+        });
+      });
+  };
+
   render() {
-    const { modalIsOpen } = this.state;
+    const { modalIsOpen, modalData } = this.state;
     const { data, clickHandler } = this.props;
 
     return (
@@ -63,7 +86,7 @@ class ProductListItem extends React.Component {
                 {(+data.originPrice).toLocaleString()}
               </p>
             )}
-            <button onClick={this.modalClickHandelr}>장바구니 담기</button>
+            <button onClick={this.getDataHandelr}>장바구니 담기</button>
             <ReactModal
               isOpen={modalIsOpen}
               onRequestClose={this.modalClickHandelr}
@@ -83,7 +106,7 @@ class ProductListItem extends React.Component {
             >
               <CartModal
                 modalClickHandelr={this.modalClickHandelr}
-                data={data}
+                data={modalData}
               />
             </ReactModal>
           </div>
