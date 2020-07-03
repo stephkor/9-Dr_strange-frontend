@@ -1,7 +1,7 @@
 // IMAGES
 // main
-import shoes_left from "Images/main/scroll_event_left.png";
-import shoes_right from "Images/main/scroll_event_right.png";
+import shoes_left from "Images/Main/scroll_event_left.png";
+import shoes_right from "Images/Main/scroll_event_right.png";
 
 // login & sign up
 import login_side_btn from "Images/Login/login_side_btn.jpg";
@@ -178,3 +178,15 @@ export const category_description = {
   샌들:
     "닥터마틴의 DNA를 담은 여성용 샌들로 여름을 즐겨보세요. 내구성이 뛰어나고 개성 있는 스타일의 샌들은 뜨거운 날씨에 당신의 스타일을 더욱 매력적으로 보여줍니다.",
 };
+
+//cart
+
+export const PATH_CHECKBOX_NONE = "M19 19H0V0h19v19zM3 16h13V3H3v13z";
+
+export const PATH_CHECKBOX_ACTIVE =
+  "M19.5 4.7l-3.1 3-2.1 2.1-4.7 4.6-5.1-5.2 2.2-2.1 3 3 4.5-4.4 2.3-2.2 3.1-3 .3-.3L22 2.3l-2.5 2.4zM3.1 16h13.4V9.8h3.1V19H0V0h14.2v3H3.1v13z";
+
+export const PATH_DEL_ICON =
+  "M34.333 8v32h-28V8H0V4h14V0h12v4h14v4h-5.667zm-4 0h-20v28h20V8zm-12 21.667h-4V13.666h4v16.001zm8 0h-4V13.666h4v16.001z";
+export const PATH_CLOSE_ICON =
+  "M42 2.11L39.885-.007 20.997 18.88 2.11-.006-.005 2.11l18.887 18.888L-.005 39.884l2.115 2.113 18.887-18.885 18.888 18.885L42 39.884 23.113 20.997z";
