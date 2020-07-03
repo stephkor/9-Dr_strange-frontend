@@ -27,7 +27,6 @@ class HamburgerList extends React.Component {
   render() {
     const { click, secondClick } = this.state;
     const { categoryTitle, listLinkHandler, category } = this.props;
-    console.log(this.props);
 
     return (
       <section className="HamburgerList">

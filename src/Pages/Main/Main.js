@@ -6,6 +6,7 @@ import ProductFilter from "./Main_HamburderList/ProductFilter";
 import Footer from "Components/Footer/Footer";
 import MainImageInfo from "./Main_ImageInfo/MainImageInfo";
 import MainScrollEvent from "./Main_ScrollEvent/MainScrollEvent";
+import MainScrollTrancformEvent from "./Main_ScrollEvent/MainScrollTrancformEvent";
 import ProductPreview from "Components/ProductPreview";
 import {
   MAIN_INFO_EVENT1,
@@ -26,6 +27,7 @@ class Main extends React.Component {
       scroll: 0,
       opacity: 1,
       scale: 1,
+      transform: 0,
       womenData: [],
       menData: [],
       loading: false,
@@ -68,14 +70,9 @@ class Main extends React.Component {
         opacity: 1 - (window.scrollY - 10500) / 1000,
       });
     }
-    if (window.scrollY > 13300 && window.scrollY < 13900) {
+    if (window.scrollY > 18400 && window.scrollY < 18900) {
       this.setState({
-        opacity: 1 - (window.scrollY - 13300) / 1000,
-      });
-    }
-    if (window.scrollY > 17300 && window.scrollY < 17900) {
-      this.setState({
-        opacity: 1 - (window.scrollY - 17300) / 1000,
+        opacity: 1 - (window.scrollY - 18400) / 1000,
       });
     }
 
@@ -90,21 +87,23 @@ class Main extends React.Component {
         scale: 1 + (window.scrollY - 10900) / 6000,
       });
     }
-    if (window.scrollY > 14100 && window.scrollY < 14600) {
+    if (window.scrollY > 19200 && window.scrollY < 19700) {
       this.setState({
-        scale: 1 + (window.scrollY - 14100) / 6000,
+        scale: 1 + (window.scrollY - 19200) / 6000,
       });
     }
-    if (window.scrollY > 18000 && window.scrollY < 18500) {
+
+    // transform style
+    if (window.scrollY > 13500 && window.scrollY < 14700) {
       this.setState({
-        scale: 1 + (window.scrollY - 18000) / 6000,
+        transform: (window.scrollY - 13500) / 10,
       });
     }
 
     // reset
     if (
       (window.scrollY > 9300 && window.scrollY < 9400) ||
-      (window.scrollY > 12800 && window.scrollY < 1290) ||
+      (window.scrollY > 12800 && window.scrollY < 12900) ||
       (window.scrollY > 15000 && window.scrollY < 15100)
     ) {
       this.setState({
@@ -115,7 +114,14 @@ class Main extends React.Component {
   };
 
   render() {
-    const { loading, womenData, menData, opacity, scale } = this.state;
+    const {
+      loading,
+      womenData,
+      menData,
+      opacity,
+      scale,
+      transform,
+    } = this.state;
     console.log("scrollY : ", window.scrollY);
     console.log("scrollState : ", this.state.scroll);
     console.log("main opacity : ", opacity);
@@ -125,7 +131,7 @@ class Main extends React.Component {
       <section className="Main">
         <Nav />
         <MainSlider />
-        <ProductFilter category={"여성"} data={womenData} />
+        <ProductFilter category={"베스트 셀러"} data={womenData} />
         <MainImageInfo
           category="콜라보레이션"
           img={MAIN_INFO_EVENT1}
@@ -134,7 +140,7 @@ class Main extends React.Component {
           secondLine="닥터마틴의 클래식한 실루엣에 PLEASURES의 LA 라벨의 감각을 더해 두 브랜드의 헤리티지와 음악 그리고 서브컬처를 담아냈습니다. 6월 27일 오전 8시에 만나보실 수 있습니다."
         />
 
-        <ProductFilter category={"여성"} data={womenData} />
+        <ProductFilter category={"미드시즌오프"} data={menData} />
         <MainImageInfo
           category="센스 있는 여름 코디를 위한"
           img={MAIN_INFO_EVENT2}
@@ -142,7 +148,7 @@ class Main extends React.Component {
           firstLine="이번 여름, 어디에나 잘 어울리는 남성 샌들로"
           secondLine="센스 있는 스타일을 완성해보세요."
         />
-        <ProductFilter category={"남성"} data={menData} />
+        <ProductFilter category={"신상품"} data={womenData} />
         <MainScrollEvent
           className="MainScrollEvent scroll_1"
           backImg={MAIN_SCROLL_EVENT1}
@@ -168,17 +174,29 @@ class Main extends React.Component {
           firstLine="누구나 신규 가입 시 닥스 머니 지급"
           secondLine="기존 회원 본인 인증해도 지급!"
         />
-        <ProductFilter category={"여성"} data={womenData} />
-        {/* <MainScrollEvent
-          className="MainScrollEvent scroll_4"
-          backImg={MAIN_SCROLL_EVENT1}
-          transformLeft={transformLeft}
-          stransformRight={stransformRight}
+        <ProductFilter category={"추천 상품"} data={menData} />
+        <MainScrollTrancformEvent
+          className="MainScrollEventBlack"
+          backImg={MAIN_SLIDER_IMG4_LEFT}
+          backImg2={MAIN_SLIDER_IMG4_RIGHT}
+          transform={transform}
           firstTitle="오리지널"
           secondTitle="1460"
           thirdTitle="부츠"
-          firstLine="SS20 NEW 여성 샌들과 베스트 샌들을 만나보세요."
-        /> */}
+          firstLine="1960년 4월 1일,
+          닥터마틴이 가장 처음 선보인
+          8홀 부츠의 탄생을 기념하기 위해
+          제품명 역시 출시 일자에서 따왔습니다."
+          secondLine="이렇듯 1460은 닥터마틴의 역사를 상징하는 8홀 부츠로
+          옐로우 스티치, 힐루프와 같은 닥터마틴의 DNA를
+          고스란히 담고있는 아이코닉한 아이템입니다.
+          특유의 매력적인 실루엣과 견고함은
+          전 세계, 여러 세대에 걸쳐
+          1460이 사랑받아온 이유입니다."
+          thirdLine="지금의 닥터마틴이 있기까지
+          그 시작부터 함께 했던 1460.
+          누구도 흉내 낼 수 없는 헤리티지를 느껴 보세요."
+        />
         {menData && (
           <article className="product_preview_form m-w-1140 m-auto">
             <ProductPreview data={menData[3]} />
