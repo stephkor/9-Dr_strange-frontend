@@ -1,21 +1,20 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-import { WaveLoading } from "react-loadingg";
 import Nav from "Components/Nav/Nav";
 import Footer from "Components/Footer/Footer";
-import ProductListItem from "./ProductListItem";
 import Path from "Components/Path";
 import ScrollTopBtn from "Components/ScrollTopBtn";
-import { PATH_BACK, category, category_description } from "config";
+import { PATH_BACK } from "config";
 import "./ProductList.scss";
 
-class ProductList extends React.Component {
+class SearchList extends React.Component {
   constructor() {
     super();
     this.state = {
       productListData: [],
       currentUserCategoryId: 0,
       currentVisibleProducts: 18,
+      userInput: "",
       loading: false,
     };
   }
@@ -23,7 +22,7 @@ class ProductList extends React.Component {
   // product list data 받아오기
   componentDidMount() {
     fetch(
-      `http://10.58.5.123:8001/products/list?menu_name=${this.props.match.params.category}`
+      `http://10.58.4.246:8000/products/search?search_term=${this.state.userInput}`
     )
       .then((res) => res.json())
       .then((res) =>
@@ -33,20 +32,6 @@ class ProductList extends React.Component {
         })
       );
   }
-
-  // currentUserCategoryId 가 바뀔때마다, currentVisibleProducts 값 초기화
-  componentDidUpdate(_, prevState) {
-    if (prevState.currentUserCategoryId !== this.state.currentUserCategoryId) {
-      this.setState({ currentVisibleProducts: 18 });
-    }
-  }
-
-  // sub category 클릭시 버튼 클릭 스타일 및 설명 변경
-  categorySelectHandler = (id) => {
-    this.setState({
-      currentUserCategoryId: id,
-    });
-  };
 
   // 이미지 갯수에 따라 3-2-3-1 순서로 정렬하는 함수
   imgArraySorter = (data) => {
@@ -86,6 +71,31 @@ class ProductList extends React.Component {
     return arraySort(lengthOne, lengthTwo);
   };
 
+  // 유저가 입력한 검색어가 상품명에 포함된 상품만 보여주는 검색 기능
+  pressEnterHandler = (e) => {
+    if (e.key === "Enter") {
+      this.setState({
+        userInput: e.target.vlaue,
+      });
+      fetch(
+        `http://10.58.4.246:8000/products/search?search_term=${this.state.userInput}`,
+        {
+          method: "post",
+          headers: {
+            Authorization: localStorage.getItem("token"),
+          },
+          body: JSON.stringify({
+            products: this.state.userInput,
+          }),
+        }
+      ).then((res) => {
+        this.setState({
+          productListData: res.products,
+        });
+      });
+    }
+  };
+
   // 더 많은 제품 보기 버튼 클릭 시 product list가 추가로 보여짐
   pageMoreBtnHandler = () => {
     this.setState({
@@ -104,15 +114,20 @@ class ProductList extends React.Component {
   };
 
   render() {
-    const { loading, productListData, currentUserCategoryId } = this.state;
+    const {
+      loading,
+      productListData,
+      currentUserCategoryId,
+      userInput,
+    } = this.state;
     const product_list_filter = this.imgArraySorter(productListData).filter(
       (_, idx) => idx < this.state.currentVisibleProducts
     );
-    console.log("list state : ", this.state.productListData);
+    console.log(this.state.productListData);
 
     return loading ? (
       <section className="ProductList" id="scroll_top">
-        <Nav />
+        <Nav value={userInput} pressEnterHandler={this.pressEnterHandler} />
         <article className="product_list_title m-w-1140 m-auto">
           <div className="product_list_top">
             <Path
@@ -219,9 +234,9 @@ class ProductList extends React.Component {
         <Footer />
       </section>
     ) : (
-      <WaveLoading color={"#111"} size={"large"} />
+      "로딩중"
     );
   }
 }
 
-export default withRouter(ProductList);
+export default withRouter(SearchList);

@@ -1,10 +1,12 @@
 import React from "react";
+import { WaveLoading } from "react-loadingg";
 import Nav from "Components/Nav/Nav";
 import MainSlider from "./Main_Slider/MainSlider";
 import ProductFilter from "./Main_HamburderList/ProductFilter";
 import Footer from "Components/Footer/Footer";
 import MainImageInfo from "./Main_ImageInfo/MainImageInfo";
 import MainScrollEvent from "./Main_ScrollEvent/MainScrollEvent";
+import MainScrollTrancformEvent from "./Main_ScrollEvent/MainScrollTrancformEvent";
 import ProductPreview from "Components/ProductPreview";
 import {
   MAIN_INFO_EVENT1,
@@ -13,6 +15,8 @@ import {
   MAIN_SCROLL_EVENT1,
   MAIN_SCROLL_EVENT2,
   MAIN_SCROLL_EVENT3,
+  MAIN_SLIDER_IMG4_LEFT,
+  MAIN_SLIDER_IMG4_RIGHT,
 } from "config";
 import "Pages/Main/Main.scss";
 
@@ -20,9 +24,10 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      scrollOffset: 0,
+      scroll: 0,
       opacity: 1,
       scale: 1,
+      transform: 0,
       womenData: [],
       menData: [],
       loading: false,
@@ -31,7 +36,7 @@ class Main extends React.Component {
 
   // 첫 render 후에 scroll 이벤트 등록 & product main list data 받아오기
   componentDidMount() {
-    window.addEventListener("scroll", this.scrollHandler, { passive: true });
+    window.addEventListener("scroll", this.scrollHandler);
     fetch("http://localhost:3000/data/category.json")
       .then((res) => res.json())
       .then((res) =>
@@ -50,29 +55,79 @@ class Main extends React.Component {
 
   // scroll을 내릴때 scale, opacity 변경하는 이벤트
   scrollHandler = () => {
-    if (window.scrollY > 6900 && window.scrollY < 7500) {
+    this.setState({
+      scroll: window.scrollY,
+    });
+
+    // opacity style
+    if (window.scrollY > 7000 && window.scrollY < 7600) {
       this.setState({
-        opacity: 1 - (window.scrollY - 6900) / 1000,
-        scale: 1,
+        opacity: 1 - (window.scrollY - 7000) / 1000,
       });
     }
-    if (window.scrollY > 7600 && window.scrollY < 8300) {
+    if (window.scrollY > 10500 && window.scrollY < 11100) {
       this.setState({
-        scale: 1 + (window.scrollY - 7600) / 5000,
+        opacity: 1 - (window.scrollY - 10500) / 1000,
+      });
+    }
+    if (window.scrollY > 18400 && window.scrollY < 18900) {
+      this.setState({
+        opacity: 1 - (window.scrollY - 18400) / 1000,
+      });
+    }
+
+    // scale style
+    if (window.scrollY > 7800 && window.scrollY < 8500) {
+      this.setState({
+        scale: 1 + (window.scrollY - 7800) / 6000,
+      });
+    }
+    if (window.scrollY > 10900 && window.scrollY < 11400) {
+      this.setState({
+        scale: 1 + (window.scrollY - 10900) / 6000,
+      });
+    }
+    if (window.scrollY > 19200 && window.scrollY < 19700) {
+      this.setState({
+        scale: 1 + (window.scrollY - 19200) / 6000,
+      });
+    }
+
+    // transform style
+    if (window.scrollY > 13500 && window.scrollY < 14700) {
+      this.setState({
+        transform: (window.scrollY - 13500) / 10,
+      });
+    }
+
+    // reset
+    if (
+      (window.scrollY > 9300 && window.scrollY < 9400) ||
+      (window.scrollY > 12800 && window.scrollY < 12900) ||
+      (window.scrollY > 15000 && window.scrollY < 15100)
+    ) {
+      this.setState({
+        opacity: 1,
+        scale: 1,
       });
     }
   };
 
   render() {
-    const { loading, womenData, menData, opacity, scale } = this.state;
-    // console.log("scrollY : ", window.scrollY);
-    // console.log("main scale : ", scale);
+    const {
+      loading,
+      womenData,
+      menData,
+      opacity,
+      scale,
+      transform,
+    } = this.state;
 
     return loading ? (
       <section className="Main">
         <Nav />
         <MainSlider />
-        <ProductFilter category={"여성"} data={womenData} />
+        <ProductFilter category={"베스트 셀러"} data={womenData} />
         <MainImageInfo
           category="콜라보레이션"
           img={MAIN_INFO_EVENT1}
@@ -81,7 +136,7 @@ class Main extends React.Component {
           secondLine="닥터마틴의 클래식한 실루엣에 PLEASURES의 LA 라벨의 감각을 더해 두 브랜드의 헤리티지와 음악 그리고 서브컬처를 담아냈습니다. 6월 27일 오전 8시에 만나보실 수 있습니다."
         />
 
-        <ProductFilter category={"여성"} data={womenData} />
+        <ProductFilter category={"미드시즌오프"} data={menData} />
         <MainImageInfo
           category="센스 있는 여름 코디를 위한"
           img={MAIN_INFO_EVENT2}
@@ -89,7 +144,7 @@ class Main extends React.Component {
           firstLine="이번 여름, 어디에나 잘 어울리는 남성 샌들로"
           secondLine="센스 있는 스타일을 완성해보세요."
         />
-        <ProductFilter category={"남성"} data={menData} />
+        <ProductFilter category={"신상품"} data={womenData} />
         <MainScrollEvent
           className="MainScrollEvent scroll_1"
           backImg={MAIN_SCROLL_EVENT1}
@@ -108,13 +163,36 @@ class Main extends React.Component {
         <MainScrollEvent
           className="MainScrollEvent scroll_2"
           backImg={MAIN_SCROLL_EVENT2}
+          opacity={opacity}
+          scale={scale}
           firstTitle="WELCOME TO"
           secondTitle="DOCS MEMBERS"
           firstLine="누구나 신규 가입 시 닥스 머니 지급"
           secondLine="기존 회원 본인 인증해도 지급!"
         />
-        <ProductFilter category={"여성"} data={womenData} />
-        <div className="shoes" />
+        <ProductFilter category={"추천 상품"} data={menData} />
+        <MainScrollTrancformEvent
+          className="MainScrollEventBlack"
+          backImg={MAIN_SLIDER_IMG4_LEFT}
+          backImg2={MAIN_SLIDER_IMG4_RIGHT}
+          transform={transform}
+          firstTitle="오리지널"
+          secondTitle="1460"
+          thirdTitle="부츠"
+          firstLine="1960년 4월 1일,
+          닥터마틴이 가장 처음 선보인
+          8홀 부츠의 탄생을 기념하기 위해
+          제품명 역시 출시 일자에서 따왔습니다."
+          secondLine="이렇듯 1460은 닥터마틴의 역사를 상징하는 8홀 부츠로
+          옐로우 스티치, 힐루프와 같은 닥터마틴의 DNA를
+          고스란히 담고있는 아이코닉한 아이템입니다.
+          특유의 매력적인 실루엣과 견고함은
+          전 세계, 여러 세대에 걸쳐
+          1460이 사랑받아온 이유입니다."
+          thirdLine="지금의 닥터마틴이 있기까지
+          그 시작부터 함께 했던 1460.
+          누구도 흉내 낼 수 없는 헤리티지를 느껴 보세요."
+        />
         {menData && (
           <article className="product_preview_form m-w-1140 m-auto">
             <ProductPreview data={menData[3]} />
@@ -131,6 +209,8 @@ class Main extends React.Component {
         <MainScrollEvent
           className="MainScrollEvent scroll_3"
           backImg={MAIN_SCROLL_EVENT3}
+          opacity={opacity}
+          scale={scale}
           firstTitle="닥터마틴"
           secondTitle="반항적인"
           thirdTitle="자아 표현의 역사"
@@ -149,7 +229,7 @@ class Main extends React.Component {
         <Footer />
       </section>
     ) : (
-      ""
+      <WaveLoading color={"#111"} size={"large"} />
     );
   }
 }

@@ -168,6 +168,167 @@
 		}
 	}
 
+	.MainScrollEventBlack {
+		width: 100%;
+
+		h2:nth-child(1) {
+			font-size: 36px;
+			font-weight: 500;
+			color: #999;
+		}
+
+		.main_scroll_img {
+			min-height: 100vh;
+			margin-bottom: -1px;
+			background-color: #fafafa;
+			overflow: hidden;
+
+			.main_scroll_relative {
+				width: 100%;
+				height: 100%;
+				position: relative;
+
+				img:nth-child(1) {
+					position: absolute;
+					top: 200px;
+					left: 200px;
+				}
+
+				img:nth-child(2) {
+					position: absolute;
+					top: 0;
+					right: 200px;
+				}
+			}
+		}
+
+		.MainImageInfo {
+			min-height: 130vh;
+			margin-left: 55%;
+
+			h2 {
+				color: #111;
+			}
+
+			p {
+				width: 60%;
+				margin: 0;
+				color: #666;
+				padding-bottom: 20px;
+			}
+
+			.top_title_form {
+				z-index: 50;
+
+				.top_text_box {
+					.top_text {
+						font-size: 36px;
+						font-weight: 400;
+						letter-spacing: -0.36px;
+					}
+
+					.top_sign {
+						margin-left: 10px;
+						font-size: 40px;
+						font-weight: 700px;
+					}
+
+					.top_subcategory {
+						margin-top: 8px;
+						font-size: 64px;
+						font-weight: 700;
+						line-height: 1.09;
+						letter-spacing: -0.64px;
+					}
+
+					.top_subcategory:nth-child(1) {
+						font-size: 36px;
+						font-weight: 500;
+						color: #999;
+					}
+
+					.line_black_box {
+						display: flex;
+						justify-content: space-between;
+						max-width: 1140px;
+						margin: 59px 0;
+						height: 12px;
+
+						.line_black {
+							display: inline-block;
+							position: relative;
+							width: 40%;
+							height: 11px;
+							background-color: black;
+
+							.line_black2 {
+								position: absolute;
+								right: -25%;
+								display: inline-block;
+								width: 20%;
+								height: 11px;
+								margin-left: 10px;
+								background-color: black;
+							}
+						}
+					}
+				}
+			}
+
+			.line_white_box {
+				display: flex;
+				justify-content: space-between;
+				width: 800px;
+				margin: 59px 0;
+				height: 12px;
+
+				.line_white {
+					display: inline-block;
+					position: relative;
+					width: 55%;
+					height: 11px;
+					background-color: #111;
+
+					.line_white2 {
+						position: absolute;
+						right: -25%;
+						display: inline-block;
+						width: 20%;
+						height: 11px;
+						margin-left: 10px;
+						background-color: #111;
+					}
+				}
+			}
+
+			.bottom_text_form {
+				z-index: 100;
+				color: #111;
+
+				.bottom_common_box {
+					display: flex;
+					align-items: center;
+					margin-top: 39px;
+					padding: 0px 30px;
+					border: 1px solid #111;
+					height: 52px;
+
+					.bottom_common_text {
+						font-size: 18px;
+						text-align: center;
+						color: #111;
+					}
+
+					.bottom_common_sign {
+						margin-left: 10px;
+						font-size: 18px;
+						color: #111;
+					}
+				}
+			}
+		}
+	}
+
 	.scroll_1 {
 		h2:nth-child(1) {
 			color: #999;
@@ -196,6 +357,7 @@
 	.product_preview_form {
 		display: flex;
 		justify-content: space-between;
+		padding: 50px 0;
 
 		.ProductPreview {
 			display: flex;
@@ -365,10 +527,5 @@
 				}
 			}
 		}
-	}
-
-	.shoes {
-		height: 100vh;
-		background-color: #666;
 	}
 }

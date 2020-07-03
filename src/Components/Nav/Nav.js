@@ -28,6 +28,9 @@ class Nav extends React.Component {
   };
 
   render() {
+    const { userInput, pressEnterHandler } = this.props;
+    console.log(pressEnterHandler);
+
     return (
       <header className="Nav">
         <nav className="nav_container gray-bg">
@@ -37,19 +40,20 @@ class Nav extends React.Component {
                 <Link to="/login">로그인</Link>
               </li>
               <li>
-                {/* signUp component merge 후 링크 수정할 예정 */}
                 <Link to="/signup" className="nav_sign_up_btn">
                   회원가입
                 </Link>
               </li>
               <li>
-                <a href="123">매장찾기</a>
+                <a href="">매장찾기</a>
               </li>
               <li>
-                <a href="123">브랜드헤리티지</a>
+                <a href="">브랜드헤리티지</a>
               </li>
               <li>
-                <a href="123">고객센터</a>
+                <a href="">고객센터</a>
+              </li>
+              <li>
                 <a href="">매장찾기</a>
               </li>
               <li>
@@ -85,6 +89,8 @@ class Nav extends React.Component {
               className="search_form"
               type="text"
               placeholder="검색어를 입력해 주세요."
+              value={userInput}
+              onKeyPress={(e) => pressEnterHandler(e)}
             />
             <ul className="icon_list">
               <NavFooterIcon
@@ -111,12 +117,14 @@ class Nav extends React.Component {
                 view="0 0 39 28"
                 path={PATH_VIEWED}
               />
-              <NavFooterIcon
-                width="33"
-                heigth="32"
-                view="0 0 33 32"
-                path={PATH_MYPAGE}
-              />
+              <Link to="/mypage">
+                <NavFooterIcon
+                  width="33"
+                  heigth="32"
+                  view="0 0 33 32"
+                  path={PATH_MYPAGE}
+                />
+              </Link>
             </ul>
           </div>
         </nav>

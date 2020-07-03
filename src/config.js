@@ -1,5 +1,7 @@
 // IMAGES
 // main
+import shoes_left from "Images/main/scroll_event_left.png";
+import shoes_right from "Images/main/scroll_event_right.png";
 
 // login & sign up
 import login_side_btn from "Images/Login/login_side_btn.jpg";
@@ -46,7 +48,57 @@ export const MAIN_SLIDER_IMG3 =
 export const MAIN_SLIDER_IMG4 =
   "https://www.drmartens.co.kr/data/cms/dr_marten_pc/images/0306afdb-3095-4a2c-a160-125dcd473c23.jpg";
 
+export const MAIN_SLIDER_IMG4_LEFT = shoes_left;
+export const MAIN_SLIDER_IMG4_RIGHT = shoes_right;
+
 // login & sign up
+
+//  mypage
+
+export const MY_PAGE_PROFILE =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/logo@3x.png";
+export const MY_PAGE_PROFILE2 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/img_profile.png";
+
+// point, cupon, mission
+export const MY_POINT =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/img_summary01.jpg";
+export const MY_CUPON =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/img_summary02.jpg";
+export const MY_MISSION =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/img_summary03.jpg";
+export const MY_SAWTOOTH =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_mypageSetting.jpg";
+
+// shoping
+
+export const SHOPPING_1 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_shopping01.jpg";
+export const SHOPPING_2 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_shopping02.jpg";
+export const SHOPPING_3 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_shopping03.jpg";
+export const SHOPPING_4 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_shopping06.jpg";
+export const SHOPPING_5 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_shopping07.jpg";
+// activitiy
+export const ACTIVITY_1 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_activity01.jpg";
+export const ACTIVITY_2 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_activity04.jpg";
+export const ACTIVITY_3 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_activity05.jpg";
+export const ACTIVITY_4 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_activity06.jpg";
+
+// cs center
+export const CS_1 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_cs01.jpg";
+export const CS_2 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_cs02.jpg";
+export const CS_3 =
+  "https://m.drmartens.co.kr/data/skin/dr_marten_pc/images/mypage/btn_cs03.jpg";
 
 // modal
 export const MODAL_CANCEL =

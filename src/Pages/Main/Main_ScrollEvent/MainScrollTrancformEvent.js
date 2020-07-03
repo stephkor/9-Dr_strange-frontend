@@ -1,6 +1,6 @@
 import React from "react";
 
-class MainScrollEvent extends React.Component {
+class MainScrollTrancformEvent extends React.Component {
   render() {
     const {
       className,
@@ -12,21 +12,23 @@ class MainScrollEvent extends React.Component {
       thirdLine,
       backImg,
       backImg2,
-      opacity,
-      scale,
+      transform,
     } = this.props;
 
-    const style = {
-      opacity: opacity,
-      transform: `scale(${scale})`,
+    const leftStyle = {
+      transform: `translateX(${transform}px)`,
+    };
+
+    const rightStyle = {
+      transform: `translateX(${-transform}px)`,
     };
 
     return (
       <section className={className}>
         <div className="main_scroll_img p-s t-0 m-auto">
           <div className="main_scroll_relative">
-            <img alt="main_scroll_img" src={backImg} style={style} />
-            <img alt="main_scroll_img" src={backImg2} style={style} />
+            <img alt="main_scroll_img" src={backImg} style={leftStyle} />
+            <img alt="main_scroll_img" src={backImg2} style={rightStyle} />
           </div>
         </div>
 
@@ -63,4 +65,4 @@ class MainScrollEvent extends React.Component {
   }
 }
 
-export default MainScrollEvent;
+export default MainScrollTrancformEvent;
