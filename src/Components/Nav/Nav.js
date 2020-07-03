@@ -28,7 +28,7 @@ class Nav extends React.Component {
   };
 
   render() {
-    const { userInput, pressEnterHandler } = this.props;
+    const { userInput, pressEnterHandler, inputChangeHandler } = this.props;
     console.log(pressEnterHandler);
 
     return (
@@ -90,6 +90,7 @@ class Nav extends React.Component {
               type="text"
               placeholder="검색어를 입력해 주세요."
               value={userInput}
+              onChange={(e) => inputChangeHandler(e)}
               onKeyPress={(e) => pressEnterHandler(e)}
             />
             <ul className="icon_list">

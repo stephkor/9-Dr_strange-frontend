@@ -20,7 +20,9 @@ class ProductFilter extends React.Component {
     const { currentCategoryId } = this.state;
     const { category, data } = this.props;
     const data_filter = data.filter(
-      (data) => data.subCategoryId === this.state.currentCategoryId
+      (data) =>
+        data.subCategoryId === this.state.currentCategoryId &&
+        data.productImg.length > 1
     );
 
     return (

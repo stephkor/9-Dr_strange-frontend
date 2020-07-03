@@ -37,7 +37,7 @@ class Main extends React.Component {
   // 첫 render 후에 scroll 이벤트 등록 & product main list data 받아오기
   componentDidMount() {
     window.addEventListener("scroll", this.scrollHandler);
-    fetch("http://localhost:3000/data/category.json")
+    fetch("http://10.58.5.123:8001/bestseller")
       .then((res) => res.json())
       .then((res) =>
         this.setState({
@@ -94,9 +94,9 @@ class Main extends React.Component {
     }
 
     // transform style
-    if (window.scrollY > 13500 && window.scrollY < 14700) {
+    if (window.scrollY > 13600 && window.scrollY < 14800) {
       this.setState({
-        transform: (window.scrollY - 13500) / 10,
+        transform: (window.scrollY - 13600) / 10,
       });
     }
 
@@ -157,7 +157,7 @@ class Main extends React.Component {
         {womenData && (
           <article className="product_preview_form m-w-1140 m-auto">
             <ProductPreview data={womenData[0]} />
-            <ProductPreview data={womenData[1]} />
+            <ProductPreview data={womenData[3]} />
           </article>
         )}
         <MainScrollEvent
