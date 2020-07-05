@@ -14,17 +14,17 @@ class MainScrollEvent extends React.Component {
       backImg2,
       opacity,
       scale,
-      transform,
+      transformX,
     } = this.props;
 
     const style_left = {
       opacity: opacity,
-      transform: `scale(${scale}) translateX(${transform}px)`,
+      transform: `scale(${scale}) translateX(${transformX}px)`,
     };
 
     const style_rigth = {
       opacity: opacity,
-      transform: `scale(${scale}) translateX(${-transform}px)`,
+      transform: `scale(${scale}) translateX(${-transformX}px)`,
     };
 
     return (
