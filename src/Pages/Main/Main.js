@@ -6,7 +6,6 @@ import ProductFilter from "./Main_HamburderList/ProductFilter";
 import Footer from "Components/Footer/Footer";
 import MainImageInfo from "./Main_ImageInfo/MainImageInfo";
 import MainScrollEvent from "./Main_ScrollEvent/MainScrollEvent";
-import MainScrollTrancformEvent from "./Main_ScrollEvent/MainScrollTrancformEvent";
 import ProductPreview from "Components/ProductPreview";
 import {
   MAIN_INFO_EVENT1,
@@ -37,7 +36,8 @@ class Main extends React.Component {
   // 첫 render 후에 scroll 이벤트 등록 & product main list data 받아오기
   componentDidMount() {
     window.addEventListener("scroll", this.scrollHandler);
-    fetch("http://10.58.5.123:8001/bestseller")
+    // fetch("http://10.58.5.123:8001/bestseller")
+    fetch("http://localhost:3000/data/category.json")
       .then((res) => res.json())
       .then((res) =>
         this.setState({
@@ -150,14 +150,17 @@ class Main extends React.Component {
           backImg={MAIN_SCROLL_EVENT1}
           opacity={opacity}
           scale={scale}
+          transform={transform}
           firstTitle="발 끝까지 나를 사랑하는 방법"
           secondTitle="썸머 여성 샌들"
           firstLine="SS20 NEW 여성 샌들과 베스트 샌들을 만나보세요."
         />
         {womenData && (
           <article className="product_preview_form m-w-1140 m-auto">
+            {/* <ProductPreview data={womenData[20]} />
+            <ProductPreview data={womenData[24]} /> */}
             <ProductPreview data={womenData[0]} />
-            <ProductPreview data={womenData[3]} />
+            <ProductPreview data={womenData[1]} />
           </article>
         )}
         <MainScrollEvent
@@ -165,16 +168,19 @@ class Main extends React.Component {
           backImg={MAIN_SCROLL_EVENT2}
           opacity={opacity}
           scale={scale}
+          transform={transform}
           firstTitle="WELCOME TO"
           secondTitle="DOCS MEMBERS"
           firstLine="누구나 신규 가입 시 닥스 머니 지급"
           secondLine="기존 회원 본인 인증해도 지급!"
         />
         <ProductFilter category={"추천 상품"} data={menData} />
-        <MainScrollTrancformEvent
+        <MainScrollEvent
           className="MainScrollEventBlack"
           backImg={MAIN_SLIDER_IMG4_LEFT}
           backImg2={MAIN_SLIDER_IMG4_RIGHT}
+          opacity={opacity}
+          scale={scale}
           transform={transform}
           firstTitle="오리지널"
           secondTitle="1460"
@@ -195,8 +201,10 @@ class Main extends React.Component {
         />
         {menData && (
           <article className="product_preview_form m-w-1140 m-auto">
-            <ProductPreview data={menData[3]} />
-            <ProductPreview data={menData[4]} />
+            {/* <ProductPreview data={womenData[10]} />
+            <ProductPreview data={womenData[15]} /> */}
+            <ProductPreview data={womenData[2]} />
+            <ProductPreview data={womenData[3]} />
           </article>
         )}
         <MainImageInfo
@@ -211,6 +219,7 @@ class Main extends React.Component {
           backImg={MAIN_SCROLL_EVENT3}
           opacity={opacity}
           scale={scale}
+          transform={transform}
           firstTitle="닥터마틴"
           secondTitle="반항적인"
           thirdTitle="자아 표현의 역사"

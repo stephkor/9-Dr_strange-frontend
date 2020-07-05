@@ -39,15 +39,15 @@ class ProductItemContainer extends React.Component {
                 {data.salePrice !== data.originPrice ? (
                   <>
                     <p className="sale_price num-font">
-                      {data.salePrice.toLocaleString()}
+                      {(+data.salePrice).toLocaleString()}
                     </p>
                     <p className="origin_price_ws num-font">
-                      {data.originPrice.toLocaleString()}
+                      {(+data.originPrice).toLocaleString()}
                     </p>
                   </>
                 ) : data.salePrice ? (
                   <p className="origin_price num-font">
-                    {data.originPrice.toLocaleString()}
+                    {(+data.originPrice).toLocaleString()}
                   </p>
                 ) : (
                   ""
