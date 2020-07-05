@@ -89,7 +89,6 @@ class ProductDetail extends React.Component {
           });
         });
     }
-    window.scrollTo(0, 0);
   }
 
   // 장바구니 버튼 클릭시 상품 정보 POST로 서버에 전송
@@ -489,13 +488,13 @@ class ProductDetail extends React.Component {
             </div>
           </article>
 
-          <article className="product_recommend_container">
+          {/* <article className="product_recommend_container">
             <h2>당신이 좋아할 것 같은</h2>
             <div className="product_item_wrapper">
               <div className="test"></div>
               <div className="test"></div>
             </div>
-          </article>
+          </article> */}
 
           <article className="product_review_container" id="scroll_review">
             <SubTitle title="상품후기" />
@@ -504,7 +503,7 @@ class ProductDetail extends React.Component {
               <p>
                 후기
                 <span> {productData.reviewCount}</span>개 / 별점{" "}
-                {productData.averageRate}
+                {(+productData.averageRate).toFixed(1)}
               </p>
               <span className="yellow">★★★★★</span>
             </div>

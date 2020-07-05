@@ -14,9 +14,6 @@ class ProductList extends React.Component {
     super();
     this.state = {
       productListData: [],
-      reviewData1: [],
-      reviewData2: [],
-      reviewData3: [],
       currentUserCategoryId: 0,
       currentVisibleProducts: 18,
       loading: false,
@@ -32,9 +29,6 @@ class ProductList extends React.Component {
       .then((res) =>
         this.setState({
           productListData: res.products,
-          reviewData1: res.productFirst,
-          reviewData2: res.productSecond,
-          reviewData3: res.productThird,
           loading: true,
         })
       );
@@ -56,16 +50,7 @@ class ProductList extends React.Component {
 
   // 이미지 갯수에 따라 3-2-3-1 순서로 정렬하는 함수
   imgArraySorter = (data) => {
-    const {
-      reviewData1,
-      reviewData2,
-      reviewData3,
-      currentUserCategoryId,
-    } = this.state;
-    data.concat(reviewData1);
-    data.concat(reviewData2);
-    data.concat(reviewData3);
-    console.log(data);
+    const { currentUserCategoryId } = this.state;
 
     let categoryFilter = data.filter(
       (product) =>
@@ -97,7 +82,6 @@ class ProductList extends React.Component {
       if (arr1.length < 3 || arr2.length < 1) {
         return result;
       }
-
       return arraySort(arr1, arr2);
     };
     return arraySort(lengthOne, lengthTwo);
@@ -147,7 +131,11 @@ class ProductList extends React.Component {
           </div>
 
           <div className="product_list_category">
-            <button type="button" className="current">
+            <button
+              type="button"
+              className="current"
+              onClick={() => this.categorySelectHandler(0)}
+            >
               신발
             </button>
             <button type="button">컬렉션</button>

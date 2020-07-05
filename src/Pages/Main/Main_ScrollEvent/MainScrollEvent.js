@@ -14,19 +14,25 @@ class MainScrollEvent extends React.Component {
       backImg2,
       opacity,
       scale,
+      transformX,
     } = this.props;
 
-    const style = {
+    const style_left = {
       opacity: opacity,
-      transform: `scale(${scale})`,
+      transform: `scale(${scale}) translateX(${transformX}px)`,
+    };
+
+    const style_rigth = {
+      opacity: opacity,
+      transform: `scale(${scale}) translateX(${-transformX}px)`,
     };
 
     return (
       <section className={className}>
         <div className="main_scroll_img p-s t-0 m-auto">
           <div className="main_scroll_relative">
-            <img alt="main_scroll_img" src={backImg} style={style} />
-            <img alt="main_scroll_img" src={backImg2} style={style} />
+            <img alt="main_scroll_img" src={backImg} style={style_left} />
+            <img alt="main_scroll_img" src={backImg2} style={style_rigth} />
           </div>
         </div>
 

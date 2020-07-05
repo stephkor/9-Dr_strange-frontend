@@ -6,7 +6,6 @@ import ProductFilter from "./Main_HamburderList/ProductFilter";
 import Footer from "Components/Footer/Footer";
 import MainImageInfo from "./Main_ImageInfo/MainImageInfo";
 import MainScrollEvent from "./Main_ScrollEvent/MainScrollEvent";
-import MainScrollTrancformEvent from "./Main_ScrollEvent/MainScrollTrancformEvent";
 import ProductPreview from "Components/ProductPreview";
 import {
   MAIN_INFO_EVENT1,
@@ -24,10 +23,9 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      scroll: 0,
       opacity: 1,
       scale: 1,
-      transform: 0,
+      transformX: 0,
       womenData: [],
       menData: [],
       loading: false,
@@ -37,7 +35,8 @@ class Main extends React.Component {
   // 첫 render 후에 scroll 이벤트 등록 & product main list data 받아오기
   componentDidMount() {
     window.addEventListener("scroll", this.scrollHandler);
-    fetch("http://10.58.5.123:8001/bestseller")
+    // fetch("http://10.58.5.123:8001/bestseller")
+    fetch("http://localhost:3000/data/category.json")
       .then((res) => res.json())
       .then((res) =>
         this.setState({
@@ -53,62 +52,36 @@ class Main extends React.Component {
     window.removeEventListener("scroll", this.scrollHandler);
   }
 
-  // scroll을 내릴때 scale, opacity 변경하는 이벤트
+  // scroll을 내릴때 trancform, opacity 변경하는 이벤트
   scrollHandler = () => {
-    this.setState({
-      scroll: window.scrollY,
-    });
+    const scroll = window.scrollY;
+    const eventOffset = [7000, 10500, 18400];
 
-    // opacity style
-    if (window.scrollY > 7000 && window.scrollY < 7600) {
-      this.setState({
-        opacity: 1 - (window.scrollY - 7000) / 1000,
-      });
-    }
-    if (window.scrollY > 10500 && window.scrollY < 11100) {
-      this.setState({
-        opacity: 1 - (window.scrollY - 10500) / 1000,
-      });
-    }
-    if (window.scrollY > 18400 && window.scrollY < 18900) {
-      this.setState({
-        opacity: 1 - (window.scrollY - 18400) / 1000,
-      });
-    }
-
-    // scale style
-    if (window.scrollY > 7800 && window.scrollY < 8500) {
-      this.setState({
-        scale: 1 + (window.scrollY - 7800) / 6000,
-      });
-    }
-    if (window.scrollY > 10900 && window.scrollY < 11400) {
-      this.setState({
-        scale: 1 + (window.scrollY - 10900) / 6000,
-      });
-    }
-    if (window.scrollY > 19200 && window.scrollY < 19700) {
-      this.setState({
-        scale: 1 + (window.scrollY - 19200) / 6000,
-      });
+    // opacity, scale style
+    for (let i in eventOffset) {
+      if (scroll > eventOffset[i] && scroll < eventOffset[i] + 600) {
+        this.setState({
+          opacity: 1 - (scroll - eventOffset[i]) / 1000,
+        });
+      }
+      if (scroll > eventOffset[i] + 800 && scroll < eventOffset[i] + 1500) {
+        this.setState({
+          scale: 1 + (scroll - (eventOffset[i] + 800)) / 6000,
+        });
+      }
+      // style reset
+      if (scroll > eventOffset[i] + 2300 && scroll < eventOffset[i] + 2400) {
+        this.setState({
+          opacity: 1,
+          scale: 1,
+        });
+      }
     }
 
-    // transform style
+    // transformX style
     if (window.scrollY > 13600 && window.scrollY < 14800) {
       this.setState({
-        transform: (window.scrollY - 13600) / 10,
-      });
-    }
-
-    // reset
-    if (
-      (window.scrollY > 9300 && window.scrollY < 9400) ||
-      (window.scrollY > 12800 && window.scrollY < 12900) ||
-      (window.scrollY > 15000 && window.scrollY < 15100)
-    ) {
-      this.setState({
-        opacity: 1,
-        scale: 1,
+        transformX: (window.scrollY - 13600) / 10,
       });
     }
   };
@@ -120,7 +93,7 @@ class Main extends React.Component {
       menData,
       opacity,
       scale,
-      transform,
+      transformX,
     } = this.state;
 
     return loading ? (
@@ -150,14 +123,17 @@ class Main extends React.Component {
           backImg={MAIN_SCROLL_EVENT1}
           opacity={opacity}
           scale={scale}
+          transformX={transformX}
           firstTitle="발 끝까지 나를 사랑하는 방법"
           secondTitle="썸머 여성 샌들"
           firstLine="SS20 NEW 여성 샌들과 베스트 샌들을 만나보세요."
         />
         {womenData && (
           <article className="product_preview_form m-w-1140 m-auto">
+            {/* <ProductPreview data={womenData[20]} />
+            <ProductPreview data={womenData[24]} /> */}
             <ProductPreview data={womenData[0]} />
-            <ProductPreview data={womenData[3]} />
+            <ProductPreview data={womenData[1]} />
           </article>
         )}
         <MainScrollEvent
@@ -165,17 +141,20 @@ class Main extends React.Component {
           backImg={MAIN_SCROLL_EVENT2}
           opacity={opacity}
           scale={scale}
+          transformX={transformX}
           firstTitle="WELCOME TO"
           secondTitle="DOCS MEMBERS"
           firstLine="누구나 신규 가입 시 닥스 머니 지급"
           secondLine="기존 회원 본인 인증해도 지급!"
         />
         <ProductFilter category={"추천 상품"} data={menData} />
-        <MainScrollTrancformEvent
+        <MainScrollEvent
           className="MainScrollEventBlack"
           backImg={MAIN_SLIDER_IMG4_LEFT}
           backImg2={MAIN_SLIDER_IMG4_RIGHT}
-          transform={transform}
+          opacity={opacity}
+          scale={scale}
+          transformX={transformX}
           firstTitle="오리지널"
           secondTitle="1460"
           thirdTitle="부츠"
@@ -195,8 +174,10 @@ class Main extends React.Component {
         />
         {menData && (
           <article className="product_preview_form m-w-1140 m-auto">
-            <ProductPreview data={menData[3]} />
-            <ProductPreview data={menData[4]} />
+            {/* <ProductPreview data={womenData[10]} />
+            <ProductPreview data={womenData[15]} /> */}
+            <ProductPreview data={womenData[2]} />
+            <ProductPreview data={womenData[3]} />
           </article>
         )}
         <MainImageInfo
@@ -211,6 +192,7 @@ class Main extends React.Component {
           backImg={MAIN_SCROLL_EVENT3}
           opacity={opacity}
           scale={scale}
+          transformX={transformX}
           firstTitle="닥터마틴"
           secondTitle="반항적인"
           thirdTitle="자아 표현의 역사"

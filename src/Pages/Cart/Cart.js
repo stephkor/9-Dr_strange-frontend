@@ -78,6 +78,7 @@ class Cart extends React.Component {
       totalPrice,
       finalPrice,
     } = this.state;
+    console.log(products);
 
     return (
       <div className="Cart">

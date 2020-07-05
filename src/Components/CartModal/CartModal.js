@@ -12,19 +12,8 @@ class CartModal extends React.Component {
       currentSale: this.props.data.salePrice,
       currentOrigin: this.props.data.originPrice,
       productNum: this.props.data.productNum,
-      loading: false,
     };
   }
-
-  // 첫 render 후에 props로 받은 데이터를 state에 저장
-  // componentDidMount() {
-  //   const { salePrice, originPrice, productNum } = this.props.data;
-  //   this.setState({
-  //     currentSale: salePrice,
-  //     currentOrigin: originPrice,
-  //     productNum: productNum,
-  //   });
-  // }
 
   componentDidUpdate(prevProps, prevState) {
     const { salePrice, originPrice, productNum } = this.props.data;
